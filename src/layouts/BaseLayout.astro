@@ -99,6 +99,20 @@ const dateMetadata = { '@context': 'https://schema.org', '@type': entries.length
     </main>
     <Footer />
     <script>
+      import { linkKey } from '../../server/clicks.js'
+
+      // Count clicks on links to other sites. Sends only the destination and this page's path.
+      const countClick = (event: MouseEvent) => {
+        if (event.type === 'auxclick' && event.button !== 1) return
+        const link = (event.target as Element | null)?.closest?.('a[href]')
+        const to = link && linkKey((link as HTMLAnchorElement).href, location.href)
+        if (!to || !navigator.sendBeacon) return
+        const body = JSON.stringify({ to, from: location.pathname })
+        navigator.sendBeacon('/api/click', new Blob([body], { type: 'application/json' }))
+      }
+      document.addEventListener('click', countClick, { capture: true })
+      document.addEventListener('auxclick', countClick, { capture: true })
+
       const day = 864e5
       const today = new Date()
       today.setHours(0, 0, 0, 0)
