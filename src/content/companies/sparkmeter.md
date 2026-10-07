@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: SparkMeter
-url: https://elixir-lang.org/blog/2023/03/09/embedded-and-cloud-elixir-at-sparkmeter/
+url: https://www.sparkmeter.io
 industry: Energy
+description: 'Smart meters and software for electric utilities and mini-grids.'
 about: Elixir connects embedded grid hardware, data processing and cloud APIs
   for electricity networks.
 order: 6
 reading:
-  - label: Engineering story
+  - label: Elixir blog case study
     url: https://elixir-lang.org/blog/2023/03/09/embedded-and-cloud-elixir-at-sparkmeter/
 image: /images/companies/sparkmeter.webp
 ---
@@ -20,4 +21,4 @@ The team needed distributed, fault-tolerant software that could cope with partia
 
 ### Source
 
-[Read the engineering story](https://elixir-lang.org/blog/2023/03/09/embedded-and-cloud-elixir-at-sparkmeter/). This profile describes the implementation discussed in that source.
+[Elixir blog case study](https://elixir-lang.org/blog/2023/03/09/embedded-and-cloud-elixir-at-sparkmeter/). This profile describes the implementation discussed in that source.

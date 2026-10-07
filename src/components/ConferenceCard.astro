@@ -1,5 +1,4 @@
 ---
-import LocalImage from '@/components/LocalImage.astro'
 import EntryDates from '@/components/EntryDates.astro'
 import Icon from '@/components/Icon.astro'
 import { conferenceDate, formatDate } from '@/lib/site'
@@ -7,21 +6,24 @@ import { conferenceDate, formatDate } from '@/lib/site'
 interface Props {
   id?: string
   dates?: { last_updated?: string; created?: string; year?: number }
-  image?: string
   name: string
   url: string
   location: string
   date?: string
-  description: string
+  description?: string
 }
 
-const { id, dates, image, name, url, location, date, description } = Astro.props
+const { id, dates, name, url, location, date, description } = Astro.props
 const { label, past } = conferenceDate(date)
 const day = date ? new Date(`${date}T00:00:00Z`) : undefined
 const [month, year] = label.split(' ')
-// Upcoming editions show day over month, past ones month over year.
-const [badgeTop, badgeSub] =
-  day && !past ? [String(day.getUTCDate()), month] : [month, year]
+// Upcoming editions show day over month, past ones month over year,
+// and ones without a date just "TBA".
+const [badgeTop, badgeSub] = !day
+  ? ['TBA']
+  : !past
+    ? [String(day.getUTCDate()), month]
+    : [month, year]
 ---
 
 <a
@@ -40,8 +42,8 @@ const [badgeTop, badgeSub] =
     ]}
     aria-hidden="true"
   >
-    {image ? <LocalImage src={image} width={40} height={40} alt="" loading="lazy" class="size-10 object-contain" /> : <b>{badgeTop}</b>}
-    <span>{badgeSub}</span>
+    <b>{badgeTop}</b>
+    {badgeSub && <span>{badgeSub}</span>}
   </span>
   <span class="flex min-w-0 flex-col gap-1.5">
     {day && !past && (
@@ -67,7 +69,11 @@ const [badgeTop, badgeSub] =
         </>
       )}
     </span>
-    <span class="mt-1 text-[0.9375rem]/6 text-(--ec-muted)">{description}</span>
+    {description && (
+      <span class="mt-1 text-[0.9375rem]/6 text-(--ec-muted)">
+        {description}
+      </span>
+    )}
     {dates && <EntryDates data={dates} createdLabel="Created" />}
   </span>
 </a>

@@ -6,7 +6,7 @@ import Avatar from '@/components/Avatar.astro'
 import CompanyLogo from '@/components/CompanyLogo.astro'
 import Icon from '@/components/Icon.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import { formatDate } from '@/lib/site'
+import { formatDate, postedOn } from '@/lib/site'
 
 export async function getStaticPaths() {
   const companies = await getCollection('companies')
@@ -52,9 +52,7 @@ const host = new URL(company.data.url).hostname.replace(/^www\./, '')
       <div class="mt-10 flex h-20 w-fit items-center text-(--ec-fg)">
         <CompanyLogo id={company.id} name={company.data.name} height={36} />
       </div>
-      <h1 class="ec-page-title mt-8 max-w-4xl">
-        {company.data.name}: documented Elixir use
-      </h1>
+      <h1 class="ec-page-title mt-8 max-w-4xl">{company.data.name}</h1>
       <EntryDates data={company.data} createdLabel="Founded" />
       <p class="mt-6 max-w-2xl text-lg/8 text-pretty text-(--ec-muted)">
         {company.data.about}
@@ -164,9 +162,9 @@ const host = new URL(company.data.url).hostname.replace(/^www\./, '')
                       </span>
                       <time
                         class="flex-none font-mono text-xs text-(--ec-muted)"
-                        datetime={job.data.checked.toISOString()}
+                        datetime={job.data.created}
                       >
-                        {formatDate(job.data.checked, 'short')}
+                        {formatDate(postedOn(job.data), 'short')}
                       </time>
                     </a>
                   </li>

@@ -10,7 +10,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const books = (await getCollection('books')).sort(
   (a, b) =>
-    (b.data.year ?? 0) - (a.data.year ?? 0) || a.data.title.localeCompare(b.data.title),
+    (b.data.year ?? 0) - (a.data.year ?? 0) ||
+    a.data.title.localeCompare(b.data.title),
 )
 ---
 

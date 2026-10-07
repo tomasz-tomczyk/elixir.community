@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: Veeps
-url: https://elixir-lang.org/blog/2024/03/05/veeps-elixir-case/
+url: https://veeps.com
 industry: Live entertainment
+description: 'A platform for streaming live concerts and events.'
 about: Elixir and Phoenix support live concert streaming, real-time interaction
   and ticket shopping.
 order: 5
 reading:
-  - label: Engineering story
+  - label: Elixir blog case study
     url: https://elixir-lang.org/blog/2024/03/05/veeps-elixir-case/
 image: /images/companies/veeps.svg
 ---
@@ -20,4 +21,4 @@ Phoenix Channels supported interaction during live concerts, while LiveView hand
 
 ### Source
 
-[Read the engineering story](https://elixir-lang.org/blog/2024/03/05/veeps-elixir-case/). This profile describes the implementation discussed in that source.
+[Elixir blog case study](https://elixir-lang.org/blog/2024/03/05/veeps-elixir-case/). This profile describes the implementation discussed in that source.

@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: French Ministry of Ecological Transition
-url: https://elixir-lang.org/blog/2021/11/10/embracing-open-data-with-elixir-at-the-ministry-of-ecological-transition-in-france/
+url: https://www.ecologie.gouv.fr
 industry: Public services
+description: 'The French government ministry for the environment, energy and transport.'
 about: Phoenix supports France's transport open-data portal, coordinating
   validation and data from different providers.
 order: 7
 reading:
-  - label: Engineering story
+  - label: Elixir blog case study
     url: https://elixir-lang.org/blog/2021/11/10/embracing-open-data-with-elixir-at-the-ministry-of-ecological-transition-in-france/
 image: /images/companies/french-ministry-of-ecological-transition.webp
 ---
@@ -20,4 +21,4 @@ Elixir coordinates validators and converters written in other languages, alongsi
 
 ### Source
 
-[Read the engineering story](https://elixir-lang.org/blog/2021/11/10/embracing-open-data-with-elixir-at-the-ministry-of-ecological-transition-in-france/). This profile describes the implementation discussed in that source.
+[Elixir blog case study](https://elixir-lang.org/blog/2021/11/10/embracing-open-data-with-elixir-at-the-ministry-of-ecological-transition-in-france/). This profile describes the implementation discussed in that source.

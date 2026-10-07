@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: Heroku
-url: https://elixir-lang.org/blog/2020/09/24/paas-with-elixir-at-heroku/
+url: https://www.heroku.com
 industry: Cloud hosting
+description: 'A cloud platform for deploying and running web apps, owned by Salesforce.'
 about: Elixir supports internal financial services and data processing at the
   cloud application platform.
 order: 14
 reading:
-  - label: Engineering story
+  - label: Elixir blog case study
     url: https://elixir-lang.org/blog/2020/09/24/paas-with-elixir-at-heroku/
 image: /images/companies/heroku.webp
 ---
@@ -20,4 +21,4 @@ The team then used GenStage to audit large amounts of data. A separate front-end
 
 ### Source
 
-[Read the engineering story](https://elixir-lang.org/blog/2020/09/24/paas-with-elixir-at-heroku/). This profile describes the implementation discussed in that source.
+[Elixir blog case study](https://elixir-lang.org/blog/2020/09/24/paas-with-elixir-at-heroku/). This profile describes the implementation discussed in that source.

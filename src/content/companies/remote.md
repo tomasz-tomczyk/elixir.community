@@ -1,12 +1,13 @@
 ---
 last_updated: '2026-10-07'
 name: Remote
-url: https://elixir-lang.org/blog/2025/01/21/remote-elixir-case/
+url: https://remote.com
 industry: Employment & HR
+description: 'Helps companies hire, pay and manage employees in other countries.'
 about: An Elixir-first platform for global employment, payroll and HR.
 order: 4
 reading:
-  - label: Engineering story
+  - label: Elixir blog case study
     url: https://elixir-lang.org/blog/2025/01/21/remote-elixir-case/
 image: /images/companies/remote.svg
 ---
@@ -19,4 +20,4 @@ The team valued reliable performance, readable syntax and a language that new hi
 
 ### Source
 
-[Read the engineering story](https://elixir-lang.org/blog/2025/01/21/remote-elixir-case/). This profile describes the implementation discussed in that source.
+[Elixir blog case study](https://elixir-lang.org/blog/2025/01/21/remote-elixir-case/). This profile describes the implementation discussed in that source.

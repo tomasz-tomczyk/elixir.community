@@ -2,21 +2,52 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import PageHeader from '@/components/PageHeader.astro'
 ---
-<BaseLayout title="Terms" description="Elixir Community terms information.">
+
+<BaseLayout
+  title="Terms"
+  description="How to use the Elixir Community directory and newsletter."
+>
   <div class="container-page">
     <PageHeader title="Terms" />
     <article class="typography mt-12 max-w-3xl">
       <p class="text-sm text-(--ec-muted)">Updated 7 October 2026</p>
-<p>Elixir Community is a directory and newsletter about the Elixir programming community.</p>
-<h2>Use the listings as a starting point</h2>
-<p>We try to keep the information useful and accurate, but dates, jobs, links and services can change. Check with an event organiser, employer, publisher or service before relying on a listing. A historical entry does not mean a group, podcast or company is still active or using the same technology.</p>
-<h2>Other people's work</h2>
-<p>Links and images identify resources and their creators. Their names, trademarks and images belong to their respective owners. A listing does not imply endorsement or a partnership.</p>
-<h2>The newsletter</h2>
-<p>Subscribing is optional. Confirm your email to join and unsubscribe at any time. Our <a href="/privacy">privacy page</a> explains how signup data is used.</p>
-<h2>Corrections</h2>
-<p>Report an incorrect listing, broken link or rights concern to <a href="mailto:hello@elixir.community">hello@elixir.community</a>, or use the repository linked in the footer. Please do not send someone else's private information when suggesting a listing.</p>
-<p>Nothing here takes away rights you have under applicable law.</p>
+      <p>
+        Elixir Community is a directory of Elixir resources, events, jobs and
+        people, plus a newsletter. These terms cover how to use it.
+      </p>
+
+      <h2>Check before you rely on a listing</h2>
+      <p>
+        We try to keep everything accurate, but dates, jobs, links and services
+        change. Before you book, apply or buy, check with the organiser,
+        employer, publisher or service. An older entry does not mean a group,
+        podcast or company is still active, or still uses Elixir.
+      </p>
+
+      <h2>Names, logos and links</h2>
+      <p>
+        We use names, logos and images to identify resources and the people who
+        make them. They belong to their owners. A listing does not mean they
+        endorse us or work with us.
+      </p>
+
+      <h2>The newsletter</h2>
+      <p>
+        The newsletter is free and optional. You join by confirming your email
+        and can unsubscribe at any time. The <a href="/privacy">privacy page</a>{' '}
+        explains how we handle your email address.
+      </p>
+
+      <h2>Corrections and removals</h2>
+      <p>
+        If a listing is wrong, a link is broken, or you have a rights concern,
+        email <a href="mailto:hello@elixir.community">hello@elixir.community</a>{' '}
+        or open a pull request on the repository linked in the footer. When you
+        suggest a listing, please do not include anyone's private information.
+      </p>
+
+      <h2>Your legal rights</h2>
+      <p>Nothing in these terms takes away rights you have under the law.</p>
     </article>
   </div>
 </BaseLayout>

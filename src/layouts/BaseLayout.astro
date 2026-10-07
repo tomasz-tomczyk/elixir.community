@@ -19,11 +19,29 @@ const { title, description = site.description, noindex = false } = Astro.props
 const fullTitle = title
   ? `${title} · ${site.name}`
   : `${site.name} — the best of the Elixir community`
-const canonical = new URL(Astro.url.pathname.endsWith('/') || Astro.url.pathname === '/' ? Astro.url.pathname : `${Astro.url.pathname}/`, Astro.site)
+const canonical = new URL(
+  Astro.url.pathname.endsWith('/') || Astro.url.pathname === '/'
+    ? Astro.url.pathname
+    : `${Astro.url.pathname}/`,
+  Astro.site,
+)
 const socialImage = new URL('/social-card.png', Astro.site).href
 const { entries, modified } = await pageDates(Astro.url.pathname)
 const section = Astro.url.pathname.split('/').filter(Boolean)[0]
-const dateMetadata = { '@context': 'https://schema.org', '@type': entries.length > 1 ? 'CollectionPage' : 'WebPage', '@id': canonical.href, url: canonical.href, name: fullTitle, description, ...(modified && { dateModified: modified }), ...(entries.length && { hasPart: entries.map((entry) => entryMetadata(section, entry, Astro.url.pathname.includes('/archive'))) }) }
+const dateMetadata = {
+  '@context': 'https://schema.org',
+  '@type': entries.length > 1 ? 'CollectionPage' : 'WebPage',
+  '@id': canonical.href,
+  url: canonical.href,
+  name: fullTitle,
+  description,
+  ...(modified && { dateModified: modified }),
+  ...(entries.length && {
+    hasPart: entries.map((entry) =>
+      entryMetadata(section, entry, Astro.url.pathname.includes('/archive')),
+    ),
+  }),
+}
 ---
 
 <!doctype html>
@@ -51,15 +69,24 @@ const dateMetadata = { '@context': 'https://schema.org', '@type': entries.length
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Elixir Community - resources, events, books and people" />
+    <meta
+      property="og:image:alt"
+      content="Elixir Community - resources, events, books and people"
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
-    <meta name="twitter:image:alt" content="Elixir Community - resources, events, books and people" />
+    <meta
+      name="twitter:image:alt"
+      content="Elixir Community - resources, events, books and people"
+    />
     {noindex && <meta name="robots" content="noindex, follow" />}
     {modified && <meta property="og:updated_time" content={modified} />}
-    <script type="application/ld+json" set:html={JSON.stringify(dateMetadata).replace(/</g, '\\u003c')} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(dateMetadata).replace(/</g, '\\u003c')}
+    />
     <meta
       name="theme-color"
       content="#ffffff"
@@ -105,10 +132,14 @@ const dateMetadata = { '@context': 'https://schema.org', '@type': entries.length
       const countClick = (event: MouseEvent) => {
         if (event.type === 'auxclick' && event.button !== 1) return
         const link = (event.target as Element | null)?.closest?.('a[href]')
-        const to = link && linkKey((link as HTMLAnchorElement).href, location.href)
+        const to =
+          link && linkKey((link as HTMLAnchorElement).href, location.href)
         if (!to || !navigator.sendBeacon) return
         const body = JSON.stringify({ to, from: location.pathname })
-        navigator.sendBeacon('/api/click', new Blob([body], { type: 'application/json' }))
+        navigator.sendBeacon(
+          '/api/click',
+          new Blob([body], { type: 'application/json' }),
+        )
       }
       document.addEventListener('click', countClick, { capture: true })
       document.addEventListener('auxclick', countClick, { capture: true })

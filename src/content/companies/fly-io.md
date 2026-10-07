@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: Fly.io
-url: https://fly.io/jobs/fullstack-engineer/
+url: https://fly.io
 industry: Cloud hosting
+description: 'A cloud platform that runs your apps on servers close to your users.'
 about: Elixir and Phoenix are part of the product engineering stack at the
   application hosting platform.
 order: 17
 reading:
-  - label: Engineering story
+  - label: Fly.io job posting
     url: https://fly.io/jobs/fullstack-engineer/
 image: /images/companies/fly-io.webp
 ---
@@ -20,4 +21,4 @@ Its role description emphasizes following reliability problems through existing 
 
 ### Source
 
-[Read the engineering story](https://fly.io/jobs/fullstack-engineer/). This profile describes the implementation discussed in that source.
+[Fly.io job posting](https://fly.io/jobs/fullstack-engineer/). This profile describes the implementation discussed in that source.

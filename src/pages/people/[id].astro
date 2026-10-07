@@ -1,6 +1,6 @@
 ---
 import EntryDates from '@/components/EntryDates.astro'
-import { getCollection, getEntry } from 'astro:content'
+import { getCollection, getEntry, render } from 'astro:content'
 
 import Avatar from '@/components/Avatar.astro'
 import BookCover from '@/components/BookCover.astro'
@@ -8,6 +8,7 @@ import Icon from '@/components/Icon.astro'
 import NewsletterBand from '@/components/NewsletterBand.astro'
 import SocialLinks from '@/components/SocialLinks.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import { isUpcoming, place } from '@/lib/site'
 
 export async function getStaticPaths() {
   const people = await getCollection('people')
@@ -18,6 +19,7 @@ export async function getStaticPaths() {
 }
 
 const { person } = Astro.props
+const { Content } = await render(person)
 const { name, github, role, bio, known_for, featured, links } = person.data
 
 // Cross-links by id: where they work, books they wrote, channels and shows they
@@ -31,8 +33,16 @@ const youtube = (await getCollection('youtube')).filter((c) =>
 const podcasts = (await getCollection('podcasts')).filter((p) =>
   isMe(p.data.people),
 )
+// Past conferences live on the archive page.
+const archived = (d: { kind: string; date?: string; when?: string }) =>
+  d.kind === 'conference' && !!d.date && !isUpcoming(d.date) && !d.when
+const events = (await getCollection('events'))
+  .filter((e) => isMe(e.data.people))
+  .sort((a, b) => (b.data.date ?? '9').localeCompare(a.data.date ?? '9'))
 // Known for: the projects listed on the person, plus resources linked to them.
-// A resource with the same name as a listed project is shown once.
+// A resource with the same name as a listed project is shown once. Books,
+// shows, channels and events have their own sections, so keep them out of
+// known_for in the data.
 const made = (await getCollection('resources')).filter((r) =>
   isMe(r.data.people),
 )
@@ -47,9 +57,36 @@ const known = [
     )
     .map((r) => ({ name: r.data.name, url: r.data.url })),
 ]
+// More people: whoever shares the most books, channels, shows, resources,
+// events or an employer with this person. Pages with fewer than three get
+// topped up with a shuffle that is fixed per person, so it does not change
+// between builds.
+const sharedWith = new Map<string, number>()
+const count = (refs: { id: string }[]) => {
+  for (const { id } of refs)
+    if (id !== person.id) sharedWith.set(id, (sharedWith.get(id) ?? 0) + 1)
+}
+books.forEach((b) => count(b.data.authors))
+youtube.forEach((c) => count(c.data.people))
+podcasts.forEach((p) => count(p.data.people))
+made.forEach((r) => count(r.data.people))
+events.forEach((e) => count(e.data.people))
+const hash = (text: string) =>
+  [...text].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7)
 const others = (await getCollection('people'))
   .filter((p) => p.id !== person.id)
+  .map((p) => ({
+    p,
+    score:
+      (sharedWith.get(p.id) ?? 0) +
+      (company && p.data.company?.id === company.id ? 1 : 0),
+  }))
+  .sort(
+    (a, b) =>
+      b.score - a.score || hash(person.id + a.p.id) - hash(person.id + b.p.id),
+  )
   .slice(0, 3)
+  .map(({ p }) => p)
 const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, '')
 const swatches = [
   'var(--ec-violet)',
@@ -85,7 +122,7 @@ const swatches = [
         )}
         <h1 class="ec-page-title">{name}</h1>
         <EntryDates data={person.data} />
-        <p class="mt-3 font-mono text-sm text-(--ec-muted)">
+        <p class="mt-3 text-base text-(--ec-muted)">
           {company ? (
             <a
               href={`/companies/${company.id}`}
@@ -107,45 +144,81 @@ const swatches = [
           {bio}
         </blockquote>
 
-        {person.data.profile.length > 0 && (
+        {person.body?.trim() && (
           <div class="typography mt-8 max-w-2xl">
-            {person.data.profile.map((paragraph) => <p>{paragraph}</p>)}
+            <Content />
           </div>
         )}
 
-        <section aria-labelledby="known-for" class="mt-16">
-          <h2
-            id="known-for"
-            class="mb-4 text-[1.625rem] font-[680] tracking-[-0.035em]"
-          >
-            Known for
-          </h2>
-          <ul class="ec-res">
-            {known.map((k, i) => (
-              <li>
-                <a href={k.url} target="_blank" rel="noopener">
-                  <span
-                    class="r-sh"
-                    style={`--c:${swatches[i % swatches.length]}`}
-                    aria-hidden="true"
-                  />
-                  <span class="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <b class="text-[1.0625rem] font-semibold tracking-tight">
-                      {k.name}
-                    </b>
-                    <span class="font-mono text-[0.8125rem] text-(--ec-muted)">
-                      {hostOf(k.url)}
+        {known.length > 0 && (
+          <section aria-labelledby="known-for" class="mt-16">
+            <h2
+              id="known-for"
+              class="mb-4 text-[1.625rem] font-[680] tracking-[-0.035em]"
+            >
+              Known for
+            </h2>
+            <ul class="ec-res">
+              {known.map((k, i) => (
+                <li>
+                  <a href={k.url} target="_blank" rel="noopener">
+                    <span
+                      class="r-sh"
+                      style={`--c:${swatches[i % swatches.length]}`}
+                      aria-hidden="true"
+                    />
+                    <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+                      <b class="text-[1.0625rem] font-semibold tracking-tight">
+                        {k.name}
+                      </b>
+                      <span class="font-mono text-[0.8125rem] text-(--ec-muted)">
+                        {hostOf(k.url)}
+                      </span>
                     </span>
-                  </span>
-                  <Icon
-                    name="arrow-up-right"
-                    class="mt-1 size-4 text-(--ec-muted)"
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
+                    <Icon
+                      name="arrow-up-right"
+                      class="mt-1 size-4 text-(--ec-muted)"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {events.length > 0 && (
+          <section aria-labelledby="events" class="mt-16">
+            <h2
+              id="events"
+              class="mb-4 text-[1.625rem] font-[680] tracking-[-0.035em]"
+            >
+              Organises
+            </h2>
+            <ul class="ec-res">
+              {events.map((e, i) => (
+                <li>
+                  <a
+                    href={`/events${archived(e.data) ? '/archive' : ''}#${e.id}`}
+                  >
+                    <span
+                      class="r-sh"
+                      style={`--c:${swatches[(i + 3) % swatches.length]}`}
+                      aria-hidden="true"
+                    />
+                    <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+                      <b class="text-[1.0625rem] font-semibold tracking-tight">
+                        {e.data.name}
+                      </b>
+                      <span class="font-mono text-[0.8125rem] text-(--ec-muted)">
+                        {place(e.data)}
+                      </span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {youtube.length > 0 && (
           <section aria-labelledby="youtube" class="mt-16">
@@ -227,10 +300,10 @@ const swatches = [
             >
               Books
             </h2>
-            <div class="grid max-w-xl grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
+            <div class="grid max-w-3xl grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 md:grid-cols-4">
               {books.map((b, i) => (
                 <BookCover
-          image={b.data.image}
+                  image={b.data.image}
                   title={b.data.title}
                   author={b.data.author}
                   href={b.data.url}
@@ -263,8 +336,8 @@ const swatches = [
                   <span class="block text-[1.0625rem]/6 font-semibold tracking-tight decoration-(--ec-fuchsia) underline-offset-3 group-hover:underline">
                     {p.data.name}
                   </span>
-                  <span class="block truncate font-mono text-[0.8125rem]/5 text-(--ec-muted)">
-                    {p.data.known_for.map((k) => k.name).join(', ')}
+                  <span class="block truncate text-sm/5 text-(--ec-muted)">
+                    {p.data.role}
                   </span>
                 </span>
               </a>

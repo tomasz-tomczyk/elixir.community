@@ -81,7 +81,24 @@ const filterCss = shown
       {tools.map((tool) => (
         <li id={tool.id} data-category={tool.data.category}>
           <a href={tool.data.url} target="_blank" rel="noopener">
-            {tool.data.image && <LocalImage src={tool.data.image} alt="" width="28" height="28" loading="lazy" class="size-7 flex-none rounded object-contain" />}
+            {tool.data.image ? (
+              <LocalImage
+                src={tool.data.image}
+                alt=""
+                width="28"
+                height="28"
+                loading="lazy"
+                class="size-7 flex-none rounded object-contain"
+              />
+            ) : (
+              <span
+                class="mono"
+                style={`--c: ${colorFor[tool.data.category]}`}
+                aria-hidden="true"
+              >
+                {tool.data.name.replace(/^#/, '').charAt(0)}
+              </span>
+            )}
             <span class="flex min-w-0 flex-col gap-1">
               <b class="text-[1.0625rem] font-semibold tracking-tight">
                 {tool.data.name}
@@ -90,7 +107,8 @@ const filterCss = shown
                 {tool.data.description}
               </span>
               <EntryDates data={tool.data} />
-              <span class="mt-1 font-mono text-xs/5 text-(--ec-muted)">
+              <span class="tag" style={`--c: ${colorFor[tool.data.category]}`}>
+                <i aria-hidden="true" />
                 {labelFor[tool.data.category]}
               </span>
             </span>
@@ -148,6 +166,43 @@ const filterCss = shown
 
   .chip:has(input:checked) i {
     box-shadow: 0 0 0 1.5px white;
+  }
+
+  /* Stand-in for a missing logo: the first letter on the category colour. */
+  .mono {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--ec-fg);
+    background: color-mix(in oklch, var(--c) 22%, transparent);
+  }
+
+  /* Category tag on each card: a small version of the filter pill. */
+  .tag {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: 0.25rem;
+    padding: 0.125rem 0.625rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    color: var(--ec-fg);
+    background: color-mix(in oklch, var(--color-accent-500) 9%, transparent);
+  }
+
+  .tag i {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50% 50% 50% 2px;
+    background: var(--c);
   }
 
   .chip:has(input:focus-visible) > span {

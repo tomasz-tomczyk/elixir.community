@@ -16,7 +16,8 @@ interface Props {
   year?: number
   note?: string
 }
-const { id, dates, image, title, author, href, index, level, year, note } = Astro.props
+const { id, dates, image, title, author, href, index, level, year, note } =
+  Astro.props
 
 const tones = [
   'violet',
@@ -47,7 +48,20 @@ const imageBg = image && (await edgeBackground(image, { split: true }))
     class:list={['book self-end', `k-${tone}`]}
     style={imageBg && `--bg: ${imageBg}`}
   >
-    {image ? <LocalImage src={image} widths={[160, 240, 320, 480]} sizes="(min-width: 1024px) 220px, (min-width: 640px) 30vw, 45vw" alt={`${title} cover`} loading="lazy" class="size-full object-contain" /> : <span class="grid h-full place-items-center p-4 text-center">{title}</span>}
+    {image ? (
+      <LocalImage
+        src={image}
+        widths={[160, 240, 320, 480]}
+        sizes="(min-width: 1024px) 220px, (min-width: 640px) 30vw, 45vw"
+        alt={`${title} cover`}
+        loading="lazy"
+        class="size-full object-contain"
+      />
+    ) : (
+      <span class="grid h-full place-items-center p-4 text-center">
+        {title}
+      </span>
+    )}
   </div>
   <div>
     <p class="text-[0.9375rem]/6 font-semibold tracking-tight text-(--ec-fg) decoration-(--ec-fuchsia) underline-offset-3 group-hover:underline">
@@ -58,8 +72,6 @@ const imageBg = image && (await edgeBackground(image, { split: true }))
     {note && <p class="text-xs/5 text-(--ec-muted)">{note}</p>}
     {(year || level) && (
       <p class="mt-1 flex gap-2 font-mono text-[0.75rem]/5 text-(--ec-muted)">
-        
-        
         {level && <span>{level}</span>}
       </p>
     )}

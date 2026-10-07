@@ -11,7 +11,19 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const people = await getCollection('people')
 const featured = people.find((p) => p.data.featured)!
-const others = people.filter((p) => p !== featured)
+// Sorted A-Z by last name. A suffix like "II" is not a last name.
+const lastName = (name: string) =>
+  name
+    .split(' ')
+    .filter((part) => !/^(II|III|IV|Jr\.?|Sr\.?)$/.test(part))
+    .at(-1) ?? name
+const others = people
+  .filter((p) => p !== featured)
+  .sort(
+    (a, b) =>
+      lastName(a.data.name).localeCompare(lastName(b.data.name)) ||
+      a.data.name.localeCompare(b.data.name),
+  )
 ---
 
 <BaseLayout
@@ -40,9 +52,7 @@ const others = people.filter((p) => p !== featured)
                 {featured.data.name}
               </a>
             </h3>
-            <p class="font-mono text-sm text-(--ec-muted)">
-              {featured.data.role}
-            </p>
+            <p class="text-sm text-(--ec-muted)">{featured.data.role}</p>
           </div>
           <p class="border-l-4 border-(--ec-fuchsia) pl-4 text-[clamp(1.15rem,2vw,1.35rem)] leading-[1.45] tracking-[-0.015em] text-pretty">
             {featured.data.bio}
@@ -71,9 +81,7 @@ const others = people.filter((p) => p !== featured)
                 <span class="p-name text-[1.0625rem]/6 font-semibold tracking-tight">
                   {p.data.name}
                 </span>
-                <span class="font-mono text-[0.8125rem] text-(--ec-muted)">
-                  {p.data.role}
-                </span>
+                <span class="text-sm text-(--ec-muted)">{p.data.role}</span>
                 <EntryDates data={p.data} />
               </span>
             </a>

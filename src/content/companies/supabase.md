@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: Supabase
-url: https://supabase.com/blog/supavisor-postgres-connection-pooler
+url: https://supabase.com
 industry: Database tools
+description: 'An open-source backend platform built on Postgres, with auth, storage and APIs.'
 about: Supavisor, its Postgres connection pooler, is built in Elixir with Rust
   handling SQL parsing.
 order: 16
 reading:
-  - label: Engineering story
+  - label: Supabase blog
     url: https://supabase.com/blog/supavisor-postgres-connection-pooler
 image: /images/companies/supabase.webp
 ---
@@ -20,4 +21,4 @@ For SQL parsing, the team brought Rust into the Elixir application through Rustl
 
 ### Source
 
-[Read the engineering story](https://supabase.com/blog/supavisor-postgres-connection-pooler). This profile describes the implementation discussed in that source.
+[Supabase blog](https://supabase.com/blog/supavisor-postgres-connection-pooler). This profile describes the implementation discussed in that source.

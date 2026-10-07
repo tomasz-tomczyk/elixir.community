@@ -5,8 +5,14 @@ import { z } from 'astro/zod'
 const issues = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/issues' }),
   schema: z.object({
-    last_updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
-    created: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(),
+    last_updated: z
+      .string()
+      .regex(/^\d{4}-\d{2}-\d{2}$/)
+      .optional(),
+    created: z
+      .string()
+      .regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/)
+      .optional(),
     image: z.string().optional(),
     number: z.number(),
     title: z.string(),
@@ -19,8 +25,10 @@ const issues = defineCollection({
 const resources = defineCollection({
   loader: file('src/data/resources.yaml'),
   schema: z.object({
-    last_updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    created: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(),
+    created: z
+      .string()
+      .regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/)
+      .optional(),
     image: z.string().optional(),
     name: z.string(),
     url: z.url(),
@@ -44,32 +52,44 @@ const resources = defineCollection({
 const events = defineCollection({
   loader: file('src/data/events.yaml'),
   schema: z.object({
-    last_updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    created: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(),
+    created: z
+      .string()
+      .regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/)
+      .optional(),
     image: z.string().optional(),
     name: z.string(),
     url: z.url(),
     kind: z.enum(['conference', 'meetup']),
-    location: z.string(),
+    city: z.string().optional(),
+    // Country name, or "Online" for events with no home city.
+    country: z.string(),
+    // A meetup's date is its next confirmed meeting. Left out when unknown.
     date: z
       .string()
       .regex(/^\d{4}-\d{2}-\d{2}$/)
       .optional(),
     when: z.string().optional(),
-    description: z.string(),
+    description: z.string().optional(),
+    // Organisers with a page here.
+    people: z.array(reference('people')).default([]),
   }),
 })
 
 const people = defineCollection({
-  loader: file('src/data/people.yaml'),
+  loader: glob({ pattern: '*.md', base: './src/content/people' }),
   schema: z.object({
     last_updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    created: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(),
+    created: z
+      .string()
+      .regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/)
+      .optional(),
     image: z.string().optional(),
     name: z.string(),
     github: z.string().default(''),
     role: z.string(),
-    known_for: z.array(z.object({ name: z.string(), url: z.url() })),
+    known_for: z
+      .array(z.object({ name: z.string(), url: z.url() }))
+      .default([]),
     links: z
       .array(
         z.object({
@@ -87,7 +107,6 @@ const people = defineCollection({
       )
       .default([]),
     bio: z.string(),
-    profile: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     // Where they work, if the company has a page here.
     company: reference('companies').optional(),
@@ -97,8 +116,10 @@ const people = defineCollection({
 const books = defineCollection({
   loader: file('src/data/books.yaml'),
   schema: z.object({
-    last_updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    created: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(),
+    created: z
+      .string()
+      .regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/)
+      .optional(),
     image: z.string().optional(),
     title: z.string(),
     author: z.string(),
@@ -116,8 +137,10 @@ const books = defineCollection({
 const youtube = defineCollection({
   loader: file('src/data/youtube.yaml'),
   schema: z.object({
-    last_updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    created: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(),
+    created: z
+      .string()
+      .regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/)
+      .optional(),
     image: z.string().optional(),
     title: z.string(),
     handle: z.string(),
@@ -126,7 +149,6 @@ const youtube = defineCollection({
     channel_id: z.string().optional(),
     videos: z.number().optional(),
     last_video: z.coerce.date().optional(),
-    checked: z.coerce.date().optional(),
     // People with a page here who run or regularly appear on the channel.
     people: z.array(reference('people')).default([]),
   }),
@@ -135,8 +157,10 @@ const youtube = defineCollection({
 const podcasts = defineCollection({
   loader: file('src/data/podcasts.yaml'),
   schema: z.object({
-    last_updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    created: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(),
+    created: z
+      .string()
+      .regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/)
+      .optional(),
     image: z.string().optional(),
     title: z.string(),
     hosts: z.string(),
@@ -146,7 +170,6 @@ const podcasts = defineCollection({
     feed: z.url().optional(),
     episodes: z.number().optional(),
     last_episode: z.coerce.date().optional(),
-    checked: z.coerce.date().optional(),
     // Hosts with a page here.
     people: z.array(reference('people')).default([]),
   }),
@@ -156,11 +179,17 @@ const companies = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/companies' }),
   schema: z.object({
     last_updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    created: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(),
+    created: z
+      .string()
+      .regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/)
+      .optional(),
     image: z.string().optional(),
     name: z.string(),
     url: z.url(),
     industry: z.string(),
+    // What the company does, in one line.
+    description: z.string(),
+    // How the company uses Elixir.
     about: z.string(),
     order: z.number(),
     // Brand colour for the logo on hover. Only set where it reads well in light and dark mode.
@@ -173,7 +202,8 @@ const jobs = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/jobs' }),
   schema: z.object({
     last_updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    created: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(),
+    // When the job was posted here. Shown as "Posted".
+    created: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     image: z.string().optional(),
     title: z.string(),
     // id of an entry in the companies collection
@@ -181,8 +211,6 @@ const jobs = defineCollection({
     url: z.url(),
     location: z.string(),
     type: z.enum(['Full-time', 'Part-time', 'Contract']),
-    posted: z.coerce.date().optional(),
-    checked: z.coerce.date(),
   }),
 })
 

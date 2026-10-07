@@ -34,7 +34,13 @@ const shape = shapes[index % shapes.length]
 const imageBg = image && (await edgeBackground(image))
 ---
 
-<a id={id} href={href} target="_blank" rel="noopener" class="card flex h-full flex-col">
+<a
+  id={id}
+  href={href}
+  target="_blank"
+  rel="noopener"
+  class="card flex h-full flex-col"
+>
   <div
     class:list={[
       'thumb relative isolate grid aspect-video place-items-center overflow-hidden',
@@ -42,7 +48,18 @@ const imageBg = image && (await edgeBackground(image))
     ]}
     style={imageBg && `--bg: ${imageBg}`}
   >
-    {image ? <LocalImage src={image} widths={[160, 240, 320]} sizes="(min-width: 768px) 240px, 80vw" alt={`${title} channel avatar`} loading="lazy" class="absolute inset-0 m-auto max-h-full max-w-full object-contain" /> : <span class="name">{title}</span>}
+    {image ? (
+      <LocalImage
+        src={image}
+        widths={[160, 240, 320]}
+        sizes="(min-width: 768px) 240px, 80vw"
+        alt={`${title} channel avatar`}
+        loading="lazy"
+        class="absolute inset-0 m-auto max-h-full max-w-full object-contain"
+      />
+    ) : (
+      <span class="name">{title}</span>
+    )}
   </div>
   <div class="flex flex-auto flex-col px-5 pt-4 pb-5">
     <h2 class="mb-2 text-lg/6 font-semibold tracking-tight">{title}</h2>

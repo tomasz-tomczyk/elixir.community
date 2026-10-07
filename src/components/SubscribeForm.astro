@@ -9,7 +9,6 @@ interface Props {
 
 const { tone = 'light', class: className } = Astro.props
 const id = `email-${Math.random().toString(36).slice(2, 8)}`
-
 ---
 
 {/* A card with a hairline, and a raised purple button inside it. Stacks on narrow phones. */}
@@ -62,7 +61,12 @@ const id = `email-${Math.random().toString(36).slice(2, 8)}`
   </button>
 </form>
 <div class="mt-3" data-subscribe-check data-sitekey={sitekey}></div>
-<p role="status" data-subscribe-status class="mt-3 text-sm" data-confirmation-status></p>
+<p
+  role="status"
+  data-subscribe-status
+  class="mt-3 text-sm"
+  data-confirmation-status
+></p>
 <script>
   type TurnstileAPI = {
     render: (node: Element, options: Record<string, unknown>) => string
@@ -166,7 +170,10 @@ const id = `email-${Math.random().toString(36).slice(2, 8)}`
         const response = await fetch('/api/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: new FormData(form).get('email'), token: value }),
+          body: JSON.stringify({
+            email: new FormData(form).get('email'),
+            token: value,
+          }),
         })
         const result = await response.json()
         status.textContent = result.message

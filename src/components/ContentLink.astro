@@ -8,16 +8,21 @@ interface Props {
   dates?: { last_updated?: string; created?: string; year?: number }
   href: string
   title: string
-  description: string
+  description?: string
   icon?: IconName
+  // An emoji shown in the tile instead of the icon, such as a country flag.
+  emoji?: string
   meta?: string
   external?: boolean
 }
 const {
-  id, dates,  href,
+  id,
+  dates,
+  href,
   title,
   description,
   icon = 'arrow-up-right',
+  emoji,
   meta,
   external = true,
 } = Astro.props
@@ -29,9 +34,15 @@ const {
   {...(external ? { target: '_blank', rel: 'noopener' } : {})}
   class="group flex gap-4 py-4"
 >
-  <span class="grid size-9 flex-none place-items-center rounded-[10px] border border-(--ec-line) bg-(--ec-card) text-(--ec-text-accent)">
-    <Icon name={icon} class="size-4" />
-  </span>
+  {emoji ? (
+    <span class="grid size-9 flex-none place-items-center text-2xl/none">
+      {emoji}
+    </span>
+  ) : (
+    <span class="grid size-9 flex-none place-items-center rounded-[10px] border border-(--ec-line) bg-(--ec-card) text-(--ec-text-accent)">
+      <Icon name={icon} class="size-4" />
+    </span>
+  )}
   <span class="flex min-w-0 flex-col gap-1">
     <span class="text-[1.03rem]/6 font-semibold tracking-tight text-(--ec-fg) decoration-(--ec-fuchsia) underline-offset-3 group-hover:underline">
       {title}
@@ -39,7 +50,9 @@ const {
     {meta && (
       <span class="font-mono text-[0.8125rem]/5 text-(--ec-muted)">{meta}</span>
     )}
-    <span class="text-[0.9375rem]/6 text-(--ec-muted)">{description}</span>
+    {description && (
+      <span class="text-[0.9375rem]/6 text-(--ec-muted)">{description}</span>
+    )}
     {dates && <EntryDates data={dates} createdLabel="Created" />}
   </span>
 </a>

@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: PepsiCo
-url: https://elixir-lang.org/blog/2021/04/02/marketing-and-sales-intelligence-with-elixir-at-pepsico/
+url: https://www.pepsico.com
 industry: Food & beverage
+description: "A global food and drink company, behind brands like Pepsi, Lay's and Quaker."
 about: Elixir data pipelines and Phoenix tools help marketing and sales teams
   work with their data.
 order: 9
 reading:
-  - label: Engineering story
+  - label: Elixir blog case study
     url: https://elixir-lang.org/blog/2021/04/02/marketing-and-sales-intelligence-with-elixir-at-pepsico/
 ---
 
@@ -19,4 +20,4 @@ The published account covers both Search Marketing and Sales Intelligence teams.
 
 ### Source
 
-[Read the engineering story](https://elixir-lang.org/blog/2021/04/02/marketing-and-sales-intelligence-with-elixir-at-pepsico/). This profile describes the implementation discussed in that source.
+[Elixir blog case study](https://elixir-lang.org/blog/2021/04/02/marketing-and-sales-intelligence-with-elixir-at-pepsico/). This profile describes the implementation discussed in that source.

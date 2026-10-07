@@ -7,14 +7,14 @@ import ContributeNote from '@/components/ContributeNote.astro'
 import NewsletterBand from '@/components/NewsletterBand.astro'
 import PageHeader from '@/components/PageHeader.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import { formatDate } from '@/lib/site'
+import { formatDate, postedOn } from '@/lib/site'
 
 const companies = new Map(
   (await getCollection('companies')).map((c) => [c.id, c]),
 )
 const companyName = (id: string) => companies.get(id)?.data.name ?? id
-const jobs = (await getCollection('jobs')).sort(
-  (a, b) => +b.data.checked - +a.data.checked,
+const jobs = (await getCollection('jobs')).sort((a, b) =>
+  b.data.created.localeCompare(a.data.created),
 )
 const [newest, ...older] = jobs
 // First sentence under "## The role", for the featured job.
@@ -92,9 +92,9 @@ const intro = newest?.body
                   </span>
                   <time
                     class="flex-none font-mono text-[0.8125rem] text-(--ec-muted)"
-                    datetime={job.data.checked.toISOString()}
+                    datetime={job.data.created}
                   >
-                    {formatDate(job.data.checked, 'short')}
+                    {formatDate(postedOn(job.data), 'short')}
                   </time>
                 </a>
               </li>

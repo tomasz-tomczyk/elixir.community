@@ -1,12 +1,13 @@
 ---
 last_updated: '2026-10-07'
 name: Plausible Analytics
-url: https://podcast.thinkingelixir.com/105
+url: https://plausible.io
 industry: Web analytics
+description: 'Simple, privacy-friendly website analytics, without cookies.'
 about: A privacy-focused, open-source web analytics service written in Elixir.
 order: 21
 reading:
-  - label: Engineering story
+  - label: Thinking Elixir podcast
     url: https://podcast.thinkingelixir.com/105
 image: /images/companies/plausible-analytics.svg
 ---
@@ -19,4 +20,4 @@ His interview discusses building the business, operating the service and the pre
 
 ### Source
 
-[Read the engineering story](https://podcast.thinkingelixir.com/105). This profile describes the implementation discussed in that source.
+[Thinking Elixir podcast](https://podcast.thinkingelixir.com/105). This profile describes the implementation discussed in that source.

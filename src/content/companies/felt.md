@@ -1,12 +1,13 @@
 ---
 last_updated: '2026-10-07'
 name: Felt
-url: https://elixirforum.com/t/web-elixir-engineer-felt-remote-usa/72259
+url: https://felt.com
 industry: Mapping
+description: 'A web app for making and sharing maps together.'
 about: An Elixir and React mapping platform for real-time collaborative mapmaking.
 order: 19
 reading:
-  - label: Engineering story
+  - label: Elixir Forum job post
     url: https://elixirforum.com/t/web-elixir-engineer-felt-remote-usa/72259
 image: /images/companies/felt.svg
 ---
@@ -19,4 +20,4 @@ The advertised role combined growth systems with work on the core mapping produc
 
 ### Source
 
-[Read the engineering story](https://elixirforum.com/t/web-elixir-engineer-felt-remote-usa/72259). This profile describes the implementation discussed in that source.
+[Elixir Forum job post](https://elixirforum.com/t/web-elixir-engineer-felt-remote-usa/72259). This profile describes the implementation discussed in that source.

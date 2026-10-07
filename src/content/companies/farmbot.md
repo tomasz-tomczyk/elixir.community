@@ -1,12 +1,13 @@
 ---
 last_updated: '2026-10-07'
 name: FarmBot
-url: https://elixir-lang.org/blog/2020/08/20/embedded-elixir-at-farmbot/
+url: https://farm.bot
 industry: Agricultural robotics
+description: 'Open-source farming robots that plant, water and weed a garden bed.'
 about: Nerves runs the embedded software behind an open-source farming robot.
 order: 15
 reading:
-  - label: Engineering story
+  - label: Elixir blog case study
     url: https://elixir-lang.org/blog/2020/08/20/embedded-elixir-at-farmbot/
 image: /images/companies/farmbot.webp
 ---
@@ -19,4 +20,4 @@ That work also fed back into the ecosystem: networking contributions helped shap
 
 ### Source
 
-[Read the engineering story](https://elixir-lang.org/blog/2020/08/20/embedded-elixir-at-farmbot/). This profile describes the implementation discussed in that source.
+[Elixir blog case study](https://elixir-lang.org/blog/2020/08/20/embedded-elixir-at-farmbot/). This profile describes the implementation discussed in that source.

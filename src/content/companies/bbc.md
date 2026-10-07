@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: BBC
-url: https://www.youtube.com/watch?v=e99QDd0_C20
+url: https://www.bbc.co.uk
 industry: Broadcasting
+description: "The UK's public broadcaster, with TV, radio, news and the iPlayer streaming service."
 about: Elixir routing infrastructure handles BBC web and app traffic, with
   circuit breakers for resilience.
 order: 23
 reading:
-  - label: Engineering story
+  - label: ElixirConf EU 2025 talk
     url: https://www.youtube.com/watch?v=e99QDd0_C20
 image: /images/companies/bbc.webp
 ---
@@ -20,4 +21,4 @@ The presentation covers a route-management DSL, handling traffic spikes and circ
 
 ### Source
 
-[Read the engineering story](https://www.youtube.com/watch?v=e99QDd0_C20). This profile describes the implementation discussed in that source.
+[ElixirConf EU 2025 talk](https://www.youtube.com/watch?v=e99QDd0_C20). This profile describes the implementation discussed in that source.

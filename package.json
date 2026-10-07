@@ -3,12 +3,14 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@12.10.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build && node scripts/outbound-links.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "clicks": "node scripts/click-report.mjs",
     "refresh": "node scripts/refresh-stats.mjs"
   },

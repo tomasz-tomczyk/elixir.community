@@ -1,12 +1,13 @@
 ---
 last_updated: '2026-10-07'
 name: Mux
-url: https://runninginproduction.com/podcast/31-mux-is-an-api-based-platform-that-lets-you-process-and-stream-videos
+url: https://www.mux.com
 industry: Video infrastructure
+description: 'An API for video streaming, hosting and playback analytics.'
 about: Phoenix powers its public video API and real-time dashboard, alongside Go video-processing services.
 order: 25
 reading:
-  - label: Engineering story
+  - label: Running in Production podcast
     url: https://runninginproduction.com/podcast/31-mux-is-an-api-based-platform-that-lets-you-process-and-stream-videos
 image: /images/companies/mux.svg
 ---
@@ -19,4 +20,4 @@ The team used the exq library for background jobs within the application supervi
 
 ### Source
 
-[Read the engineering story](https://runninginproduction.com/podcast/31-mux-is-an-api-based-platform-that-lets-you-process-and-stream-videos). This profile describes the implementation discussed in that source.
+[Running in Production podcast](https://runninginproduction.com/podcast/31-mux-is-an-api-based-platform-that-lets-you-process-and-stream-videos). This profile describes the implementation discussed in that source.

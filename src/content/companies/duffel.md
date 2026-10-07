@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: Duffel
-url: https://elixir-lang.org/blog/2020/12/10/integrating-travel-with-elixir-at-duffel/
+url: https://duffel.com
 industry: Travel
+description: 'An API that lets travel companies search, sell and manage flights and stays.'
 about: An Elixir travel API brings airline search and booking behind a single
   interface.
 order: 12
 reading:
-  - label: Engineering story
+  - label: Elixir blog case study
     url: https://elixir-lang.org/blog/2020/12/10/integrating-travel-with-elixir-at-duffel/
 image: /images/companies/duffel.webp
 ---
@@ -20,4 +21,4 @@ The team used Elixir's concurrency tools to manage that fan-out and normalize re
 
 ### Source
 
-[Read the engineering story](https://elixir-lang.org/blog/2020/12/10/integrating-travel-with-elixir-at-duffel/). This profile describes the implementation discussed in that source.
+[Elixir blog case study](https://elixir-lang.org/blog/2020/12/10/integrating-travel-with-elixir-at-duffel/). This profile describes the implementation discussed in that source.

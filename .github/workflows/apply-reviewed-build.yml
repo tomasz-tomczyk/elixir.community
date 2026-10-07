@@ -13,13 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-node@v7.0.0
-        with:
-          node-version: '22.23.3'
-          cache: npm
-      - run: npm ci
+      # Installs Node and pnpm at the versions in mise.toml.
+      - uses: jdx/mise-action@v5.1.1
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm format:check
       - run: node --test test/signup.test.mjs test/clicks.test.mjs
-      - run: npm run build
+      - run: pnpm build
         env:
           PUBLIC_TURNSTILE_SITE_KEY: '0x4AAAAAAFQPE3WOVOyxOaBe'
 # Cloudflare Pages' native GitHub integration automatically deploys main.

@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: Royal Bank of Canada
-url: https://podcast.thinkingelixir.com/125
+url: https://www.rbc.com
 industry: Banking
+description: "Canada's largest bank."
 about: Elixir and LiveView support work in Capital Markets, including live
   financial charts.
 order: 22
 reading:
-  - label: Engineering story
+  - label: Thinking Elixir podcast
     url: https://podcast.thinkingelixir.com/125
 image: /images/companies/royal-bank-of-canada.svg
 ---
@@ -20,4 +21,4 @@ One example involved hundreds of live-updating financial charts. After testing L
 
 ### Source
 
-[Read the engineering story](https://podcast.thinkingelixir.com/125). This profile describes the implementation discussed in that source.
+[Thinking Elixir podcast](https://podcast.thinkingelixir.com/125). This profile describes the implementation discussed in that source.

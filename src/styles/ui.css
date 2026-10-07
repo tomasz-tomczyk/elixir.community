@@ -125,6 +125,11 @@
   --tx: white;
 }
 
+.k-red {
+  --bg: var(--ec-red);
+  --tx: white;
+}
+
 .k-deep {
   --bg: var(--ec-violet-deep);
   --tx: white;

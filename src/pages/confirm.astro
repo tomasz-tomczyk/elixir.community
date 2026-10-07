@@ -2,28 +2,67 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import PageHeader from '@/components/PageHeader.astro'
 ---
+
 <BaseLayout noindex title="Confirm your subscription">
   <div class="container-page py-16 max-w-2xl">
     <h1 class="text-3xl font-semibold">Confirm your subscription</h1>
-    <p class="mt-4 text-mauve-600 dark:text-mauve-400">Press the button to join the Elixir Community newsletter. Opening this page alone does not subscribe you.</p>
-    <button id="confirm-subscription" type="button" class="group mt-8 inline-flex items-center justify-center gap-2 rounded-[13px] bg-linear-to-b from-accent-500 to-accent-600 px-4.5 py-3 text-[0.9375rem]/none font-semibold text-white shadow-[inset_0_1px_0_--theme(--color-white/0.3),0_6px_16px_-6px_var(--color-accent-600)] transition hover:brightness-108 active:scale-97 disabled:cursor-not-allowed disabled:opacity-60">Confirm subscription <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:-rotate-8"><path d="M14.25 1.75 7 9M14.25 1.75 9.75 14.25 7 9 1.75 6.25l12.5-4.5Z"></path></svg></button>
+    <p class="mt-4 text-mauve-600 dark:text-mauve-400">
+      Press the button to join the Elixir Community newsletter. Opening this
+      page alone does not subscribe you.
+    </p>
+    <button
+      id="confirm-subscription"
+      type="button"
+      class="group mt-8 inline-flex items-center justify-center gap-2 rounded-[13px] bg-linear-to-b from-accent-500 to-accent-600 px-4.5 py-3 text-[0.9375rem]/none font-semibold text-white shadow-[inset_0_1px_0_--theme(--color-white/0.3),0_6px_16px_-6px_var(--color-accent-600)] transition hover:brightness-108 active:scale-97 disabled:cursor-not-allowed disabled:opacity-60"
+    >
+      Confirm subscription{' '}
+      <svg
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        class="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:-rotate-8"
+      >
+        <path d="M14.25 1.75 7 9M14.25 1.75 9.75 14.25 7 9 1.75 6.25l12.5-4.5Z"></path>
+      </svg>
+    </button>
     <p id="confirmation-status" role="status" class="mt-6"></p>
-    <a href="/" class="mt-8 inline-block underline">Back to the community</a>
+    <a href="/" class="mt-8 inline-block underline">
+      Back to the community
+    </a>
   </div>
   <script>
-    const button = document.querySelector<HTMLButtonElement>('#confirm-subscription')!
+    const button = document.querySelector<HTMLButtonElement>(
+      '#confirm-subscription',
+    )!
     const status = document.querySelector<HTMLElement>('#confirmation-status')!
     const token = location.hash.slice(1)
     history.replaceState(null, '', '/confirm')
-    if (!token) {button.disabled=true;status.textContent='Open the link in your confirmation email, or subscribe again for a new link.'}
-    button.addEventListener('click',async()=>{
-      button.disabled=true;status.textContent='Confirming...'
+    if (!token) {
+      button.disabled = true
+      status.textContent =
+        'Open the link in your confirmation email, or subscribe again for a new link.'
+    }
+    button.addEventListener('click', async () => {
+      button.disabled = true
+      status.textContent = 'Confirming...'
       try {
-        const response=await fetch('/api/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token})})
-        const data=await response.json();status.textContent=data.message
-        if(!response.ok) button.disabled=false
-        else button.textContent='Confirmed'
-      } catch {status.textContent='Could not connect. Please try again.';button.disabled=false}
+        const response = await fetch('/api/confirm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token }),
+        })
+        const data = await response.json()
+        status.textContent = data.message
+        if (!response.ok) button.disabled = false
+        else button.textContent = 'Confirmed'
+      } catch {
+        status.textContent = 'Could not connect. Please try again.'
+        button.disabled = false
+      }
     })
   </script>
 </BaseLayout>

@@ -5,12 +5,15 @@ import ConferenceCard from '@/components/ConferenceCard.astro'
 import Icon from '@/components/Icon.astro'
 import PageHeader from '@/components/PageHeader.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import { isUpcoming } from '@/lib/site'
+import { isUpcoming, place } from '@/lib/site'
 
 const past = (await getCollection('events'))
   .filter(
     (e) =>
-      e.data.kind === 'conference' && e.data.date && !isUpcoming(e.data.date) && !e.data.when,
+      e.data.kind === 'conference' &&
+      e.data.date &&
+      !isUpcoming(e.data.date) &&
+      !e.data.when,
   )
   .sort((a, b) => (b.data.date ?? '').localeCompare(a.data.date ?? ''))
 
@@ -51,12 +54,11 @@ const years = [...new Set(past.map((e) => e.data.date!.slice(0, 4)))]
               .map((c) => (
                 <li>
                   <ConferenceCard
-                  id={c.id}
-                  dates={c.data}
-                  image={c.data.image}
+                    id={c.id}
+                    dates={c.data}
                     name={c.data.name}
                     url={c.data.url}
-                    location={c.data.location}
+                    location={place(c.data)}
                     date={c.data.date}
                     description={c.data.description}
                   />

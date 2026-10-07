@@ -1,61 +1,81 @@
-- last_updated: '2026-10-07'
-  id: elixirconf
+- id: elixirconf
   title: ElixirConf
   url: https://www.youtube.com/@ElixirConf
   handle: ElixirConf
-  description: conference talks
+  description: 'Recorded talks from ElixirConf US, the main Elixir conference in North America.'
   image: /images/youtube/elixirconf.webp
-- last_updated: '2026-10-07'
-  id: elixir-mentor
+  channel_id: UC0l2QTnO1P2iph-86HHilMQ
+  videos: 480
+  last_video: 2026-08-07
+- id: elixir-mentor
   title: Elixir Mentor
   url: https://www.youtube.com/@ElixirMentor
   handle: ElixirMentor
-  description: Elixir videos. Channel identity checked 7 October 2026; upload activity
-    not verified.
+  description: "Jacob Luetzow's tutorials, live coding and interviews with people in the Elixir community."
   image: /images/youtube/elixir-mentor.webp
-- last_updated: '2026-10-07'
-  id: elixir-em-foco
+  channel_id: UChbS_z6KHQiIu9et38O37eQ
+  videos: 584
+  last_video: 2026-10-02
+  people:
+    - jacob-luetzow
+- id: elixir-em-foco
   title: Elixir em Foco
   url: https://www.youtube.com/@elixiremfoco
   handle: elixiremfoco
-  description: Portuguese interviews
+  description: 'Interviews with Elixir developers in Portuguese, from the Elixir em Foco podcast.'
   image: /images/youtube/elixir-em-foco.webp
-- last_updated: '2026-10-07'
-  id: underjord
+  channel_id: UCpdElWp_U2YyXLCJYTDiG7g
+  videos: 96
+  last_video: 2026-08-06
+  people:
+    - adolfo-neto
+    - zoey-pessanha
+- id: underjord
   title: Underjord
   url: https://www.youtube.com/c/underjord
   handle: underjord
-  description: Elixir, Nerves and community
+  description: "Lars Wikman's videos on Elixir, Nerves and the community."
   image: /images/youtube/underjord.webp
-- last_updated: '2026-10-07'
-  id: alchemist-camp
+  channel_id: UC0JZZAJ_e6xc41BLPO8MCKg
+  videos: 144
+  last_video: 2026-04-07
+  people:
+    - lars-wikman
+- id: alchemist-camp
   title: Alchemist Camp
   url: https://www.youtube.com/alchemistcamp
   handle: alchemistcamp
-  description: Elixir videos. Channel identity checked 7 October 2026; upload activity
-    not verified.
+  description: 'Screencasts that build Elixir and Phoenix projects step by step.'
   image: /images/youtube/alchemist-camp.webp
-- last_updated: '2026-10-07'
-  id: elixircasts
+  channel_id: UCp5Nix6mJCoLkH_GqcRRp1A
+  videos: 238
+  last_video: 2025-04-12
+- id: elixircasts
   title: ElixirCasts
   url: https://www.youtube.com/@elixircasts2332
   handle: elixircasts2332
-  description: Elixir videos. Channel identity checked 7 October 2026; upload activity
-    not verified.
+  description: 'Short screencasts, each on one Elixir or Phoenix topic.'
   image: /images/youtube/elixircasts.webp
-- last_updated: '2026-10-07'
-  id: groxio
+  channel_id: UCEJIWmO9DIE83i6_qmJXqjQ
+  videos: 29
+  last_video: 2018-07-14
+- id: groxio
   title: Groxio
   url: https://www.youtube.com/@Groxio
   handle: Groxio
-  description: Elixir videos. Channel identity checked 7 October 2026; upload activity
-    not verified.
+  description: "Bruce Tate's videos on learning Elixir, OTP, LiveView and Nerves."
   image: /images/youtube/groxio.webp
-- last_updated: '2026-10-07'
-  id: learn-elixir
+  channel_id: UCE5KlC4hhy_QlXEYPgRKvVA
+  videos: 331
+  last_video: 2026-09-29
+  people:
+    - bruce-tate
+- id: learn-elixir
   title: Learn Elixir
   url: https://www.youtube.com/c/learnelixir
   handle: learnelixir
-  description: Elixir videos. Channel identity checked 7 October 2026; upload activity
-    not verified.
+  description: 'Lessons and talks from the team behind the Learn Elixir course.'
   image: /images/youtube/learn-elixir.webp
+  channel_id: UCWBKJVlbwZP-iOvk3ZbRrvg
+  videos: 29
+  last_video: 2024-09-12

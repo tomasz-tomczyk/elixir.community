@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: Cars.com
-url: https://smartlogic.io/podcast/elixir-wizards/s14-e06-sdui-graphql-elixir/
+url: https://www.cars.com
 industry: Automotive
+description: 'An online marketplace for buying and selling new and used cars in the US.'
 about: Elixir and GraphQL drive server-defined interfaces shared across web, iOS
   and Android.
 order: 20
 reading:
-  - label: Engineering story
+  - label: Elixir Wizards podcast
     url: https://smartlogic.io/podcast/elixir-wizards/s14-e06-sdui-graphql-elixir/
 ---
 
@@ -19,4 +20,4 @@ The approach lets teams update layouts, run experiments and make some fixes on t
 
 ### Source
 
-[Read the engineering story](https://smartlogic.io/podcast/elixir-wizards/s14-e06-sdui-graphql-elixir/). This profile describes the implementation discussed in that source.
+[Elixir Wizards podcast](https://smartlogic.io/podcast/elixir-wizards/s14-e06-sdui-graphql-elixir/). This profile describes the implementation discussed in that source.

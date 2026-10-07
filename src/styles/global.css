@@ -48,6 +48,8 @@
   --ec-blush: oklch(89% 0.07 350);
   --ec-indigo: oklch(43% 0.21 276);
   --ec-periwinkle: oklch(87% 0.06 278);
+  /* YouTube red, softened so it sits with the pastel blocks around it. */
+  --ec-red: oklch(60% 0.15 22);
 
   /* Text on light blocks, in both themes. */
   --ec-ink: oklch(17% 0.035 300);

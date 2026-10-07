@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: Ramp
-url: https://builders.ramp.com/post/elixir-at-ramp
+url: https://ramp.com
 industry: Financial technology
+description: 'Corporate cards and software for business spending and finance teams.'
 about: Elixir supports selected fintech services, with an emphasis on
   concurrency and reliable failure handling.
 order: 18
 reading:
-  - label: Engineering story
+  - label: Ramp engineering blog
     url: https://builders.ramp.com/post/elixir-at-ramp
 image: /images/companies/ramp.webp
 ---
@@ -20,4 +21,4 @@ The account also explains how immutability, explicit module calls, concurrent te
 
 ### Source
 
-[Read the engineering story](https://builders.ramp.com/post/elixir-at-ramp). This profile describes the implementation discussed in that source.
+[Ramp engineering blog](https://builders.ramp.com/post/elixir-at-ramp). This profile describes the implementation discussed in that source.

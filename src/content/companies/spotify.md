@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: Spotify
-url: https://podcast.thinkingelixir.com/59
+url: https://www.spotify.com
 industry: Audio streaming
+description: 'A music and podcast streaming service.'
 about: Elixir helped an internal team solve concurrency problems and introduce
   the BEAM to a larger organization.
 order: 24
 reading:
-  - label: Engineering story
+  - label: Thinking Elixir podcast
     url: https://podcast.thinkingelixir.com/59
 image: /images/companies/spotify.webp
 ---
@@ -20,4 +21,4 @@ The interview focuses on adoption as much as implementation: building internal i
 
 ### Source
 
-[Read the engineering story](https://podcast.thinkingelixir.com/59). This profile describes the implementation discussed in that source.
+[Thinking Elixir podcast](https://podcast.thinkingelixir.com/59). This profile describes the implementation discussed in that source.

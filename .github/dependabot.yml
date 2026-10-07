@@ -1,0 +1,22 @@
+version: 2
+updates:
+  # pnpm uses the npm ecosystem. Dependabot updates pnpm-lock.yaml.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    # Wait a few days after a release, so a bad or compromised version can be pulled first.
+    cooldown:
+      default-days: 3
+    groups:
+      # One PR a week for minor and patch updates. Majors still get their own PR.
+      minor-and-patch:
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ['*']

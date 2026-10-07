@@ -9,7 +9,14 @@ import PrelaunchEnvelope from '@/components/PrelaunchEnvelope.astro'
 import SubscribeForm from '@/components/SubscribeForm.astro'
 import TilePic from '@/components/TilePic.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import { formatDate, isUpcoming, issueNumber, site } from '@/lib/site'
+import {
+  formatDate,
+  isUpcoming,
+  issueNumber,
+  place,
+  postedOn,
+  site,
+} from '@/lib/site'
 import '@/styles/home.css'
 
 const [issues, resources, events, people, companies, jobs] = await Promise.all([
@@ -31,13 +38,22 @@ const conferences = events
   .filter((e) => e.data.kind === 'conference' && isUpcoming(e.data.date))
   .sort((a, b) => (a.data.date ?? '').localeCompare(b.data.date ?? ''))
 const nextConference = conferences[0]
-const meetups = events.filter((e) => e.data.kind === 'meetup').slice(0, 5)
+// Meetups with a confirmed next date, soonest first.
+const todayIso = new Date().toISOString().slice(0, 10)
+const meetups = events
+  .filter((e) => e.data.kind === 'meetup' && (e.data.date ?? '') >= todayIso)
+  .sort((a, b) => a.data.date!.localeCompare(b.data.date!))
+  .slice(0, 5)
 
 companies.sort((a, b) => a.data.order - b.data.order)
+// The home page shows a few logos. The full list is on /companies.
+const homeCompanies = ['plausible-analytics', 'fly-io', 'supabase', 'community']
+  .map((id) => companies.find((c) => c.id === id))
+  .filter((c) => c !== undefined)
 const companyName = (id: string) =>
   companies.find((c) => c.id === id)?.data.name ?? id
 
-jobs.sort((a, b) => +b.data.checked - +a.data.checked)
+jobs.sort((a, b) => b.data.created.localeCompare(a.data.created))
 const [newestJob, ...olderJobs] = jobs
 // First sentence under "## The role", for the featured job.
 const jobIntro = newestJob?.body
@@ -45,7 +61,15 @@ const jobIntro = newestJob?.body
   ?.split(/(?<=\.)\s/)[0]
 
 const spotlight = people.find((p) => p.data.featured)
-const featured = resources.filter((r) => r.data.featured)
+// The home page shows a few learning picks. The full list is on /resources.
+const featured = [
+  'elixir-school',
+  'elixir-koans',
+  'awesome-elixir',
+  'exercism-elixir-track',
+]
+  .map((id) => resources.find((r) => r.id === id))
+  .filter((r) => r !== undefined)
 
 // Day and month for badges, in UTC like the rest of the site.
 const dayMonth = (date: string) => {
@@ -249,7 +273,7 @@ const swatches = [
               <span class="ec-ticket-main">
                 <small>Next conference</small>
                 <strong>{nextConference.data.name}</strong>
-                <span>{nextConference.data.location}</span>
+                <span>{place(nextConference.data)}</span>
               </span>
               <span class="ec-stub">
                 <em>{dayMonth(nextConference.data.date).month}</em>
@@ -335,7 +359,7 @@ const swatches = [
             <a href="/resources">Resources</a>
           </h3>
         </div>
-        <div class="ec-space k-indigo ec-rise" style="transition-delay: 0.04s">
+        <div class="ec-space k-red ec-rise" style="transition-delay: 0.04s">
           <span class="ec-icon" aria-hidden="true">
             <svg
               viewBox="0 0 24 24"
@@ -482,7 +506,7 @@ const swatches = [
                 </span>
                 <span class="ec-feat-name">{nextConference.data.name}</span>
                 <span class="ec-feat-meta">
-                  {nextConference.data.location} ·{' '}
+                  {place(nextConference.data)} ·{' '}
                   <time datetime={nextConference.data.date}>
                     {formatDate(
                       new Date(`${nextConference.data.date}T00:00:00Z`),
@@ -507,14 +531,12 @@ const swatches = [
                   class="ec-meetup"
                 >
                   <span class="font-mono text-[0.8125rem]/5 text-(--ec-muted) max-[899px]:row-span-2">
-                    {m.data.when}
+                    {shortDate(new Date(`${m.data.date}T00:00:00Z`))}
                   </span>
                   <span class="m-title text-[1.03rem] font-semibold tracking-tight">
                     {m.data.name}
                   </span>
-                  <span class="text-sm text-(--ec-muted)">
-                    {m.data.location}
-                  </span>
+                  <span class="text-sm text-(--ec-muted)">{place(m.data)}</span>
                 </a>
               </li>
             ))}
@@ -574,9 +596,9 @@ const swatches = [
                       </span>
                       <time
                         class="flex-none font-mono text-[0.8125rem] text-(--ec-muted)"
-                        datetime={job.data.checked.toISOString()}
+                        datetime={job.data.created}
                       >
-                        {shortDate(job.data.checked)}
+                        {shortDate(postedOn(job.data))}
                       </time>
                     </a>
                   </li>
@@ -659,7 +681,7 @@ const swatches = [
               <a href={`/people/${spotlight.id}`} class="ec-spot-name">
                 {spotlight.data.name}
               </a>
-              <span class="font-mono text-sm text-(--ec-muted)">
+              <span class="text-sm text-(--ec-muted)">
                 {spotlight.data.role}
               </span>
             </figcaption>
@@ -716,7 +738,7 @@ const swatches = [
         </a>
       </div>
       <ul class="grid grid-cols-2 items-center gap-x-10 gap-y-10 border-t border-(--ec-line) pt-9 lg:grid-cols-4">
-        {companies.map((c) => (
+        {homeCompanies.map((c) => (
           <li>
             <a
               href={`/companies/${c.id}`}

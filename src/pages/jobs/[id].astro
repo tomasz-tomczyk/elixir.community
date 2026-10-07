@@ -5,7 +5,7 @@ import { getCollection, getEntry, render } from 'astro:content'
 import CompanyLogo from '@/components/CompanyLogo.astro'
 import Icon from '@/components/Icon.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import { formatDate } from '@/lib/site'
+import { formatDate, postedOn } from '@/lib/site'
 
 export async function getStaticPaths() {
   const jobs = await getCollection('jobs')
@@ -21,7 +21,7 @@ const companies = new Map(
 )
 const more = (await getCollection('jobs'))
   .filter((j) => j.id !== job.id)
-  .sort((a, b) => +b.data.checked - +a.data.checked)
+  .sort((a, b) => b.data.created.localeCompare(a.data.created))
   .slice(0, 3)
 ---
 
@@ -61,14 +61,11 @@ const more = (await getCollection('jobs'))
         <span>{job.data.type}</span>
         <span aria-hidden="true">&middot;</span>
         <span>
-          Checked{' '}
-          <time datetime={job.data.checked.toISOString()}>
-            {formatDate(job.data.checked)}
+          Posted{' '}
+          <time datetime={job.data.created}>
+            {formatDate(postedOn(job.data))}
           </time>
         </span>
-      </p>
-      <p class="k-blush mt-5 inline-flex rounded-full bg-(--bg) px-3 py-1.5 text-[0.8125rem]/5 font-medium text-(--tx)">
-        Sample listing. Check the company careers page for real openings.
       </p>
     </header>
 
@@ -99,7 +96,7 @@ const more = (await getCollection('jobs'))
                 About {companyName}
               </h2>
               <p class="mt-2 text-[0.9375rem]/6 text-(--ec-muted)">
-                {company.data.about}
+                {company.data.description}
               </p>
               <a href={`/companies/${company.id}`} class="btn-soft mt-5">
                 How they use Elixir <span aria-hidden="true">&rarr;</span>

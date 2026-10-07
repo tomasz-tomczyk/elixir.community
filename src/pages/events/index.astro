@@ -1,5 +1,4 @@
 ---
-import LocalImage from '@/components/LocalImage.astro'
 import { getCollection } from 'astro:content'
 
 import ConferenceCard from '@/components/ConferenceCard.astro'
@@ -10,16 +9,52 @@ import PageHeader from '@/components/PageHeader.astro'
 import SectionArt from '@/components/SectionArt.astro'
 import PageSection from '@/components/PageSection.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import { isUpcoming } from '@/lib/site'
+import {
+  continentOf,
+  continentOrder,
+  flagOf,
+  formatDate,
+  isUpcoming,
+  place,
+} from '@/lib/site'
 
 const events = await getCollection('events')
+// Conferences with only a rough date ("May 2027, exact dates TBD") sort by that month.
+const sortKey = (d: { date?: string; when?: string }) => {
+  if (d.date) return d.date
+  const month = new Date(`${d.when?.split(',')[0]} UTC`)
+  return isNaN(+month) ? '9' : month.toISOString().slice(0, 10)
+}
 const upcoming = events
-  .filter((e) => e.data.kind === 'conference' && (isUpcoming(e.data.date) || (!e.data.date && !!e.data.when)))
-  .sort((a, b) => (a.data.date ?? '').localeCompare(b.data.date ?? ''))
+  .filter(
+    (e) =>
+      e.data.kind === 'conference' &&
+      (isUpcoming(e.data.date) || (!e.data.date && !!e.data.when)),
+  )
+  .sort((a, b) => sortKey(a.data).localeCompare(sortKey(b.data)))
 const pastCount = events.filter(
-  (e) => e.data.kind === 'conference' && !isUpcoming(e.data.date) && !e.data.when,
+  (e) =>
+    e.data.kind === 'conference' && !isUpcoming(e.data.date) && !e.data.when,
 ).length
-const meetups = events.filter((e) => e.data.kind === 'meetup')
+
+// Meetups by continent. In each, the next confirmed date first, then by name.
+const todayIso = new Date().toISOString().slice(0, 10)
+const nextDate = (date?: string) =>
+  date && date >= todayIso ? date : undefined
+const meetups = events
+  .filter((e) => e.data.kind === 'meetup')
+  .sort(
+    (a, b) =>
+      (nextDate(a.data.date) ?? '9').localeCompare(
+        nextDate(b.data.date) ?? '9',
+      ) || a.data.name.localeCompare(b.data.name),
+  )
+const regions = continentOrder
+  .map((name) => ({
+    name,
+    meetups: meetups.filter((m) => continentOf(m.data.country) === name),
+  }))
+  .filter((r) => r.meetups.length > 0)
 ---
 
 <BaseLayout
@@ -45,10 +80,9 @@ const meetups = events.filter((e) => e.data.kind === 'meetup')
                 <ConferenceCard
                   id={c.id}
                   dates={c.data}
-                  image={c.data.image}
                   name={c.data.name}
                   url={c.data.url}
-                  location={c.data.location}
+                  location={place(c.data)}
                   date={c.data.date}
                   description={c.data.description}
                 />
@@ -63,30 +97,42 @@ const meetups = events.filter((e) => e.data.kind === 'meetup')
         )}
       </PageSection>
 
-      <PageSection
-        id="meetups"
-        title="Meetups"
-        description="Local groups and online sessions. Dates are individually checked, not inferred from a recurring cadence."
-      >
-        <ul class="ec-rows max-w-3xl border-t border-(--ec-line)">
-          {meetups.map((m) => (
-            <li>
-              {m.data.image && <LocalImage src={m.data.image} width={48} height={48} alt="" loading="lazy" class="float-right mt-4 size-12 rounded-lg object-contain" />}
-              <ContentLink
-                id={m.id}
-                dates={m.data}
-                href={m.data.url}
-                title={m.data.name}
-                meta={[m.data.location, m.data.when]
-                  .filter(Boolean)
-                  .join(' · ')}
-                description={m.data.description}
-                icon="pin"
-              />
-            </li>
-          ))}
-        </ul>
-        <p class="mt-8 text-sm/6 text-(--ec-muted)">Historical research: <a href="/research/elixir-global-meetup-campaign.csv" class="underline">2025 global campaign</a> and <a href="/research/elixir-meetup-candidates.csv" class="underline">unconfirmed candidate queue</a>. These are not active-meetup lists.</p>
+      <PageSection id="meetups" title="Meetups">
+        {regions.map((region) => (
+          <section
+            aria-labelledby={`region-${region.name}`}
+            class="mt-10 first:mt-0"
+          >
+            <h3 id={`region-${region.name}`} class="ec-sched-sub">
+              {region.name}
+            </h3>
+            <ul class="ec-rows max-w-3xl border-t border-(--ec-line)">
+              {region.meetups.map((m) => {
+                const next = nextDate(m.data.date)
+                return (
+                  <li>
+                    <ContentLink
+                      id={m.id}
+                      dates={m.data}
+                      href={m.data.url}
+                      title={m.data.name}
+                      meta={[
+                        place(m.data),
+                        next &&
+                          formatDate(new Date(`${next}T00:00:00Z`), 'short'),
+                      ]
+                        .filter(Boolean)
+                        .join(' · ')}
+                      description={m.data.description}
+                      icon="globe"
+                      emoji={flagOf(m.data.country)}
+                    />
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+        ))}
         <ContributeNote question="Run a meetup that is not here?" />
       </PageSection>
     </div>

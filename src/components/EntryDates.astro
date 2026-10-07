@@ -7,4 +7,11 @@ const { data, createdLabel = 'Created' } = Astro.props
 // Source dates remain in structured metadata. Only the existing book year is visible.
 const year = createdLabel === 'Published' ? data.year : undefined
 ---
-{year && <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs/5 text-(--ec-muted)"><span>Published: <time datetime={String(year)}>{year}</time></span></span>}
+
+{year && (
+  <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs/5 text-(--ec-muted)">
+    <span>
+      Published: <time datetime={String(year)}>{year}</time>
+    </span>
+  </span>
+)}

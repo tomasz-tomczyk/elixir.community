@@ -14,10 +14,6 @@ import { formatDate } from '@/lib/site'
 const podcasts = (await getCollection('podcasts')).sort(
   (a, b) => +(b.data.last_episode ?? 0) - +(a.data.last_episode ?? 0),
 )
-const checked = podcasts
-  .map((p) => p.data.checked)
-  .filter(Boolean)
-  .sort((a, b) => +b! - +a!)[0]
 
 // Each cover gets its own tone and shape, so the shows are easy to tell apart.
 const covers = [
@@ -44,14 +40,26 @@ const covers = [
       {podcasts.map((show, i) => {
         const cover = covers[i % covers.length]!
         return (
-          <li id={show.id} class="show relative flex gap-5 border-b border-(--ec-line) py-7 last:border-b-0 sm:gap-8">
+          <li
+            id={show.id}
+            class="show relative flex gap-5 border-b border-(--ec-line) py-7 last:border-b-0 sm:gap-8"
+          >
             <div
               class:list={[
                 'cover relative isolate flex size-24 flex-none items-end overflow-hidden p-3 sm:size-32',
                 `k-${cover.tone}`,
               ]}
             >
-              <LocalImage src={show.data.image} width={128} height={128} widths={[96, 128, 192, 256]} sizes="(min-width: 640px) 128px, 96px" alt={`${show.data.title} artwork`} loading="lazy" class="absolute inset-0 size-full object-cover" />
+              <LocalImage
+                src={show.data.image}
+                width={128}
+                height={128}
+                widths={[96, 128, 192, 256]}
+                sizes="(min-width: 640px) 128px, 96px"
+                alt={`${show.data.title} artwork`}
+                loading="lazy"
+                class="absolute inset-0 size-full object-cover"
+              />
             </div>
             <div class="min-w-0 self-center">
               <p class="font-mono text-xs/5 text-(--ec-muted)">
@@ -72,13 +80,14 @@ const covers = [
                 {show.data.description}
               </p>
               {(show.data.episodes || show.data.last_episode) && (
-                <p class="mt-3 flex flex-wrap gap-x-3 font-mono text-xs/5 text-(--ec-muted)">
-                  {show.data.episodes && <span>{show.data.episodes} episodes</span>}
-                  {show.data.last_episode && (
-                    <span>
-                      Last: {formatDate(show.data.last_episode, 'short')}
-                    </span>
-                  )}
+                <p class="mt-3 font-mono text-xs/5 text-(--ec-muted)">
+                  {[
+                    show.data.episodes && `${show.data.episodes} episodes`,
+                    show.data.last_episode &&
+                      `Last episode: ${formatDate(show.data.last_episode, 'short')}`,
+                  ]
+                    .filter(Boolean)
+                    .join(' · ')}
                 </p>
               )}
               <EntryDates data={show.data} createdLabel="Started" />
@@ -92,13 +101,7 @@ const covers = [
       })}
     </ul>
 
-    <ContributeNote
-      note={
-        checked &&
-        `Publisher dates and archive status checked ${formatDate(checked)}.`
-      }
-      question="Know a podcast that is not here?"
-    />
+    <ContributeNote question="Know a podcast that is not here?" />
 
     <NewsletterBand title="The episodes worth your time, now and then." />
   </div>

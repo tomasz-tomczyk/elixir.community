@@ -12,14 +12,11 @@ import { formatDate } from '@/lib/site'
 const channels = (await getCollection('youtube')).sort(
   (a, b) => +(b.data.last_video ?? 0) - +(a.data.last_video ?? 0),
 )
-const checked = channels
-  .map((c) => c.data.checked)
-  .filter(Boolean)
-  .sort((a, b) => +b! - +a!)[0]
 const meta = (c: (typeof channels)[number]) =>
   [
     c.data.videos && `${c.data.videos.toLocaleString('en-US')} videos`,
-    c.data.last_video && `Last: ${formatDate(c.data.last_video, 'short')}`,
+    c.data.last_video &&
+      `Last upload: ${formatDate(c.data.last_video, 'short')}`,
   ]
     .filter(Boolean)
     .join('  ·  ')
@@ -49,12 +46,7 @@ const meta = (c: (typeof channels)[number]) =>
       ))}
     </div>
 
-    <ContributeNote
-      note={
-        checked && `Video counts from YouTube, checked ${formatDate(checked)}.`
-      }
-      question="Know a channel that is not here?"
-    />
+    <ContributeNote question="Know a channel that is not here?" />
 
     <NewsletterBand title="The talks worth watching, now and then." />
   </div>

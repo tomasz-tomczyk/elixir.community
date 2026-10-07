@@ -1,0 +1,31 @@
+name: Refresh stats
+# Updates YouTube video counts and podcast episode counts once a week,
+# and opens a pull request when anything changed.
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Mondays 06:00 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: refresh-stats
+  cancel-in-progress: true
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      # Installs Node and pnpm at the versions in mise.toml.
+      - uses: jdx/mise-action@v5.1.1
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm refresh
+      # The refresh script writes YAML its own way. Format it so CI's format check passes.
+      - run: pnpm exec prettier --write src/data
+      - uses: peter-evans/create-pull-request@v8.1.1
+        with:
+          branch: chore/refresh-stats
+          commit-message: Refresh YouTube and podcast stats
+          title: Refresh YouTube and podcast stats
+          body: Weekly update of video counts, episode counts and latest dates, from `pnpm refresh`.
+          delete-branch: true

@@ -8,8 +8,8 @@ import PageHeader from '@/components/PageHeader.astro'
 import SectionArt from '@/components/SectionArt.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
-const companies = (await getCollection('companies')).sort(
-  (a, b) => a.data.order - b.data.order,
+const companies = (await getCollection('companies')).sort((a, b) =>
+  a.data.name.localeCompare(b.data.name),
 )
 const hiring = new Set((await getCollection('jobs')).map((j) => j.data.company))
 ---
@@ -47,7 +47,7 @@ const hiring = new Set((await getCollection('jobs')).map((j) => j.data.company))
               <EntryDates data={c.data} createdLabel="Founded" />
             </span>
             <span class="flex flex-none flex-col items-end gap-1.5 text-right">
-              <span class="font-mono text-[0.8125rem] text-(--ec-muted) max-sm:hidden">
+              <span class="text-sm text-(--ec-muted) max-sm:hidden">
                 {c.data.industry}
               </span>
               {hiring.has(c.id) && (

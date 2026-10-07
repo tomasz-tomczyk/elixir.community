@@ -1,13 +1,14 @@
 ---
 last_updated: '2026-10-07'
 name: Slab
-url: https://elixir-lang.org/blog/2020/11/17/real-time-collaboration-with-elixir-at-slab/
+url: https://slab.com
 industry: Knowledge management
+description: 'A knowledge base for teams to write and find internal docs.'
 about: Phoenix Channels, PubSub and Presence bring real-time collaboration to a
   team wiki.
 order: 13
 reading:
-  - label: Engineering story
+  - label: Elixir blog case study
     url: https://elixir-lang.org/blog/2020/11/17/real-time-collaboration-with-elixir-at-slab/
 image: /images/companies/slab.svg
 ---
@@ -20,4 +21,4 @@ Channels and PubSub supported live comments; Presence tracked people editing a d
 
 ### Source
 
-[Read the engineering story](https://elixir-lang.org/blog/2020/11/17/real-time-collaboration-with-elixir-at-slab/). This profile describes the implementation discussed in that source.
+[Elixir blog case study](https://elixir-lang.org/blog/2020/11/17/real-time-collaboration-with-elixir-at-slab/). This profile describes the implementation discussed in that source.
