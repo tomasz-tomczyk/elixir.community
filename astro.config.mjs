@@ -27,6 +27,8 @@ const entryDate = (url) => {
 
 export default defineConfig({
   site: 'https://elixir.community',
+  // Inline all CSS so pages make no render-blocking stylesheet requests.
+  build: { inlineStylesheets: 'always' },
   integrations: [mdx(), sitemap({ filter: (page) => !['/confirm/', '/thank-you/', '/404/'].includes(new URL(page).pathname), serialize: (item) => ({ ...item, ...(entryDate(item.url) && { lastmod: entryDate(item.url) }) }) })],
   vite: {
     plugins: [tailwindcss()],

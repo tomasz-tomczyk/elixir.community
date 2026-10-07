@@ -8,4 +8,4 @@ const asset = src ? assets[src.replace('/images/', '/src/assets/images/')]?.defa
 const w = width ? Number(width) : undefined
 const h = height ? Number(height) : undefined
 ---
-{asset ? <Image src={asset} alt={alt} width={w} height={h} widths={widths?.filter(n => n <= asset.width)} sizes={sizes} format="webp" {...rest} /> : src ? <img src={src} alt={alt} width={width} height={height} {...rest} /> : null}
+{asset ? <Image src={asset} alt={alt} width={w} height={h} widths={widths && [...new Set(widths.map(n => Math.min(n, asset.width)))]} sizes={sizes} format="webp" {...rest} /> : src ? <img src={src} alt={alt} width={width} height={height} {...rest} /> : null}

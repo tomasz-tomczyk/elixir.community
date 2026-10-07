@@ -89,7 +89,7 @@ const swatches = [
         <i></i>
       </div>
       <div class="ec-hero-grid">
-        <div class="ec-rise">
+        <div class="ec-rise-now">
           <h1 id="hero-title" class="ec-h1">
             The best of Elixir, <span>now and then.</span>
           </h1>
@@ -122,7 +122,7 @@ const swatches = [
             first issue: an open envelope with Nº 001 half out of it, which
             subscribing seals. */}
         {latest ? (
-          <div class="ec-stack ec-rise" style="transition-delay: 0.12s">
+          <div class="ec-stack ec-rise-now" style="animation-delay: 0.12s">
             {backIssues
               .slice()
               .reverse()
@@ -202,8 +202,8 @@ const swatches = [
           </div>
         ) : (
           <PrelaunchEnvelope
-            class="ec-rise max-[959px]:hidden"
-            style="transition-delay: 0.12s"
+            class="ec-rise-now max-[959px]:hidden"
+            style="animation-delay: 0.12s"
           />
         )}
       </div>
