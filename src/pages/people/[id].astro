@@ -107,6 +107,12 @@ const swatches = [
           {bio}
         </blockquote>
 
+        {person.data.profile.length > 0 && (
+          <div class="typography mt-8 max-w-2xl">
+            {person.data.profile.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        )}
+
         <section aria-labelledby="known-for" class="mt-16">
           <h2
             id="known-for"

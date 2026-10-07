@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: Heroku
 url: https://elixir-lang.org/blog/2020/09/24/paas-with-elixir-at-heroku/
-industry: Documented Elixir use
-about: case study 2020-09-24. Documented use at the source date, not a claim of current
-  use in every product.
+industry: Cloud hosting
+about: Elixir supports internal financial services and data processing at the
+  cloud application platform.
 order: 14
 reading:
-- label: Elixir-use source
-  url: https://elixir-lang.org/blog/2020/09/24/paas-with-elixir-at-heroku/
+  - label: Engineering story
+    url: https://elixir-lang.org/blog/2020/09/24/paas-with-elixir-at-heroku/
 image: /images/companies/heroku.webp
 ---
 
-## Documented Elixir use
+## How Heroku uses Elixir
 
-[Heroku: source](https://elixir-lang.org/blog/2020/09/24/paas-with-elixir-at-heroku/) - case study 2020-09-24.
+Heroku's Vault team adopted Elixir for internal licensing and financial services, including invoicing and payments. It started with a rewrite of a service whose requirements and risks were already understood.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+The team then used GenStage to audit large amounts of data. A separate front-end team followed a similar adoption path, beginning with a well-understood problem before extending its use of the language.
+
+### Source
+
+[Read the engineering story](https://elixir-lang.org/blog/2020/09/24/paas-with-elixir-at-heroku/). This profile describes the implementation discussed in that source.

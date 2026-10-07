@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: Duffel
 url: https://elixir-lang.org/blog/2020/12/10/integrating-travel-with-elixir-at-duffel/
-industry: Documented Elixir use
-about: case study 2020-12-10. Documented use at the source date, not a claim of current
-  use in every product.
+industry: Travel
+about: An Elixir travel API brings airline search and booking behind a single
+  interface.
 order: 12
 reading:
-- label: Elixir-use source
-  url: https://elixir-lang.org/blog/2020/12/10/integrating-travel-with-elixir-at-duffel/
+  - label: Engineering story
+    url: https://elixir-lang.org/blog/2020/12/10/integrating-travel-with-elixir-at-duffel/
 image: /images/companies/duffel.webp
 ---
 
-## Documented Elixir use
+## How Duffel uses Elixir
 
-[Duffel: source](https://elixir-lang.org/blog/2020/12/10/integrating-travel-with-elixir-at-duffel/) - case study 2020-12-10.
+Duffel built its Flights API with Elixir, Phoenix and Ecto. One customer request could trigger many airline requests, each with its own payload format, response time and failure modes.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+The team used Elixir's concurrency tools to manage that fan-out and normalize results. The BEAM was a good fit for the same sort of intensive network traffic and coordination it was designed to handle in telecom systems.
+
+### Source
+
+[Read the engineering story](https://elixir-lang.org/blog/2020/12/10/integrating-travel-with-elixir-at-duffel/). This profile describes the implementation discussed in that source.

@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: BBC
 url: https://www.youtube.com/watch?v=e99QDd0_C20
-industry: Documented Elixir use
-about: production-use talk selected by the Elixir team. Documented use at the source
-  date, not a claim of current use in every product.
+industry: Broadcasting
+about: Elixir routing infrastructure handles BBC web and app traffic, with
+  circuit breakers for resilience.
 order: 23
 reading:
-- label: Elixir-use source
-  url: https://www.youtube.com/watch?v=e99QDd0_C20
+  - label: Engineering story
+    url: https://www.youtube.com/watch?v=e99QDd0_C20
 image: /images/companies/bbc.webp
 ---
 
-## Documented Elixir use
+## How BBC uses Elixir
 
-[BBC: source](https://www.youtube.com/watch?v=e99QDd0_C20) - production-use talk selected by the Elixir team.
+Ettore Berardi's ElixirConf EU talk follows the BBC's journey from a proof of concept to infrastructure serving almost all of its web and app traffic. A small team introduced Elixir and gradually built organizational confidence in the system.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+The presentation covers a route-management DSL, handling traffic spikes and circuit breakers with fallback behavior. Those examples show Elixir at the routing layer, not a claim that every BBC product uses it.
+
+### Source
+
+[Read the engineering story](https://www.youtube.com/watch?v=e99QDd0_C20). This profile describes the implementation discussed in that source.

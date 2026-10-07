@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: Spotify
 url: https://podcast.thinkingelixir.com/59
-industry: Documented Elixir use
-about: historical adoption interview. Documented use at the source date, not a claim
-  of current use in every product.
+industry: Audio streaming
+about: Elixir helped an internal team solve concurrency problems and introduce
+  the BEAM to a larger organization.
 order: 24
 reading:
-- label: Elixir-use source
-  url: https://podcast.thinkingelixir.com/59
+  - label: Engineering story
+    url: https://podcast.thinkingelixir.com/59
 image: /images/companies/spotify.webp
 ---
 
-## Documented Elixir use
+## How Spotify uses Elixir
 
-[Spotify: source](https://podcast.thinkingelixir.com/59) - historical adoption interview.
+Joel Kemp describes introducing Elixir at Spotify after running into concurrency problems with the default stack. The BEAM supplied the runtime behavior the team needed for that work.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+The interview focuses on adoption as much as implementation: building internal interest, finding support and moving a technical change through a large company.
+
+### Source
+
+[Read the engineering story](https://podcast.thinkingelixir.com/59). This profile describes the implementation discussed in that source.

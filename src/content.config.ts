@@ -87,6 +87,7 @@ const people = defineCollection({
       )
       .default([]),
     bio: z.string(),
+    profile: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     // Where they work, if the company has a page here.
     company: reference('companies').optional(),

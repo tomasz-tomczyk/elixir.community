@@ -4,46 +4,60 @@
   github: josevalim
   role: Elixir creator; current core team
   known_for:
-  - name: Elixir creator; current core team
-    url: https://github.com/josevalim
+    - name: Elixir creator; current core team
+      url: https://github.com/josevalim
   links: []
   bio: Elixir creator; current core team.
   featured: false
   image: /images/people/jose-valim.webp
+  profile:
+    - José created Elixir and works at Dashbit, where his public profile points
+      to Livebook and Tidewave. His work connects the language itself with tools
+      for interactive development and building applications.
 - last_updated: '2026-10-07'
   id: eric-meadows-jonsson
   name: Eric Meadows-Jönsson
   github: ericmj
   role: current core team; Hex
   known_for:
-  - name: current core team; Hex
-    url: https://github.com/ericmj
+    - name: current core team; Hex
+      url: https://github.com/ericmj
   links: []
   bio: current core team; Hex.
   featured: false
   image: /images/people/eric-meadows-jonsson.webp
+  profile:
+    - Eric is an Elixir core-team member and the creator of Hex, the package
+      manager used to share libraries across the ecosystem. His work gives
+      Elixir developers the infrastructure for publishing and finding
+      dependencies.
 - last_updated: '2026-10-07'
   id: andrea-leopardi
   name: Andrea Leopardi
   github: whatyouhide
   role: current core team; author
   known_for:
-  - name: current core team; author
-    url: https://andrealeopardi.com/about/
+    - name: current core team; author
+      url: https://andrealeopardi.com/about/
   links:
-  - type: website
-    url: https://andrealeopardi.com/about/
+    - type: website
+      url: https://andrealeopardi.com/about/
   bio: current core team; author.
   featured: false
   image: /images/people/andrea-leopardi.webp
+  profile:
+    - Andrea is an Elixir core-team member, library author, speaker and trainer.
+      His writing ranges from testing Elixir applications to network programming
+      with Elixir and Erlang, bringing practical application development and the
+      underlying runtime together.
 - last_updated: '2026-10-07'
   id: jean-klingler
   name: Jean Klingler
   github: sabiwara
   role: current core team
   known_for:
-  - name: current core team
-    url: https://github.com/sabiwara
+    - name: current core team
+      url: https://github.com/sabiwara
   links: []
   bio: current core team.
   featured: false
@@ -54,325 +68,429 @@
   github: chrismccord
   role: Phoenix creator
   known_for:
-  - name: Phoenix creator
-    url: https://chrismccord.com/
+    - name: Phoenix creator
+      url: https://chrismccord.com/
   links:
-  - type: website
-    url: https://chrismccord.com/
+    - type: website
+      url: https://chrismccord.com/
   bio: Phoenix creator.
   featured: false
   image: /images/people/chris-mccord.webp
+  profile:
+    - Chris created Phoenix and co-authored Programming Phoenix 1.4 with Bruce
+      Tate and José Valim. His writing and conference talks explore how to build
+      productive web applications on Elixir, including real-time behavior and
+      the framework's development model.
 - last_updated: '2026-10-07'
   id: jonatan-klosko
   name: Jonatan Kłosko
   github: jonatanklosko
   role: Livebook and Tidewave
   known_for:
-  - name: Livebook and Tidewave
-    url: https://github.com/jonatanklosko
+    - name: Livebook and Tidewave
+      url: https://github.com/jonatanklosko
   links: []
   bio: Livebook and Tidewave.
   featured: false
   image: /images/people/jonatan-kosko.webp
+  profile:
+    - Jonatan works on Livebook, Tidewave and Elixir at Dashbit. His public
+      profile brings together interactive notebooks and development tools,
+      alongside his contributions to the language ecosystem.
 - last_updated: '2026-10-07'
   id: wojtek-mach
   name: Wojtek Mach
   github: wojtekmach
   role: Hex, Ecto and tooling
   known_for:
-  - name: Hex, Ecto and tooling
-    url: https://github.com/wojtekmach
+    - name: Hex, Ecto and tooling
+      url: https://github.com/wojtekmach
   links: []
   bio: Hex, Ecto and tooling.
   featured: true
   image: /images/people/wojtek-mach.webp
+  profile:
+    - Wojtek works at Dashbit and contributes to the Hex and Ecto teams. His
+      public projects include an Ecto adapter for the GitHub API and libraries
+      for calendar intervals and recurring dates.
 - last_updated: '2026-10-07'
   id: sean-moriarity
   name: Sean Moriarity
   github: seanmor5
   role: Nx co-creator and author
   known_for:
-  - name: Nx co-creator and author
-    url: https://seanmoriarity.com/about
+    - name: Nx co-creator and author
+      url: https://seanmoriarity.com/about
   links:
-  - type: website
-    url: https://seanmoriarity.com/about
+    - type: website
+      url: https://seanmoriarity.com/about
   bio: Nx co-creator and author.
   featured: false
   image: /images/people/sean-moriarity.webp
+  profile:
+    - Sean co-created Nx and wrote Genetic Algorithms in Elixir and Machine
+      Learning in Elixir. His work explores how numerical computing, deep
+      learning and evolutionary algorithms can fit into the Elixir ecosystem.
 - last_updated: '2026-10-07'
   id: frank-hunleth
   name: Frank Hunleth
   github: fhunleth
   role: Nerves; embedded Elixir
   known_for:
-  - name: Nerves; embedded Elixir
-    url: https://nerves-project.org/
+    - name: Nerves; embedded Elixir
+      url: https://nerves-project.org/
   links:
-  - type: website
-    url: https://nerves-project.org/
+    - type: website
+      url: https://nerves-project.org/
   bio: Nerves; embedded Elixir.
   featured: false
   image: /images/people/frank-hunleth.webp
+  profile:
+    - Frank works on Nerves, the platform for building and deploying embedded
+      systems with Elixir and the BEAM. He co-authored Build a Binary Clock with
+      Elixir and Nerves, using a hardware project to teach layered application
+      design.
 - last_updated: '2026-10-07'
   id: justin-schneck
   name: Justin Schneck
   github: mobileoverlord
   role: Nerves co-creator
   known_for:
-  - name: Nerves co-creator
-    url: https://www.verytechnology.com/insights/the-story-of-the-nerves-project-what-brought-me-to-very
+    - name: Nerves co-creator
+      url: https://www.verytechnology.com/insights/the-story-of-the-nerves-project-what-brought-me-to-very
   links:
-  - type: website
-    url: https://www.verytechnology.com/insights/the-story-of-the-nerves-project-what-brought-me-to-very
+    - type: website
+      url: https://www.verytechnology.com/insights/the-story-of-the-nerves-project-what-brought-me-to-very
   bio: Nerves co-creator.
   featured: false
   image: /images/people/justin-schneck.webp
+  profile:
+    - Justin co-created Nerves, bringing the BEAM and Elixir into embedded
+      development. In his account of the project, he traces that work back to a
+      long-running interest in computing and connected hardware.
 - last_updated: '2026-10-07'
   id: lars-wikman
   name: Lars Wikman
   github: lawik
   role: Nerves, Underjord and Goatmire
   known_for:
-  - name: Nerves, Underjord and Goatmire
-    url: https://underjord.io/
+    - name: Nerves, Underjord and Goatmire
+      url: https://underjord.io/
   links:
-  - type: website
-    url: https://underjord.io/
+    - type: website
+      url: https://underjord.io/
   bio: Nerves, Underjord and Goatmire.
   featured: false
   image: /images/people/lars-wikman.webp
+  profile:
+    - Lars writes at Underjord, where his Unpacking Elixir series explores the
+      language and its runtime. He also writes about building software
+      sustainably, giving developers a place to connect technical decisions with
+      the practice of maintaining real systems.
 - last_updated: '2026-10-07'
   id: zach-daniel
   name: Zach Daniel
   github: zachdaniel
   role: Ash and Igniter
   known_for:
-  - name: Ash and Igniter
-    url: https://github.com/zachdaniel/
+    - name: Ash and Igniter
+      url: https://github.com/zachdaniel/
   links: []
   bio: Ash and Igniter.
   featured: false
   image: /images/people/zach-daniel.webp
+  profile:
+    - "Zach created Ash Framework and co-authored its book with Rebecca Le. His
+      work focuses on declarative design: describing application resources and
+      behavior so shared tools can handle more of the repeated implementation
+      work."
 - last_updated: '2026-10-07'
   id: rebecca-le
   name: Rebecca Le
   github: sevenseacat
   role: Ash author and educator
   known_for:
-  - name: Ash author and educator
-    url: https://pragprog.com/titles/ldash/ash-framework/
+    - name: Ash author and educator
+      url: https://pragprog.com/titles/ldash/ash-framework/
   links:
-  - type: website
-    url: https://pragprog.com/titles/ldash/ash-framework/
+    - type: website
+      url: https://pragprog.com/titles/ldash/ash-framework/
   bio: Ash author and educator.
   featured: false
   image: /images/people/rebecca-le.webp
+  profile:
+    - Rebecca is an Ash Framework core-team member and co-author of Ash
+      Framework with Zach Daniel. The book teaches declarative Elixir
+      application development, connecting domain modeling and data handling with
+      Phoenix and LiveView.
 - last_updated: '2026-10-07'
   id: bruce-tate
   name: Bruce Tate
   github: batate
   role: author, educator and GigCityElixir organiser
   known_for:
-  - name: author, educator and GigCityElixir organiser
-    url: https://grox.io/courses
+    - name: author, educator and GigCityElixir organiser
+      url: https://grox.io/courses
   links:
-  - type: website
-    url: https://grox.io/courses
+    - type: website
+      url: https://grox.io/courses
   bio: author, educator and GigCityElixir organiser.
   featured: false
   image: /images/people/bruce-tate.webp
+  profile:
+    - Bruce teaches Elixir through Groxio, covering fundamentals, OTP, LiveView,
+      Nerves, Ecto and machine learning. His books and courses approach complex
+      systems through practical examples and a gradual understanding of their
+      building blocks.
 - last_updated: '2026-10-07'
   id: sasa-juric
   name: Saša Jurić
   github: sasa1977
   role: Elixir in Action author
   known_for:
-  - name: Elixir in Action author
-    url: https://www.manning.com/books/elixir-in-action-third-edition
+    - name: Elixir in Action author
+      url: https://www.manning.com/books/elixir-in-action-third-edition
   links:
-  - type: website
-    url: https://www.manning.com/books/elixir-in-action-third-edition
+    - type: website
+      url: https://www.manning.com/books/elixir-in-action-third-edition
   bio: Elixir in Action author.
   featured: false
   image: /images/people/sasa-juric.webp
+  profile:
+    - Saša wrote Elixir in Action, a practical guide to building concurrent and
+      fault-tolerant systems. The third edition takes readers from functional
+      programming into processes, OTP behavior and production-oriented
+      application design.
 - last_updated: '2026-10-07'
   id: sophie-debenedetto
   name: Sophie DeBenedetto
   github: SophieDeBenedetto
   role: LiveView author and educator
   known_for:
-  - name: LiveView author and educator
-    url: https://pragprog.com/titles/liveview/programming-phoenix-liveview/
+    - name: LiveView author and educator
+      url: https://pragprog.com/titles/liveview/programming-phoenix-liveview/
   links:
-  - type: website
-    url: https://pragprog.com/titles/liveview/programming-phoenix-liveview/
+    - type: website
+      url: https://pragprog.com/titles/liveview/programming-phoenix-liveview/
   bio: LiveView author and educator.
   featured: false
   image: /images/people/sophie-debenedetto.webp
+  profile:
+    - Sophie co-authored Programming Phoenix LiveView with Bruce Tate. Her work
+      combines interactive Elixir web development with coding education, drawing
+      on experience teaching, speaking and organizing community events.
 - last_updated: '2026-10-07'
   id: james-edward-gray-ii
   name: James Edward Gray II
   github: JEG2
   role: OTP author and educator
   known_for:
-  - name: OTP author and educator
-    url: https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
+    - name: OTP author and educator
+      url: https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
   links:
-  - type: website
-    url: https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
+    - type: website
+      url: https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
   bio: OTP author and educator.
   featured: false
   image: /images/people/james-edward-gray-ii.webp
+  profile:
+    - James co-authored Designing Elixir Systems with OTP with Bruce Tate. The
+      book develops applications in layers, separating functional logic from
+      concurrent processes and supervision so readers can reason about failure
+      and recovery.
 - last_updated: '2026-10-07'
   id: alex-koutmos
   name: Alex Koutmos
   github: akoutmos
   role: author and educator
   known_for:
-  - name: author and educator
-    url: https://pragprog.com/titles/d-akelixir/elixir-patterns/
+    - name: author and educator
+      url: https://pragprog.com/titles/d-akelixir/elixir-patterns/
   links:
-  - type: website
-    url: https://pragprog.com/titles/d-akelixir/elixir-patterns/
+    - type: website
+      url: https://pragprog.com/titles/d-akelixir/elixir-patterns/
   bio: author and educator.
   featured: false
   image: /images/people/alex-koutmos.webp
+  profile:
+    - Alex wrote Elixir Patterns, a practical handbook for developers working
+      with the BEAM. Its examples connect core language techniques with the
+      patterns used to structure and operate Elixir applications.
 - last_updated: '2026-10-07'
   id: peter-ullrich
   name: Peter Ullrich
   github: PJUllrich
   role: LiveView author and educator
   known_for:
-  - name: LiveView author and educator
-    url: https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/
+    - name: LiveView author and educator
+      url: https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/
   links:
-  - type: website
-    url: https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/
+    - type: website
+      url: https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/
   bio: LiveView author and educator.
   featured: false
   image: /images/people/peter-ullrich.webp
+  profile:
+    - Peter wrote Building Table Views with Phoenix LiveView. The book tackles
+      everyday interface work such as pagination, sorting, filtering and
+      infinite scrolling through reusable LiveView components and Ecto queries.
 - last_updated: '2026-10-07'
   id: mitchell-hanberg
   name: Mitchell Hanberg
   github: mhanberg
   role: Elixir developer tooling / LSP
   known_for:
-  - name: Elixir developer tooling / LSP
-    url: https://www.mitchellhanberg.com/
+    - name: Elixir developer tooling / LSP
+      url: https://www.mitchellhanberg.com/
   links:
-  - type: website
-    url: https://www.mitchellhanberg.com/
+    - type: website
+      url: https://www.mitchellhanberg.com/
   bio: Elixir developer tooling / LSP.
   featured: false
   image: /images/people/mitchell-hanberg.webp
+  profile:
+    - Mitchell contributes to Elixir developer tools and maintains Wallaby, the
+      browser-testing library. His account of joining that project describes
+      learning the codebase through small contributions before taking on a
+      maintainer role.
 - last_updated: '2026-10-07'
   id: german-velasco
   name: German Velasco
   github: germsvel
   role: Elixir educator
   known_for:
-  - name: Elixir educator
-    url: https://www.germanvelasco.com/talks
+    - name: Elixir educator
+      url: https://www.germanvelasco.com/talks
   links:
-  - type: website
-    url: https://www.germanvelasco.com/talks
+    - type: website
+      url: https://www.germanvelasco.com/talks
   bio: Elixir educator.
   featured: false
   image: /images/people/german-velasco.webp
+  profile:
+    - German teaches Elixir through talks and interviews about testing,
+      application design and Phoenix. His published talks include mocking,
+      domain-driven design and organizing code with Phoenix contexts.
 - last_updated: '2026-10-07'
   id: jacob-luetzow
   name: Jacob Luetzow
   github: jacobluetzow
   role: Elixir Mentor
   known_for:
-  - name: Elixir Mentor
-    url: https://elixirmentor.com/
+    - name: Elixir Mentor
+      url: https://elixirmentor.com/
   links:
-  - type: website
-    url: https://elixirmentor.com/
+    - type: website
+      url: https://elixirmentor.com/
   bio: Elixir Mentor.
   featured: false
   image: /images/people/jacob-luetzow.webp
+  profile:
+    - Jacob runs Elixir Mentor, creating tutorials, live coding sessions and
+      interviews with people in the ecosystem. The project helps developers
+      learn Elixir through working examples and conversations about how it is
+      used.
 - last_updated: '2026-10-07'
   id: adolfo-neto
   name: Adolfo Neto
   github: adolfont
   role: Brazilian community, podcast and events
   known_for:
-  - name: Brazilian community, podcast and events
-    url: https://elixiremfoco.com/
+    - name: Brazilian community, podcast and events
+      url: https://elixiremfoco.com/
   links:
-  - type: website
-    url: https://elixiremfoco.com/
+    - type: website
+      url: https://elixiremfoco.com/
   bio: Brazilian community, podcast and events.
   featured: false
   image: /images/people/adolfo-neto.webp
+  profile:
+    - Adolfo created and presents Elixir em Foco, a podcast rooted in the
+      Brazilian Elixir community. He teaches, writes, researches and develops
+      with Elixir and Erlang, and the show also makes room for related
+      functional languages.
 - last_updated: '2026-10-07'
   id: zoey-pessanha
   name: Zoey Pessanha
-  github: ''
+  github: ""
   role: podcast presenter and community contributor
   known_for:
-  - name: podcast presenter and community contributor
-    url: https://elixiremfoco.com/index_en.html
+    - name: podcast presenter and community contributor
+      url: https://elixiremfoco.com/index_en.html
   links:
-  - type: website
-    url: https://elixiremfoco.com/index_en.html
+    - type: website
+      url: https://elixiremfoco.com/index_en.html
   bio: podcast presenter and community contributor.
   featured: false
   image: /images/people/zoey-pessanha.webp
+  profile:
+    - Zoey presents Elixir em Foco and promotes functional programming and
+      Elixir. The podcast brings conversations with Brazilian developers
+      together with guests from the wider functional-language community.
 - last_updated: '2026-10-07'
   id: mark-ericksen
   name: Mark Ericksen
   github: brainlid
   role: Thinking Elixir host
   known_for:
-  - name: Thinking Elixir host
-    url: https://podcast.thinkingelixir.com/309
+    - name: Thinking Elixir host
+      url: https://podcast.thinkingelixir.com/309
   links:
-  - type: website
-    url: https://podcast.thinkingelixir.com/309
+    - type: website
+      url: https://podcast.thinkingelixir.com/309
   bio: Thinking Elixir host.
   featured: false
   image: /images/people/mark-ericksen.webp
+  profile:
+    - Mark hosted Thinking Elixir, combining ecosystem news with interviews and
+      practical discussion. The final episode closed six years of weekly shows
+      and also discussed his work on Sagents and what he planned to build next.
 - last_updated: '2026-10-07'
   id: stephen-bussey
   name: Stephen Bussey
   github: sb8244
   role: author
   known_for:
-  - name: author
-    url: https://pragprog.com/titles/sbsockets/real-time-phoenix/
+    - name: author
+      url: https://pragprog.com/titles/sbsockets/real-time-phoenix/
   links:
-  - type: website
-    url: https://pragprog.com/titles/sbsockets/real-time-phoenix/
+    - type: website
+      url: https://pragprog.com/titles/sbsockets/real-time-phoenix/
   bio: author.
   featured: false
   image: /images/people/stephen-bussey.webp
+  profile:
+    - Stephen wrote Real-Time Phoenix and From Ruby to Elixir. His books cover
+      scalable real-time applications and the transition from an object-oriented
+      Ruby background to functional programming and the BEAM process model.
 - last_updated: '2026-10-07'
   id: dave-thomas
   name: Dave Thomas
   github: pragdave
   role: author and educator
   known_for:
-  - name: author and educator
-    url: https://pragprog.com/titles/elixir16/programming-elixir-1-6/
+    - name: author and educator
+      url: https://pragprog.com/titles/elixir16/programming-elixir-1-6/
   links:
-  - type: website
-    url: https://pragprog.com/titles/elixir16/programming-elixir-1-6/
+    - type: website
+      url: https://pragprog.com/titles/elixir16/programming-elixir-1-6/
   bio: author and educator.
   featured: false
   image: /images/people/dave-thomas.webp
+  profile:
+    - Dave wrote Programming Elixir 1.6, introducing functional programming,
+      concurrency and practical application development. It remains a
+      version-specific edition, useful as a record of how those ideas were
+      taught in that generation of the language.
 - last_updated: '2026-10-07'
   role: Oban core team
-  known_for: &id001
-  - name: Oban core team
-    url: https://2026.goatmire.com/
+  known_for: &a1
+    - name: Oban core team
+      url: https://2026.goatmire.com/
   links:
-  - &id002
-    type: website
-    url: https://2026.goatmire.com/
+    - &a2
+      type: website
+      url: https://2026.goatmire.com/
   bio: Oban core team.
   featured: false
   name: Parker Selbert
@@ -381,9 +499,9 @@
   image: /images/people/parker-selbert.webp
 - last_updated: '2026-10-07'
   role: Oban core team
-  known_for: *id001
+  known_for: *a1
   links:
-  - *id002
+    - *a2
   bio: Oban core team.
   featured: false
   name: Shannon Selbert

@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: Royal Bank of Canada
 url: https://podcast.thinkingelixir.com/125
-industry: Documented Elixir use
-about: 2022 production-use interview. Documented use at the source date, not a claim
-  of current use in every product.
+industry: Banking
+about: Elixir and LiveView support work in Capital Markets, including live
+  financial charts.
 order: 22
 reading:
-- label: Elixir-use source
-  url: https://podcast.thinkingelixir.com/125
+  - label: Engineering story
+    url: https://podcast.thinkingelixir.com/125
 image: /images/companies/royal-bank-of-canada.svg
 ---
 
-## Documented Elixir use
+## How Royal Bank of Canada uses Elixir
 
-[Royal Bank of Canada: source](https://podcast.thinkingelixir.com/125) - 2022 production-use interview.
+Thanos Vassilakis, head of R&D in the Capital Markets group, describes using Elixir inside the Royal Bank of Canada. His interview covers the practical barriers to adopting a new language within a large financial institution.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+One example involved hundreds of live-updating financial charts. After testing LiveView against a React implementation, the team adopted LiveView for that work.
+
+### Source
+
+[Read the engineering story](https://podcast.thinkingelixir.com/125). This profile describes the implementation discussed in that source.

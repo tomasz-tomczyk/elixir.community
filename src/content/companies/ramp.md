@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: Ramp
 url: https://builders.ramp.com/post/elixir-at-ramp
-industry: Documented Elixir use
-about: engineering account of specific production services. Documented use at the
-  source date, not a claim of current use in every product.
+industry: Financial technology
+about: Elixir supports selected fintech services, with an emphasis on
+  concurrency and reliable failure handling.
 order: 18
 reading:
-- label: Elixir-use source
-  url: https://builders.ramp.com/post/elixir-at-ramp
+  - label: Engineering story
+    url: https://builders.ramp.com/post/elixir-at-ramp
 image: /images/companies/ramp.webp
 ---
 
-## Documented Elixir use
+## How Ramp uses Elixir
 
-[Ramp: source](https://builders.ramp.com/post/elixir-at-ramp) - engineering account of specific production services.
+Ramp engineer Pablo Meier describes choosing Elixir for several systems at the company. The appeal was the BEAM's concurrency and partial-failure guarantees, together with the development tools provided by Elixir.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+The account also explains how immutability, explicit module calls, concurrent tests and documentation conventions helped the team reason about a growing codebase. It does not identify Elixir as Ramp's only backend language.
+
+### Source
+
+[Read the engineering story](https://builders.ramp.com/post/elixir-at-ramp). This profile describes the implementation discussed in that source.

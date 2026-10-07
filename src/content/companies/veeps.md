@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: Veeps
 url: https://elixir-lang.org/blog/2024/03/05/veeps-elixir-case/
-industry: Documented Elixir use
-about: case study 2024-03-05. Documented use at the source date, not a claim of current
-  use in every product.
+industry: Live entertainment
+about: Elixir and Phoenix support live concert streaming, real-time interaction
+  and ticket shopping.
 order: 5
 reading:
-- label: Elixir-use source
-  url: https://elixir-lang.org/blog/2024/03/05/veeps-elixir-case/
+  - label: Engineering story
+    url: https://elixir-lang.org/blog/2024/03/05/veeps-elixir-case/
 image: /images/companies/veeps.svg
 ---
 
-## Documented Elixir use
+## How Veeps uses Elixir
 
-[Veeps: source](https://elixir-lang.org/blog/2024/03/05/veeps-elixir-case/) - case study 2024-03-05.
+Veeps rebuilt its backend in Elixir and Phoenix after encountering scaling limits in its earlier system. The rewrite brought the concert platform and its ticket-shopping experience onto one stack.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+Phoenix Channels supported interaction during live concerts, while LiveView handled the ticket-shopping journey. The team described completing the rewrite in eight months and supporting events with hundreds of thousands of concurrent viewers.
+
+### Source
+
+[Read the engineering story](https://elixir-lang.org/blog/2024/03/05/veeps-elixir-case/). This profile describes the implementation discussed in that source.

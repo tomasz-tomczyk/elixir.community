@@ -4,9 +4,7 @@ interface Props {
   createdLabel?: string
 }
 const { data, createdLabel = 'Created' } = Astro.props
-const created = data.created ?? (data.year ? String(data.year) : undefined)
-const label = (value: string) => value.length === 4 ? value : new Date(`${value.length === 7 ? value + '-01' : value}T00:00:00Z`).toLocaleDateString('en-GB', { timeZone: 'UTC', day: value.length === 7 ? undefined : 'numeric', month: 'short', year: 'numeric' })
+// Source dates remain in structured metadata. Only the existing book year is visible.
+const year = createdLabel === 'Published' ? data.year : undefined
 ---
-<span class="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs/5 text-(--ec-muted)">
-  {created && <span>{createdLabel}: <time datetime={created}>{label(created)}</time></span>}
-</span>
+{year && <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs/5 text-(--ec-muted)"><span>Published: <time datetime={String(year)}>{year}</time></span></span>}

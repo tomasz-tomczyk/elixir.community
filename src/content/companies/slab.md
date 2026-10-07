@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: Slab
 url: https://elixir-lang.org/blog/2020/11/17/real-time-collaboration-with-elixir-at-slab/
-industry: Documented Elixir use
-about: case study 2020-11-17. Documented use at the source date, not a claim of current
-  use in every product.
+industry: Knowledge management
+about: Phoenix Channels, PubSub and Presence bring real-time collaboration to a
+  team wiki.
 order: 13
 reading:
-- label: Elixir-use source
-  url: https://elixir-lang.org/blog/2020/11/17/real-time-collaboration-with-elixir-at-slab/
+  - label: Engineering story
+    url: https://elixir-lang.org/blog/2020/11/17/real-time-collaboration-with-elixir-at-slab/
 image: /images/companies/slab.svg
 ---
 
-## Documented Elixir use
+## How Slab uses Elixir
 
-[Slab: source](https://elixir-lang.org/blog/2020/11/17/real-time-collaboration-with-elixir-at-slab/) - case study 2020-11-17.
+Slab chose Elixir and Phoenix to build a collaborative knowledge base. Its early proof of concept let multiple people write a blog post together and see comments arrive in real time.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+Channels and PubSub supported live comments; Presence tracked people editing a document and their cursor colors. Elixir tasks supplied asynchronous processing without requiring a separate application stack.
+
+### Source
+
+[Read the engineering story](https://elixir-lang.org/blog/2020/11/17/real-time-collaboration-with-elixir-at-slab/). This profile describes the implementation discussed in that source.

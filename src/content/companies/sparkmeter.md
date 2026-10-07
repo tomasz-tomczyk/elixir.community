@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: SparkMeter
 url: https://elixir-lang.org/blog/2023/03/09/embedded-and-cloud-elixir-at-sparkmeter/
-industry: Documented Elixir use
-about: case study 2023-03-09. Documented use at the source date, not a claim of current
-  use in every product.
+industry: Energy
+about: Elixir connects embedded grid hardware, data processing and cloud APIs
+  for electricity networks.
 order: 6
 reading:
-- label: Elixir-use source
-  url: https://elixir-lang.org/blog/2023/03/09/embedded-and-cloud-elixir-at-sparkmeter/
+  - label: Engineering story
+    url: https://elixir-lang.org/blog/2023/03/09/embedded-and-cloud-elixir-at-sparkmeter/
 image: /images/companies/sparkmeter.webp
 ---
 
-## Documented Elixir use
+## How SparkMeter uses Elixir
 
-[SparkMeter: source](https://elixir-lang.org/blog/2023/03/09/embedded-and-cloud-elixir-at-sparkmeter/) - case study 2023-03-09.
+SparkMeter uses Elixir across embedded devices and cloud services for grid management. Nerves gives its hardware a shared development and deployment foundation with the rest of the Elixir system.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+The team needed distributed, fault-tolerant software that could cope with partial failures. Nerves also helped with local iteration on hardware and control over the boot process when parts of a device could not start.
+
+### Source
+
+[Read the engineering story](https://elixir-lang.org/blog/2023/03/09/embedded-and-cloud-elixir-at-sparkmeter/). This profile describes the implementation discussed in that source.

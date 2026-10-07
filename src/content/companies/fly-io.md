@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: Fly.io
 url: https://fly.io/jobs/fullstack-engineer/
-industry: Documented Elixir use
-about: live role page explicitly says Elixir/Phoenix. Documented use at the source
-  date, not a claim of current use in every product.
+industry: Cloud hosting
+about: Elixir and Phoenix are part of the product engineering stack at the
+  application hosting platform.
 order: 17
 reading:
-- label: Elixir-use source
-  url: https://fly.io/jobs/fullstack-engineer/
+  - label: Engineering story
+    url: https://fly.io/jobs/fullstack-engineer/
 image: /images/companies/fly-io.webp
 ---
 
-## Documented Elixir use
+## How Fly.io uses Elixir
 
-[Fly.io: source](https://fly.io/jobs/fullstack-engineer/) - live role page explicitly says Elixir/Phoenix.
+Fly.io's fullstack engineering role names Elixir and Phoenix alongside Ruby and Rails as primary tools. The work spans interface design, backend investigation and connecting APIs for new product features.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+Its role description emphasizes following reliability problems through existing code and telemetry. This is evidence for that engineering work, not a claim that every component of the hosting platform is written in Elixir.
+
+### Source
+
+[Read the engineering story](https://fly.io/jobs/fullstack-engineer/). This profile describes the implementation discussed in that source.

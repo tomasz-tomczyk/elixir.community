@@ -2,18 +2,21 @@
 last_updated: '2026-10-07'
 name: Mux
 url: https://runninginproduction.com/podcast/31-mux-is-an-api-based-platform-that-lets-you-process-and-stream-videos
-industry: Documented Elixir use
-about: historical production-use interview. Documented use at the source date, not
-  a claim of current use in every product.
+industry: Video infrastructure
+about: Phoenix powers its public video API and real-time dashboard, alongside Go video-processing services.
 order: 25
 reading:
-- label: Elixir-use source
-  url: https://runninginproduction.com/podcast/31-mux-is-an-api-based-platform-that-lets-you-process-and-stream-videos
+  - label: Engineering story
+    url: https://runninginproduction.com/podcast/31-mux-is-an-api-based-platform-that-lets-you-process-and-stream-videos
 image: /images/companies/mux.svg
 ---
 
-## Documented Elixir use
+## How Mux uses Elixir
 
-[Mux: source](https://runninginproduction.com/podcast/31-mux-is-an-api-based-platform-that-lets-you-process-and-stream-videos) - historical production-use interview.
+Mux engineer Dylan Jhaveri describes a Phoenix public API and a real-time dashboard powered by WebSockets and Channels. Elixir handles API work, asynchronous jobs and rate limiting, while Go services do CPU-intensive video processing.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+The team used the exq library for background jobs within the application supervision tree. This is a useful division of responsibilities: Elixir coordinates requests and application behavior, while the video infrastructure does the encoding.
+
+### Source
+
+[Read the engineering story](https://runninginproduction.com/podcast/31-mux-is-an-api-based-platform-that-lets-you-process-and-stream-videos). This profile describes the implementation discussed in that source.

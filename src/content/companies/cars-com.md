@@ -2,17 +2,21 @@
 last_updated: '2026-10-07'
 name: Cars.com
 url: https://smartlogic.io/podcast/elixir-wizards/s14-e06-sdui-graphql-elixir/
-industry: Documented Elixir use
-about: engineer interview on production Elixir/GraphQL. Documented use at the source
-  date, not a claim of current use in every product.
+industry: Automotive
+about: Elixir and GraphQL drive server-defined interfaces shared across web, iOS
+  and Android.
 order: 20
 reading:
-- label: Elixir-use source
-  url: https://smartlogic.io/podcast/elixir-wizards/s14-e06-sdui-graphql-elixir/
+  - label: Engineering story
+    url: https://smartlogic.io/podcast/elixir-wizards/s14-e06-sdui-graphql-elixir/
 ---
 
-## Documented Elixir use
+## How Cars.com uses Elixir
 
-[Cars.com: source](https://smartlogic.io/podcast/elixir-wizards/s14-e06-sdui-graphql-elixir/) - engineer interview on production Elixir/GraphQL.
+Cars.com engineer Zack Kayser describes a server-driven UI architecture powered by Elixir and GraphQL. The server defines abstract components and layouts so clients can share a consistent design without duplicating the same logic.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+The approach lets teams update layouts, run experiments and make some fixes on the server. The interview also covers GraphQL integration tests and coordinating schema changes across client teams.
+
+### Source
+
+[Read the engineering story](https://smartlogic.io/podcast/elixir-wizards/s14-e06-sdui-graphql-elixir/). This profile describes the implementation discussed in that source.

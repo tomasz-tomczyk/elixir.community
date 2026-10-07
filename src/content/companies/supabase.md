@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: Supabase
 url: https://supabase.com/blog/supavisor-postgres-connection-pooler
-industry: Documented Elixir use
-about: Supavisor is explicitly built with Elixir. Documented use at the source date,
-  not a claim of current use in every product.
+industry: Database tools
+about: Supavisor, its Postgres connection pooler, is built in Elixir with Rust
+  handling SQL parsing.
 order: 16
 reading:
-- label: Elixir-use source
-  url: https://supabase.com/blog/supavisor-postgres-connection-pooler
+  - label: Engineering story
+    url: https://supabase.com/blog/supavisor-postgres-connection-pooler
 image: /images/companies/supabase.webp
 ---
 
-## Documented Elixir use
+## How Supabase uses Elixir
 
-[Supabase: source](https://supabase.com/blog/supavisor-postgres-connection-pooler) - Supavisor is explicitly built with Elixir.
+Supabase built Supavisor in Elixir to manage Postgres connections with high concurrency and heavy I/O. The pooler sits between clients and database servers rather than replacing Postgres itself.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+For SQL parsing, the team brought Rust into the Elixir application through Rustler. Supavisor also supports distributing read requests between a primary server and replicas.
+
+### Source
+
+[Read the engineering story](https://supabase.com/blog/supavisor-postgres-connection-pooler). This profile describes the implementation discussed in that source.

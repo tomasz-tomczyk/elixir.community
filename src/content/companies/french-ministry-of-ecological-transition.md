@@ -2,18 +2,22 @@
 last_updated: '2026-10-07'
 name: French Ministry of Ecological Transition
 url: https://elixir-lang.org/blog/2021/11/10/embracing-open-data-with-elixir-at-the-ministry-of-ecological-transition-in-france/
-industry: Documented Elixir use
-about: case study 2021-11-10. Documented use at the source date, not a claim of current
-  use in every product.
+industry: Public services
+about: Phoenix supports France's transport open-data portal, coordinating
+  validation and data from different providers.
 order: 7
 reading:
-- label: Elixir-use source
-  url: https://elixir-lang.org/blog/2021/11/10/embracing-open-data-with-elixir-at-the-ministry-of-ecological-transition-in-france/
+  - label: Engineering story
+    url: https://elixir-lang.org/blog/2021/11/10/embracing-open-data-with-elixir-at-the-ministry-of-ecological-transition-in-france/
 image: /images/companies/french-ministry-of-ecological-transition.webp
 ---
 
-## Documented Elixir use
+## How French Ministry of Ecological Transition uses Elixir
 
-[French Ministry of Ecological Transition: source](https://elixir-lang.org/blog/2021/11/10/embracing-open-data-with-elixir-at-the-ministry-of-ecological-transition-in-france/) - case study 2021-11-10.
+The ministry's transport-data team built the National Access Point with Phoenix. The service brings together transportation datasets and tools for exploring, validating and visualizing them.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+Elixir coordinates validators and converters written in other languages, alongside static datasets, periodic polling and open connections. The team also explored LiveView for presenting transport data as it changes.
+
+### Source
+
+[Read the engineering story](https://elixir-lang.org/blog/2021/11/10/embracing-open-data-with-elixir-at-the-ministry-of-ecological-transition-in-france/). This profile describes the implementation discussed in that source.

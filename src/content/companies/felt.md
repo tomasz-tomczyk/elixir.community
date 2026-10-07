@@ -2,18 +2,21 @@
 last_updated: '2026-10-07'
 name: Felt
 url: https://elixirforum.com/t/web-elixir-engineer-felt-remote-usa/72259
-industry: Documented Elixir use
-about: 2025 hiring announcement describes platform built on Elixir and React. Documented
-  use at the source date, not a claim of current use in every product.
+industry: Mapping
+about: An Elixir and React mapping platform for real-time collaborative mapmaking.
 order: 19
 reading:
-- label: Elixir-use source
-  url: https://elixirforum.com/t/web-elixir-engineer-felt-remote-usa/72259
+  - label: Engineering story
+    url: https://elixirforum.com/t/web-elixir-engineer-felt-remote-usa/72259
 image: /images/companies/felt.svg
 ---
 
-## Documented Elixir use
+## How Felt uses Elixir
 
-[Felt: source](https://elixirforum.com/t/web-elixir-engineer-felt-remote-usa/72259) - 2025 hiring announcement describes platform built on Elixir and React.
+Felt's engineering hiring post describes its mapping platform as built on Elixir and React. The platform lets people work together on maps and spatial data.
 
-This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.
+The advertised role combined growth systems with work on the core mapping product. That makes it a concrete example of Elixir supporting a collaborative web application.
+
+### Source
+
+[Read the engineering story](https://elixirforum.com/t/web-elixir-engineer-felt-remote-usa/72259). This profile describes the implementation discussed in that source.
