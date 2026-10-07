@@ -10,7 +10,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const books = (await getCollection('books')).sort(
   (a, b) =>
-    b.data.year - a.data.year || a.data.title.localeCompare(b.data.title),
+    (b.data.year ?? 0) - (a.data.year ?? 0) || a.data.title.localeCompare(b.data.title),
 )
 ---
 
@@ -26,6 +26,7 @@ const books = (await getCollection('books')).sort(
     <div class="ec-rise mt-16 grid grid-cols-2 gap-x-5 gap-y-12 border-t border-(--ec-line) pt-12 sm:gap-x-8 md:grid-cols-3 lg:grid-cols-5">
       {books.map((b, i) => (
         <BookCover
+          image={b.data.image}
           title={b.data.title}
           author={b.data.author}
           href={b.data.url}

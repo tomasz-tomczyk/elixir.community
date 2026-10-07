@@ -13,7 +13,7 @@ const companies = new Map(
 )
 const companyName = (id: string) => companies.get(id)?.data.name ?? id
 const jobs = (await getCollection('jobs')).sort(
-  (a, b) => +b.data.posted - +a.data.posted,
+  (a, b) => +b.data.checked - +a.data.checked,
 )
 const [newest, ...older] = jobs
 // First sentence under "## The role", for the featured job.
@@ -89,9 +89,9 @@ const intro = newest?.body
                   </span>
                   <time
                     class="flex-none font-mono text-[0.8125rem] text-(--ec-muted)"
-                    datetime={job.data.posted.toISOString()}
+                    datetime={job.data.checked.toISOString()}
                   >
-                    {formatDate(job.data.posted, 'short')}
+                    {formatDate(job.data.checked, 'short')}
                   </time>
                 </a>
               </li>

@@ -1,41 +1,98 @@
-# episodes, last_episode, and checked are written by `npm run refresh` from each RSS feed.
-- id: thinking-elixir
-  title: Thinking Elixir
-  hosts: Mark Ericksen & David Bernheisel
-  url: https://podcast.thinkingelixir.com
-  feed: https://feeds.fireside.fm/thinkingelixir/rss
-  hue: 300
-  description: News roundups and interviews. A good way to keep up in half an hour.
-  episodes: 309
-  last_episode: 2026-06-23
-  checked: 2026-10-06
+- id: beam-there-done-that
+  title: BEAM There, Done That
+  hosts: ''
+  url: https://anchor.fm/s/10f787368/podcast/rss
+  hue: 270
+  description: Alex Koutmos on Elixir for Finance, Trading & Blockchain
+  last_episode: '2026-10-02'
+  checked: '2026-10-07'
+  feed: https://anchor.fm/s/10f787368/podcast/rss
+  image: /images/podcasts/beam-there-done-that.webp
+- id: elixir-mentor
+  title: Elixir Mentor
+  hosts: ''
+  url: https://elixirmentor.com/
+  hue: 270
+  description: Mike Hostetler on Jido v3
+  last_episode: '2026-10-02'
+  checked: '2026-10-07'
+  feed: https://anchor.fm/s/ea6e5268/podcast/rss
+  image: /images/podcasts/elixir-mentor.webp
+- id: elixir-em-foco
+  title: Elixir em Foco
+  hosts: ''
+  url: https://elixiremfoco.com/
+  hue: 270
+  description: Portuguese
+  last_episode: '2026-09-03'
+  checked: '2026-10-07'
+  feed: https://anchor.fm/s/4d4944e8/podcast/rss
+  image: /images/podcasts/elixir-em-foco.webp
 - id: elixir-wizards
   title: Elixir Wizards
-  hosts: SmartLogic
+  hosts: ''
   url: https://smartlogic.io/podcast/elixir-wizards/
+  hue: 270
+  description: season 15 finale
+  last_episode: '2026-07-23'
+  checked: '2026-10-07'
   feed: https://feeds.fireside.fm/smartlogic/rss
-  hue: 260
-  description: Long conversations with people who build with Elixir, one theme per season.
-  episodes: 209
-  last_episode: 2026-07-23
-  checked: 2026-10-06
+  image: /images/podcasts/elixir-wizards.webp
+- id: thinking-elixir
+  title: Thinking Elixir
+  hosts: ''
+  url: https://podcast.thinkingelixir.com/309
+  hue: 270
+  description: 'ended, final episode #309'
+  last_episode: '2026-06-23'
+  checked: '2026-10-07'
+  feed: https://feeds.fireside.fm/thinkingelixir/rss
+  image: /images/podcasts/thinking-elixir.webp
 - id: beam-radio
   title: BEAM Radio
-  hosts: A panel of BEAM developers
-  url: https://www.beamrad.io
+  hosts: ''
+  url: https://www.beamrad.io/
+  hue: 270
+  description: 'latest publisher RSS episode #97; future activity unconfirmed'
+  last_episode: '2025-12-11'
+  checked: '2026-10-07'
   feed: https://feeds.fireside.fm/beamradio/rss
-  hue: 20
-  description: A panel show about Elixir, Erlang, and the rest of the BEAM.
-  episodes: 102
-  last_episode: 2025-12-11
-  checked: 2026-10-06
+  image: /images/podcasts/beam-radio.webp
+- id: elixir-mix
+  title: Elixir Mix
+  hosts: ''
+  url: https://topenddevs.com/podcasts/elixir-mix
+  hue: 270
+  description: archive, latest visible publisher episode EMx 263
+  last_episode: '2024-11-20'
+  checked: '2026-10-07'
+  image: /images/podcasts/elixir-mix.webp
+- id: elixir-newbie
+  title: Elixir Newbie
+  hosts: ''
+  url: https://www.buzzsprout.com/1840381
+  hue: 270
+  description: 'archive, episode #37'
+  last_episode: '2024-02-10'
+  checked: '2026-10-07'
+  feed: https://feeds.buzzsprout.com/1840381.rss
+  image: /images/podcasts/elixir-newbie.webp
 - id: elixir-outlaws
   title: Elixir Outlaws
-  hosts: Amos King, Chris Keathley & Anna Neyzberg
-  url: https://elixiroutlaws.com
+  hosts: ''
+  url: https://podcasts.apple.com/us/podcast/elixir-outlaws/id1372617417
+  hue: 270
+  description: 'archive, Apple listing episode #135'
+  last_episode: '2023-12-06'
+  checked: '2026-10-07'
   feed: https://feeds.fireside.fm/elixiroutlaws/rss
-  hue: 150
-  description: Opinionated, funny chats about building systems on the BEAM.
-  episodes: 134
-  last_episode: 2023-12-06
-  checked: 2026-10-06
+  image: /images/podcasts/elixir-outlaws.webp
+- id: elixir-talk
+  title: Elixir Talk
+  hosts: ''
+  url: https://podcasts.apple.com/us/podcast/elixir-talk/id1298287048
+  hue: 270
+  description: 'archive, Apple listing episode #166'
+  last_episode: '2020-12-04'
+  checked: '2026-10-07'
+  image: /images/podcasts/elixir-talk.webp

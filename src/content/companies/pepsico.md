@@ -1,21 +1,17 @@
 ---
 name: PepsiCo
-url: https://www.pepsico.com
-industry: Consumer goods
-about: Its eCommerce team uses Elixir for internal data and marketing tools.
-color: '#0096d6'
-order: 5
+url: https://elixir-lang.org/blog/2021/04/02/marketing-and-sales-intelligence-with-elixir-at-pepsico/
+industry: Documented Elixir use
+about: case study 2021-04-02. Documented use at the source date, not a claim of current
+  use in every product.
+order: 9
 reading:
-  - label: Elixir case studies on elixir-lang.org
-    url: https://elixir-lang.org/cases.html
+- label: Elixir-use source
+  url: https://elixir-lang.org/blog/2021/04/02/marketing-and-sales-intelligence-with-elixir-at-pepsico/
 ---
 
-## What they do
+## Documented Elixir use
 
-PepsiCo is one of the largest food and drink companies in the world. Its brands include Pepsi, Lay's, Gatorade, and Quaker.
+[PepsiCo: source](https://elixir-lang.org/blog/2021/04/02/marketing-and-sales-intelligence-with-elixir-at-pepsico/) - case study 2021-04-02.
 
-## How they use Elixir
-
-PepsiCo's eCommerce group builds internal tools with Elixir. These tools help teams work with retail data, search marketing, and sales. Most of the work is data pipelines and internal web apps, which suits Elixir's concurrency and Phoenix.
-
-It is a good example to show when people say Elixir is only for startups.
+This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.

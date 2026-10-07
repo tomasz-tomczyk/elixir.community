@@ -20,7 +20,7 @@ const companies = new Map(
 )
 const more = (await getCollection('jobs'))
   .filter((j) => j.id !== job.id)
-  .sort((a, b) => +b.data.posted - +a.data.posted)
+  .sort((a, b) => +b.data.checked - +a.data.checked)
   .slice(0, 3)
 ---
 
@@ -59,9 +59,9 @@ const more = (await getCollection('jobs'))
         <span>{job.data.type}</span>
         <span aria-hidden="true">&middot;</span>
         <span>
-          Posted{' '}
-          <time datetime={job.data.posted.toISOString()}>
-            {formatDate(job.data.posted)}
+          Checked{' '}
+          <time datetime={job.data.checked.toISOString()}>
+            {formatDate(job.data.checked)}
           </time>
         </span>
       </p>

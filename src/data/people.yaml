@@ -1,119 +1,363 @@
-# links: other profiles. GitHub comes from `github`. Types: twitter, linkedin, bluesky, mastodon, youtube, website.
-# The links below come from each person's own GitHub profile (checked 2026-10-06).
-- id: wojtekmach
-  name: Wojtek Mach
-  github: wojtekmach
-  role: Dashbit
-  known_for:
-    - name: Req
-      url: https://github.com/wojtekmach/req
-    - name: Hex
-      url: https://hex.pm
-  featured: true
-  links:
-    - type: twitter
-      url: https://x.com/wojtekmach
-  bio: Wojtek builds the tools you reach for every day. Req made HTTP in Elixir pleasant, and his work on Hex keeps the package ecosystem healthy.
-- id: josevalim
+- id: jose-valim
   name: José Valim
   github: josevalim
-  role: Dashbit
+  role: Elixir creator; current core team
   known_for:
-    - name: Elixir
-      url: https://elixir-lang.org
-    - name: Livebook
-      url: https://livebook.dev
-    - name: Nx
-      url: https://github.com/elixir-nx/nx
-  links:
-    - type: website
-      url: https://dashbit.co
-    - type: twitter
-      url: https://x.com/josevalim
-  bio: Creator of Elixir. He now leads work on the gradual type system and on numerical Elixir.
-- id: chrismccord
-  company: fly
-  name: Chris McCord
-  github: chrismccord
-  role: Fly.io
+  - name: Elixir creator; current core team
+    url: https://github.com/josevalim
+  links: []
+  bio: Elixir creator; current core team.
+  featured: false
+  image: /images/people/jose-valim.webp
+- id: eric-meadows-jonsson
+  name: Eric Meadows-Jönsson
+  github: ericmj
+  role: current core team; Hex
   known_for:
-    - name: Phoenix
-      url: https://www.phoenixframework.org
-    - name: LiveView
-      url: https://hexdocs.pm/phoenix_live_view
-  links:
-    - type: website
-      url: https://chrismccord.com
-  bio: Creator of the Phoenix framework and LiveView, and author of Metaprogramming Elixir.
-- id: sasa1977
-  name: Saša Jurić
-  github: sasa1977
-  role: Author and consultant
-  known_for:
-    - name: Elixir in Action
-      url: https://www.manning.com/books/elixir-in-action-third-edition
-  links:
-    - type: website
-      url: https://theerlangelist.com
-  bio: Author of Elixir in Action. His talk "The Soul of Erlang and Elixir" is a classic first watch.
-- id: sophiedebenedetto
-  name: Sophie DeBenedetto
-  github: SophieDeBenedetto
-  role: Author and speaker
-  known_for:
-    - name: Programming Phoenix LiveView
-      url: https://pragprog.com/titles/liveview/programming-phoenix-liveview/
-  bio: Co-author of Programming Phoenix LiveView and a regular conference speaker.
-- id: sorentwo
-  name: Parker Selbert
-  github: sorentwo
-  role: Oban
-  known_for:
-    - name: Oban
-      url: https://github.com/oban-bg/oban
-  links:
-    - type: website
-      url: https://oban.pro
-  bio: Co-creator of Oban, the background job library that most Phoenix apps rely on.
-- id: zachdaniel
-  name: Zach Daniel
-  github: zachdaniel
-  role: Ash Framework
-  known_for:
-    - name: Ash
-      url: https://ash-hq.org
-    - name: Igniter
-      url: https://github.com/ash-project/igniter
-  links:
-    - type: website
-      url: https://zachdaniel.dev
-    - type: twitter
-      url: https://x.com/ZachSDaniel1
-    - type: bluesky
-      url: https://bsky.app/profile/zachdaniel.dev
-    - type: linkedin
-      url: https://www.linkedin.com/in/zachdaniel/
-    - type: youtube
-      url: https://www.youtube.com/@zach_daniel
-  bio: Creator of the Ash Framework and Igniter. Ash lets you describe your domain once and derive the rest.
-- id: whatyouhide
+  - name: current core team; Hex
+    url: https://github.com/ericmj
+  links: []
+  bio: current core team; Hex.
+  featured: false
+  image: /images/people/eric-meadows-jonsson.webp
+- id: andrea-leopardi
   name: Andrea Leopardi
   github: whatyouhide
-  role: Elixir core team
+  role: current core team; author
   known_for:
-    - name: Mint
-      url: https://github.com/elixir-mint/mint
-    - name: StreamData
-      url: https://github.com/whatyouhide/stream_data
-    - name: Testing Elixir
-      url: https://pragprog.com/titles/lmelixir/testing-elixir/
+  - name: current core team; author
+    url: https://andrealeopardi.com/about/
   links:
-    - type: website
-      url: https://andrealeopardi.com
-    - type: twitter
-      url: https://x.com/whatyouhide
-    - type: linkedin
-      url: https://www.linkedin.com/in/anleopardi/
-    - type: youtube
-      url: https://youtube.com/@whatyouhide
-  bio: Member of the Elixir core team, author of Mint and StreamData, and co-author of Testing Elixir.
+  - type: website
+    url: https://andrealeopardi.com/about/
+  bio: current core team; author.
+  featured: false
+  image: /images/people/andrea-leopardi.webp
+- id: jean-klingler
+  name: Jean Klingler
+  github: sabiwara
+  role: current core team
+  known_for:
+  - name: current core team
+    url: https://github.com/sabiwara
+  links: []
+  bio: current core team.
+  featured: false
+  image: /images/people/jean-klingler.webp
+- id: chris-mccord
+  name: Chris McCord
+  github: chrismccord
+  role: Phoenix creator
+  known_for:
+  - name: Phoenix creator
+    url: https://chrismccord.com/
+  links:
+  - type: website
+    url: https://chrismccord.com/
+  bio: Phoenix creator.
+  featured: false
+  image: /images/people/chris-mccord.webp
+- id: jonatan-klosko
+  name: Jonatan Kłosko
+  github: jonatanklosko
+  role: Livebook and Tidewave
+  known_for:
+  - name: Livebook and Tidewave
+    url: https://github.com/jonatanklosko
+  links: []
+  bio: Livebook and Tidewave.
+  featured: false
+  image: /images/people/jonatan-kosko.webp
+- id: wojtek-mach
+  name: Wojtek Mach
+  github: wojtekmach
+  role: Hex, Ecto and tooling
+  known_for:
+  - name: Hex, Ecto and tooling
+    url: https://github.com/wojtekmach
+  links: []
+  bio: Hex, Ecto and tooling.
+  featured: true
+  image: /images/people/wojtek-mach.webp
+- id: sean-moriarity
+  name: Sean Moriarity
+  github: seanmor5
+  role: Nx co-creator and author
+  known_for:
+  - name: Nx co-creator and author
+    url: https://seanmoriarity.com/about
+  links:
+  - type: website
+    url: https://seanmoriarity.com/about
+  bio: Nx co-creator and author.
+  featured: false
+  image: /images/people/sean-moriarity.webp
+- id: frank-hunleth
+  name: Frank Hunleth
+  github: fhunleth
+  role: Nerves; embedded Elixir
+  known_for:
+  - name: Nerves; embedded Elixir
+    url: https://nerves-project.org/
+  links:
+  - type: website
+    url: https://nerves-project.org/
+  bio: Nerves; embedded Elixir.
+  featured: false
+  image: /images/people/frank-hunleth.webp
+- id: justin-schneck
+  name: Justin Schneck
+  github: mobileoverlord
+  role: Nerves co-creator
+  known_for:
+  - name: Nerves co-creator
+    url: https://www.verytechnology.com/insights/the-story-of-the-nerves-project-what-brought-me-to-very
+  links:
+  - type: website
+    url: https://www.verytechnology.com/insights/the-story-of-the-nerves-project-what-brought-me-to-very
+  bio: Nerves co-creator.
+  featured: false
+  image: /images/people/justin-schneck.webp
+- id: lars-wikman
+  name: Lars Wikman
+  github: lawik
+  role: Nerves, Underjord and Goatmire
+  known_for:
+  - name: Nerves, Underjord and Goatmire
+    url: https://underjord.io/
+  links:
+  - type: website
+    url: https://underjord.io/
+  bio: Nerves, Underjord and Goatmire.
+  featured: false
+  image: /images/people/lars-wikman.webp
+- id: zach-daniel
+  name: Zach Daniel
+  github: zachdaniel
+  role: Ash and Igniter
+  known_for:
+  - name: Ash and Igniter
+    url: https://github.com/zachdaniel/
+  links: []
+  bio: Ash and Igniter.
+  featured: false
+  image: /images/people/zach-daniel.webp
+- id: rebecca-le
+  name: Rebecca Le
+  github: sevenseacat
+  role: Ash author and educator
+  known_for:
+  - name: Ash author and educator
+    url: https://pragprog.com/titles/ldash/ash-framework/
+  links:
+  - type: website
+    url: https://pragprog.com/titles/ldash/ash-framework/
+  bio: Ash author and educator.
+  featured: false
+  image: /images/people/rebecca-le.webp
+- id: bruce-tate
+  name: Bruce Tate
+  github: batate
+  role: author, educator and GigCityElixir organiser
+  known_for:
+  - name: author, educator and GigCityElixir organiser
+    url: https://grox.io/courses
+  links:
+  - type: website
+    url: https://grox.io/courses
+  bio: author, educator and GigCityElixir organiser.
+  featured: false
+  image: /images/people/bruce-tate.webp
+- id: sasa-juric
+  name: Saša Jurić
+  github: sasa1977
+  role: Elixir in Action author
+  known_for:
+  - name: Elixir in Action author
+    url: https://www.manning.com/books/elixir-in-action-third-edition
+  links:
+  - type: website
+    url: https://www.manning.com/books/elixir-in-action-third-edition
+  bio: Elixir in Action author.
+  featured: false
+  image: /images/people/sasa-juric.webp
+- id: sophie-debenedetto
+  name: Sophie DeBenedetto
+  github: SophieDeBenedetto
+  role: LiveView author and educator
+  known_for:
+  - name: LiveView author and educator
+    url: https://pragprog.com/titles/liveview/programming-phoenix-liveview/
+  links:
+  - type: website
+    url: https://pragprog.com/titles/liveview/programming-phoenix-liveview/
+  bio: LiveView author and educator.
+  featured: false
+  image: /images/people/sophie-debenedetto.webp
+- id: james-edward-gray-ii
+  name: James Edward Gray II
+  github: JEG2
+  role: OTP author and educator
+  known_for:
+  - name: OTP author and educator
+    url: https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
+  links:
+  - type: website
+    url: https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
+  bio: OTP author and educator.
+  featured: false
+  image: /images/people/james-edward-gray-ii.webp
+- id: alex-koutmos
+  name: Alex Koutmos
+  github: akoutmos
+  role: author and educator
+  known_for:
+  - name: author and educator
+    url: https://pragprog.com/titles/d-akelixir/elixir-patterns/
+  links:
+  - type: website
+    url: https://pragprog.com/titles/d-akelixir/elixir-patterns/
+  bio: author and educator.
+  featured: false
+  image: /images/people/alex-koutmos.webp
+- id: peter-ullrich
+  name: Peter Ullrich
+  github: PJUllrich
+  role: LiveView author and educator
+  known_for:
+  - name: LiveView author and educator
+    url: https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/
+  links:
+  - type: website
+    url: https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/
+  bio: LiveView author and educator.
+  featured: false
+  image: /images/people/peter-ullrich.webp
+- id: mitchell-hanberg
+  name: Mitchell Hanberg
+  github: mhanberg
+  role: Elixir developer tooling / LSP
+  known_for:
+  - name: Elixir developer tooling / LSP
+    url: https://www.mitchellhanberg.com/
+  links:
+  - type: website
+    url: https://www.mitchellhanberg.com/
+  bio: Elixir developer tooling / LSP.
+  featured: false
+  image: /images/people/mitchell-hanberg.webp
+- id: german-velasco
+  name: German Velasco
+  github: germsvel
+  role: Elixir educator
+  known_for:
+  - name: Elixir educator
+    url: https://www.germanvelasco.com/talks
+  links:
+  - type: website
+    url: https://www.germanvelasco.com/talks
+  bio: Elixir educator.
+  featured: false
+  image: /images/people/german-velasco.webp
+- id: jacob-luetzow
+  name: Jacob Luetzow
+  github: jacobluetzow
+  role: Elixir Mentor
+  known_for:
+  - name: Elixir Mentor
+    url: https://elixirmentor.com/
+  links:
+  - type: website
+    url: https://elixirmentor.com/
+  bio: Elixir Mentor.
+  featured: false
+  image: /images/people/jacob-luetzow.webp
+- id: adolfo-neto
+  name: Adolfo Neto
+  github: adolfont
+  role: Brazilian community, podcast and events
+  known_for:
+  - name: Brazilian community, podcast and events
+    url: https://elixiremfoco.com/
+  links:
+  - type: website
+    url: https://elixiremfoco.com/
+  bio: Brazilian community, podcast and events.
+  featured: false
+  image: /images/people/adolfo-neto.webp
+- id: zoey-pessanha
+  name: Zoey Pessanha
+  github: ''
+  role: podcast presenter and community contributor
+  known_for:
+  - name: podcast presenter and community contributor
+    url: https://elixiremfoco.com/index_en.html
+  links:
+  - type: website
+    url: https://elixiremfoco.com/index_en.html
+  bio: podcast presenter and community contributor.
+  featured: false
+  image: /images/people/zoey-pessanha.webp
+- id: mark-ericksen
+  name: Mark Ericksen
+  github: brainlid
+  role: Thinking Elixir host
+  known_for:
+  - name: Thinking Elixir host
+    url: https://podcast.thinkingelixir.com/309
+  links:
+  - type: website
+    url: https://podcast.thinkingelixir.com/309
+  bio: Thinking Elixir host.
+  featured: false
+  image: /images/people/mark-ericksen.webp
+- id: stephen-bussey
+  name: Stephen Bussey
+  github: sb8244
+  role: author
+  known_for:
+  - name: author
+    url: https://pragprog.com/titles/sbsockets/real-time-phoenix/
+  links:
+  - type: website
+    url: https://pragprog.com/titles/sbsockets/real-time-phoenix/
+  bio: author.
+  featured: false
+  image: /images/people/stephen-bussey.webp
+- id: dave-thomas
+  name: Dave Thomas
+  github: pragdave
+  role: author and educator
+  known_for:
+  - name: author and educator
+    url: https://pragprog.com/titles/elixir16/programming-elixir-1-6/
+  links:
+  - type: website
+    url: https://pragprog.com/titles/elixir16/programming-elixir-1-6/
+  bio: author and educator.
+  featured: false
+  image: /images/people/dave-thomas.webp
+- role: Oban core team
+  known_for: &id001
+  - name: Oban core team
+    url: https://2026.goatmire.com/
+  links:
+  - &id002
+    type: website
+    url: https://2026.goatmire.com/
+  bio: Oban core team.
+  featured: false
+  name: Parker Selbert
+  id: parker-selbert
+  github: sorentwo
+  image: /images/people/parker-selbert.webp
+- role: Oban core team
+  known_for: *id001
+  links:
+  - *id002
+  bio: Oban core team.
+  featured: false
+  name: Shannon Selbert
+  id: shannon-selbert
+  github: sorenone
+  image: /images/people/shannon-selbert.webp

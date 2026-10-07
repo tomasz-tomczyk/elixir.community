@@ -2,14 +2,16 @@
 // A book cover drawn with CSS in the site's tones. `index` picks the tone and the shape,
 // so neighbouring books never share both.
 interface Props {
+  image?: string
   title: string
   author: string
   href: string
   index: number
   level?: string
   year?: number
+  note?: string
 }
-const { title, author, href, index, level, year } = Astro.props
+const { image, title, author, href, index, level, year, note } = Astro.props
 
 const tones = [
   'violet',
@@ -33,21 +35,14 @@ const shape = shapes[index % shapes.length]
   class="group row-span-2 grid grid-rows-subgrid gap-4"
 >
   <div class:list={['book self-end', `k-${tone}`]}>
-    <span class:list={['shape', shape]} aria-hidden="true"></span>
-    <div class="relative flex h-full flex-col justify-between p-[10%] pl-[15%]">
-      <p class="text-[clamp(0.95rem,7cqi+0.2rem,1.6rem)] leading-[1.02] font-[680] tracking-[-0.035em] text-balance">
-        {title}
-      </p>
-      <p class="font-mono text-[clamp(0.55rem,1.4cqi+0.3rem,0.7rem)] font-medium opacity-75">
-        {author}
-      </p>
-    </div>
+    {image ? <img src={image} alt={`${title} cover`} loading="lazy" class="size-full object-contain" /> : <span class="grid h-full place-items-center p-4 text-center">{title}</span>}
   </div>
   <div>
     <p class="text-[0.9375rem]/6 font-semibold tracking-tight text-(--ec-fg) decoration-(--ec-fuchsia) underline-offset-3 group-hover:underline">
       {title}
     </p>
     <p class="text-sm/6 text-(--ec-muted)">{author}</p>
+    {note && <p class="text-xs/5 text-(--ec-muted)">{note}</p>}
     {(year || level) && (
       <p class="mt-1 flex gap-2 font-mono text-[0.75rem]/5 text-(--ec-muted)">
         {year && <span>{year}</span>}

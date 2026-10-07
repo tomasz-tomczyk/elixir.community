@@ -3,6 +3,7 @@ import Icon from '@/components/Icon.astro'
 import { conferenceDate, formatDate } from '@/lib/site'
 
 interface Props {
+  image?: string
   name: string
   url: string
   location: string
@@ -10,7 +11,7 @@ interface Props {
   description: string
 }
 
-const { name, url, location, date, description } = Astro.props
+const { image, name, url, location, date, description } = Astro.props
 const { label, past } = conferenceDate(date)
 const day = date ? new Date(`${date}T00:00:00Z`) : undefined
 const [month, year] = label.split(' ')
@@ -34,7 +35,7 @@ const [badgeTop, badgeSub] =
     ]}
     aria-hidden="true"
   >
-    <b>{badgeTop}</b>
+    {image ? <img src={image} alt="" loading="lazy" class="size-10 object-contain" /> : <b>{badgeTop}</b>}
     <span>{badgeSub}</span>
   </span>
   <span class="flex min-w-0 flex-col gap-1.5">

@@ -25,7 +25,7 @@ const names: Record<string, string> = {
 }
 
 const all = [
-  { type: 'github', url: `https://github.com/${github}` } as const,
+  ...(github ? [{ type: 'github', url: `https://github.com/${github}` } as const] : []),
   ...links,
 ]
 const nameOf = (link: (typeof all)[number]) =>

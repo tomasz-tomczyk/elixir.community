@@ -1,0 +1,29 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import PageHeader from '@/components/PageHeader.astro'
+---
+<BaseLayout title="Confirm your subscription">
+  <div class="container-page py-16 max-w-2xl">
+    <h1 class="text-3xl font-semibold">Confirm your subscription</h1>
+    <p class="mt-4 text-mauve-600 dark:text-mauve-400">Press the button to join the Elixir Community newsletter. Opening this page alone does not subscribe you.</p>
+    <button id="confirm-subscription" type="button" class="mt-8 rounded-xl bg-accent-600 px-6 py-3 font-semibold text-white">Confirm subscription</button>
+    <p id="confirmation-status" role="status" class="mt-6"></p>
+    <a href="/" class="mt-8 inline-block underline">Back to the community</a>
+  </div>
+  <script>
+    const button = document.querySelector<HTMLButtonElement>('#confirm-subscription')!
+    const status = document.querySelector<HTMLElement>('#confirmation-status')!
+    const token = location.hash.slice(1)
+    history.replaceState(null, '', '/confirm')
+    if (!token) {button.disabled=true;status.textContent='Open the link in your confirmation email, or subscribe again for a new link.'}
+    button.addEventListener('click',async()=>{
+      button.disabled=true;status.textContent='Confirming...'
+      try {
+        const response=await fetch('/api/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token})})
+        const data=await response.json();status.textContent=data.message
+        if(!response.ok) button.disabled=false
+        else button.textContent='Confirmed'
+      } catch {status.textContent='Could not connect. Please try again.';button.disabled=false}
+    })
+  </script>
+</BaseLayout>

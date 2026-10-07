@@ -36,7 +36,7 @@ companies.sort((a, b) => a.data.order - b.data.order)
 const companyName = (id: string) =>
   companies.find((c) => c.id === id)?.data.name ?? id
 
-jobs.sort((a, b) => b.data.posted.getTime() - a.data.posted.getTime())
+jobs.sort((a, b) => +b.data.checked - +a.data.checked)
 const [newestJob, ...olderJobs] = jobs
 // First sentence under "## The role", for the featured job.
 const jobIntro = newestJob?.body
@@ -571,9 +571,9 @@ const swatches = [
                   </span>
                   <time
                     class="flex-none font-mono text-[0.8125rem] text-(--ec-muted)"
-                    datetime={job.data.posted.toISOString()}
+                    datetime={job.data.checked.toISOString()}
                   >
-                    {shortDate(job.data.posted)}
+                    {shortDate(job.data.checked)}
                   </time>
                 </a>
               </li>
@@ -658,9 +658,9 @@ const swatches = [
                 {spotlight.data.role}
               </span>
             </figcaption>
-            <blockquote class="border-l-4 border-(--ec-fuchsia) pl-4 text-[clamp(1.15rem,2vw,1.35rem)] leading-[1.45] tracking-[-0.015em] text-pretty">
+            <p class="border-l-4 border-(--ec-fuchsia) pl-4 text-[clamp(1.15rem,2vw,1.35rem)] leading-[1.45] tracking-[-0.015em] text-pretty">
               {spotlight.data.bio}
-            </blockquote>
+            </p>
             <a href="/people" class="btn-soft">
               Meet more people <span aria-hidden="true">&rarr;</span>
             </a>

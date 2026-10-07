@@ -1,102 +1,411 @@
-# Conferences: one entry per edition. `date` is the first day (YYYY-MM-DD).
-# The events page shows editions that have not started yet. Past editions go to /events/archive.
-# Dates checked on 2026-10-06 against elixirevents.org/events and each conference site.
-- id: code-beam-europe-2026
-  name: Code BEAM Europe 2026
-  url: https://codebeameurope.com
-  kind: conference
-  location: Haarlem, Netherlands
-  date: '2026-10-20'
-  description: Talks across the whole BEAM — Elixir, Erlang, Gleam, and the VM. Training day first, then two days of talks.
-- id: goatmire-2026
-  name: Goatmire Elixir 2026
-  url: https://goatmire.com
-  kind: conference
-  location: Varberg, Sweden
-  date: '2026-09-28'
-  description: A seaside Elixir conference with NervesConf EU, workshops, and two days of talks in a historic theatre.
 - id: elixirconf-us-2026
   name: ElixirConf US 2026
-  url: https://elixirconf.com
+  url: https://www.elixirconf.com/
   kind: conference
-  location: Chicago, Illinois
+  location: Chicago
+  description: 'Last verified edition: 10-11 Sep 2026. Chicago; training 4 and 9 Sep.
+    Checked 7 Oct 2026.'
   date: '2026-09-10'
-  description: The largest Elixir conference. Workshops, then two days of talks.
-- id: code-beam-lite-stockholm-2026
-  name: Code BEAM Lite Stockholm 2026
-  url: https://codesync.global
-  kind: conference
-  location: Stockholm, Sweden
-  date: '2026-05-18'
-  description: A one-day BEAM conference from the Code BEAM team.
+  image: /images/events/elixirconf-us-2026.webp
 - id: elixirconf-eu-2026
   name: ElixirConf EU 2026
-  url: https://www.elixirconf.eu
+  url: https://www.elixirconf.eu/
   kind: conference
-  location: Málaga, Spain
-  date: '2026-04-22'
-  description: The main European Elixir conference, with workshops and two tracks.
-- id: code-beam-lite-vancouver-2026
-  name: Code BEAM Lite Vancouver 2026
-  url: https://codesync.global
-  kind: conference
-  location: Vancouver, Canada
-  date: '2026-03-23'
-  description: A one-day BEAM conference from the Code BEAM team.
+  location: Málaga
+  description: 'Last verified edition: 23-24 Apr 2026. Málaga; training 22 Apr. Checked
+    7 Oct 2026.'
+  date: '2026-04-23'
+  image: /images/events/elixirconf-eu-2026.webp
 - id: code-beam-europe-2025
   name: Code BEAM Europe 2025
-  url: https://codebeameurope.com
+  url: https://codebeameurope.com/
   kind: conference
-  location: Berlin, Germany
+  location: Haarlem
+  description: 'Last verified edition: 5-6 Nov 2025. Haarlem; training 20 Oct; covers
+    Erlang, Elixir and Gleam. Checked 7 Oct 2026.'
   date: '2025-11-05'
-  description: Talks across the whole BEAM — Elixir, Erlang, Gleam, and the VM.
-- id: gig-city-elixir-2025
-  name: Gig City Elixir 2025
-  url: https://www.gigcityelixir.com
+  image: /images/events/code-beam-europe-2025.webp
+- id: code-beam-europe-2026
+  name: Code BEAM Europe 2026
+  url: https://codebeameurope.com/
   kind: conference
-  location: Chattanooga, Tennessee
-  date: '2025-05-08'
-  description: A small, friendly conference, held together with NervesConf US.
+  location: Haarlem
+  description: 'Next announced edition: 21-22 Oct 2026. Haarlem; training 20 Oct;
+    covers Erlang, Elixir and Gleam. Checked 7 Oct 2026.'
+  date: '2026-10-21'
+  image: /images/events/code-beam-europe-2026.webp
+- id: code-beam-lite-stockholm-2026
+  name: Code BEAM Lite Stockholm 2026
+  url: https://codebeamstockholm.com/
+  kind: conference
+  location: Stockholm
+  description: 'Last verified edition: 18 May 2026. Stockholm. Checked 7 Oct 2026.'
+  date: '2026-05-18'
+  image: /images/events/code-beam-lite-stockholm-2026.webp
+- id: empex-2023
+  name: EMPEX 2023
+  url: https://empex.co/
+  kind: conference
+  location: New York, US
+  description: 'Last verified edition: 9 Jun 2023. last verified NYC edition: https://ti.to/empex-ny/empex-nyc-2023.
+    Checked 7 Oct 2026.'
+  date: '2023-06-09'
+- id: elixir-curitiba-2025
+  name: Elixir Curitiba 2025
+  url: https://curitiba.elixiremfoco.com/
+  kind: conference
+  location: Curitiba, Brazil
+  description: 'Last verified edition: 8 Nov 2025. local event; separate from inaugural
+    ElixirConf Brasil. Checked 7 Oct 2026.'
+  date: '2025-11-08'
+  image: /images/events/elixir-curitiba-2025.webp
 - id: code-beam-america-2025
   name: Code BEAM America 2025
-  url: https://codebeamamerica.com
+  url: https://codebeamamerica.com/
   kind: conference
-  location: San Francisco, California
+  location: San Francisco / online
+  description: 'Last verified edition: 6-7 Mar 2025. San Francisco / online. Checked
+    7 Oct 2026.'
   date: '2025-03-06'
-  description: The BEAM community conference for North America.
-# Meetups: "when" is free text.
-- id: meetup-london
-  name: Elixir London
-  url: https://www.meetup.com/find/?keywords=elixir&location=gb--London
-  kind: meetup
-  location: London, UK
-  when: Monthly
-  description: Talks, pizza, and lightning talks from the London BEAM crowd.
-- id: meetup-berlin
-  name: Elixir Berlin
-  url: https://www.meetup.com/find/?keywords=elixir&location=de--Berlin
-  kind: meetup
-  location: Berlin, Germany
-  when: Monthly
-  description: A long-running meetup with talks in English.
-- id: meetup-austin
-  name: Austin Elixir
-  url: https://www.meetup.com/find/?keywords=elixir&location=us--tx--Austin
-  kind: meetup
-  location: Austin, Texas
-  when: Monthly
-  description: Talks and hack nights for Elixir developers in central Texas.
-- id: meetup-warsaw
-  name: Elixir Warsaw
-  url: https://www.meetup.com/find/?keywords=elixir&location=pl--Warsaw
-  kind: meetup
-  location: Warsaw, Poland
-  when: Monthly
-  description: Talks from local teams that run Elixir in production.
-- id: meetup-online
-  name: Elixir online meetups
-  url: https://elixirforum.com/c/elixir-news/events
-  kind: meetup
+  image: /images/events/code-beam-america-2025.webp
+- id: goatmire-elixir-nervesconf-eu-2026
+  name: Goatmire Elixir + NervesConf EU 2026
+  url: https://2026.goatmire.com/
+  kind: conference
+  location: Varberg
+  description: 'Last verified edition: 30 Sep-2 Oct 2026. Varberg; workshops 28-29
+    Sep; organiser says no 2027 edition. Checked 7 Oct 2026.'
+  date: '2026-09-30'
+  image: /images/events/goatmire-elixir-nervesconf-eu-2026.webp
+- id: ashconf-2026
+  name: AshConf 2026
+  url: https://luma.com/wz4z0iz6
+  kind: conference
+  location: Varberg
+  description: 'Last verified edition: 3 Oct 2026. Varberg; corroborated by organiser
+    recap: https://underjord.io/goatmire-2-odins-folly.html. Checked 7 Oct 2026.'
+  date: '2026-10-03'
+  image: /images/events/ashconf-2026.webp
+- id: exmex-2026
+  name: ExMex 2026
+  url: https://exmexconf.com/
+  kind: conference
+  location: Austin
+  description: 'Next announced edition: 12-13 Nov 2026. Austin; no earlier edition
+    verified. Checked 7 Oct 2026.'
+  date: '2026-11-12'
+  image: /images/events/exmex-2026.webp
+- id: gigcityelixir-2025
+  name: GigCityElixir 2025
+  url: https://www.gigcityelixir.com/
+  kind: conference
+  location: Chattanooga
+  description: 'Last verified edition: 9-10 May 2025. Chattanooga; last dates: https://ti.to/groxio-llc/gce2025.
+    Checked 7 Oct 2026.'
+  date: '2025-05-09'
+  image: /images/events/gigcityelixir-2025.webp
+- id: gigcityelixir-2027
+  name: GigCityElixir 2027
+  url: https://www.gigcityelixir.com/
+  kind: conference
+  location: Chattanooga
+  description: 'Next announced edition: May 2027, exact dates TBD. Chattanooga; last
+    dates: https://ti.to/groxio-llc/gce2025. Checked 7 Oct 2026.'
+  when: May 2027, exact dates TBD
+  image: /images/events/gigcityelixir-2027.webp
+- id: nervesconf-us-2025
+  name: NervesConf US 2025
+  url: https://nervesconf.us/
+  kind: conference
+  location: Chattanooga, US
+  description: 'Last verified edition: 8 May 2025. next month announced with GigCityElixir.
+    Checked 7 Oct 2026.'
+  date: '2025-05-08'
+  image: /images/events/nervesconf-us-2025.webp
+- id: nervesconf-us-2027
+  name: NervesConf US 2027
+  url: https://nervesconf.us/
+  kind: conference
+  location: Chattanooga, US
+  description: 'Next announced edition: May 2027, exact dates TBD. next month announced
+    with GigCityElixir. Checked 7 Oct 2026.'
+  when: May 2027, exact dates TBD
+  image: /images/events/nervesconf-us-2027.webp
+- id: elixirconf-brasil-2027
+  name: ElixirConf Brasil 2027
+  url: https://www.elixirconf.com.br/
+  kind: conference
+  location: Curitiba / online
+  description: 'Next announced edition: 20-21 May 2027. Curitiba / online; official
+    date supersedes third-party November 2026 listings. Checked 7 Oct 2026.'
+  date: '2027-05-20'
+  image: /images/events/elixirconf-brasil-2027.webp
+- id: alchemy-conf-2025
+  name: Alchemy Conf 2025
+  url: https://alchemyconf.com/
+  kind: conference
+  location: Braga
+  description: 'Last verified edition: 2-3 Apr 2025. Braga; workshops 31 Mar-1 Apr.
+    Checked 7 Oct 2026.'
+  date: '2025-04-02'
+  image: /images/events/alchemy-conf-2025.webp
+- id: elixirconf-africa-2023
+  name: ElixirConf Africa 2023
+  url: https://elixirforum.com/t/2023-05-26-elixirconf-africa-virtual/55492
+  kind: conference
   location: Online
-  when: Most weeks
-  description: Virtual talks and study groups listed on Elixir Forum.
+  description: 'Last verified edition: 26-27 May 2023. historical organiser forum
+    announcement, not evidence of a current series. Checked 7 Oct 2026.'
+  date: '2023-05-26'
+  image: /images/events/elixirconf-africa-2023.webp
+- id: meetup-berlin
+  name: Berlin
+  url: https://www.meetup.com/elixir-berlin/
+  kind: meetup
+  location: Berlin
+  when: 'Next: 8 Oct 2026'
+  description: 'Last verified: 10 Sep 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-berlin.webp
+- id: meetup-stockholm-beam-languages-united
+  name: Stockholm, BEAM Languages United
+  url: https://www.meetup.com/l-o-b-stockholm/
+  kind: meetup
+  location: Stockholm, BEAM Languages United
+  when: 'Next: 13 Oct 2026'
+  description: 'Last verified: 23 Jun 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-stockholm-beam-languages-united.webp
+- id: meetup-vienna
+  name: Vienna
+  url: https://www.meetup.com/Elixir-Vienna/
+  kind: meetup
+  location: Vienna
+  when: 'Next: 5 Nov 2026'
+  description: 'Last verified: 24 Sep 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-vienna.webp
+- id: meetup-melbourne
+  name: Melbourne
+  url: https://www.meetup.com/Elixir-Melbourne/
+  kind: meetup
+  location: Melbourne
+  when: 'Next: 5 Nov 2026'
+  description: 'Last verified: 1 Oct 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-melbourne.webp
+- id: meetup-london
+  name: London
+  url: https://www.meetup.com/elixir-london/
+  kind: meetup
+  location: London
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 9 Apr 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-london.webp
+- id: meetup-paris-ex
+  name: Paris.ex
+  url: https://www.meetup.com/elixir/
+  kind: meetup
+  location: Paris.ex
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 18 May 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-paris-ex.webp
+- id: meetup-amsterdam
+  name: Amsterdam
+  url: https://www.meetup.com/Amsterdam-Elixir/
+  kind: meetup
+  location: Amsterdam
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 25 Jun 2026. 21 Oct listing is Code BEAM Europe, not
+    a separate local meetup. Checked 7 Oct 2026.'
+  image: /images/events/meetup-amsterdam.webp
+- id: meetup-calgary
+  name: Calgary
+  url: https://www.meetup.com/elixir-calgary/
+  kind: meetup
+  location: Calgary
+  when: 'Next: 7 Oct 2026'
+  description: 'Last verified: 29 Jul 2026. next event: https://www.meetup.com/elixir-calgary/events/316769958/.
+    Checked 7 Oct 2026.'
+  image: /images/events/meetup-calgary.webp
+- id: meetup-austin
+  name: Austin
+  url: https://stationaustin.org/event/austin-elixir-meetup/
+  kind: meetup
+  location: Austin
+  when: 'Next: 20 Oct 2026'
+  description: 'Last verified: unconfirmed. group page contains placeholder events.
+    Checked 7 Oct 2026.'
+- id: meetup-boulder
+  name: Boulder
+  url: https://www.meetup.com/boulder-elixir/
+  kind: meetup
+  location: Boulder
+  when: 'Next: 14 Oct 2026'
+  description: 'Last verified: unconfirmed. recurring listing; past-event view is
+    inconsistent. Checked 7 Oct 2026.'
+  image: /images/events/meetup-boulder.webp
+- id: meetup-cincinnati
+  name: Cincinnati
+  url: http://www.meetup.com/Cincinnati-Elixir-Meetup/
+  kind: meetup
+  location: Cincinnati
+  when: 'Next: unconfirmed'
+  description: 'Last verified: unconfirmed. a URL variant lists 3 Nov 2026, but date
+    views disagree; reconfirm before publishing. Checked 7 Oct 2026.'
+  image: /images/events/meetup-cincinnati.webp
+- id: meetup-toronto
+  name: Toronto
+  url: https://www.meetup.com/torontoelixir/
+  kind: meetup
+  location: Toronto
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 19 Mar 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-toronto.webp
+- id: meetup-montreal
+  name: Montréal
+  url: https://www.montrealelixir.ca/
+  kind: meetup
+  location: Montréal
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 23 Sep 2026. event: https://guild.host/events/agentic-coding-if-youre-b4611r.
+    Checked 7 Oct 2026.'
+- id: meetup-new-york-brooklyn
+  name: New York / Brooklyn
+  url: https://luma.com/72ybti8v
+  kind: meetup
+  location: New York / Brooklyn
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 19 Mar 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-new-york-brooklyn.webp
+- id: meetup-chicago-software-mansion-x-dscout
+  name: Chicago, Software Mansion x dscout
+  url: https://luma.com/byem6v75
+  kind: meetup
+  location: Chicago, Software Mansion x dscout
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 9 Sep 2026. distinct from dormant ChicagoElixir group.
+    Checked 7 Oct 2026.'
+  image: /images/events/meetup-chicago-software-mansion-x-dscout.webp
+- id: meetup-san-francisco-erlang-elixir-sf
+  name: San Francisco, Erlang & Elixir SF
+  url: https://www.meetup.com/erlangelixirsf/
+  kind: meetup
+  location: San Francisco, Erlang & Elixir SF
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 21 Apr 2026. alternate URL variants show older event
+    lists. Checked 7 Oct 2026.'
+  image: /images/events/meetup-san-francisco-erlang-elixir-sf.webp
+- id: meetup-jacksonville
+  name: Jacksonville
+  url: https://www.meetup.com/jax-ex
+  kind: meetup
+  location: Jacksonville
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 10 Sep 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-jacksonville.webp
+- id: meetup-montevideo
+  name: Montevideo
+  url: https://www.meetup.com/Elixir-Montevideo/
+  kind: meetup
+  location: Montevideo
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 18 Aug 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-montevideo.webp
+- id: meetup-mexico-city
+  name: Mexico City
+  url: https://www.meetup.com/Elixir-Mexico-City/
+  kind: meetup
+  location: Mexico City
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 27 Aug 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-mexico-city.webp
+- id: meetup-taipei-elixir-taiwan
+  name: Taipei, Elixir Taiwan
+  url: https://luma.com/s45ux60d
+  kind: meetup
+  location: Taipei, Elixir Taiwan
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 15 Sep 2026. meetup #95. Checked 7 Oct 2026.'
+  image: /images/events/meetup-taipei-elixir-taiwan.webp
+- id: meetup-belo-horizonte
+  name: Belo Horizonte
+  url: https://www.meetup.com/elixir-bh/
+  kind: meetup
+  location: Belo Horizonte
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 25 Feb 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-belo-horizonte.webp
+- id: meetup-sydney
+  name: Sydney
+  url: https://luma.com/6k7hotj8
+  kind: meetup
+  location: Sydney
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 17 Jun 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-sydney.webp
+- id: meetup-fukuoka-kokura-elixirimp-elixirmobile
+  name: Fukuoka / Kokura / ElixirImp / ElixirMobile
+  url: https://fukuokaex.connpass.com/
+  kind: meetup
+  location: Fukuoka / Kokura / ElixirImp / ElixirMobile
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 17 Dec 2025. combined group; last verified entry is
+    ElixirImp. Checked 7 Oct 2026.'
+  image: /images/events/meetup-fukuoka-kokura-elixirimp-elixirmobile.webp
+- id: meetup-sao-paulo-elug-sp
+  name: São Paulo, ELUG-SP
+  url: http://www.meetup.com/elug_sp/
+  kind: meetup
+  location: São Paulo, ELUG-SP
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 27 Sep 2025. Checked 7 Oct 2026.'
+  image: /images/events/meetup-sao-paulo-elug-sp.webp
+- id: meetup-boston
+  name: Boston
+  url: http://www.meetup.com/Boston-Elixir/
+  kind: meetup
+  location: Boston
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 22 Sep 2025. Checked 7 Oct 2026.'
+  image: /images/events/meetup-boston.webp
+- id: meetup-south-africa-elixirza
+  name: South Africa, ElixirZA
+  url: https://elixirza.org/
+  kind: meetup
+  location: South Africa, ElixirZA
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 26 Nov 2024. historical dated listing. Checked 7 Oct
+    2026.'
+  image: /images/events/meetup-south-africa-elixirza.webp
+- id: meetup-kenya-techgroup-kenya-elixir-session
+  name: Kenya, TechGroup Kenya Elixir session
+  url: https://events.techgroupkenya.co.ke/events/TGKTDUN8FWW1/elixir-for-reliable-systems/
+  kind: meetup
+  location: Kenya, TechGroup Kenya Elixir session
+  when: 'Next: unconfirmed'
+  description: 'Last verified: 28 Apr 2026. online. Checked 7 Oct 2026.'
+  image: /images/events/meetup-kenya-techgroup-kenya-elixir-session.webp
+- id: meetup-elixir-naija-nigeria
+  name: Elixir Naija / Nigeria
+  url: https://elixirforum.com/t/elixir-naija-weekly-code-clinic-monthly-meetups-and-friday-resource-drops/73582
+  kind: meetup
+  location: Elixir Naija / Nigeria
+  when: 'Next: unconfirmed'
+  description: 'Last verified: unconfirmed. community announcement; weekly/monthly
+    cadence is not a verified event date. Checked 7 Oct 2026.'
+  image: /images/events/meetup-elixir-naija-nigeria.webp
+- id: meetup-curiosum-online-meetups
+  name: Curiosum online meetups
+  url: https://curiosum.com/elixir-meetups
+  kind: meetup
+  location: Curiosum online meetups
+  when: 'Next: unconfirmed'
+  description: 'Last verified: unconfirmed. archive lists meetup #31 but exposes no
+    reliable date. Checked 7 Oct 2026.'
+  image: /images/events/meetup-curiosum-online-meetups.webp
+- id: meetup-madrid
+  name: Madrid
+  url: https://www.meetup.com/Madrid-Elixir/
+  kind: meetup
+  location: Madrid
+  when: 'Next: unconfirmed'
+  description: 'Last verified: unconfirmed. URL variants disagree between 26 Mar and
+    23 Sep 2026. Checked 7 Oct 2026.'
+  image: /images/events/meetup-madrid.webp

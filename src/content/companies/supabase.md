@@ -1,21 +1,18 @@
 ---
 name: Supabase
-url: https://supabase.com
-industry: Developer platform
-about: The Supabase Realtime server is written in Elixir.
-color: '#3fcf8e'
-order: 3
+url: https://supabase.com/blog/supavisor-postgres-connection-pooler
+industry: Documented Elixir use
+about: Supavisor is explicitly built with Elixir. Documented use at the source date,
+  not a claim of current use in every product.
+order: 16
 reading:
-  - label: supabase/realtime on GitHub
-    url: https://github.com/supabase/realtime
+- label: Elixir-use source
+  url: https://supabase.com/blog/supavisor-postgres-connection-pooler
+image: /images/companies/supabase.webp
 ---
 
-## What they do
+## Documented Elixir use
 
-Supabase is an open-source backend platform built on Postgres. It gives developers a database, auth, storage, edge functions, and real-time updates.
+[Supabase: source](https://supabase.com/blog/supavisor-postgres-connection-pooler) - Supavisor is explicitly built with Elixir.
 
-## How they use Elixir
-
-Supabase Realtime is an Elixir and Phoenix server. It listens to changes in Postgres and pushes them to connected clients over WebSockets. It also gives apps broadcast messages and presence ("who is online") on top of Phoenix Channels.
-
-The project is open source, so you can read how a production team uses Phoenix Channels and clustering for a multi-tenant real-time service.
+This evidence describes use at the source date. It does not establish the company's current stack across every product. Research checked 7 October 2026.

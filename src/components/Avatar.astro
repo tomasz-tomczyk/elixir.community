@@ -1,6 +1,7 @@
 ---
 // A GitHub avatar with initials behind it, in case the image fails to load.
 // `shapes` adds the spotlight frame from the home page: a lilac disc with fuchsia and indigo shapes.
+import { personImages } from '@/lib/images'
 interface Props {
   github: string
   name: string
@@ -43,7 +44,7 @@ const initials = name
   >
     <span aria-hidden="true">{initials}</span>
     <img
-      src={`https://github.com/${github}.png?size=${size * 2}`}
+      src={personImages[name]}
       alt={name}
       width={size}
       height={size}

@@ -3,7 +3,7 @@ export const site = {
   description:
     'The best of the Elixir community: resources, events, people, books, YouTube, podcasts, and jobs. One short email now and then.',
   github: 'https://github.com/tomasz-tomczyk/elixir.community',
-  subscribers: '4,200',
+  subscribers: '',
   // False until the first issue goes out. The home page then shows the
   // "not sent yet" hero and hides the sample issues.
   newsletterSent: false,

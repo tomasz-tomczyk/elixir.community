@@ -222,6 +222,7 @@ const swatches = [
             <div class="grid max-w-xl grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
               {books.map((b, i) => (
                 <BookCover
+          image={b.data.image}
                   title={b.data.title}
                   author={b.data.author}
                   href={b.data.url}

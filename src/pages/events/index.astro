@@ -13,10 +13,10 @@ import { isUpcoming } from '@/lib/site'
 
 const events = await getCollection('events')
 const upcoming = events
-  .filter((e) => e.data.kind === 'conference' && isUpcoming(e.data.date))
+  .filter((e) => e.data.kind === 'conference' && (isUpcoming(e.data.date) || (!e.data.date && !!e.data.when)))
   .sort((a, b) => (a.data.date ?? '').localeCompare(b.data.date ?? ''))
 const pastCount = events.filter(
-  (e) => e.data.kind === 'conference' && !isUpcoming(e.data.date),
+  (e) => e.data.kind === 'conference' && !isUpcoming(e.data.date) && !e.data.when,
 ).length
 const meetups = events.filter((e) => e.data.kind === 'meetup')
 ---
@@ -42,6 +42,7 @@ const meetups = events.filter((e) => e.data.kind === 'meetup')
             {upcoming.map((c) => (
               <li>
                 <ConferenceCard
+                  image={c.data.image}
                   name={c.data.name}
                   url={c.data.url}
                   location={c.data.location}
@@ -62,11 +63,12 @@ const meetups = events.filter((e) => e.data.kind === 'meetup')
       <PageSection
         id="meetups"
         title="Meetups"
-        description="Local groups and online sessions. Most are free and welcome first-time speakers."
+        description="Local groups and online sessions. Dates are individually checked, not inferred from a recurring cadence."
       >
         <ul class="ec-rows max-w-3xl border-t border-(--ec-line)">
           {meetups.map((m) => (
             <li>
+              {m.data.image && <img src={m.data.image} alt="" loading="lazy" class="float-right mt-4 size-12 rounded-lg object-contain" />}
               <ContentLink
                 href={m.data.url}
                 title={m.data.name}
@@ -79,6 +81,7 @@ const meetups = events.filter((e) => e.data.kind === 'meetup')
             </li>
           ))}
         </ul>
+        <p class="mt-8 text-sm/6 text-(--ec-muted)">Historical research: <a href="/research/elixir-global-meetup-campaign.csv" class="underline">2025 global campaign</a> and <a href="/research/elixir-meetup-candidates.csv" class="underline">unconfirmed candidate queue</a>. These are not active-meetup lists.</p>
         <ContributeNote question="Run a meetup that is not here?" />
       </PageSection>
     </div>

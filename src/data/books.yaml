@@ -1,87 +1,305 @@
-# hue sets the color of the drawn cover (0-360).
-# year is the publication year of the current edition, from the publisher page (checked 2026-10-06).
-- id: programming-elixir
-  title: Programming Elixir ≥ 1.6
-  author: Dave Thomas
+- id: advanced-functional-programming-with-elixir
+  title: Advanced Functional Programming with Elixir
+  author: Joseph Koski
   publisher: Pragmatic Bookshelf
-  url: https://pragprog.com/titles/elixir16/programming-elixir-1-6/
-  level: beginner
-  year: 2018
-  hue: 300
-- id: elixir-in-action
-  authors: [sasa1977]
-  title: Elixir in Action
-  author: Saša Jurić
-  publisher: Manning
-  url: https://www.manning.com/books/elixir-in-action-third-edition
-  level: beginner
-  year: 2024
-  hue: 20
-- id: programming-phoenix-liveview
-  authors: [sophiedebenedetto]
-  title: Programming Phoenix LiveView
-  author: Bruce A. Tate & Sophie DeBenedetto
-  publisher: Pragmatic Bookshelf
-  url: https://pragprog.com/titles/liveview/programming-phoenix-liveview/
-  level: intermediate
+  url: https://pragprog.com/titles/jkelixir/advanced-functional-programming-with-elixir/
+  hue: 270
   year: 2026
-  hue: 25
-- id: designing-elixir-systems
-  title: Designing Elixir Systems with OTP
-  author: James Edward Gray II & Bruce A. Tate
+  image: /images/books/advanced-functional-programming-with-elixir.webp
+- id: network-programming-in-elixir-and-erlang
+  title: Network Programming in Elixir and Erlang
+  author: Andrea Leopardi
   publisher: Pragmatic Bookshelf
-  url: https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
-  level: intermediate
-  year: 2019
-  hue: 200
-- id: testing-elixir
-  authors: [whatyouhide]
-  title: Testing Elixir
-  author: Andrea Leopardi & Jeffrey Matthias
+  url: https://pragprog.com/titles/alnpee/network-programming-in-elixir-and-erlang/
+  hue: 270
+  year: 2025
+  image: /images/books/network-programming-in-elixir-and-erlang.webp
+- id: ash-framework
+  title: Ash Framework
+  author: Rebecca Le and Zach Daniel
   publisher: Pragmatic Bookshelf
-  url: https://pragprog.com/titles/lmelixir/testing-elixir/
-  level: intermediate
-  year: 2021
-  hue: 150
-- id: concurrent-data-processing
-  title: Concurrent Data Processing in Elixir
-  author: Svilen Gospodinov
+  url: https://pragprog.com/titles/ldash/ash-framework/
+  hue: 270
+  year: 2025
+  image: /images/books/ash-framework.webp
+- id: elixir-patterns
+  title: Elixir Patterns
+  author: Alexander Koutmos
   publisher: Pragmatic Bookshelf
-  url: https://pragprog.com/titles/sgdpelixir/concurrent-data-processing-in-elixir/
-  level: intermediate
-  year: 2021
-  hue: 250
+  url: https://pragprog.com/titles/d-akelixir/elixir-patterns/
+  hue: 270
+  year: 2025
+  image: /images/books/elixir-patterns.webp
+- id: northwind-elixir-traders
+  title: Northwind Elixir Traders
+  author: Isaak Tsalicoglou
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/d-itnet/northwind-elixir-traders/
+  hue: 270
+  year: 2025
+  image: /images/books/northwind-elixir-traders.webp
+- id: real-world-event-sourcing
+  title: Real-World Event Sourcing
+  author: Kevin Hoffman
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/khpes/real-world-event-sourcing/
+  hue: 270
+  year: 2025
+  image: /images/books/real-world-event-sourcing.webp
+- id: engineering-elixir-applications
+  title: Engineering Elixir Applications
+  author: Ellie Fairholm and Josep Giralt D'Lacoste
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/beamops/engineering-elixir-applications/
+  hue: 270
+  year: 2024
+  image: /images/books/engineering-elixir-applications.webp
 - id: machine-learning-in-elixir
   title: Machine Learning in Elixir
   author: Sean Moriarity
   publisher: Pragmatic Bookshelf
   url: https://pragprog.com/titles/smelixir/machine-learning-in-elixir/
-  level: advanced
-  year: 2024
-  hue: 330
-- id: metaprogramming-elixir
-  authors: [chrismccord]
-  title: Metaprogramming Elixir
-  author: Chris McCord
-  publisher: Pragmatic Bookshelf
-  url: https://pragprog.com/titles/cmelixir/metaprogramming-elixir/
-  level: advanced
-  year: 2015
   hue: 270
+  year: 2024
+  image: /images/books/machine-learning-in-elixir.webp
+- id: from-ruby-to-elixir
+  title: From Ruby to Elixir
+  author: Stephen Bussey
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/sbelixir/from-ruby-to-elixir/
+  hue: 270
+  year: 2024
+  image: /images/books/from-ruby-to-elixir.webp
+- id: building-table-views-with-phoenix-liveview
+  title: Building Table Views with Phoenix LiveView
+  author: Peter Ullrich
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/
+  hue: 270
+  year: 2023
+  image: /images/books/building-table-views-with-phoenix-liveview.webp
+- id: exploring-graphs-with-elixir
+  title: Exploring Graphs with Elixir
+  author: Tony Hammond
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/thgraphs/exploring-graphs-with-elixir/
+  hue: 270
+  year: 2022
+  image: /images/books/exploring-graphs-with-elixir.webp
+- id: build-a-binary-clock-with-elixir-and-nerves
+  title: Build a Binary Clock with Elixir and Nerves
+  author: Frank Hunleth and Bruce A. Tate
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/thnerves/build-a-binary-clock-with-elixir-and-nerves/
+  hue: 270
+  year: 2022
+  image: /images/books/build-a-binary-clock-with-elixir-and-nerves.webp
+- id: programmer-passport-otp
+  title: 'Programmer Passport: OTP'
+  author: Bruce Tate
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/passotp/programmer-passport-otp/
+  hue: 270
+  year: 2022
+  image: /images/books/programmer-passport-otp.webp
+- id: programmer-passport-elixir
+  title: 'Programmer Passport: Elixir'
+  author: Bruce Tate
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/passelixir/programmer-passport-elixir/
+  hue: 270
+  year: 2022
+  image: /images/books/programmer-passport-elixir.webp
+- id: build-a-weather-station-with-elixir-and-nerves
+  title: Build a Weather Station with Elixir and Nerves
+  author: Alexander Koutmos, Bruce A. Tate, Frank Hunleth
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/passweather/build-a-weather-station-with-elixir-and-nerves/
+  hue: 270
+  year: 2022
+  image: /images/books/build-a-weather-station-with-elixir-and-nerves.webp
+- id: concurrent-data-processing-in-elixir
+  title: Concurrent Data Processing in Elixir
+  author: Svilen Gospodinov
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/sgdpelixir/concurrent-data-processing-in-elixir/
+  hue: 270
+  year: 2021
+  image: /images/books/concurrent-data-processing-in-elixir.webp
+- id: testing-elixir
+  title: Testing Elixir
+  author: Andrea Leopardi and Jeffrey Matthias
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/lmelixir/testing-elixir/
+  hue: 270
+  year: 2021
+  image: /images/books/testing-elixir.webp
+- id: genetic-algorithms-in-elixir
+  title: Genetic Algorithms in Elixir
+  author: Sean Moriarity
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/smgaelixir/genetic-algorithms-in-elixir/
+  hue: 270
+  year: 2021
+  image: /images/books/genetic-algorithms-in-elixir.webp
 - id: real-time-phoenix
   title: Real-Time Phoenix
   author: Stephen Bussey
   publisher: Pragmatic Bookshelf
   url: https://pragprog.com/titles/sbsockets/real-time-phoenix/
-  level: intermediate
+  hue: 270
   year: 2020
-  hue: 50
+  image: /images/books/real-time-phoenix.webp
+- id: designing-elixir-systems-with-otp
+  title: Designing Elixir Systems with OTP
+  author: James Edward Gray, II and Bruce A. Tate
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
+  hue: 270
+  year: 2019
+  image: /images/books/designing-elixir-systems-with-otp.webp
+- id: programming-phoenix-1-4
+  title: Programming Phoenix 1.4
+  author: Chris McCord, Bruce Tate and José Valim
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/phoenix14/programming-phoenix-1-4/
+  hue: 270
+  year: 2019
+  note: Historical, version-specific edition.
+  image: /images/books/programming-phoenix-1-4.webp
+- id: programming-ecto
+  title: Programming Ecto
+  author: Darin Wilson and Eric Meadows-Jönsson
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/wmecto/programming-ecto/
+  hue: 270
+  year: 2019
+  image: /images/books/programming-ecto.webp
+- id: property-based-testing-with-proper-erlang-and-elixir
+  title: Property-Based Testing with PropEr, Erlang, and Elixir
+  author: Fred Hebert
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/fhproper/property-based-testing-with-proper-erlang-and-elixir/
+  hue: 270
+  year: 2019
+  image: /images/books/property-based-testing-with-proper-erlang-and-elixir.webp
+- id: programming-elixir-1-6
+  title: Programming Elixir 1.6
+  author: Dave Thomas
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/elixir16/programming-elixir-1-6/
+  hue: 270
+  year: 2018
+  note: Historical, version-specific edition.
+  image: /images/books/programming-elixir-1-6.webp
+- id: craft-graphql-apis-in-elixir-with-absinthe
+  title: Craft GraphQL APIs in Elixir with Absinthe
+  author: Bruce Williams and Ben Wilson
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/wwgraphql/craft-graphql-apis-in-elixir-with-absinthe/
+  hue: 270
+  year: 2018
+  image: /images/books/craft-graphql-apis-in-elixir-with-absinthe.webp
 - id: adopting-elixir
-  authors: [josevalim]
   title: Adopting Elixir
-  author: Ben Marx, José Valim & Bruce A. Tate
+  author: Ben Marx, José Valim, Bruce Tate
   publisher: Pragmatic Bookshelf
   url: https://pragprog.com/titles/tvmelixir/adopting-elixir/
-  level: intermediate
+  hue: 270
   year: 2018
-  hue: 180
+  image: /images/books/adopting-elixir.webp
+- id: learn-functional-programming-with-elixir
+  title: Learn Functional Programming with Elixir
+  author: Ulisses Almeida
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/cdc-elixir/learn-functional-programming-with-elixir/
+  hue: 270
+  year: 2018
+  image: /images/books/learn-functional-programming-with-elixir.webp
+- id: functional-web-development-with-elixir-otp-and-phoenix
+  title: Functional Web Development with Elixir, OTP, and Phoenix
+  author: Lance Halvorsen
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/
+  hue: 270
+  year: 2018
+  image: /images/books/functional-web-development-with-elixir-otp-and-phoenix.webp
+- id: metaprogramming-elixir
+  title: Metaprogramming Elixir
+  author: Chris McCord
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/cmelixir/metaprogramming-elixir/
+  hue: 270
+  year: 2015
+  image: /images/books/metaprogramming-elixir.webp
+- id: seven-more-languages-in-seven-weeks
+  title: Seven More Languages in Seven Weeks
+  author: Bruce Tate, Fred Daoud, Jack Moffitt, Erin Dees (formerly Ian Dees)
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/7lang/seven-more-languages-in-seven-weeks/
+  hue: 270
+  year: 2014
+  image: /images/books/seven-more-languages-in-seven-weeks.webp
+- id: elixir-in-action-third-edition
+  title: Elixir in Action, third edition
+  author: Saša Jurić
+  publisher: Manning
+  url: https://www.manning.com/books/elixir-in-action-third-edition
+  hue: 270
+  image: /images/books/elixir-in-action-third-edition.webp
+- id: the-little-elixir-otp-guidebook
+  title: The Little Elixir & OTP Guidebook
+  author: Benjamin Tan Wei Hao
+  publisher: Manning
+  url: https://www.manning.com/books/the-little-elixir-and-otp-guidebook
+  hue: 270
+  image: /images/books/the-little-elixir-otp-guidebook.webp
+- id: programming-phoenix-liveview
+  title: Programming Phoenix LiveView
+  author: Bruce A. Tate and Sophie DeBenedetto
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/liveview/programming-phoenix-liveview/
+  hue: 270
+  image: /images/books/programming-phoenix-liveview.webp
+- id: joy-of-elixir
+  title: Joy of Elixir
+  author: Ryan Bigg
+  publisher: Author publication
+  url: https://joyofelixir.com/
+  hue: 270
+  image: /images/books/joy-of-elixir.webp
+- id: the-toy-robot-walkthrough
+  title: The Toy Robot Walkthrough
+  author: ''
+  publisher: Leanpub
+  url: http://leanpub.com/elixir-toyrobot
+  hue: 270
+  image: /images/books/the-toy-robot-walkthrough.webp
+- id: elixir-succinctly
+  title: Elixir Succinctly
+  author: ''
+  publisher: Syncfusion
+  url: https://www.syncfusion.com/ebooks/elixir-succinctly
+  hue: 270
+  image: /images/books/elixir-succinctly.webp
+- id: the-alchemist-s-guide-to-otp
+  title: The Alchemist's Guide to OTP
+  author: ''
+  publisher: Leanpub
+  url: https://leanpub.com/the-alchemists-guide-to-otp
+  hue: 270
+  image: /images/books/the-alchemist-s-guide-to-otp.webp
+- id: the-phoenix-liveview-cookbook
+  title: The Phoenix LiveView Cookbook
+  author: Chris Gregori
+  publisher: Author publication
+  url: https://www.liveviewcookbook.com/
+  hue: 270
+  image: /images/books/the-phoenix-liveview-cookbook.webp
+- id: 5-little-potions
+  title: 5 Little Potions
+  author: ''
+  publisher: Author publication
+  url: https://alchemist.camp/little-potions
+  hue: 270
+  image: /images/books/5-little-potions.webp

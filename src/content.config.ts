@@ -5,6 +5,7 @@ import { z } from 'astro/zod'
 const issues = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/issues' }),
   schema: z.object({
+    image: z.string().optional(),
     number: z.number(),
     title: z.string(),
     date: z.coerce.date(),
@@ -16,6 +17,7 @@ const issues = defineCollection({
 const resources = defineCollection({
   loader: file('src/data/resources.yaml'),
   schema: z.object({
+    image: z.string().optional(),
     name: z.string(),
     url: z.url(),
     category: z.enum([
@@ -25,6 +27,8 @@ const resources = defineCollection({
       'editor',
       'workflow',
       'quality',
+      'jobs',
+      'learning',
     ]),
     description: z.string(),
     featured: z.boolean().default(false),
@@ -36,6 +40,7 @@ const resources = defineCollection({
 const events = defineCollection({
   loader: file('src/data/events.yaml'),
   schema: z.object({
+    image: z.string().optional(),
     name: z.string(),
     url: z.url(),
     kind: z.enum(['conference', 'meetup']),
@@ -52,8 +57,9 @@ const events = defineCollection({
 const people = defineCollection({
   loader: file('src/data/people.yaml'),
   schema: z.object({
+    image: z.string().optional(),
     name: z.string(),
-    github: z.string(),
+    github: z.string().default(''),
     role: z.string(),
     known_for: z.array(z.object({ name: z.string(), url: z.url() })),
     links: z
@@ -82,14 +88,16 @@ const people = defineCollection({
 const books = defineCollection({
   loader: file('src/data/books.yaml'),
   schema: z.object({
+    image: z.string().optional(),
     title: z.string(),
     author: z.string(),
     // The authors who have a page here. `author` above is the full display text.
     authors: z.array(reference('people')).default([]),
     publisher: z.string(),
     url: z.url(),
-    level: z.enum(['beginner', 'intermediate', 'advanced']),
-    year: z.number(),
+    level: z.enum(['beginner', 'intermediate', 'advanced']).optional(),
+    year: z.number().optional(),
+    note: z.string().optional(),
     hue: z.number().min(0).max(360),
   }),
 })
@@ -97,6 +105,7 @@ const books = defineCollection({
 const youtube = defineCollection({
   loader: file('src/data/youtube.yaml'),
   schema: z.object({
+    image: z.string().optional(),
     title: z.string(),
     handle: z.string(),
     url: z.url(),
@@ -113,12 +122,13 @@ const youtube = defineCollection({
 const podcasts = defineCollection({
   loader: file('src/data/podcasts.yaml'),
   schema: z.object({
+    image: z.string().optional(),
     title: z.string(),
     hosts: z.string(),
     url: z.url(),
     hue: z.number().min(0).max(360),
     description: z.string(),
-    feed: z.url(),
+    feed: z.url().optional(),
     episodes: z.number().optional(),
     last_episode: z.coerce.date().optional(),
     checked: z.coerce.date().optional(),
@@ -130,6 +140,7 @@ const podcasts = defineCollection({
 const companies = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/companies' }),
   schema: z.object({
+    image: z.string().optional(),
     name: z.string(),
     url: z.url(),
     industry: z.string(),
@@ -144,13 +155,15 @@ const companies = defineCollection({
 const jobs = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/jobs' }),
   schema: z.object({
+    image: z.string().optional(),
     title: z.string(),
     // id of an entry in the companies collection
     company: z.string(),
     url: z.url(),
     location: z.string(),
     type: z.enum(['Full-time', 'Part-time', 'Contract']),
-    posted: z.coerce.date(),
+    posted: z.coerce.date().optional(),
+    checked: z.coerce.date(),
   }),
 })
 

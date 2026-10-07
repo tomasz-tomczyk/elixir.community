@@ -10,7 +10,7 @@ import { isUpcoming } from '@/lib/site'
 const past = (await getCollection('events'))
   .filter(
     (e) =>
-      e.data.kind === 'conference' && e.data.date && !isUpcoming(e.data.date),
+      e.data.kind === 'conference' && e.data.date && !isUpcoming(e.data.date) && !e.data.when,
   )
   .sort((a, b) => (b.data.date ?? '').localeCompare(a.data.date ?? ''))
 
@@ -51,6 +51,7 @@ const years = [...new Set(past.map((e) => e.data.date!.slice(0, 4)))]
               .map((c) => (
                 <li>
                   <ConferenceCard
+                  image={c.data.image}
                     name={c.data.name}
                     url={c.data.url}
                     location={c.data.location}
