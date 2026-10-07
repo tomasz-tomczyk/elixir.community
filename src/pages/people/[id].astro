@@ -7,6 +7,7 @@ import BookCover from '@/components/BookCover.astro'
 import Icon from '@/components/Icon.astro'
 import NewsletterBand from '@/components/NewsletterBand.astro'
 import SocialLinks from '@/components/SocialLinks.astro'
+import TalkList from '@/components/TalkList.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { isUpcoming, place } from '@/lib/site'
 
@@ -30,6 +31,9 @@ const books = (await getCollection('books')).filter((b) => isMe(b.data.authors))
 const youtube = (await getCollection('youtube')).filter((c) =>
   isMe(c.data.people),
 )
+const talks = (await getCollection('talks'))
+  .filter((t) => isMe(t.data.people))
+  .sort((a, b) => b.data.date.localeCompare(a.data.date))
 const podcasts = (await getCollection('podcasts')).filter((p) =>
   isMe(p.data.people),
 )
@@ -68,6 +72,7 @@ const count = (refs: { id: string }[]) => {
 }
 books.forEach((b) => count(b.data.authors))
 youtube.forEach((c) => count(c.data.people))
+talks.forEach((t) => count(t.data.people))
 podcasts.forEach((p) => count(p.data.people))
 made.forEach((r) => count(r.data.people))
 events.forEach((e) => count(e.data.people))
@@ -253,6 +258,21 @@ const swatches = [
                 </li>
               ))}
             </ul>
+          </section>
+        )}
+
+        {talks.length > 0 && (
+          <section aria-labelledby="talks" class="mt-16">
+            <h2
+              id="talks"
+              class="mb-4 text-[1.625rem] font-[680] tracking-[-0.035em]"
+            >
+              Talks
+            </h2>
+            <TalkList talks={talks} />
+            <a href="/youtube#talks" class="btn-soft mt-6">
+              More talks <span aria-hidden="true">&rarr;</span>
+            </a>
           </section>
         )}
 
