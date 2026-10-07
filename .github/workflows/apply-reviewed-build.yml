@@ -1,0 +1,35 @@
+name: Apply reviewed site build
+on:
+  push:
+    paths: ['reviewed-site-build.tar.gz']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply reviewed source archive
+        run: |
+          test -f reviewed-site-build.tar.gz
+          tar -xzf reviewed-site-build.tar.gz
+          if test -f .reviewed-deletions; then
+            while IFS= read -r path; do
+              case "$path" in src/*|public/*) rm -f -- "$path" ;; *) exit 1 ;; esac
+            done < .reviewed-deletions
+          fi
+          rm -f reviewed-site-build.tar.gz .reviewed-deletions
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci && node --test test/signup.test.mjs && npm run build
+      - name: Commit checked build
+        run: |
+          git config user.name "Tomasz Tomczyk"
+          git config user.email "182303+tomasz-tomczyk@users.noreply.github.com"
+          git add -A
+          git commit -m "Build researched community site and secure newsletter signup"
+          git push
