@@ -1,7 +1,7 @@
 name: Apply reviewed site build
 on:
   push:
-    paths: ['1-reviewed-site-build.tar.gz']
+    paths: ['2-reviewed-site-build.tar.gz']
   workflow_dispatch:
 permissions:
   contents: write
@@ -13,14 +13,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: Apply reviewed source archive
         run: |
-          test -f 1-reviewed-site-build.tar.gz
-          tar -xzf 1-reviewed-site-build.tar.gz
+          test -f 2-reviewed-site-build.tar.gz
+          tar -xzf 2-reviewed-site-build.tar.gz
           if test -f .reviewed-deletions; then
             while IFS= read -r path; do
               case "$path" in src/*|public/*) rm -f -- "$path" ;; *) exit 1 ;; esac
             done < .reviewed-deletions
           fi
-          rm -f 1-reviewed-site-build.tar.gz .reviewed-deletions
+          rm -f 2-reviewed-site-build.tar.gz .reviewed-deletions
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
