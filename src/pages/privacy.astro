@@ -11,10 +11,10 @@ import PageHeader from '@/components/PageHeader.astro'
 <h2>Signing up</h2>
 <p>We ask for your email address and send a confirmation email. You must confirm before receiving the newsletter (double opt-in). We use your consent as the UK GDPR basis for newsletter emails. You can withdraw it at any time through the unsubscribe link in an email.</p>
 <h2>Where your data is held</h2>
-<p>Plunk holds your email address, newsletter contact record and consent status and sends our emails. Cloudflare D1 also holds your email address, confirmation nonce and status, and request timestamp. This helps prevent repeated signup requests and reuse of confirmation links.</p>
+<p>Plunk holds your email address, newsletter contact record and consent status and sends our emails. Plunk is the only store of newsletter signup and confirmation state. We do not store newsletter email addresses in a Cloudflare database.</p>
 <h2>How long we keep it</h2>
 <p>We keep newsletter contact data while you are subscribed and as needed to respect an unsubscribe request. Pending, unconfirmed contacts in Plunk may remain until we delete them manually. You can ask us to delete your data.</p>
-<p>Stale signup records in Cloudflare D1 are removed after 30 days when the next signup is processed. This is not a scheduled deletion exactly 30 days after a request.</p>
+<p>Confirmation links are digitally signed and expire after 24 hours. They are not stored on the server and cannot be individually revoked or marked as used. While a link is valid, pressing Confirm can subscribe an existing contact again, even after an unsubscribe. A link cannot recreate a deleted contact.</p>
 <h2>Email tracking</h2>
 <p>Our newsletter emails do not use open or click tracking.</p>
 <h2>Your rights</h2>

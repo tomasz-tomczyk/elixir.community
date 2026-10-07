@@ -23,13 +23,10 @@ export async function verify(token, secret) {
   const [body,sig,extra]=token.split('.');
   if(!body||!sig||extra||!await crypto.subtle.verify('HMAC',await hmac(secret),unb64(sig),encoder.encode(body))) return null;
   const p=JSON.parse(new TextDecoder().decode(unb64(body)));
-  if(p.purpose!=='newsletter-confirm'||typeof p.email!=='string'||typeof p.nonce!=='string'||!Number.isInteger(p.exp)||p.exp<Math.floor(Date.now()/1000)||p.exp>Math.floor(Date.now()/1000)+86400) return null;
+  if(p.purpose!=='newsletter-confirm'||typeof p.email!=='string'||p.email.length>254||!EMAIL.test(p.email)||p.email!==p.email.trim().toLowerCase()||!Number.isInteger(p.iat)||!Number.isInteger(p.exp)||p.exp!==p.iat+86400||p.iat>Math.floor(Date.now()/1000)||p.exp<=Math.floor(Date.now()/1000)) return null;
   return p;
  } catch {return null;}
 }
-export async function setup(db) {
- await db.prepare('CREATE TABLE IF NOT EXISTS signup_requests (email TEXT PRIMARY KEY, requested_at INTEGER NOT NULL, nonce TEXT NOT NULL, confirmed INTEGER NOT NULL DEFAULT 0)').run();
-}
 export function sameOrigin(request) {return request.headers.get('Origin')===ORIGIN;}
 export const EMAIL = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
-export function configured(env) {return env.PLUNK_SECRET_KEY && env.CONFIRM_TOKEN_SECRET && env.TURNSTILE_SECRET_KEY && env.SIGNUP_DB;}
+export function configured(env) {return env.PLUNK_SECRET_KEY && env.CONFIRM_TOKEN_SECRET && env.TURNSTILE_SECRET_KEY;}
