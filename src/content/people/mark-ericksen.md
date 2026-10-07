@@ -10,8 +10,12 @@ known_for:
   - name: LangChain for Elixir
     url: https://github.com/brainlid/langchain
 links:
-  - type: website
-    url: https://podcast.thinkingelixir.com/309
+  - type: twitter
+    url: https://x.com/brainlid
+  - type: bluesky
+    url: https://bsky.app/profile/brainlid.bsky.social
+  - type: mastodon
+    url: https://genserver.social/@brainlid
 ---
 
 Mark hosted Thinking Elixir, combining ecosystem news with interviews and practical discussion. The final episode closed six years of weekly shows and also discussed his work on Sagents and what he planned to build next.

@@ -16,6 +16,10 @@ known_for:
 links:
   - type: website
     url: https://www.mitchellhanberg.com/
+  - type: bluesky
+    url: https://bsky.app/profile/mitchellhanberg.com
+  - type: mastodon
+    url: https://hachyderm.io/@mitchhanberg
 ---
 
 Mitchell contributes to Elixir developer tools and maintains Wallaby, the browser-testing library. His account of joining that project describes learning the codebase through small contributions before taking on a maintainer role.

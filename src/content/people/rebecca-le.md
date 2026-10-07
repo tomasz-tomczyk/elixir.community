@@ -11,7 +11,13 @@ known_for:
     url: https://ash-hq.org
 links:
   - type: website
-    url: https://pragprog.com/titles/ldash/ash-framework/
+    url: https://sevenseacat.net/
+  - type: twitter
+    url: https://x.com/sevenseacat
+  - type: bluesky
+    url: https://bsky.app/profile/sevensea.cat
+  - type: linkedin
+    url: https://www.linkedin.com/in/sevenseacat
 ---
 
 Rebecca is an Ash Framework core-team member and co-author of Ash Framework with Zach Daniel. The book teaches declarative Elixir application development, connecting domain modeling and data handling with Phoenix and LiveView.

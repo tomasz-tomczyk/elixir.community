@@ -11,9 +11,6 @@ known_for:
     url: https://nerves-project.org/
   - name: NervesHub
     url: https://github.com/nerves-hub/nerves_hub_web
-links:
-  - type: website
-    url: https://www.verytechnology.com/insights/the-story-of-the-nerves-project-what-brought-me-to-very
 ---
 
 Justin co-created Nerves, bringing the BEAM and Elixir into embedded development. In his account of the project, he traces that work back to a long-running interest in computing and connected hardware.

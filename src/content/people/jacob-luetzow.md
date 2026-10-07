@@ -9,6 +9,8 @@ bio: Jacob makes Elixir tutorials, live coding streams and interviews with commu
 links:
   - type: website
     url: https://elixirmentor.com/
+  - type: linkedin
+    url: https://www.linkedin.com/in/jacob-luetzow
 ---
 
 Jacob runs Elixir Mentor, creating tutorials, live coding sessions and interviews with people in the ecosystem. The project helps developers learn Elixir through working examples and conversations about how it is used.

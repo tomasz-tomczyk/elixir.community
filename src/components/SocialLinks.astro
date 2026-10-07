@@ -1,4 +1,5 @@
 ---
+import Icon, { type IconName } from '@/components/Icon.astro'
 // Profile links for a person, as plain text links: GitHub first, then the rest.
 // A website shows its host name unless the link has its own label.
 interface Link {
@@ -17,7 +18,7 @@ const { github, links, class: className } = Astro.props
 
 const names: Record<string, string> = {
   github: 'GitHub',
-  twitter: 'X',
+  twitter: 'Twitter',
   linkedin: 'LinkedIn',
   bluesky: 'Bluesky',
   mastodon: 'Mastodon',
@@ -30,6 +31,8 @@ const all = [
     : []),
   ...links,
 ]
+const iconOf = (type: string): IconName =>
+  type === 'website' ? 'globe' : (type as IconName)
 const nameOf = (link: (typeof all)[number]) =>
   ('label' in link && link.label) ||
   names[link.type] ||
@@ -48,8 +51,9 @@ const nameOf = (link: (typeof all)[number]) =>
         href={link.url}
         target="_blank"
         rel="noopener me"
-        class="font-semibold text-(--ec-text-accent) underline decoration-(--ec-text-accent)/30 underline-offset-4 hover:decoration-(--ec-text-accent)"
+        class="inline-flex items-center gap-1.5 font-semibold text-(--ec-text-accent) underline decoration-(--ec-text-accent)/30 underline-offset-4 hover:decoration-(--ec-text-accent)"
       >
+        <Icon name={iconOf(link.type)} class="size-4" />
         {nameOf(link)}
         <span aria-hidden="true">&nearr;</span>
       </a>

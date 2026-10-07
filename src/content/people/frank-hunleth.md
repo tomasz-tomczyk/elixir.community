@@ -10,8 +10,8 @@ known_for:
   - name: Nerves
     url: https://nerves-project.org/
 links:
-  - type: website
-    url: https://nerves-project.org/
+  - type: bluesky
+    url: https://bsky.app/profile/fhunleth.bsky.social
 ---
 
 Frank works on Nerves, the platform for building and deploying embedded systems with Elixir and the BEAM. He co-authored Build a Binary Clock with Elixir and Nerves, using a hardware project to teach layered application design.

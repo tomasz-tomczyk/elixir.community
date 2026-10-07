@@ -44,10 +44,19 @@ const { kind, class: className } = Astro.props
     --tx: var(--ec-violet);
   }
 
-  .ec-art-youtube,
   .ec-art-books,
   .ec-art-people {
     --tx: var(--ec-indigo);
+  }
+
+  /* The same red as the YouTube tile on the home page, in both themes. */
+  .ec-art-youtube {
+    --tx: var(--ec-red);
+  }
+
+  /* Solid, like the tile. At 0.85 the header glow shows through and turns it pink. */
+  .ec-art-youtube .ec-play b {
+    opacity: 1;
   }
 
   /* Dark mode: the lighter tones, so the drawings stay visible. */
@@ -61,7 +70,6 @@ const { kind, class: className } = Astro.props
     --tx: var(--ec-lilac);
   }
 
-  .dark .ec-art-youtube,
   .dark .ec-art-books,
   .dark .ec-art-people {
     --tx: var(--ec-periwinkle);

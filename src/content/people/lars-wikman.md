@@ -12,6 +12,12 @@ known_for:
 links:
   - type: website
     url: https://underjord.io/
+  - type: twitter
+    url: https://x.com/lawik
+  - type: bluesky
+    url: https://bsky.app/profile/lawik.bsky.social
+  - type: mastodon
+    url: https://hachyderm.io/@lawik
 ---
 
 Lars writes at Underjord, where his Unpacking Elixir series explores the language and its runtime. He also writes about building software sustainably, giving developers a place to connect technical decisions with the practice of maintaining real systems.

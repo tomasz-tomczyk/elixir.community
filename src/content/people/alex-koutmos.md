@@ -11,7 +11,13 @@ known_for:
     url: https://github.com/akoutmos/prom_ex
 links:
   - type: website
-    url: https://pragprog.com/titles/d-akelixir/elixir-patterns/
+    url: https://akoutmos.com/
+  - type: twitter
+    url: https://x.com/akoutmos
+  - type: bluesky
+    url: https://bsky.app/profile/akoutmos.bsky.social
+  - type: linkedin
+    url: https://www.linkedin.com/in/alex-koutmos-b8b2bb93
 ---
 
 Alex wrote Elixir Patterns, a practical handbook for developers working with the BEAM. Its examples connect core language techniques with the patterns used to structure and operate Elixir applications.

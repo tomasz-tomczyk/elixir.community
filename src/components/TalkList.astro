@@ -1,78 +1,110 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import Icon from '@/components/Icon.astro'
+import LocalImage from '@/components/LocalImage.astro'
 import { formatDate } from '@/lib/site'
 
+// A grid of recorded talk cards. Each card shows the video thumbnail
+// (saved under /images/talks/<id>.webp) and links speakers to their profiles.
 interface Props {
   talks: CollectionEntry<'talks'>[]
   people?: CollectionEntry<'people'>[]
 }
 const { talks, people = [] } = Astro.props
-const swatches = [
-  'var(--ec-violet)',
-  'var(--ec-fuchsia)',
-  'var(--ec-indigo)',
-  'var(--ec-orchid)',
-]
+const date = (talk: CollectionEntry<'talks'>) =>
+  formatDate(new Date(`${talk.data.date}T12:00:00Z`), 'short')
 ---
 
-<ul class="ec-res">
-  {talks.map((talk, i) => (
-    <li id={talk.id} class="scroll-mt-24">
-      <a href={talk.data.url} target="_blank" rel="noopener">
-        <span
-          class="r-sh"
-          style={`--c:${swatches[i % swatches.length]}`}
-          aria-hidden="true"
-        />
-        <span class="flex min-w-0 flex-1 flex-col gap-1">
-          <b class="text-[1.0625rem] font-semibold tracking-tight">
-            {talk.data.title}
-          </b>
-          <span class="text-sm/6 text-(--ec-muted)">
-            {talk.data.description}
-          </span>
-          <span class="font-mono text-xs/5 text-(--ec-muted)">
-            {talk.data.speakers.join(', ')} · {talk.data.event} ·{' '}
-            {formatDate(new Date(`${talk.data.date}T12:00:00Z`), 'short')}
-            {talk.data.duration && ` · ${talk.data.duration} min`}
-          </span>
-        </span>
-        <Icon
-          name="arrow-up-right"
-          class="mt-1 size-4 shrink-0 text-(--ec-muted)"
-        />
-      </a>
-      {people.length > 0 && (
-        <div class="flex flex-wrap gap-x-4 gap-y-1 px-4 pb-4 pl-14 text-sm text-(--ec-muted)">
-          {talk.data.people.map((ref) => {
-            const person = people.find((p) => p.id === ref.id)
-            return (
-              person && (
-                <a
-                  href={`/people/${person.id}`}
-                  class="underline decoration-current/30 underline-offset-4 hover:text-(--ec-text-accent)"
-                >
-                  {person.data.name}
-                </a>
-              )
-            )
-          })}
+<ul class="talks grid gap-5">
+  {talks.map((talk) => {
+    const speakers = talk.data.people
+      .map((ref) => people.find((p) => p.id === ref.id))
+      .filter((p) => p !== undefined)
+    return (
+      <li id={talk.id} class="card relative flex scroll-mt-24 flex-col">
+        <div class="thumb relative aspect-video overflow-hidden">
+          <LocalImage
+            src={`/images/talks/${talk.id}.webp`}
+            widths={[320, 480, 640]}
+            sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
+            alt=""
+            loading="lazy"
+            class="size-full object-cover"
+          />
+          {talk.data.duration && (
+            <span class="absolute right-2 bottom-2 rounded-md bg-black/75 px-1.5 py-0.5 font-mono text-xs/4 text-white">
+              {talk.data.duration} min
+            </span>
+          )}
         </div>
-      )}
-    </li>
-  ))}
+        <div class="flex flex-auto flex-col px-5 pt-4 pb-5">
+          <p class="mb-1.5 font-mono text-xs/5 text-(--ec-muted)">
+            {talk.data.event} · {date(talk)}
+          </p>
+          <h3 class="mb-2 text-lg/6 font-semibold tracking-tight">
+            <a
+              href={talk.data.url}
+              target="_blank"
+              rel="noopener"
+              class="title after:absolute after:inset-0 after:rounded-[22px]"
+            >
+              {talk.data.title}
+            </a>
+          </h3>
+          <p class="flex-auto text-sm/6 text-(--ec-muted)">
+            {talk.data.description}
+          </p>
+          <p class="mt-4 border-t border-(--ec-line) pt-3 text-sm/6">
+            {speakers.length > 0
+              ? speakers.map((person, i) => (
+                  <>
+                    {i > 0 && ', '}
+                    <a
+                      href={`/people/${person.id}`}
+                      class="relative z-10 underline decoration-current/30 underline-offset-4 hover:text-(--ec-text-accent)"
+                    >
+                      {person.data.name}
+                    </a>
+                  </>
+                ))
+              : talk.data.speakers.join(', ')}
+          </p>
+        </div>
+      </li>
+    )
+  })}
 </ul>
 
 <style>
-  /* The main link and speaker links share a row, rather than each filling it. */
-  .ec-res > li > a {
-    height: auto;
+  .talks {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
   }
-  .ec-res > li > div > a {
-    display: inline;
-    height: auto;
-    padding: 0;
-    border: 0;
+
+  .card {
+    border-radius: 22px;
+    background: var(--ec-card);
+    box-shadow:
+      0 0 0 1px var(--ec-line),
+      0 14px 30px -22px rgb(20 0 40 / 0.45);
+    transition:
+      transform 0.35s var(--ec-ease),
+      box-shadow 0.35s;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 0 1px var(--ec-line),
+      0 22px 40px -22px rgb(20 0 40 / 0.55);
+  }
+
+  .card:hover .title {
+    text-decoration: underline var(--ec-fuchsia);
+    text-underline-offset: 3px;
+  }
+
+  .thumb {
+    margin: 0.375rem 0.375rem 0;
+    border-radius: 17px;
+    background: var(--ec-line);
   }
 </style>

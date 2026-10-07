@@ -7,8 +7,8 @@ featured: false
 image: /images/people/james-edward-gray-ii.webp
 bio: James is a long-time programmer and teacher who co-wrote a book on how to structure Elixir applications with OTP.
 links:
-  - type: website
-    url: https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
+  - type: twitter
+    url: https://x.com/JEG2
 ---
 
 James co-authored Designing Elixir Systems with OTP with Bruce Tate. The book develops applications in layers, separating functional logic from concurrent processes and supervision so readers can reason about failure and recovery.

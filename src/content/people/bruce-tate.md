@@ -11,7 +11,10 @@ known_for:
     url: https://grox.io
 links:
   - type: website
-    url: https://grox.io/courses
+    url: https://grox.io/
+  - type: bluesky
+    url: https://bsky.app/profile/redrapids.bsky.social
+company: groxio
 ---
 
 Bruce teaches Elixir through Groxio, covering fundamentals, OTP, LiveView, Nerves, Ecto and machine learning. His books and courses approach complex systems through practical examples and a gradual understanding of their building blocks.

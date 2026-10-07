@@ -9,7 +9,7 @@ import NewsletterBand from '@/components/NewsletterBand.astro'
 import SocialLinks from '@/components/SocialLinks.astro'
 import TalkList from '@/components/TalkList.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import { isUpcoming, place } from '@/lib/site'
+import { formatDate, isUpcoming, place } from '@/lib/site'
 
 export async function getStaticPaths() {
   const people = await getCollection('people')
@@ -78,7 +78,8 @@ made.forEach((r) => count(r.data.people))
 events.forEach((e) => count(e.data.people))
 const hash = (text: string) =>
   [...text].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7)
-const others = (await getCollection('people'))
+const allPeople = await getCollection('people')
+const others = allPeople
   .filter((p) => p.id !== person.id)
   .map((p) => ({
     p,
@@ -269,7 +270,7 @@ const swatches = [
             >
               Talks
             </h2>
-            <TalkList talks={talks} />
+            <TalkList talks={talks} people={allPeople} />
             <a href="/youtube#talks" class="btn-soft mt-6">
               More talks <span aria-hidden="true">&rarr;</span>
             </a>
@@ -335,6 +336,13 @@ const swatches = [
             </div>
           </section>
         )}
+
+        <p class="mt-16 border-t border-(--ec-line) pt-4 text-sm text-(--ec-muted)">
+          Profile last updated{' '}
+          <time datetime={person.data.last_updated}>
+            {formatDate(new Date(`${person.data.last_updated}T12:00:00Z`))}
+          </time>
+        </p>
       </div>
 
       <aside aria-labelledby="more-people">

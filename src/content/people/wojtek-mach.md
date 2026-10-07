@@ -13,6 +13,14 @@ known_for:
     url: https://github.com/elixir-ecto/ecto
   - name: Req
     url: https://github.com/wojtekmach/req
+links:
+  - type: website
+    url: https://wojtekmach.pl/
+  - type: twitter
+    url: https://x.com/wojtekmach
+  - type: bluesky
+    url: https://bsky.app/profile/wojtekmach.bsky.social
+company: dashbit
 ---
 
 Wojtek works at Dashbit and contributes to the Hex and Ecto teams. His public projects include an Ecto adapter for the GitHub API and libraries for calendar intervals and recurring dates.

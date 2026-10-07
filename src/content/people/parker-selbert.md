@@ -11,7 +11,4 @@ known_for:
     url: https://github.com/oban-bg/oban
   - name: Oban Pro
     url: https://getoban.pro
-links:
-  - type: website
-    url: https://2026.goatmire.com/
 ---

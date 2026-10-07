@@ -11,6 +11,10 @@ known_for:
     url: https://livebook.dev
   - name: Tidewave
     url: https://tidewave.ai
+links:
+  - type: website
+    url: https://jonatanklosko.com/
+company: dashbit
 ---
 
 Jonatan works on Livebook, Tidewave and Elixir at Dashbit. His public profile brings together interactive notebooks and development tools, alongside his contributions to the language ecosystem.

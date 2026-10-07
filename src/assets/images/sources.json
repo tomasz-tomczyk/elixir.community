@@ -1632,5 +1632,210 @@
     "image_source": "https://avatars.githubusercontent.com/u/20355819?s=256&v=4",
     "method": "official-image",
     "local": "/images/people/shannon-selbert.webp"
+  },
+  {
+    "kind": "talks",
+    "id": "elixirconf-eu-2026-keynote-the-latest-on-elixir-types",
+    "page": "https://www.youtube.com/watch?v=Ay-gnCqDw9o",
+    "image_source": "https://i.ytimg.com/vi/Ay-gnCqDw9o/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/elixirconf-eu-2026-keynote-the-latest-on-elixir-types.webp",
+    "bytes": 30172
+  },
+  {
+    "kind": "talks",
+    "id": "elixirconf-eu-2026-keynote-durableserver-always-running-somewhere",
+    "page": "https://www.youtube.com/watch?v=nZmDEUeHeVI",
+    "image_source": "https://i.ytimg.com/vi/nZmDEUeHeVI/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/elixirconf-eu-2026-keynote-durableserver-always-running-somewhere.webp",
+    "bytes": 32254
+  },
+  {
+    "kind": "talks",
+    "id": "elixirconf-eu-2025-architecture-of-oban-web",
+    "page": "https://www.youtube.com/watch?v=oC22L_wSg8w",
+    "image_source": "https://i.ytimg.com/vi/oC22L_wSg8w/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/elixirconf-eu-2025-architecture-of-oban-web.webp",
+    "bytes": 24466
+  },
+  {
+    "kind": "talks",
+    "id": "elixirconf-eu-2025-livebook-behind-the-cover",
+    "page": "https://www.youtube.com/watch?v=2GUvk_BNJRE",
+    "image_source": "https://i.ytimg.com/vi/2GUvk_BNJRE/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/elixirconf-eu-2025-livebook-behind-the-cover.webp",
+    "bytes": 22060
+  },
+  {
+    "kind": "talks",
+    "id": "elixirconf-eu-2025-ash-ai-launch",
+    "page": "https://www.youtube.com/watch?v=PSrzruaby1M",
+    "image_source": "https://i.ytimg.com/vi/PSrzruaby1M/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/elixirconf-eu-2025-ash-ai-launch.webp",
+    "bytes": 19982
+  },
+  {
+    "kind": "talks",
+    "id": "code-beam-america-2025-designing-llm-native-systems",
+    "page": "https://www.youtube.com/watch?v=R9JRhIKQmqk",
+    "image_source": "https://i.ytimg.com/vi/R9JRhIKQmqk/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/code-beam-america-2025-designing-llm-native-systems.webp",
+    "bytes": 21536
+  },
+  {
+    "kind": "talks",
+    "id": "code-beam-america-2025-elixir-update",
+    "page": "https://www.youtube.com/watch?v=B0EPRGEs2Oo",
+    "image_source": "https://i.ytimg.com/vi/B0EPRGEs2Oo/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/code-beam-america-2025-elixir-update.webp",
+    "bytes": 22136
+  },
+  {
+    "kind": "talks",
+    "id": "code-beam-america-2025-live-voices-with-liveview",
+    "page": "https://www.youtube.com/watch?v=veUOaN2CNeA",
+    "image_source": "https://i.ytimg.com/vi/veUOaN2CNeA/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/code-beam-america-2025-live-voices-with-liveview.webp",
+    "bytes": 16098
+  },
+  {
+    "kind": "talks",
+    "id": "code-beam-america-2025-elixir-lsp",
+    "page": "https://www.youtube.com/watch?v=C0NyliQ9mxE",
+    "image_source": "https://i.ytimg.com/vi/C0NyliQ9mxE/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/code-beam-america-2025-elixir-lsp.webp",
+    "bytes": 17926
+  },
+  {
+    "kind": "talks",
+    "id": "code-beam-europe-2024-hex-then-and-now",
+    "page": "https://www.youtube.com/watch?v=HicN1oCK_Q8",
+    "image_source": "https://i.ytimg.com/vi/HicN1oCK_Q8/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/code-beam-europe-2024-hex-then-and-now.webp",
+    "bytes": 32714
+  },
+  {
+    "kind": "talks",
+    "id": "code-beam-europe-2024-update-from-the-elixir-core-team",
+    "page": "https://www.youtube.com/watch?v=yIZbDoF0mXI",
+    "image_source": "https://i.ytimg.com/vi/yIZbDoF0mXI/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/code-beam-europe-2024-update-from-the-elixir-core-team.webp",
+    "bytes": 32096
+  },
+  {
+    "kind": "talks",
+    "id": "code-beam-europe-2024-parenting",
+    "page": "https://www.youtube.com/watch?v=qTmpbzNDDqI",
+    "image_source": "https://i.ytimg.com/vi/qTmpbzNDDqI/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/code-beam-europe-2024-parenting.webp",
+    "bytes": 31442
+  },
+  {
+    "kind": "talks",
+    "id": "code-beam-europe-2024-from-ruby-to-elixir-elevate-your-engineering-team-without-fear",
+    "page": "https://www.youtube.com/watch?v=jE1GeIOynRw",
+    "image_source": "https://i.ytimg.com/vi/jE1GeIOynRw/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/code-beam-europe-2024-from-ruby-to-elixir-elevate-your-engineering-team-without-fear.webp",
+    "bytes": 17448
+  },
+  {
+    "kind": "talks",
+    "id": "code-beam-europe-2024-growing-new-chemists-and-alchemists-building-elixir-teams",
+    "page": "https://www.youtube.com/watch?v=XmRnw_zAC2Y",
+    "image_source": "https://i.ytimg.com/vi/XmRnw_zAC2Y/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/code-beam-europe-2024-growing-new-chemists-and-alchemists-building-elixir-teams.webp",
+    "bytes": 34188
+  },
+  {
+    "kind": "talks",
+    "id": "elixirconf-us-2024-why-world-needs-phoenixtest",
+    "page": "https://www.youtube.com/watch?v=Fi6rUKeaoNM",
+    "image_source": "https://i.ytimg.com/vi/Fi6rUKeaoNM/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/elixirconf-us-2024-why-world-needs-phoenixtest.webp",
+    "bytes": 31854
+  },
+  {
+    "kind": "talks",
+    "id": "empex-2024-phoenix-presence-the-right-way-to-track-user-involvement",
+    "page": "https://www.youtube.com/watch?v=7L5xuTbXtbI",
+    "image_source": "https://i.ytimg.com/vi/7L5xuTbXtbI/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/empex-2024-phoenix-presence-the-right-way-to-track-user-involvement.webp",
+    "bytes": 12452
+  },
+  {
+    "kind": "talks",
+    "id": "gig-city-elixir-2024-nerves-update",
+    "page": "https://www.youtube.com/watch?v=q0RoVk7h0Fo",
+    "image_source": "https://i.ytimg.com/vi/q0RoVk7h0Fo/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/gig-city-elixir-2024-nerves-update.webp",
+    "bytes": 20954
+  },
+  {
+    "kind": "talks",
+    "id": "curiosum-elixir-meetup-21-teaching-functional-programming-with-elixir",
+    "page": "https://www.youtube.com/watch?v=1l1_rHC3lSo",
+    "image_source": "https://i.ytimg.com/vi/1l1_rHC3lSo/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/curiosum-elixir-meetup-21-teaching-functional-programming-with-elixir.webp",
+    "bytes": 16514
+  },
+  {
+    "kind": "talks",
+    "id": "elixirconf-eu-2023-dont-fight-the-monolith",
+    "page": "https://www.youtube.com/watch?v=AfXNyImH0ik",
+    "image_source": "https://i.ytimg.com/vi/AfXNyImH0ik/sddefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/elixirconf-eu-2023-dont-fight-the-monolith.webp",
+    "bytes": 22076
+  },
+  {
+    "kind": "talks",
+    "id": "elixirconf-us-2022-going-global-with-a-normal-phoenix-app",
+    "page": "https://www.youtube.com/watch?v=_lBnAB_ClFs",
+    "image_source": "https://i.ytimg.com/vi/_lBnAB_ClFs/maxresdefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/elixirconf-us-2022-going-global-with-a-normal-phoenix-app.webp",
+    "bytes": 24310
+  },
+  {
+    "kind": "talks",
+    "id": "code-beam-v-america-2021-beam-prometheus-grafana-observability-heaven",
+    "page": "https://www.youtube.com/watch?v=0SkVsUdUutE",
+    "image_source": "https://i.ytimg.com/vi/0SkVsUdUutE/sddefault.jpg",
+    "method": "official-image",
+    "local": "/images/talks/code-beam-v-america-2021-beam-prometheus-grafana-observability-heaven.webp",
+    "bytes": 21542
+  },
+  {
+    "kind": "companies",
+    "id": "dashbit",
+    "page": "https://dashbit.co",
+    "image_source": "https://dashbit.co/images/logo-166c057038a97186c76e9f48807c096e.png",
+    "method": "official-image",
+    "local": "/images/companies/dashbit.svg"
+  },
+  {
+    "kind": "companies",
+    "id": "groxio",
+    "page": "https://grox.io",
+    "image_source": "https://grox.io/ (inline SVG logo)",
+    "method": "official-image",
+    "local": "/images/companies/groxio.svg"
   }
 ]

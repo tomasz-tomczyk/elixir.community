@@ -14,6 +14,9 @@ known_for:
 links:
   - type: website
     url: https://chrismccord.com/
+  - type: twitter
+    url: https://x.com/chris_mccord
+company: fly-io
 ---
 
 Chris created Phoenix and co-authored Programming Phoenix 1.4 with Bruce Tate and José Valim. His writing and conference talks explore how to build productive web applications on Elixir, including real-time behavior and the framework's development model.

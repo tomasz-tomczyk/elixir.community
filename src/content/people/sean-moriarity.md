@@ -12,6 +12,8 @@ known_for:
 links:
   - type: website
     url: https://seanmoriarity.com/about
+  - type: twitter
+    url: https://x.com/sean_moriarity
 ---
 
 Sean co-created Nx and wrote Genetic Algorithms in Elixir and Machine Learning in Elixir. His work explores how numerical computing, deep learning and evolutionary algorithms can fit into the Elixir ecosystem.

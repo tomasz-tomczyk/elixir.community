@@ -11,7 +11,12 @@ known_for:
     url: https://github.com/sasa1977/boundary
 links:
   - type: website
-    url: https://www.manning.com/books/elixir-in-action-third-edition
+    url: https://www.theerlangelist.com/
+    label: The Erlangelist
+  - type: twitter
+    url: https://x.com/sasajuric
+  - type: bluesky
+    url: https://bsky.app/profile/sasajuric.bsky.social
 ---
 
 Saša wrote Elixir in Action, a practical guide to building concurrent and fault-tolerant systems. The third edition takes readers from functional programming into processes, OTP behavior and production-oriented application design.

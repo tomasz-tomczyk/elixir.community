@@ -9,6 +9,9 @@ bio: Eric is a long-time Elixir core team member who built Hex, the package mana
 known_for:
   - name: Hex
     url: https://hex.pm
+links:
+  - type: twitter
+    url: https://x.com/emjii
 ---
 
 Eric is an Elixir core-team member and the creator of Hex, the package manager used to share libraries across the ecosystem. His work gives Elixir developers the infrastructure for publishing and finding dependencies.

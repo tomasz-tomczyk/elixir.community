@@ -11,6 +11,17 @@ known_for:
     url: https://ash-hq.org
   - name: Igniter
     url: https://github.com/ash-project/igniter
+links:
+  - type: website
+    url: https://www.zachdaniel.dev/
+  - type: twitter
+    url: https://x.com/ZachSDaniel1
+  - type: bluesky
+    url: https://bsky.app/profile/zachdaniel.dev
+  - type: linkedin
+    url: https://www.linkedin.com/in/zachdaniel
+  - type: youtube
+    url: https://www.youtube.com/@zach_daniel
 ---
 
 Zach created Ash Framework and co-authored its book with Rebecca Le. His work focuses on declarative design: describing application resources and behavior so shared tools can handle more of the repeated implementation work.
