@@ -65,31 +65,84 @@ const id = `email-${Math.random().toString(36).slice(2, 8)}`
 <p role="status" data-subscribe-status class="mt-3 text-sm"></p>
 <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
 <script>
-  type TurnstileAPI = {render:(node:Element,options:Record<string,unknown>)=>string;getResponse:(id:string)=>string;reset:(id:string)=>void}
-  const browserWindow=window as typeof window & {turnstile?:TurnstileAPI}
-  for(const form of document.querySelectorAll<HTMLFormElement>('[data-subscribe-form]')) {
-    const check=form.nextElementSibling as HTMLElement
-    const status=check.nextElementSibling as HTMLElement
-    const button=form.querySelector<HTMLButtonElement>('button')!
-    let widget:string|undefined
-    const render=()=>{
-      if(!browserWindow.turnstile) return
-      if(!check.dataset.sitekey){button.disabled=true;status.textContent='Newsletter signup is being set up. Please come back soon.';return}
-      widget=browserWindow.turnstile.render(check,{sitekey:check.dataset.sitekey,action:'subscribe',theme:'auto'})
+  type TurnstileAPI = {
+    render: (node: Element, options: Record<string, unknown>) => string
+    getResponse: (id: string) => string
+    reset: (id: string) => void
+    remove: (id: string) => void
+  }
+  const browserWindow = window as typeof window & { turnstile?: TurnstileAPI }
+
+  for (const form of document.querySelectorAll<HTMLFormElement>(
+    '[data-subscribe-form]',
+  )) {
+    const check = form.nextElementSibling as HTMLElement
+    const status = check.nextElementSibling as HTMLElement
+    const button = form.querySelector<HTMLButtonElement>('button')!
+    let widget: string | undefined
+
+    const render = () => {
+      if (!browserWindow.turnstile) return
+      if (!check.dataset.sitekey) {
+        button.disabled = true
+        status.textContent =
+          'Newsletter signup is being set up. Please come back soon.'
+        return
+      }
+      widget = browserWindow.turnstile.render(check, {
+        sitekey: check.dataset.sitekey,
+        action: 'subscribe',
+        theme: document.documentElement.classList.contains('dark')
+          ? 'dark'
+          : 'light',
+        size: 'compact',
+        appearance: 'interaction-only',
+      })
     }
-    if(browserWindow.turnstile) render()
-    else document.querySelector('script[src*="turnstile/v0/api.js"]')?.addEventListener('load',render)
-    form.addEventListener('submit',async(event)=>{
+
+    const rerender = () => {
+      if (!browserWindow.turnstile || !widget) return
+      browserWindow.turnstile.remove(widget)
+      widget = undefined
+      render()
+    }
+
+    if (browserWindow.turnstile) render()
+    else {
+      document
+        .querySelector('script[src*="turnstile/v0/api.js"]')
+        ?.addEventListener('load', render, { once: true })
+    }
+
+    new MutationObserver(rerender).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    })
+
+    form.addEventListener('submit', async (event) => {
       event.preventDefault()
-      const token=widget&&browserWindow.turnstile?.getResponse(widget)
-      if(!token){status.textContent='Please complete the security check.';return}
-      button.disabled=true;status.textContent='Sending confirmation...'
+      const token = widget && browserWindow.turnstile?.getResponse(widget)
+      if (!token) {
+        status.textContent = 'Please complete the security check.'
+        return
+      }
+      button.disabled = true
+      status.textContent = 'Sending confirmation...'
       try {
-        const response=await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:new FormData(form).get('email'),token})})
-        const result=await response.json();status.textContent=result.message
-        if(response.ok) form.reset()
-      }catch {status.textContent='Could not connect. Please try again.'}
-      finally {button.disabled=false;if(widget)browserWindow.turnstile?.reset(widget)}
+        const response = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: new FormData(form).get('email'), token }),
+        })
+        const result = await response.json()
+        status.textContent = result.message
+        if (response.ok) form.reset()
+      } catch {
+        status.textContent = 'Could not connect. Please try again.'
+      } finally {
+        button.disabled = false
+        if (widget) browserWindow.turnstile?.reset(widget)
+      }
     })
   }
 </script>
