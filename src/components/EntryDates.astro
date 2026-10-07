@@ -9,5 +9,4 @@ const label = (value: string) => value.length === 4 ? value : new Date(`${value.
 ---
 <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs/5 text-(--ec-muted)">
   {created && <span>{createdLabel}: <time datetime={created}>{label(created)}</time></span>}
-  {data.last_updated && <span>Last updated: <time datetime={data.last_updated}>{label(data.last_updated)}</time></span>}
 </span>
