@@ -154,6 +154,20 @@ const youtube = defineCollection({
   }),
 })
 
+const talks = defineCollection({
+  loader: file('src/data/talks.yaml'),
+  schema: z.object({
+    title: z.string(),
+    url: z.url(),
+    description: z.string(),
+    event: z.string(),
+    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    duration: z.number().positive().optional(),
+    speakers: z.array(z.string()),
+    people: z.array(reference('people')).default([]),
+  }),
+})
+
 const podcasts = defineCollection({
   loader: file('src/data/podcasts.yaml'),
   schema: z.object({
@@ -221,6 +235,7 @@ export const collections = {
   people,
   books,
   youtube,
+  talks,
   podcasts,
   companies,
   jobs,
