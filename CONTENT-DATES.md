@@ -48,3 +48,8 @@ Book `created` values use the publisher's P1.0 first/final release history where
 - Thinking Elixir: 2020-06-17, explicitly its first official episode: https://podcast.thinkingelixir.com/1
 - Elixir Wizards: 2019, explicitly launched in early 2019: https://smartlogic.io/podcast/elixir-wizards/ . No day inferred from an episode listing.
 - Other unknown launch/founding dates remain absent; oldest retained RSS items are not treated as launch evidence.
+
+- Elixir em Foco: 2021-03-30, explicit creation date on https://elixiremfoco.com/ .
+- Elixir Outlaws: 2018-04-15, first episode page: https://elixiroutlaws.com/1 .
+- Elixir Mix: 2018-05-01, publisher welcome episode: https://topenddevs.com/podcasts/elixir-mix/emx-001-welcome-to-elixir-mix .
+- BEAM Radio remains undated: https://www.beamrad.io/1 dates episode 1 to 2021-02-23, while https://www.beamrad.io/episodes says the first episode aired 2021-01-20. Neither conflicting day is silently selected.
