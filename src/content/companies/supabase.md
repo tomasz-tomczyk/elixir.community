@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Supabase
 url: https://supabase.com/blog/supavisor-postgres-connection-pooler
 industry: Documented Elixir use

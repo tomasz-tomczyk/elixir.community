@@ -1,8 +1,11 @@
 ---
+import EntryDates from '@/components/EntryDates.astro'
 import Icon, { type IconName } from '@/components/Icon.astro'
 
 // One row in an .ec-rows list: icon tile, title, mono meta and a short description.
 interface Props {
+  id?: string
+  dates?: { last_updated?: string; created?: string; year?: number }
   href: string
   title: string
   description: string
@@ -11,7 +14,7 @@ interface Props {
   external?: boolean
 }
 const {
-  href,
+  id, dates,  href,
   title,
   description,
   icon = 'arrow-up-right',
@@ -21,6 +24,7 @@ const {
 ---
 
 <a
+  id={id}
   href={href}
   {...(external ? { target: '_blank', rel: 'noopener' } : {})}
   class="group flex gap-4 py-4"
@@ -36,5 +40,6 @@ const {
       <span class="font-mono text-[0.8125rem]/5 text-(--ec-muted)">{meta}</span>
     )}
     <span class="text-[0.9375rem]/6 text-(--ec-muted)">{description}</span>
+    {dates && <EntryDates data={dates} createdLabel="Created" />}
   </span>
 </a>

@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Slab
 url: https://elixir-lang.org/blog/2020/11/17/real-time-collaboration-with-elixir-at-slab/
 industry: Documented Elixir use

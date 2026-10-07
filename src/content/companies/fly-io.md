@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Fly.io
 url: https://fly.io/jobs/fullstack-engineer/
 industry: Documented Elixir use

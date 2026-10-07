@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Plausible Analytics
 url: https://podcast.thinkingelixir.com/105
 industry: Documented Elixir use

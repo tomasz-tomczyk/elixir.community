@@ -26,6 +26,8 @@ const books = (await getCollection('books')).sort(
     <div class="ec-rise mt-16 grid grid-cols-2 gap-x-5 gap-y-12 border-t border-(--ec-line) pt-12 sm:gap-x-8 md:grid-cols-3 lg:grid-cols-5">
       {books.map((b, i) => (
         <BookCover
+          id={b.id}
+          dates={b.data}
           image={b.data.image}
           title={b.data.title}
           author={b.data.author}

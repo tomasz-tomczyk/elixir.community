@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: FarmBot
 url: https://elixir-lang.org/blog/2020/08/20/embedded-elixir-at-farmbot/
 industry: Documented Elixir use

@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Discord
 url: https://elixir-lang.org/blog/2020/10/08/real-time-communication-at-scale-with-elixir-at-discord/
 industry: Documented Elixir use

@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Spotify
 url: https://podcast.thinkingelixir.com/59
 industry: Documented Elixir use

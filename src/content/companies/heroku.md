@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Heroku
 url: https://elixir-lang.org/blog/2020/09/24/paas-with-elixir-at-heroku/
 industry: Documented Elixir use

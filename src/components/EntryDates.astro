@@ -1,0 +1,13 @@
+---
+interface Props {
+  data: { last_updated?: string; created?: string; year?: number }
+  createdLabel?: string
+}
+const { data, createdLabel = 'Created' } = Astro.props
+const created = data.created ?? (data.year ? String(data.year) : undefined)
+const label = (value: string) => value.length === 4 ? value : new Date(`${value.length === 7 ? value + '-01' : value}T00:00:00Z`).toLocaleDateString('en-GB', { timeZone: 'UTC', day: value.length === 7 ? undefined : 'numeric', month: 'short', year: 'numeric' })
+---
+<span class="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs/5 text-(--ec-muted)">
+  {created && <span>{createdLabel}: <time datetime={created}>{label(created)}</time></span>}
+  {data.last_updated && <span>Last updated: <time datetime={data.last_updated}>{label(data.last_updated)}</time></span>}
+</span>

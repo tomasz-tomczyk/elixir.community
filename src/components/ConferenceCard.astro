@@ -1,8 +1,11 @@
 ---
+import EntryDates from '@/components/EntryDates.astro'
 import Icon from '@/components/Icon.astro'
 import { conferenceDate, formatDate } from '@/lib/site'
 
 interface Props {
+  id?: string
+  dates?: { last_updated?: string; created?: string; year?: number }
   image?: string
   name: string
   url: string
@@ -11,7 +14,7 @@ interface Props {
   description: string
 }
 
-const { image, name, url, location, date, description } = Astro.props
+const { id, dates, image, name, url, location, date, description } = Astro.props
 const { label, past } = conferenceDate(date)
 const day = date ? new Date(`${date}T00:00:00Z`) : undefined
 const [month, year] = label.split(' ')
@@ -21,6 +24,7 @@ const [badgeTop, badgeSub] =
 ---
 
 <a
+  id={id}
   href={url}
   target="_blank"
   rel="noopener"
@@ -63,6 +67,7 @@ const [badgeTop, badgeSub] =
       )}
     </span>
     <span class="mt-1 text-[0.9375rem]/6 text-(--ec-muted)">{description}</span>
+    {dates && <EntryDates data={dates} createdLabel="Created" />}
   </span>
 </a>
 

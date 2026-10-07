@@ -37,6 +37,8 @@ const meta = (c: (typeof channels)[number]) =>
     <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {channels.map((c, i) => (
         <MediaCard
+          id={c.id}
+          dates={c.data}
           image={c.data.image}
           href={c.data.url}
           title={c.data.title}

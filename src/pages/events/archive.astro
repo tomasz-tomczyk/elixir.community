@@ -51,6 +51,8 @@ const years = [...new Set(past.map((e) => e.data.date!.slice(0, 4)))]
               .map((c) => (
                 <li>
                   <ConferenceCard
+                  id={c.id}
+                  dates={c.data}
                   image={c.data.image}
                     name={c.data.name}
                     url={c.data.url}

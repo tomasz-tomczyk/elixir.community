@@ -1,4 +1,5 @@
 ---
+import EntryDates from '@/components/EntryDates.astro'
 import { getCollection } from 'astro:content'
 
 import CompanyLogo from '@/components/CompanyLogo.astro'
@@ -58,6 +59,7 @@ const intro = newest?.body
               {companyName(newest.data.company)} · {newest.data.location} ·{' '}
               {newest.data.type}
             </span>
+            <EntryDates data={newest.data} createdLabel="Posted" />
             {intro && <span class="ec-feat-desc max-w-xl">{intro}</span>}
           </span>
         </a>
@@ -86,6 +88,7 @@ const intro = newest?.body
                       {companyName(job.data.company)} · {job.data.location} ·{' '}
                       {job.data.type}
                     </span>
+                    <EntryDates data={job.data} createdLabel="Posted" />
                   </span>
                   <time
                     class="flex-none font-mono text-[0.8125rem] text-(--ec-muted)"

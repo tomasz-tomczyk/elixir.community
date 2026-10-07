@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Veeps
 url: https://elixir-lang.org/blog/2024/03/05/veeps-elixir-case/
 industry: Documented Elixir use

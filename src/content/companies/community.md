@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Community
 url: https://elixir-lang.org/blog/2021/02/03/social-messaging-with-elixir-at-community/
 industry: Documented Elixir use

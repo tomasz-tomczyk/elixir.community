@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: PepsiCo
 url: https://elixir-lang.org/blog/2021/04/02/marketing-and-sales-intelligence-with-elixir-at-pepsico/
 industry: Documented Elixir use

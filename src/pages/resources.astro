@@ -1,4 +1,5 @@
 ---
+import EntryDates from '@/components/EntryDates.astro'
 import { getCollection } from 'astro:content'
 
 import ContributeNote from '@/components/ContributeNote.astro'
@@ -72,7 +73,7 @@ const filterCss = categories
 
     <ul class="ec-res mt-10 lg:grid-cols-3">
       {tools.map((tool) => (
-        <li data-category={tool.data.category}>
+        <li id={tool.id} data-category={tool.data.category}>
           <a href={tool.data.url} target="_blank" rel="noopener">
             {tool.data.image && <img src={tool.data.image} alt="" width="28" height="28" loading="lazy" class="size-7 flex-none rounded object-contain" />}
             <span class="flex min-w-0 flex-col gap-1">
@@ -82,6 +83,7 @@ const filterCss = categories
               <span class="text-sm/6 text-(--ec-muted)">
                 {tool.data.description}
               </span>
+              <EntryDates data={tool.data} />
               <span class="mt-1 font-mono text-xs/5 text-(--ec-muted)">
                 {labelFor[tool.data.category]}
               </span>

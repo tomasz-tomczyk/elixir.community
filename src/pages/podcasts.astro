@@ -1,4 +1,5 @@
 ---
+import EntryDates from '@/components/EntryDates.astro'
 import { getCollection } from 'astro:content'
 
 import ContributeNote from '@/components/ContributeNote.astro'
@@ -42,7 +43,7 @@ const covers = [
       {podcasts.map((show, i) => {
         const cover = covers[i % covers.length]!
         return (
-          <li class="show relative flex gap-5 border-b border-(--ec-line) py-7 last:border-b-0 sm:gap-8">
+          <li id={show.id} class="show relative flex gap-5 border-b border-(--ec-line) py-7 last:border-b-0 sm:gap-8">
             <div
               class:list={[
                 'cover relative isolate flex size-24 flex-none items-end overflow-hidden p-3 sm:size-32',
@@ -79,6 +80,7 @@ const covers = [
                   )}
                 </p>
               )}
+              <EntryDates data={show.data} createdLabel="Started" />
               <p class="listen mt-4 btn-soft py-1.5 pl-3 text-sm">
                 <Icon name="play" class="size-4" />
                 Listen

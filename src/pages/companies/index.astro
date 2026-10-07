@@ -1,4 +1,5 @@
 ---
+import EntryDates from '@/components/EntryDates.astro'
 import { getCollection } from 'astro:content'
 
 import CompanyLogo from '@/components/CompanyLogo.astro'
@@ -43,6 +44,7 @@ const hiring = new Set((await getCollection('jobs')).map((j) => j.data.company))
                 </h2>
               </span>
               <span class="text-sm/6 text-(--ec-muted)">{c.data.about}</span>
+              <EntryDates data={c.data} createdLabel="Founded" />
             </span>
             <span class="flex flex-none flex-col items-end gap-1.5 text-right">
               <span class="font-mono text-[0.8125rem] text-(--ec-muted) max-sm:hidden">

@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: CyanView
 url: https://elixir-lang.org/blog/2025/03/25/cyanview-elixir-case/
 industry: Documented Elixir use

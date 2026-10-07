@@ -1,4 +1,5 @@
 ---
+import EntryDates from '@/components/EntryDates.astro'
 import { getCollection, getEntry, render } from 'astro:content'
 
 import CompanyLogo from '@/components/CompanyLogo.astro'
@@ -50,6 +51,7 @@ const more = (await getCollection('jobs'))
         <CompanyLogo id={job.data.company} name={companyName} height={30} />
       </div>
       <h1 class="ec-page-title mt-6 max-w-4xl">{job.data.title}</h1>
+      <EntryDates data={job.data} createdLabel="Posted" />
       <p class="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-sm/6 text-(--ec-muted)">
         <span class="flex items-center gap-1">
           <Icon name="pin" class="size-3.5" />

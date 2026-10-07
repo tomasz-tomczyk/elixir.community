@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Change.org
 url: https://elixir-lang.org/blog/2020/10/27/delivering-social-change-with-elixir-at-change.org/
 industry: Documented Elixir use

@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Royal Bank of Canada
 url: https://podcast.thinkingelixir.com/125
 industry: Documented Elixir use

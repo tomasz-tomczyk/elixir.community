@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Duffel
 url: https://elixir-lang.org/blog/2020/12/10/integrating-travel-with-elixir-at-duffel/
 industry: Documented Elixir use

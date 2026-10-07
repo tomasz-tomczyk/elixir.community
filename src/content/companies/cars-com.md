@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Cars.com
 url: https://smartlogic.io/podcast/elixir-wizards/s14-e06-sdui-graphql-elixir/
 industry: Documented Elixir use

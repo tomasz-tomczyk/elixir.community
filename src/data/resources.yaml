@@ -1,217 +1,250 @@
-- id: elixirweekly
+- last_updated: '2026-10-07'
+  id: elixirweekly
   name: ElixirWeekly
   url: https://elixirweekly.net/
   category: newsletters
   description: Newsletter subscription page, checked 7 October 2026.
   image: /images/resources/elixirweekly.webp
-- id: elixir-radar
+- last_updated: '2026-10-07'
+  id: elixir-radar
   name: Elixir Radar
   url: https://elixir-radar.com/
   category: newsletters
   description: Newsletter subscription page, checked 7 October 2026.
-- id: elixir-merge
+- last_updated: '2026-10-07'
+  id: elixir-merge
   name: Elixir Merge
   url: https://elixirmerge.com/
   category: newsletters
   description: daily digest
   image: /images/resources/elixir-merge.webp
-- id: underjord-newsletter
+- last_updated: '2026-10-07'
+  id: underjord-newsletter
   name: Underjord Newsletter
   url: https://underjord.io/newsletter.html
   category: newsletters
   description: Elixir, software and community
   image: /images/resources/underjord-newsletter.webp
-- id: nerves-newsletter
+- last_updated: '2026-10-07'
+  id: nerves-newsletter
   name: Nerves Newsletter
   url: https://underjord.io/nerves-newsletter.html
   category: newsletters
   description: Newsletter subscription page, checked 7 October 2026.
   image: /images/resources/nerves-newsletter.webp
-- id: global-elixir-meetups-updates
+- last_updated: '2026-10-07'
+  id: global-elixir-meetups-updates
   name: Global Elixir Meetups updates
   url: https://globalelixirmeetups.com/
   category: newsletters
   description: event-specific updates
   image: /images/resources/global-elixir-meetups-updates.webp
-- id: elixir-forum
+- last_updated: '2026-10-07'
+  id: elixir-forum
   name: Elixir Forum
   url: https://elixirforum.com
   category: community
   description: Forums / help.
   featured: true
   image: /images/resources/elixir-forum.webp
-- id: erlang-ecosystem-foundation
+- last_updated: '2026-10-07'
+  id: erlang-ecosystem-foundation
   name: Erlang Ecosystem Foundation
   url: https://erlef.org/
   category: community
   description: Foundation / working groups.
   featured: false
   image: /images/resources/erlang-ecosystem-foundation.webp
-- id: elixir-on-libera-chat
+- last_updated: '2026-10-07'
+  id: elixir-on-libera-chat
   name: '#elixir on Libera.Chat'
   url: https://web.libera.chat/#elixir
   category: community
   description: Chat.
   featured: false
   image: /images/resources/elixir-on-libera-chat.webp
-- id: official-guide-and-learning-directory
+- last_updated: '2026-10-07'
+  id: official-guide-and-learning-directory
   name: official guide and learning directory
   url: https://elixir-lang.org/learning/
   category: learning
   description: Learning.
   featured: false
   image: /images/resources/official-guide-and-learning-directory.webp
-- id: elixir-school
+- last_updated: '2026-10-07'
+  id: elixir-school
   name: Elixir School
   url: https://elixirschool.com/
   category: learning
   description: Learning.
   featured: false
   image: /images/resources/elixir-school.webp
-- id: exercism-elixir-track
+- last_updated: '2026-10-07'
+  id: exercism-elixir-track
   name: Exercism Elixir track
   url: https://exercism.org/tracks/elixir
   category: learning
   description: Practice.
   featured: false
   image: /images/resources/exercism-elixir-track.webp
-- id: elixir-koans
+- last_updated: '2026-10-07'
+  id: elixir-koans
   name: Elixir Koans
   url: https://github.com/elixirkoans/elixir-koans
   category: learning
   description: Practice.
   featured: false
   image: /images/resources/elixir-koans.webp
-- id: pragmatic-studio
+- last_updated: '2026-10-07'
+  id: pragmatic-studio
   name: Pragmatic Studio
   url: https://pragmaticstudio.com/elixir
   category: learning
   description: Courses.
   featured: false
   image: /images/resources/pragmatic-studio.webp
-- id: groxio
+- last_updated: '2026-10-07'
+  id: groxio
   name: Groxio
   url: https://grox.io/courses
   category: learning
   description: Courses.
   featured: false
   image: /images/resources/groxio.webp
-- id: learn-elixir-dev
+- last_updated: '2026-10-07'
+  id: learn-elixir-dev
   name: Learn-Elixir.dev
   url: https://learn-elixir.dev
   category: learning
   description: Courses.
   featured: false
   image: /images/resources/learn-elixir-dev.webp
-- id: elixircasts
+- last_updated: '2026-10-07'
+  id: elixircasts
   name: ElixirCasts
   url: https://elixircasts.io/
   category: learning
   description: Screencasts.
   featured: false
   image: /images/resources/elixircasts.webp
-- id: elixir-streams
+- last_updated: '2026-10-07'
+  id: elixir-streams
   name: Elixir Streams
   url: https://www.elixirstreams.com/
   category: learning
   description: Screencasts / tips.
   featured: false
   image: /images/resources/elixir-streams.webp
-- id: elixir-jobs-jobs
+- last_updated: '2026-10-07'
+  id: elixir-jobs-jobs
   name: Elixir Jobs
   url: https://elixirjobs.net/
   category: jobs
   description: Jobs.
   featured: false
   image: /images/resources/elixir-jobs-jobs.webp
-- id: elixirdevs-jobs
+- last_updated: '2026-10-07'
+  id: elixirdevs-jobs
   name: ElixirDevs
   url: https://www.elixirdevs.com/
   category: jobs
   description: Jobs.
   featured: false
   image: /images/resources/elixirdevs-jobs.webp
-- id: beam-devs-jobs
+- last_updated: '2026-10-07'
+  id: beam-devs-jobs
   name: BEAM Devs
   url: https://beamdevs.com/
   category: jobs
   description: Jobs.
   featured: false
   image: /images/resources/beam-devs-jobs.webp
-- id: elixir-radar-jobs
+- last_updated: '2026-10-07'
+  id: elixir-radar-jobs
   name: Elixir Radar
   url: https://elixir-radar.com/jobs
   category: jobs
   description: Jobs.
   featured: false
-- id: hex
+- last_updated: '2026-10-07'
+  id: hex
   name: Hex
   url: https://hex.pm
   category: workflow
   description: Packages.
   featured: false
   image: /images/resources/hex.webp
-- id: hexdocs
+- last_updated: '2026-10-07'
+  id: hexdocs
   name: HexDocs
   url: https://hexdocs.pm
   category: workflow
   description: Documentation.
   featured: false
   image: /images/resources/hexdocs.webp
-- id: awesome-elixir
+- last_updated: '2026-10-07'
+  id: awesome-elixir
   name: Awesome Elixir
   url: https://github.com/h4cc/awesome-elixir
   category: workflow
   description: Libraries / frameworks.
   featured: false
   image: /images/resources/awesome-elixir.webp
-- id: elixirstatus
+- last_updated: '2026-10-07'
+  id: elixirstatus
   name: ElixirStatus
   url: https://elixirstatus.com
   category: community
   description: News / personal blogs.
   featured: false
   image: /images/resources/elixirstatus.webp
-- id: elixirevents
+- last_updated: '2026-10-07'
+  id: elixirevents
   name: ElixirEvents
   url: https://elixirevents.org/
   category: community
   description: Talk and speaker archive.
   featured: false
   image: /images/resources/elixirevents.webp
-- id: elixir-forum-events
+- last_updated: '2026-10-07'
+  id: elixir-forum-events
   name: Elixir Forum events
   url: https://elixirforum.com/events/list
   category: community
   description: Event discovery.
   featured: false
   image: /images/resources/elixir-forum-events.webp
-- id: elixir-repository
+- last_updated: '2026-10-07'
+  id: elixir-repository
   name: Elixir repository
   url: https://github.com/elixir-lang/elixir
   category: workflow
   description: Release notes / contributing.
   featured: false
   image: /images/resources/elixir-repository.webp
-- id: elixirbooks
+- last_updated: '2026-10-07'
+  id: elixirbooks
   name: ElixirBooks
   url: https://github.com/sger/ElixirBooks
   category: community
   description: Additional book-discovery candidates, not individually checked.
   image: /images/resources/elixirbooks.webp
-- id: elixir-companies
+- last_updated: '2026-10-07'
+  id: elixir-companies
   name: Elixir Companies
   url: https://elixir-companies.com/
   category: community
   description: Community-submitted adoption leads, not independent proof.
   image: /images/resources/elixir-companies.webp
-- id: elixir-companies-source
+- last_updated: '2026-10-07'
+  id: elixir-companies-source
   name: Elixir Companies source
   url: https://github.com/beam-community/elixir-companies
   category: community
   description: Company submissions and source repository.
   image: /images/resources/elixir-companies-source.webp
-- id: global-elixir-meetups-2025-campaign
+- last_updated: '2026-10-07'
+  id: global-elixir-meetups-2025-campaign
   name: Global Elixir Meetups 2025 campaign
   url: https://globalelixirmeetups.com/
   category: community

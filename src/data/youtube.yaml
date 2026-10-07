@@ -1,50 +1,58 @@
-- id: elixirconf
+- last_updated: '2026-10-07'
+  id: elixirconf
   title: ElixirConf
   url: https://www.youtube.com/@ElixirConf
   handle: ElixirConf
   description: conference talks
   image: /images/youtube/elixirconf.webp
-- id: elixir-mentor
+- last_updated: '2026-10-07'
+  id: elixir-mentor
   title: Elixir Mentor
   url: https://www.youtube.com/@ElixirMentor
   handle: ElixirMentor
   description: Elixir videos. Channel identity checked 7 October 2026; upload activity
     not verified.
   image: /images/youtube/elixir-mentor.webp
-- id: elixir-em-foco
+- last_updated: '2026-10-07'
+  id: elixir-em-foco
   title: Elixir em Foco
   url: https://www.youtube.com/@elixiremfoco
   handle: elixiremfoco
   description: Portuguese interviews
   image: /images/youtube/elixir-em-foco.webp
-- id: underjord
+- last_updated: '2026-10-07'
+  id: underjord
   title: Underjord
   url: https://www.youtube.com/c/underjord
   handle: underjord
   description: Elixir, Nerves and community
   image: /images/youtube/underjord.webp
-- id: alchemist-camp
+- last_updated: '2026-10-07'
+  id: alchemist-camp
   title: Alchemist Camp
   url: https://www.youtube.com/alchemistcamp
   handle: alchemistcamp
   description: Elixir videos. Channel identity checked 7 October 2026; upload activity
     not verified.
   image: /images/youtube/alchemist-camp.webp
-- id: elixircasts
+- last_updated: '2026-10-07'
+  id: elixircasts
   title: ElixirCasts
   url: https://www.youtube.com/@elixircasts2332
   handle: elixircasts2332
   description: Elixir videos. Channel identity checked 7 October 2026; upload activity
     not verified.
   image: /images/youtube/elixircasts.webp
-- id: groxio
+- last_updated: '2026-10-07'
+  id: groxio
   title: Groxio
   url: https://www.youtube.com/@Groxio
   handle: Groxio
   description: Elixir videos. Channel identity checked 7 October 2026; upload activity
     not verified.
   image: /images/youtube/groxio.webp
-- id: learn-elixir
+- last_updated: '2026-10-07'
+  id: learn-elixir
   title: Learn Elixir
   url: https://www.youtube.com/c/learnelixir
   handle: learnelixir

@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Mux
 url: https://runninginproduction.com/podcast/31-mux-is-an-api-based-platform-that-lets-you-process-and-stream-videos
 industry: Documented Elixir use

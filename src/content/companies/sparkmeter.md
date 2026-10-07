@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: SparkMeter
 url: https://elixir-lang.org/blog/2023/03/09/embedded-and-cloud-elixir-at-sparkmeter/
 industry: Documented Elixir use

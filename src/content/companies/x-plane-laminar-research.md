@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: X-Plane / Laminar Research
 url: https://elixir-lang.org/blog/2021/07/29/bootstraping-a-multiplayer-server-with-elixir-at-x-plane/
 industry: Documented Elixir use

@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Felt
 url: https://elixirforum.com/t/web-elixir-engineer-felt-remote-usa/72259
 industry: Documented Elixir use

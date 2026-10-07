@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Remote
 url: https://elixir-lang.org/blog/2025/01/21/remote-elixir-case/
 industry: Documented Elixir use

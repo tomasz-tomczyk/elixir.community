@@ -1,4 +1,5 @@
 ---
+last_updated: '2026-10-07'
 name: Ramp
 url: https://builders.ramp.com/post/elixir-at-ramp
 industry: Documented Elixir use

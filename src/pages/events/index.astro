@@ -42,6 +42,8 @@ const meetups = events.filter((e) => e.data.kind === 'meetup')
             {upcoming.map((c) => (
               <li>
                 <ConferenceCard
+                  id={c.id}
+                  dates={c.data}
                   image={c.data.image}
                   name={c.data.name}
                   url={c.data.url}
@@ -70,6 +72,8 @@ const meetups = events.filter((e) => e.data.kind === 'meetup')
             <li>
               {m.data.image && <img src={m.data.image} alt="" loading="lazy" class="float-right mt-4 size-12 rounded-lg object-contain" />}
               <ContentLink
+                id={m.id}
+                dates={m.data}
                 href={m.data.url}
                 title={m.data.name}
                 meta={[m.data.location, m.data.when]

@@ -1,4 +1,5 @@
 ---
+import EntryDates from '@/components/EntryDates.astro'
 import { getCollection } from 'astro:content'
 
 import Avatar from '@/components/Avatar.astro'
@@ -46,6 +47,7 @@ const others = people.filter((p) => p !== featured)
           <p class="border-l-4 border-(--ec-fuchsia) pl-4 text-[clamp(1.15rem,2vw,1.35rem)] leading-[1.45] tracking-[-0.015em] text-pretty">
             {featured.data.bio}
           </p>
+          <EntryDates data={featured.data} />
           <SocialLinks
             github={featured.data.github}
             links={featured.data.links}
@@ -72,6 +74,7 @@ const others = people.filter((p) => p !== featured)
                 <span class="font-mono text-[0.8125rem] text-(--ec-muted)">
                   {p.data.role}
                 </span>
+                <EntryDates data={p.data} />
               </span>
             </a>
           </li>

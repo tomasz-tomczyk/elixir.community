@@ -1,4 +1,5 @@
-- id: jose-valim
+- last_updated: '2026-10-07'
+  id: jose-valim
   name: José Valim
   github: josevalim
   role: Elixir creator; current core team
@@ -9,7 +10,8 @@
   bio: Elixir creator; current core team.
   featured: false
   image: /images/people/jose-valim.webp
-- id: eric-meadows-jonsson
+- last_updated: '2026-10-07'
+  id: eric-meadows-jonsson
   name: Eric Meadows-Jönsson
   github: ericmj
   role: current core team; Hex
@@ -20,7 +22,8 @@
   bio: current core team; Hex.
   featured: false
   image: /images/people/eric-meadows-jonsson.webp
-- id: andrea-leopardi
+- last_updated: '2026-10-07'
+  id: andrea-leopardi
   name: Andrea Leopardi
   github: whatyouhide
   role: current core team; author
@@ -33,7 +36,8 @@
   bio: current core team; author.
   featured: false
   image: /images/people/andrea-leopardi.webp
-- id: jean-klingler
+- last_updated: '2026-10-07'
+  id: jean-klingler
   name: Jean Klingler
   github: sabiwara
   role: current core team
@@ -44,7 +48,8 @@
   bio: current core team.
   featured: false
   image: /images/people/jean-klingler.webp
-- id: chris-mccord
+- last_updated: '2026-10-07'
+  id: chris-mccord
   name: Chris McCord
   github: chrismccord
   role: Phoenix creator
@@ -57,7 +62,8 @@
   bio: Phoenix creator.
   featured: false
   image: /images/people/chris-mccord.webp
-- id: jonatan-klosko
+- last_updated: '2026-10-07'
+  id: jonatan-klosko
   name: Jonatan Kłosko
   github: jonatanklosko
   role: Livebook and Tidewave
@@ -68,7 +74,8 @@
   bio: Livebook and Tidewave.
   featured: false
   image: /images/people/jonatan-kosko.webp
-- id: wojtek-mach
+- last_updated: '2026-10-07'
+  id: wojtek-mach
   name: Wojtek Mach
   github: wojtekmach
   role: Hex, Ecto and tooling
@@ -79,7 +86,8 @@
   bio: Hex, Ecto and tooling.
   featured: true
   image: /images/people/wojtek-mach.webp
-- id: sean-moriarity
+- last_updated: '2026-10-07'
+  id: sean-moriarity
   name: Sean Moriarity
   github: seanmor5
   role: Nx co-creator and author
@@ -92,7 +100,8 @@
   bio: Nx co-creator and author.
   featured: false
   image: /images/people/sean-moriarity.webp
-- id: frank-hunleth
+- last_updated: '2026-10-07'
+  id: frank-hunleth
   name: Frank Hunleth
   github: fhunleth
   role: Nerves; embedded Elixir
@@ -105,7 +114,8 @@
   bio: Nerves; embedded Elixir.
   featured: false
   image: /images/people/frank-hunleth.webp
-- id: justin-schneck
+- last_updated: '2026-10-07'
+  id: justin-schneck
   name: Justin Schneck
   github: mobileoverlord
   role: Nerves co-creator
@@ -118,7 +128,8 @@
   bio: Nerves co-creator.
   featured: false
   image: /images/people/justin-schneck.webp
-- id: lars-wikman
+- last_updated: '2026-10-07'
+  id: lars-wikman
   name: Lars Wikman
   github: lawik
   role: Nerves, Underjord and Goatmire
@@ -131,7 +142,8 @@
   bio: Nerves, Underjord and Goatmire.
   featured: false
   image: /images/people/lars-wikman.webp
-- id: zach-daniel
+- last_updated: '2026-10-07'
+  id: zach-daniel
   name: Zach Daniel
   github: zachdaniel
   role: Ash and Igniter
@@ -142,7 +154,8 @@
   bio: Ash and Igniter.
   featured: false
   image: /images/people/zach-daniel.webp
-- id: rebecca-le
+- last_updated: '2026-10-07'
+  id: rebecca-le
   name: Rebecca Le
   github: sevenseacat
   role: Ash author and educator
@@ -155,7 +168,8 @@
   bio: Ash author and educator.
   featured: false
   image: /images/people/rebecca-le.webp
-- id: bruce-tate
+- last_updated: '2026-10-07'
+  id: bruce-tate
   name: Bruce Tate
   github: batate
   role: author, educator and GigCityElixir organiser
@@ -168,7 +182,8 @@
   bio: author, educator and GigCityElixir organiser.
   featured: false
   image: /images/people/bruce-tate.webp
-- id: sasa-juric
+- last_updated: '2026-10-07'
+  id: sasa-juric
   name: Saša Jurić
   github: sasa1977
   role: Elixir in Action author
@@ -181,7 +196,8 @@
   bio: Elixir in Action author.
   featured: false
   image: /images/people/sasa-juric.webp
-- id: sophie-debenedetto
+- last_updated: '2026-10-07'
+  id: sophie-debenedetto
   name: Sophie DeBenedetto
   github: SophieDeBenedetto
   role: LiveView author and educator
@@ -194,7 +210,8 @@
   bio: LiveView author and educator.
   featured: false
   image: /images/people/sophie-debenedetto.webp
-- id: james-edward-gray-ii
+- last_updated: '2026-10-07'
+  id: james-edward-gray-ii
   name: James Edward Gray II
   github: JEG2
   role: OTP author and educator
@@ -207,7 +224,8 @@
   bio: OTP author and educator.
   featured: false
   image: /images/people/james-edward-gray-ii.webp
-- id: alex-koutmos
+- last_updated: '2026-10-07'
+  id: alex-koutmos
   name: Alex Koutmos
   github: akoutmos
   role: author and educator
@@ -220,7 +238,8 @@
   bio: author and educator.
   featured: false
   image: /images/people/alex-koutmos.webp
-- id: peter-ullrich
+- last_updated: '2026-10-07'
+  id: peter-ullrich
   name: Peter Ullrich
   github: PJUllrich
   role: LiveView author and educator
@@ -233,7 +252,8 @@
   bio: LiveView author and educator.
   featured: false
   image: /images/people/peter-ullrich.webp
-- id: mitchell-hanberg
+- last_updated: '2026-10-07'
+  id: mitchell-hanberg
   name: Mitchell Hanberg
   github: mhanberg
   role: Elixir developer tooling / LSP
@@ -246,7 +266,8 @@
   bio: Elixir developer tooling / LSP.
   featured: false
   image: /images/people/mitchell-hanberg.webp
-- id: german-velasco
+- last_updated: '2026-10-07'
+  id: german-velasco
   name: German Velasco
   github: germsvel
   role: Elixir educator
@@ -259,7 +280,8 @@
   bio: Elixir educator.
   featured: false
   image: /images/people/german-velasco.webp
-- id: jacob-luetzow
+- last_updated: '2026-10-07'
+  id: jacob-luetzow
   name: Jacob Luetzow
   github: jacobluetzow
   role: Elixir Mentor
@@ -272,7 +294,8 @@
   bio: Elixir Mentor.
   featured: false
   image: /images/people/jacob-luetzow.webp
-- id: adolfo-neto
+- last_updated: '2026-10-07'
+  id: adolfo-neto
   name: Adolfo Neto
   github: adolfont
   role: Brazilian community, podcast and events
@@ -285,7 +308,8 @@
   bio: Brazilian community, podcast and events.
   featured: false
   image: /images/people/adolfo-neto.webp
-- id: zoey-pessanha
+- last_updated: '2026-10-07'
+  id: zoey-pessanha
   name: Zoey Pessanha
   github: ''
   role: podcast presenter and community contributor
@@ -298,7 +322,8 @@
   bio: podcast presenter and community contributor.
   featured: false
   image: /images/people/zoey-pessanha.webp
-- id: mark-ericksen
+- last_updated: '2026-10-07'
+  id: mark-ericksen
   name: Mark Ericksen
   github: brainlid
   role: Thinking Elixir host
@@ -311,7 +336,8 @@
   bio: Thinking Elixir host.
   featured: false
   image: /images/people/mark-ericksen.webp
-- id: stephen-bussey
+- last_updated: '2026-10-07'
+  id: stephen-bussey
   name: Stephen Bussey
   github: sb8244
   role: author
@@ -324,7 +350,8 @@
   bio: author.
   featured: false
   image: /images/people/stephen-bussey.webp
-- id: dave-thomas
+- last_updated: '2026-10-07'
+  id: dave-thomas
   name: Dave Thomas
   github: pragdave
   role: author and educator
@@ -337,7 +364,8 @@
   bio: author and educator.
   featured: false
   image: /images/people/dave-thomas.webp
-- role: Oban core team
+- last_updated: '2026-10-07'
+  role: Oban core team
   known_for: &id001
   - name: Oban core team
     url: https://2026.goatmire.com/
@@ -351,7 +379,8 @@
   id: parker-selbert
   github: sorentwo
   image: /images/people/parker-selbert.webp
-- role: Oban core team
+- last_updated: '2026-10-07'
+  role: Oban core team
   known_for: *id001
   links:
   - *id002
