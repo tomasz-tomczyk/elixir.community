@@ -16,5 +16,7 @@ const { id, name, height = 28, mark = false, class: className } = Astro.props
 
 const company = (await getCollection('companies')).find(c => c.id === id)
 const image = company?.data.image
+// The widest the logo box gets. The srcset sizes the file to it, at 1x and 2x.
+const maxWidth = height * (mark ? 2 : 6)
 ---
-{image?.endsWith('.svg') ? <span role="img" aria-label={name} class:list={['inline-block flex-none bg-current', className]} style={`height:${height}px;width:${height * (mark ? 1.5 : 3)}px;mask:url(${image}) center / contain no-repeat`} /> : image ? <LocalImage src={image} alt={name} loading="lazy" class:list={['max-w-full object-contain', className]} style={`height:${height}px;max-width:${height * (mark ? 2 : 6)}px`} /> : <span class:list={['text-lg/none font-semibold tracking-tight',className]}>{name}</span>}
+{image?.endsWith('.svg') ? <span role="img" aria-label={name} class:list={['inline-block flex-none bg-current', className]} style={`height:${height}px;width:${height * (mark ? 1.5 : 3)}px;mask:url(${image}) center / contain no-repeat`} /> : image ? <LocalImage src={image} alt={name} loading="lazy" widths={[maxWidth, maxWidth * 2]} sizes={`${maxWidth}px`} class:list={['max-w-full object-contain', className]} style={`height:${height}px;max-width:${maxWidth}px`} /> : <span class:list={['text-lg/none font-semibold tracking-tight',className]}>{name}</span>}

@@ -63,15 +63,31 @@ const id = `email-${Math.random().toString(36).slice(2, 8)}`
 </form>
 <div class="mt-3" data-subscribe-check data-sitekey={sitekey}></div>
 <p role="status" data-subscribe-status class="mt-3 text-sm" data-confirmation-status></p>
-<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
 <script>
   type TurnstileAPI = {
     render: (node: Element, options: Record<string, unknown>) => string
-    getResponse: (id: string) => string
+    getResponse: (id: string) => string | undefined
     reset: (id: string) => void
     remove: (id: string) => void
   }
   const browserWindow = window as typeof window & { turnstile?: TurnstileAPI }
+
+  // Turnstile loads only when someone starts using a form, not on page load.
+  let turnstile: Promise<TurnstileAPI> | undefined
+  const loadTurnstile = () =>
+    (turnstile ??= new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src =
+        'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
+      script.async = true
+      script.onload = () => resolve(browserWindow.turnstile!)
+      script.onerror = () => {
+        turnstile = undefined
+        script.remove()
+        reject(new Error('Turnstile failed to load'))
+      }
+      document.head.append(script)
+    }))
 
   for (const form of document.querySelectorAll<HTMLFormElement>(
     '[data-subscribe-form]',
@@ -80,16 +96,18 @@ const id = `email-${Math.random().toString(36).slice(2, 8)}`
     const status = check.nextElementSibling as HTMLElement
     const button = form.querySelector<HTMLButtonElement>('button')!
     let widget: string | undefined
+    let waiting: ((token: string | undefined) => void)[] = []
 
-    const render = () => {
-      if (!browserWindow.turnstile) return
-      if (!check.dataset.sitekey) {
-        button.disabled = true
-        status.textContent =
-          'Newsletter signup is being set up. Please come back soon.'
-        return
-      }
-      widget = browserWindow.turnstile.render(check, {
+    if (!check.dataset.sitekey) {
+      button.disabled = true
+      status.textContent =
+        'Newsletter signup is being set up. Please come back soon.'
+      continue
+    }
+
+    const render = (api: TurnstileAPI) => {
+      if (widget) return
+      widget = api.render(check, {
         sitekey: check.dataset.sitekey,
         action: 'subscribe',
         theme: document.documentElement.classList.contains('dark')
@@ -97,32 +115,48 @@ const id = `email-${Math.random().toString(36).slice(2, 8)}`
           : 'light',
         size: 'compact',
         appearance: 'interaction-only',
+        callback: (token: string) => {
+          for (const resolve of waiting) resolve(token)
+          waiting = []
+        },
       })
     }
 
-    const rerender = () => {
+    const start = () =>
+      loadTurnstile()
+        .then(render)
+        .catch(() => {})
+    for (const type of ['focusin', 'pointerenter', 'touchstart'])
+      form.addEventListener(type, start, { once: true, passive: true })
+
+    // A token from the widget, waiting for the check to finish if it has not yet.
+    const token = async () => {
+      render(await loadTurnstile())
+      const current = browserWindow.turnstile?.getResponse(widget!)
+      if (current) return current
+      return new Promise<string | undefined>((resolve) => {
+        waiting.push(resolve)
+        setTimeout(() => resolve(undefined), 15000)
+      })
+    }
+
+    new MutationObserver(() => {
       if (!browserWindow.turnstile || !widget) return
       browserWindow.turnstile.remove(widget)
       widget = undefined
-      render()
-    }
-
-    if (browserWindow.turnstile) render()
-    else {
-      document
-        .querySelector('script[src*="turnstile/v0/api.js"]')
-        ?.addEventListener('load', render, { once: true })
-    }
-
-    new MutationObserver(rerender).observe(document.documentElement, {
+      render(browserWindow.turnstile)
+    }).observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['class'],
     })
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault()
-      const token = widget && browserWindow.turnstile?.getResponse(widget)
-      if (!token) {
+      let value: string | undefined
+      try {
+        value = await token()
+      } catch {}
+      if (!value) {
         status.textContent = 'Please complete the security check.'
         return
       }
@@ -132,7 +166,7 @@ const id = `email-${Math.random().toString(36).slice(2, 8)}`
         const response = await fetch('/api/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: new FormData(form).get('email'), token }),
+          body: JSON.stringify({ email: new FormData(form).get('email'), token: value }),
         })
         const result = await response.json()
         status.textContent = result.message

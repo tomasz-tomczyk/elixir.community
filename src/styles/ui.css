@@ -489,10 +489,27 @@
   transform: none;
 }
 
+/* Blocks in view on load (the home hero) fade in with CSS from the first paint,
+   so they do not wait for the script. Their text is the page's largest paint. */
+.ec-rise-now {
+  animation: ec-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+@keyframes ec-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ec-js .ec-rise {
     opacity: 1;
     transform: none;
+  }
+
+  .ec-rise-now {
+    animation: none;
   }
 }
 
