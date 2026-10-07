@@ -1,0 +1,292 @@
+---
+import { getCollection } from 'astro:content'
+
+import Icon from '@/components/Icon.astro'
+import PageHeader from '@/components/PageHeader.astro'
+import PrelaunchEnvelope from '@/components/PrelaunchEnvelope.astro'
+import SubscribeForm from '@/components/SubscribeForm.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { formatDate, issueNumber, site } from '@/lib/site'
+
+// Before the first issue goes out, the sample issues stay hidden and the page
+// shows the unsent envelope instead.
+const issues = site.newsletterSent
+  ? (await getCollection('issues')).sort(
+      (a, b) => b.data.number - a.data.number,
+    )
+  : []
+const [latest, ...older] = issues
+
+const dropPath =
+  'M12 1.75c-.35 0-.64.2-.8.5C9.5 5.6 5 10.5 5 15a7 7 0 0 0 14 0c0-4.5-4.5-9.4-6.2-12.75a.9.9 0 0 0-.8-.5Z'
+---
+
+<BaseLayout
+  title="Newsletter"
+  description={`Every issue of the ${site.name} newsletter.`}
+>
+  <div class="container-page">
+    <PageHeader title="Elixir Newsletter">
+      <p class="mt-6 max-w-2xl text-lg/8 text-pretty text-(--ec-muted)">
+        Releases, good posts, talks worth your evening, new meetups, and teams
+        that are hiring.{' '}
+        {latest
+          ? 'Read a few issues below before you subscribe.'
+          : "Nothing has gone out yet. We'll send the first issue when enough good things have piled up."}
+      </p>
+      <div id="subscribe" class="mt-8 max-w-md scroll-mt-28">
+        <SubscribeForm />
+        {!latest && <p id="pl-status" class="sr-only" role="status"></p>}
+        <p class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm/6 text-(--ec-muted)">
+          <span>Free. Unsubscribe with one click.</span>
+          <a
+            href="/rss.xml"
+            class="inline-flex items-center gap-1 font-medium transition-colors hover:text-(--ec-text-accent)"
+          >
+            <Icon name="rss" class="size-3.5" /> RSS
+          </a>
+        </p>
+      </div>
+      {!latest && (
+        <PrelaunchEnvelope
+          slot="aside"
+          class="ec-rise"
+          style="transition-delay: 0.12s"
+        />
+      )}
+    </PageHeader>
+
+    {/* The latest issue as a stamped envelope, the rest as a quiet list beside it. */}
+    {latest && (
+      <div class="ec-section grid gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] lg:gap-14">
+        <section aria-labelledby="latest" class="ec-rise">
+          <div class="lg:sticky lg:top-28">
+            <h2 id="latest" class="ec-h3 mb-8">
+              Latest issue
+            </h2>
+            <div class="nl-stack">
+              <a class="nl-env" href={`/newsletter/${latest.id}`}>
+                <span class="flex items-start justify-between gap-3">
+                  <span>
+                    <span class="block font-mono text-xs/none font-semibold tracking-[0.08em] text-(--ec-muted) uppercase">
+                      Issue {issueNumber(latest.data.number)}
+                    </span>
+                    <time
+                      class="mt-2 block text-[1.9rem]/none font-bold tracking-[-0.045em] text-(--ec-text-accent)"
+                      datetime={latest.data.date.toISOString()}
+                    >
+                      {formatDate(latest.data.date, 'short')}
+                    </time>
+                  </span>
+                  <span class="nl-stamp" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d={dropPath}
+                        fill="currentColor"
+                        fill-opacity="0.92"
+                      />
+                    </svg>
+                    <span>
+                      Nº {String(latest.data.number).padStart(3, '0')}
+                    </span>
+                  </span>
+                </span>
+                <span class="nl-title">{latest.data.title}</span>
+                <span class="mt-2.5 block text-[0.9375rem]/6 text-(--ec-muted)">
+                  {latest.data.summary}
+                </span>
+                <span class="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-(--ec-line) pt-3.5">
+                  <span class="font-mono text-xs/5 text-(--ec-muted)">
+                    {latest.data.topics.join(' · ')}
+                  </span>
+                  <span class="nl-read">
+                    Read it <span aria-hidden="true">&rarr;</span>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section
+          aria-labelledby="archive"
+          class="ec-rise"
+          style="transition-delay: 0.08s"
+        >
+          <h2 id="archive" class="ec-h3 mb-8">
+            Archive
+          </h2>
+          <ol class="ec-issues">
+            {older.map((issue) => (
+              <li>
+                <a href={`/newsletter/${issue.id}`}>
+                  <span class="i-num">
+                    {issueNumber(issue.data.number)}
+                    <time
+                      class="i-date"
+                      datetime={issue.data.date.toISOString()}
+                    >
+                      {formatDate(issue.data.date, 'short')}
+                    </time>
+                  </span>
+                  <span class="flex min-w-0 flex-col gap-1.5">
+                    <span class="i-title">{issue.data.title}</span>
+                    <span class="text-[0.9375rem]/6 text-(--ec-muted)">
+                      {issue.data.summary}
+                    </span>
+                  </span>
+                  <span class="i-arrow" aria-hidden="true">
+                    &rarr;
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  /* A second sheet peeks out behind the envelope. */
+  .nl-stack {
+    position: relative;
+    isolation: isolate;
+    max-width: 30rem;
+  }
+
+  .nl-stack::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border: 1px solid var(--ec-line);
+    border-radius: 20px;
+    background: var(--ec-paper-2);
+    transform: translate(0.5rem, -0.75rem) rotate(3deg);
+    box-shadow: 0 12px 32px -14px rgb(60 20 60 / 0.25);
+    transition: transform 0.45s cubic-bezier(0.3, 1.3, 0.5, 1);
+  }
+
+  .nl-stack:hover::before {
+    transform: translate(0.9rem, -1.25rem) rotate(5deg);
+  }
+
+  .nl-env {
+    position: relative;
+    display: block;
+    padding: 1.5rem 1.5rem 1.375rem;
+    border: 1px solid var(--ec-line);
+    border-radius: 20px;
+    background: var(--ec-card);
+    color: var(--ec-fg);
+    transform: rotate(-0.8deg);
+    box-shadow:
+      0 1px 2px rgb(60 20 60 / 0.06),
+      0 24px 48px -20px rgb(60 20 60 / 0.35);
+    transition: transform 0.45s cubic-bezier(0.3, 1.3, 0.5, 1);
+  }
+
+  .nl-env:hover {
+    transform: rotate(0) translateY(-3px);
+  }
+
+  /* Dashed inner edge, like an envelope. */
+  .nl-env::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1.5px dashed var(--ec-line);
+    border-radius: 14px;
+    pointer-events: none;
+  }
+
+  /* An Elixir drop stamp with a perforated edge. */
+  .nl-stamp {
+    position: relative;
+    flex: none;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 0.2rem;
+    width: 3.9rem;
+    height: 4.6rem;
+    color: white;
+    background: linear-gradient(
+      160deg,
+      var(--ec-fuchsia),
+      var(--ec-violet) 70%
+    );
+    box-shadow: 0 2px 6px rgb(60 0 80 / 0.3);
+    rotate: 4deg;
+  }
+
+  .nl-stamp::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 4px dotted var(--ec-card);
+    border-radius: 2px;
+  }
+
+  .nl-stamp svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .nl-stamp span {
+    font: 700 0.62rem/1 var(--font-mono);
+    letter-spacing: 0.04em;
+  }
+
+  .nl-title {
+    display: block;
+    margin-top: 1.125rem;
+    font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+    font-weight: 670;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  .nl-env:hover .nl-title {
+    text-decoration: underline 2px var(--ec-fuchsia);
+    text-underline-offset: 4px;
+  }
+
+  .nl-read {
+    display: inline-flex;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 650;
+    color: var(--ec-text-accent);
+  }
+
+  .nl-read span {
+    transition: transform 0.2s;
+  }
+
+  .nl-env:hover .nl-read span {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 480px) {
+    .nl-env {
+      padding: 1.25rem;
+    }
+
+    .nl-stack::before {
+      transform: translate(0.3rem, -0.6rem) rotate(2deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nl-env,
+    .nl-env:hover,
+    .nl-stack::before,
+    .nl-stack:hover::before {
+      transition: none;
+    }
+  }
+</style>

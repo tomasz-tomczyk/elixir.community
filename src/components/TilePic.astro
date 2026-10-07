@@ -1,0 +1,129 @@
+---
+// The small drawing for a section: a calendar, links, a play mark, a waveform,
+// a bookshelf, faces, or a skyline. Used in the home page tiles and in the
+// section page headers (SectionArt.astro). Styles live in ui.css.
+import { getCollection } from 'astro:content'
+
+import CompanyLogo from '@/components/CompanyLogo.astro'
+import {
+  buildings,
+  calendar,
+  faceSpots,
+  linkWidths,
+  spines,
+  wave,
+} from '@/lib/art'
+
+export type PicKind =
+  | 'events'
+  | 'resources'
+  | 'youtube'
+  | 'podcasts'
+  | 'books'
+  | 'people'
+  | 'companies'
+
+interface Props {
+  kind: PicKind
+}
+const { kind } = Astro.props
+
+// Faces: everyone except the spotlight person. Skyline: the first companies.
+const faces =
+  kind === 'people'
+    ? (await getCollection('people'))
+        .filter((p) => !p.data.featured)
+        .slice(0, faceSpots.length)
+    : []
+const companies =
+  kind === 'companies'
+    ? (await getCollection('companies'))
+        .sort((a, b) => a.data.order - b.data.order)
+        .slice(0, buildings.length)
+    : []
+
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .map((part) => part[0])
+    .slice(0, 2)
+    .join('')
+---
+
+{kind === 'events' && (
+  <span class="ec-pic ec-cal" aria-hidden="true">
+    {calendar.map((day) => (
+      <i class:list={[day === 'm' && 'meetup', day === 'c' && 'conf']} />
+    ))}
+  </span>
+)}
+
+{kind === 'resources' && (
+  <span class="ec-pic ec-links" aria-hidden="true">
+    {linkWidths.map((w, i) => (
+      <i style={`--w:${w}rem;--d:${(i * 7) % 10}`} />
+    ))}
+  </span>
+)}
+
+{kind === 'youtube' && (
+  <span class="ec-pic ec-play" aria-hidden="true">
+    <b />
+  </span>
+)}
+
+{kind === 'podcasts' && (
+  <span class="ec-pic ec-wave" aria-hidden="true">
+    {wave.map((bar) => (
+      <i
+        style={`--h:${bar.low.toFixed(2)};--h2:${bar.high.toFixed(2)};--d:${bar.delay.toFixed(1)}s`}
+      />
+    ))}
+  </span>
+)}
+
+{kind === 'books' && (
+  <span class="ec-pic ec-shelf" aria-hidden="true">
+    {spines.map(([w, h, o, tilt]) => (
+      <i
+        class:list={[tilt > 0 && 'lean-right', tilt < 0 && 'lean-left']}
+        style={`--w:${w}px;--h:${h};--o:${o};--r:${tilt}deg`}
+      />
+    ))}
+  </span>
+)}
+
+{kind === 'people' && (
+  <div class="ec-faces">
+    {faces.map((person, i) => (
+      <a
+        class="ec-face"
+        style={`--x:${faceSpots[i][0]}%;--y:${faceSpots[i][1]}%;--d:${-i * 1.7}s`}
+        href={`/people/${person.id}`}
+        data-name={person.data.name}
+        aria-label={person.data.name}
+      >
+        {initials(person.data.name)}
+        <img
+          src={`https://github.com/${person.data.github}.png?size=112`}
+          alt=""
+          width="56"
+          height="56"
+          loading="lazy"
+          decoding="async"
+          onerror="this.remove()"
+        />
+      </a>
+    ))}
+  </div>
+)}
+
+{kind === 'companies' && (
+  <div class="ec-skyline" aria-hidden="true">
+    {companies.map((c, i) => (
+      <span class="ec-building" style={`--h:${buildings[i]}%`}>
+        <CompanyLogo id={c.id} name={c.data.name} height={17} mark />
+      </span>
+    ))}
+  </div>
+)}

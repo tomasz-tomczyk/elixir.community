@@ -1,0 +1,147 @@
+---
+import Icon from '@/components/Icon.astro'
+import Logo from '@/components/Logo.astro'
+import ThemeToggle from '@/components/ThemeToggle.astro'
+import { nav } from '@/lib/site'
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/'
+const isActive = (href: string) => path === href || path.startsWith(`${href}/`)
+---
+
+<header class="navbar sticky top-0 z-40 bg-white/85 backdrop-blur-md dark:bg-mauve-950/85">
+  <div class="container-page flex h-16 items-center justify-between gap-6">
+    <a href="/" aria-label="Elixir Community home" class="-m-1 rounded-md p-1">
+      <Logo />
+    </a>
+
+    <nav aria-label="Main" class="max-lg:hidden">
+      <ul class="flex items-center gap-1 text-sm/6 font-medium">
+        {nav.map((item) => (
+          <li class="relative not-first:before:absolute not-first:before:top-1/2 not-first:before:-left-[2.5px] not-first:before:h-3 not-first:before:w-px not-first:before:-translate-y-1/2 not-first:before:bg-(--ec-line)">
+            <a
+              href={item.href}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              class="relative block rounded-full px-3 py-1.5 text-mauve-600 transition-colors hover:text-mauve-950 aria-[current]:text-mauve-950 dark:text-mauve-400 dark:hover:text-white dark:aria-[current]:text-white"
+            >
+              {item.label}
+              {isActive(item.href) && (
+                <span class="hairline-fade absolute inset-x-2 -bottom-[17px] [--hairline-color:var(--color-accent-500)]" />
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-1.5">
+      <ThemeToggle />
+      <a
+        href="/newsletter#subscribe"
+        class="rounded-full bg-mauve-950 px-3.5 py-1.5 text-sm/6 font-semibold text-white transition-colors hover:bg-mauve-800 max-sm:hidden dark:bg-white dark:text-mauve-950 dark:hover:bg-mauve-200"
+      >
+        Subscribe
+      </a>
+      <button
+        type="button"
+        popovertarget="mobile-nav"
+        aria-label="Open menu"
+        class="grid size-9 place-items-center rounded-full text-mauve-950 hover:bg-mauve-950/5 lg:hidden dark:text-white dark:hover:bg-white/5"
+      >
+        <Icon name="menu" class="size-5" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<div
+  id="mobile-nav"
+  popover
+  class="mobile-nav m-0 ml-auto h-dvh max-h-none w-full max-w-xs bg-white p-0 ring-1 ring-mauve-950/10 backdrop:bg-mauve-950/30 backdrop:backdrop-blur-[2px] dark:bg-mauve-950 dark:ring-white/10"
+>
+  <div class="flex h-16 items-center justify-between px-6">
+    <span class="text-sm font-medium text-mauve-500">Menu</span>
+    <button
+      type="button"
+      popovertarget="mobile-nav"
+      popovertargetaction="hide"
+      aria-label="Close menu"
+      class="-mr-2 grid size-9 place-items-center rounded-full text-mauve-950 hover:bg-mauve-950/5 dark:text-white dark:hover:bg-white/5"
+    >
+      <Icon name="close" class="size-5" />
+    </button>
+  </div>
+  <nav aria-label="Mobile" class="px-3">
+    <ul class="flex flex-col gap-y-1">
+      {nav.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            class="block rounded-lg px-3 py-2 text-lg/7 font-medium tracking-tight text-mauve-950 hover:bg-mauve-950/5 aria-[current]:bg-accent-50 aria-[current]:text-accent-700 dark:text-white dark:hover:bg-white/5 dark:aria-[current]:bg-accent-500/10 dark:aria-[current]:text-accent-300"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="mx-3 mt-6 border-t border-mauve-950/10 pt-6 dark:border-white/10">
+      <a
+        href="/newsletter#subscribe"
+        class="flex items-center justify-center gap-2 rounded-full bg-mauve-950 px-4 py-2.5 text-sm font-semibold text-white dark:bg-white dark:text-mauve-950"
+      >
+        Subscribe to the newsletter
+      </a>
+    </div>
+  </nav>
+</div>
+
+<style>
+  /* Fade the bottom border in once the page scrolls. No JavaScript. */
+  .navbar {
+    box-shadow: 0 1px 0 transparent;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .navbar {
+      animation: navbar-edge linear both;
+      animation-timeline: scroll();
+      animation-range: 0 4rem;
+    }
+  }
+
+  @supports not (animation-timeline: scroll()) {
+    .navbar {
+      box-shadow: 0 1px 0 var(--edge);
+    }
+  }
+
+  .navbar {
+    --edge: color-mix(in oklch, var(--color-mauve-950) 8%, transparent);
+  }
+
+  :global(.dark) .navbar {
+    --edge: color-mix(in oklch, white 8%, transparent);
+  }
+
+  @keyframes navbar-edge {
+    to {
+      box-shadow: 0 1px 0 var(--edge);
+    }
+  }
+
+  .mobile-nav {
+    transition:
+      translate 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+      overlay 0.25s allow-discrete,
+      display 0.25s allow-discrete;
+    translate: 100% 0;
+  }
+
+  .mobile-nav:popover-open {
+    translate: 0 0;
+
+    @starting-style {
+      translate: 100% 0;
+    }
+  }
+</style>

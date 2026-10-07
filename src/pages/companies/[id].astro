@@ -1,0 +1,179 @@
+---
+import { getCollection, render } from 'astro:content'
+
+import Avatar from '@/components/Avatar.astro'
+import CompanyLogo from '@/components/CompanyLogo.astro'
+import Icon from '@/components/Icon.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { formatDate } from '@/lib/site'
+
+export async function getStaticPaths() {
+  const companies = await getCollection('companies')
+  return companies.map((company) => ({
+    params: { id: company.id },
+    props: { company },
+  }))
+}
+
+const { company } = Astro.props
+const { Content } = await render(company)
+const roles = (await getCollection('jobs')).filter(
+  (j) => j.data.company === company.id,
+)
+const team = (await getCollection('people')).filter(
+  (p) => p.data.company?.id === company.id,
+)
+const host = new URL(company.data.url).hostname.replace(/^www\./, '')
+---
+
+<BaseLayout
+  title={`${company.data.name} and Elixir`}
+  description={company.data.about}
+>
+  <div class="container-page">
+    <header class="relative isolate pt-12 sm:pt-16">
+      <div class="ec-blobs" aria-hidden="true">
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+      <a
+        href="/companies"
+        class="group inline-flex items-center gap-1.5 text-sm/6 font-medium text-(--ec-muted) transition-colors hover:text-(--ec-fg)"
+      >
+        <Icon
+          name="chevron"
+          class="size-3.5 rotate-180 transition-transform group-hover:-translate-x-0.5"
+        />
+        All companies
+      </a>
+
+      <div class="mt-10 flex h-20 w-fit items-center text-(--ec-fg)">
+        <CompanyLogo id={company.id} name={company.data.name} height={36} />
+      </div>
+      <h1 class="ec-page-title mt-8 max-w-4xl">
+        How {company.data.name} uses Elixir
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg/8 text-pretty text-(--ec-muted)">
+        {company.data.about}
+      </p>
+    </header>
+
+    <div class="mt-12 grid gap-x-16 gap-y-14 border-t border-(--ec-line) pt-12 lg:grid-cols-[1fr_20rem]">
+      <article class="typography max-w-2xl min-w-0">
+        <Content />
+      </article>
+
+      <aside>
+        <div class="space-y-12 lg:sticky lg:top-28">
+          <dl class="divide-y divide-(--ec-line) rounded-[20px] bg-(--ec-card) px-6 py-2 shadow-[0_18px_36px_-24px_rgb(20_0_40/0.4)] ring-1 ring-(--ec-line)">
+            <div class="py-4">
+              <dt class="font-mono text-xs/5 tracking-wider text-(--ec-muted) uppercase">
+                Industry
+              </dt>
+              <dd class="mt-1 font-semibold text-(--ec-fg)">
+                {company.data.industry}
+              </dd>
+            </div>
+            <div class="py-4">
+              <dt class="font-mono text-xs/5 tracking-wider text-(--ec-muted) uppercase">
+                Website
+              </dt>
+              <dd class="mt-1">
+                <a
+                  href={company.data.url}
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-1 font-semibold text-(--ec-fg) underline decoration-transparent underline-offset-4 transition-colors hover:text-(--ec-text-accent) hover:decoration-(--ec-fuchsia)"
+                >
+                  {host}
+                  <Icon name="arrow-up-right" class="size-3.5" />
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+          {company.data.reading.length > 0 && (
+            <div>
+              <h2 class="border-b-[3px] border-(--ec-fg) pb-3 text-lg/7 font-semibold tracking-tight text-(--ec-fg)">
+                Further reading
+              </h2>
+              <ul class="ec-rows">
+                {company.data.reading.map((r) => (
+                  <li>
+                    <a
+                      href={r.url}
+                      target="_blank"
+                      rel="noopener"
+                      class="group flex items-start gap-3 py-3 text-[0.9375rem]/6 font-medium text-(--ec-fg)"
+                    >
+                      <Icon
+                        name="arrow-up-right"
+                        class="mt-1 size-3.5 text-(--ec-muted) transition-colors group-hover:text-(--ec-text-accent)"
+                      />
+                      {r.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {team.length > 0 && (
+            <div>
+              <h2 class="border-b-[3px] border-(--ec-fg) pb-3 text-lg/7 font-semibold tracking-tight text-(--ec-fg)">
+                People
+              </h2>
+              <ul class="ec-rows">
+                {team.map((p) => (
+                  <li>
+                    <a href={`/people/${p.id}`} class="ec-person">
+                      <Avatar
+                        github={p.data.github}
+                        name={p.data.name}
+                        size={36}
+                      />
+                      <span class="p-name text-[0.9375rem]/5 font-semibold tracking-tight text-(--ec-fg)">
+                        {p.data.name}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {roles.length > 0 && (
+            <div>
+              <h2 class="border-b-[3px] border-(--ec-fg) pb-3 text-lg/7 font-semibold tracking-tight text-(--ec-fg)">
+                Open roles
+              </h2>
+              <ul class="ec-rows">
+                {roles.map((job) => (
+                  <li>
+                    <a href={`/jobs/${job.id}`} class="ec-job">
+                      <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+                        <span class="j-title text-[0.9375rem]/5 font-semibold tracking-tight text-(--ec-fg)">
+                          {job.data.title}
+                        </span>
+                        <span class="text-[0.8125rem] text-(--ec-muted)">
+                          {job.data.location}
+                        </span>
+                      </span>
+                      <time
+                        class="flex-none font-mono text-xs text-(--ec-muted)"
+                        datetime={job.data.posted.toISOString()}
+                      >
+                        {formatDate(job.data.posted, 'short')}
+                      </time>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content'
+
+import CompanyLogo from '@/components/CompanyLogo.astro'
+import ContributeNote from '@/components/ContributeNote.astro'
+import NewsletterBand from '@/components/NewsletterBand.astro'
+import PageHeader from '@/components/PageHeader.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { formatDate } from '@/lib/site'
+
+const companies = new Map(
+  (await getCollection('companies')).map((c) => [c.id, c]),
+)
+const companyName = (id: string) => companies.get(id)?.data.name ?? id
+const jobs = (await getCollection('jobs')).sort(
+  (a, b) => +b.data.posted - +a.data.posted,
+)
+const [newest, ...older] = jobs
+// First sentence under "## The role", for the featured job.
+const intro = newest?.body
+  ?.match(/## The role\s+([^\n]+)/)?.[1]
+  ?.split(/(?<=\.)\s/)[0]
+---
+
+<BaseLayout
+  title="Jobs"
+  description="Open Elixir roles from teams that run it in production."
+>
+  <div class="container-page">
+    <PageHeader title="Elixir Jobs" />
+
+    <section class="mt-16 max-w-4xl sm:mt-20" aria-labelledby="open-roles">
+      <div class="ec-sched-head">
+        <h2
+          id="open-roles"
+          class="text-[1.625rem] font-[680] tracking-[-0.035em]"
+        >
+          Open roles
+        </h2>
+      </div>
+
+      {newest && (
+        <a href={`/jobs/${newest.id}`} class="ec-feat">
+          <span
+            class="ec-feat-badge ec-logo-fit k-violet bg-(--bg) [--fit:4.25rem] max-sm:size-20"
+            aria-hidden="true"
+          >
+            <CompanyLogo
+              id={newest.data.company}
+              name={companyName(newest.data.company)}
+              height={46}
+              mark
+            />
+          </span>
+          <span class="ec-feat-body">
+            <h3 class="ec-feat-name">{newest.data.title}</h3>
+            <span class="ec-feat-meta">
+              {companyName(newest.data.company)} · {newest.data.location} ·{' '}
+              {newest.data.type}
+            </span>
+            {intro && <span class="ec-feat-desc max-w-xl">{intro}</span>}
+          </span>
+        </a>
+      )}
+
+      {older.length > 0 && (
+        <>
+          <p class="ec-sched-sub">More roles</p>
+          <ul class="ec-rows">
+            {older.map((job) => (
+              <li>
+                <a href={`/jobs/${job.id}`} class="ec-job">
+                  <span class="ec-logo-fit grid w-9 flex-none place-items-center text-(--ec-fg) [--fit:2.25rem]">
+                    <CompanyLogo
+                      id={job.data.company}
+                      name={companyName(job.data.company)}
+                      height={22}
+                      mark
+                    />
+                  </span>
+                  <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+                    <h3 class="j-title text-[1.0625rem]/6 font-semibold tracking-tight text-(--ec-fg)">
+                      {job.data.title}
+                    </h3>
+                    <span class="text-sm text-(--ec-muted)">
+                      {companyName(job.data.company)} · {job.data.location} ·{' '}
+                      {job.data.type}
+                    </span>
+                  </span>
+                  <time
+                    class="flex-none font-mono text-[0.8125rem] text-(--ec-muted)"
+                    datetime={job.data.posted.toISOString()}
+                  >
+                    {formatDate(job.data.posted, 'short')}
+                  </time>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      <p class="mt-10 flex flex-wrap items-center gap-x-4 gap-y-3 text-[0.9375rem]/6 text-(--ec-muted)">
+        Want to know who else runs Elixir?
+        <a href="/companies" class="btn-soft">
+          See the companies <span aria-hidden="true">&rarr;</span>
+        </a>
+      </p>
+    </section>
+
+    <ContributeNote question="Hiring Elixir developers?" />
+
+    <NewsletterBand title="New Elixir roles, now and then." />
+  </div>
+</BaseLayout>

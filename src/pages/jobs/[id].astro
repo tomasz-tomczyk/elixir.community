@@ -1,0 +1,145 @@
+---
+import { getCollection, getEntry, render } from 'astro:content'
+
+import CompanyLogo from '@/components/CompanyLogo.astro'
+import Icon from '@/components/Icon.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { formatDate } from '@/lib/site'
+
+export async function getStaticPaths() {
+  const jobs = await getCollection('jobs')
+  return jobs.map((job) => ({ params: { id: job.id }, props: { job } }))
+}
+
+const { job } = Astro.props
+const { Content } = await render(job)
+const company = await getEntry('companies', job.data.company)
+const companyName = company?.data.name ?? job.data.company
+const companies = new Map(
+  (await getCollection('companies')).map((c) => [c.id, c]),
+)
+const more = (await getCollection('jobs'))
+  .filter((j) => j.id !== job.id)
+  .sort((a, b) => +b.data.posted - +a.data.posted)
+  .slice(0, 3)
+---
+
+<BaseLayout
+  title={`${job.data.title} at ${companyName}`}
+  description={`${job.data.title} at ${companyName}. ${job.data.location}.`}
+>
+  <div class="container-page">
+    <header class="relative isolate pt-12 sm:pt-16">
+      <div class="ec-blobs" aria-hidden="true">
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+      <a
+        href="/jobs"
+        class="group inline-flex items-center gap-1.5 text-sm/6 font-medium text-(--ec-muted) transition-colors hover:text-(--ec-fg)"
+      >
+        <Icon
+          name="chevron"
+          class="size-3.5 rotate-180 transition-transform group-hover:-translate-x-0.5"
+        />
+        All jobs
+      </a>
+
+      <div class="mt-10 flex h-10 items-center text-(--ec-fg)">
+        <CompanyLogo id={job.data.company} name={companyName} height={30} />
+      </div>
+      <h1 class="ec-page-title mt-6 max-w-4xl">{job.data.title}</h1>
+      <p class="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-sm/6 text-(--ec-muted)">
+        <span class="flex items-center gap-1">
+          <Icon name="pin" class="size-3.5" />
+          {job.data.location}
+        </span>
+        <span aria-hidden="true">&middot;</span>
+        <span>{job.data.type}</span>
+        <span aria-hidden="true">&middot;</span>
+        <span>
+          Posted{' '}
+          <time datetime={job.data.posted.toISOString()}>
+            {formatDate(job.data.posted)}
+          </time>
+        </span>
+      </p>
+      <p class="k-blush mt-5 inline-flex rounded-full bg-(--bg) px-3 py-1.5 text-[0.8125rem]/5 font-medium text-(--tx)">
+        Sample listing. Check the company careers page for real openings.
+      </p>
+    </header>
+
+    <div class="mt-12 grid gap-x-16 gap-y-14 border-t border-(--ec-line) pt-12 lg:grid-cols-[1fr_20rem]">
+      <div class="max-w-2xl min-w-0">
+        <article class="typography">
+          <Content />
+        </article>
+        <a
+          href={job.data.url}
+          target="_blank"
+          rel="noopener"
+          class="group mt-10 inline-flex items-center gap-2 rounded-full bg-(--ec-violet) px-6 py-3 text-[0.9375rem]/6 font-semibold text-white shadow-[0_12px_24px_-12px_var(--ec-violet)] transition hover:-translate-y-0.5 hover:bg-(--ec-violet-deep) motion-reduce:hover:translate-y-0 dark:hover:bg-(--ec-fuchsia)"
+        >
+          Apply on {companyName}'s site
+          <Icon
+            name="arrow-up-right"
+            class="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </a>
+      </div>
+
+      <aside>
+        <div class="space-y-12 lg:sticky lg:top-28">
+          {company && (
+            <div class="rounded-[20px] bg-(--ec-card) p-6 shadow-[0_18px_36px_-24px_rgb(20_0_40/0.4)] ring-1 ring-(--ec-line)">
+              <h2 class="text-lg/7 font-semibold tracking-tight text-(--ec-fg)">
+                About {companyName}
+              </h2>
+              <p class="mt-2 text-[0.9375rem]/6 text-(--ec-muted)">
+                {company.data.about}
+              </p>
+              <a href={`/companies/${company.id}`} class="btn-soft mt-5">
+                How they use Elixir <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          )}
+          {more.length > 0 && (
+            <div>
+              <h2 class="border-b-[3px] border-(--ec-fg) pb-3 text-lg/7 font-semibold tracking-tight text-(--ec-fg)">
+                More jobs
+              </h2>
+              <ul class="ec-rows">
+                {more.map((j) => (
+                  <li>
+                    <a href={`/jobs/${j.id}`} class="ec-job">
+                      <span class="ec-logo-fit grid w-8 flex-none place-items-center text-(--ec-fg) [--fit:2rem]">
+                        <CompanyLogo
+                          id={j.data.company}
+                          name={
+                            companies.get(j.data.company)?.data.name ??
+                            j.data.company
+                          }
+                          height={20}
+                          mark
+                        />
+                      </span>
+                      <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+                        <span class="j-title text-[0.9375rem]/5 font-semibold tracking-tight text-(--ec-fg)">
+                          {j.data.title}
+                        </span>
+                        <span class="text-[0.8125rem] text-(--ec-muted)">
+                          {j.data.location}
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

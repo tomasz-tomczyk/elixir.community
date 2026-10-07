@@ -1,0 +1,40 @@
+---
+import Icon, { type IconName } from '@/components/Icon.astro'
+
+// One row in an .ec-rows list: icon tile, title, mono meta and a short description.
+interface Props {
+  href: string
+  title: string
+  description: string
+  icon?: IconName
+  meta?: string
+  external?: boolean
+}
+const {
+  href,
+  title,
+  description,
+  icon = 'arrow-up-right',
+  meta,
+  external = true,
+} = Astro.props
+---
+
+<a
+  href={href}
+  {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+  class="group flex gap-4 py-4"
+>
+  <span class="grid size-9 flex-none place-items-center rounded-[10px] border border-(--ec-line) bg-(--ec-card) text-(--ec-text-accent)">
+    <Icon name={icon} class="size-4" />
+  </span>
+  <span class="flex min-w-0 flex-col gap-1">
+    <span class="text-[1.03rem]/6 font-semibold tracking-tight text-(--ec-fg) decoration-(--ec-fuchsia) underline-offset-3 group-hover:underline">
+      {title}
+    </span>
+    {meta && (
+      <span class="font-mono text-[0.8125rem]/5 text-(--ec-muted)">{meta}</span>
+    )}
+    <span class="text-[0.9375rem]/6 text-(--ec-muted)">{description}</span>
+  </span>
+</a>

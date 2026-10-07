@@ -1,0 +1,762 @@
+/* Shared building blocks for every page: type scale, tones, cards, rows and lists.
+   Colours come from the --ec-* tokens in global.css. */
+
+/* ---------- Type ---------- */
+.ec-h1 {
+  font-size: clamp(3rem, 7.4vw, 6.1rem);
+  font-weight: 690;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.ec-h1 span {
+  display: block;
+  color: var(--ec-text-accent);
+}
+
+.ec-h2 {
+  font-size: clamp(2.4rem, 7vw, 5.2rem);
+  font-weight: 680;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.ec-h3 {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 680;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+/* Page titles under the nav. Smaller than the home page hero. */
+.ec-page-title {
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  font-weight: 680;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.ec-section {
+  margin-top: 6.5rem;
+}
+
+.ec-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Background ---------- */
+/* Soft colour behind a page header: three blurred Elixir drops that drift slowly. */
+.ec-blobs {
+  position: absolute;
+  top: -6rem;
+  bottom: -4rem;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  mask: linear-gradient(#000 65%, transparent);
+}
+
+.ec-blobs i {
+  position: absolute;
+  border-radius: 50% 0 50% 50%;
+  rotate: -45deg;
+  filter: blur(34px);
+  opacity: 0.75;
+}
+
+.ec-blobs i:nth-child(1) {
+  width: 26rem;
+  height: 26rem;
+  left: 46%;
+  top: 3rem;
+  background: var(--ec-blob-a);
+  animation: ec-float 18s ease-in-out infinite alternate;
+}
+
+.ec-blobs i:nth-child(2) {
+  width: 18rem;
+  height: 18rem;
+  left: 70%;
+  top: 15rem;
+  background: var(--ec-blob-b);
+  animation: ec-float 22s ease-in-out infinite alternate-reverse;
+}
+
+.ec-blobs i:nth-child(3) {
+  width: 18rem;
+  height: 18rem;
+  left: 6%;
+  top: -3rem;
+  background: var(--ec-blob-c);
+  opacity: 0.55;
+  animation: ec-float 26s ease-in-out infinite alternate;
+}
+
+@keyframes ec-float {
+  to {
+    transform: translate(-3rem, 2rem) scale(1.08);
+  }
+}
+
+/* ---------- Tones ---------- */
+/* Each tone sets a block colour (--bg) and the text colour on it (--tx). */
+.k-fuchsia {
+  --bg: var(--ec-fuchsia);
+  --tx: white;
+}
+
+.k-violet {
+  --bg: var(--ec-violet);
+  --tx: white;
+}
+
+.k-indigo {
+  --bg: var(--ec-indigo);
+  --tx: white;
+}
+
+.k-deep {
+  --bg: var(--ec-violet-deep);
+  --tx: white;
+}
+
+.k-lilac {
+  --bg: var(--ec-lilac);
+  --tx: var(--ec-ink);
+}
+
+.k-blush {
+  --bg: var(--ec-blush);
+  --tx: var(--ec-ink);
+}
+
+.k-peri {
+  --bg: var(--ec-periwinkle);
+  --tx: var(--ec-ink);
+}
+
+.k-orchid {
+  --bg: var(--ec-orchid);
+  --tx: var(--ec-ink);
+}
+
+/* ---------- Cards ---------- */
+/* A white card that sits on a colour block. */
+.ec-card {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  width: 100%;
+  border-radius: 18px;
+  background: var(--ec-card);
+  color: var(--ec-fg);
+  box-shadow: 0 18px 36px -20px rgb(20 0 40 / 0.55);
+}
+
+/* Wide wordmarks shrink to fit a small logo slot. */
+.ec-logo-fit .logo-mask {
+  max-width: var(--fit, 1.5rem);
+}
+
+/* ---------- Featured item and rows ---------- */
+/* Two columns, each with a heavy rule under its heading (conferences and jobs on the home page). */
+.ec-sched {
+  display: grid;
+  gap: 3.5rem;
+}
+
+/* On wide screens both columns share rows (head, featured item, subheading,
+   list), so the conference and the job line up at the same height. */
+@media (min-width: 900px) {
+  .ec-sched {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    row-gap: 0;
+  }
+
+  .ec-sched > * {
+    display: grid;
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+    align-content: start;
+  }
+}
+
+.ec-sched-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.375rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 3px solid var(--ec-fg);
+}
+
+.ec-sched-head h3 {
+  font-size: 1.625rem;
+  font-weight: 680;
+  letter-spacing: -0.035em;
+}
+
+.ec-feat {
+  display: flex;
+  gap: 1.125rem;
+  padding: 1.125rem 0 1.375rem;
+  border-bottom: 1px solid var(--ec-line);
+}
+
+/* A blob that turns into a different blob on hover. */
+.ec-feat-badge {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50% 50% 50% 8px;
+  color: white;
+  transition: border-radius 0.5s var(--ec-ease);
+}
+
+.ec-feat:hover .ec-feat-badge {
+  border-radius: 8px 50% 50% 50%;
+}
+
+.ec-feat-badge b {
+  font-size: 2.75rem;
+  font-weight: 720;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+.ec-feat-badge span {
+  font: 600 0.8125rem/1.2 var(--font-mono);
+  text-transform: uppercase;
+}
+
+.ec-feat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-width: 0;
+}
+
+.ec-pill {
+  align-self: flex-start;
+  padding: 6px 9px;
+  border-radius: 99px;
+  font: 600 0.75rem/1 var(--font-mono);
+  color: white;
+  background: var(--ec-violet);
+}
+
+.ec-feat-name {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 690;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.ec-feat:hover .ec-feat-name {
+  text-decoration: underline 2px var(--ec-fuchsia);
+  text-underline-offset: 4px;
+}
+
+.ec-feat-meta {
+  font: 500 0.8125rem/1.4 var(--font-mono);
+  color: var(--ec-muted);
+}
+
+.ec-feat-desc {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ec-muted);
+}
+
+.ec-sched-sub {
+  margin: 1.625rem 0 0.125rem;
+  font: 600 0.75rem/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ec-muted);
+}
+
+/* Rows: the line sits on the li, the rounded hover sits between lines. */
+.ec-rows li {
+  padding: 3px 0;
+  border-bottom: 1px solid var(--ec-line);
+}
+
+.ec-rows li:last-child {
+  border-bottom: 0;
+}
+
+.ec-rows a {
+  border-radius: 12px;
+  transition:
+    padding 0.25s var(--ec-ease),
+    background-color 0.25s;
+}
+
+.ec-rows a:hover {
+  padding-inline: 0.75rem;
+  background: var(--ec-surface);
+}
+
+.ec-meetup {
+  display: grid;
+  grid-template-columns: 7.2rem 1fr;
+  align-items: baseline;
+  gap: 2px 0.75rem;
+  padding: 0.625rem 0;
+}
+
+@media (min-width: 900px) {
+  .ec-meetup {
+    grid-template-columns: 7.5rem 1fr auto;
+  }
+}
+
+.ec-job,
+.ec-person,
+.ec-company {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 0;
+}
+
+.ec-job:hover .j-title,
+.ec-person:hover .p-name,
+.ec-company:hover .c-name,
+.ec-meetup:hover .m-title {
+  text-decoration: underline var(--ec-fuchsia);
+  text-underline-offset: 3px;
+}
+
+/* ---------- Issue list ---------- */
+.ec-issues {
+  border-top: 1px solid var(--ec-line);
+}
+
+.ec-issues a {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: baseline;
+  gap: 0.25rem 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--ec-line);
+}
+
+.i-num {
+  font: 500 0.8125rem/1.6 var(--font-mono);
+  color: var(--ec-text-accent);
+}
+
+.i-date {
+  display: inline;
+  margin-left: 0.625rem;
+  color: var(--ec-muted);
+}
+
+.i-title {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 640;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  text-decoration: underline 1.5px transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s;
+}
+
+.ec-issues a:hover .i-title {
+  text-decoration-color: var(--ec-text-accent);
+}
+
+.i-arrow {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .ec-issues a {
+    grid-template-columns: 7rem 1fr auto;
+    padding: 1.5rem 0;
+  }
+
+  .i-date {
+    display: block;
+    margin: 0;
+  }
+
+  .i-arrow {
+    display: block;
+    color: var(--ec-muted);
+    transition:
+      transform 0.2s,
+      color 0.2s;
+  }
+
+  .ec-issues a:hover .i-arrow {
+    transform: translateX(4px);
+    color: var(--ec-text-accent);
+  }
+}
+
+/* ---------- Link list ---------- */
+.ec-res {
+  display: grid;
+  gap: 0 1.75rem;
+  border-top: 3px solid var(--ec-fg);
+}
+
+@media (min-width: 640px) {
+  .ec-res {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ec-res a {
+  display: flex;
+  gap: 0.875rem;
+  height: 100%;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--ec-line);
+}
+
+/* .ec-res-end: no line under the last row. Only for a fixed two-column list,
+   since a filtered or three-column list can't know its last row in CSS. */
+.ec-res-end li:last-child a {
+  border-bottom: 0;
+}
+
+@media (min-width: 640px) {
+  .ec-res-end li:nth-last-child(2):nth-child(odd) a {
+    border-bottom: 0;
+  }
+}
+
+.r-sh {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  border-radius: 50% 50% 50% 3px;
+  background: var(--c);
+  transition:
+    transform 0.4s var(--ec-ease),
+    border-radius 0.4s;
+}
+
+.ec-res a:hover .r-sh {
+  transform: rotate(-90deg) scale(1.15);
+  border-radius: 4px;
+}
+
+.ec-res a:hover b {
+  text-decoration: underline var(--ec-fuchsia);
+  text-underline-offset: 3px;
+}
+
+/* ---------- Fade blocks in as they arrive (script in BaseLayout.astro) ---------- */
+.ec-js .ec-rise {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.ec-js .ec-rise.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ec-js .ec-rise {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Section pictures ----------
+   The small drawings from the home page tiles, reused in the section page headers
+   (src/components/TilePic.astro). They draw in the text colour of their tone. */
+/* A small picture between the icon and the heading, drawn in the tile's text colour. */
+.ec-pic {
+  display: block;
+  width: 100%;
+  height: 2.5rem;
+  margin-top: 1.25rem;
+}
+
+/* Events: two weeks of days. Meetups are filled, the conference is ringed. */
+.ec-cal {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  max-width: 13rem;
+  height: auto;
+}
+
+.ec-cal i {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  background: color-mix(in oklch, var(--tx) 14%, transparent);
+}
+
+.ec-cal .meetup {
+  background: color-mix(in oklch, var(--tx) 45%, transparent);
+}
+
+.ec-cal .conf {
+  background: var(--tx);
+  box-shadow:
+    0 0 0 3px var(--bg),
+    0 0 0 5px color-mix(in oklch, var(--tx) 60%, transparent);
+}
+
+/* Resources: rows of links of different lengths. One lights up at a time. */
+.ec-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.ec-links i {
+  width: var(--w);
+  height: calc(50% - 3px);
+  border-radius: 99px;
+  background: currentColor;
+  opacity: 0.16;
+  animation: link-on 24s calc(var(--d) * 2.4s) infinite;
+}
+
+@keyframes link-on {
+  2%,
+  9% {
+    opacity: 0.6;
+    transform: translateY(-1px);
+  }
+
+  12% {
+    opacity: 0.16;
+    transform: none;
+  }
+}
+
+/* YouTube: one play mark. */
+.ec-play {
+  height: 3.75rem;
+  display: grid;
+  place-items: center;
+}
+
+.ec-play b {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1.42;
+  border-radius: 28% / 36%;
+  background: currentColor;
+  opacity: 0.85;
+  transition: transform 0.35s var(--ec-ease);
+}
+
+.ec-play b::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 42%;
+  translate: -38% -50%;
+  background: var(--bg);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+/* Podcasts: a waveform that moves slowly. */
+.ec-wave {
+  height: 3.75rem;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.ec-wave i {
+  flex: 1;
+  height: 100%;
+  border-radius: 99px;
+  background: currentColor;
+  opacity: 0.4;
+  transform: scaleY(var(--h));
+  animation: wave 7s var(--d) ease-in-out infinite alternate;
+}
+
+@keyframes wave {
+  to {
+    transform: scaleY(var(--h2));
+  }
+}
+
+/* Books: spines of similar height on a shelf, a few leaning over. */
+.ec-shelf {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  padding-bottom: 1px;
+  border-bottom: 2px solid color-mix(in oklch, currentColor 30%, transparent);
+}
+
+.ec-shelf i {
+  flex: none;
+  width: var(--w);
+  height: calc(var(--h) * 100%);
+  border-radius: 2px 2px 1px 1px;
+  background: currentColor;
+  opacity: var(--o);
+  transform: rotate(var(--r));
+  transform-origin: 100% 100%;
+}
+
+.ec-shelf .lean-right {
+  margin-right: 10px;
+  transform-origin: 0 100%;
+}
+
+.ec-shelf .lean-left {
+  margin-left: 10px;
+}
+
+/* Faces, in two staggered rows. Positions come from the page. */
+.ec-faces {
+  position: relative;
+  z-index: 1;
+  min-height: 11rem;
+}
+
+.ec-face {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  translate: -50% -50%;
+  border: 3px solid var(--bg);
+  border-radius: 50%;
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: var(--ec-ink);
+  background: var(--ec-lilac);
+  transition: transform 0.3s cubic-bezier(0.3, 1.8, 0.5, 1);
+  animation: float 9s var(--d) ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  to {
+    translate: -50% calc(-50% - 5px);
+  }
+}
+
+.ec-face img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ec-face:hover,
+.ec-face:focus-visible {
+  z-index: 2;
+  transform: translateY(-6px) rotate(-6deg);
+}
+
+/* Name tag on hover. */
+.ec-face::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  translate: -50% 0;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font: 600 0.875rem/1 var(--font-sans);
+  white-space: nowrap;
+  color: var(--ec-ink);
+  background: white;
+  box-shadow: 0 6px 16px rgb(0 0 0 / 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.ec-face:hover::after,
+.ec-face:focus-visible::after {
+  opacity: 1;
+}
+
+/* Companies: a skyline. Each company's logo is the sign on its building. */
+.ec-skyline {
+  display: flex;
+  align-items: flex-end;
+  align-self: end;
+  justify-content: flex-end;
+  gap: 3px;
+  height: 10.5rem;
+  margin: 0 -1.375rem -1.375rem 0;
+  padding-right: 1rem;
+}
+
+.ec-building {
+  position: relative;
+  display: flex;
+  flex: none;
+  justify-content: center;
+  min-width: 30px;
+  height: var(--h);
+  padding: 12px 5px 0;
+  border-radius: 5px 5px 0 0;
+  background: color-mix(in oklch, var(--tx) 13%, transparent);
+}
+
+.ec-building > [role='img'] {
+  align-self: flex-start;
+}
+
+/* Windows. */
+.ec-building::after {
+  content: '';
+  position: absolute;
+  inset: 40px 6px 0;
+  background: radial-gradient(
+      circle,
+      color-mix(in oklch, var(--tx) 24%, transparent) 1.5px,
+      transparent 2px
+    )
+    0 0 / 10px 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ec-links i,
+  .ec-wave i,
+  .ec-face {
+    animation: none;
+  }
+}

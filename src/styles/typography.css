@@ -1,0 +1,183 @@
+/* Long-form text for newsletter issues, job posts and company pages.
+   Colours come from the --ec-* tokens in global.css, so most values follow the theme. */
+.typography {
+  --typography-body: color-mix(in oklch, var(--ec-fg) 78%, var(--ec-muted));
+  --typography-headings: var(--ec-fg);
+  --typography-links: var(--ec-text-accent);
+  --typography-link-underline: color-mix(
+    in oklch,
+    var(--ec-text-accent) 35%,
+    transparent
+  );
+  --typography-link-hover-underline: var(--ec-fuchsia);
+  --typography-marker: var(--ec-text-accent);
+  --typography-quote-bar: var(--ec-fuchsia);
+  --typography-code-bg: color-mix(
+    in oklch,
+    var(--color-accent-500) 10%,
+    transparent
+  );
+
+  /* Code blocks sit on a deep purple block in both themes. */
+  --astro-code-foreground: oklch(94% 0.02 305);
+  --astro-code-background: var(--ec-violet-deep);
+  --astro-code-token-constant: oklch(84% 0.11 306);
+  --astro-code-token-string: oklch(86% 0.11 160);
+  --astro-code-token-comment: oklch(72% 0.06 300);
+  --astro-code-token-keyword: oklch(83% 0.12 350);
+  --astro-code-token-parameter: oklch(88% 0.08 60);
+  --astro-code-token-function: oklch(84% 0.09 278);
+  --astro-code-token-string-expression: oklch(86% 0.11 160);
+  --astro-code-token-punctuation: oklch(80% 0.04 300);
+  --astro-code-token-link: oklch(84% 0.11 306);
+
+  color: var(--typography-body);
+  font-size: var(--text-base);
+  line-height: 1.75;
+
+  @variant sm {
+    font-size: 1.0625rem;
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-top: 3.25rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 1.875rem);
+    line-height: 1.15;
+    font-weight: 680;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+    color: var(--typography-headings);
+    scroll-margin-top: 6rem;
+  }
+
+  h3 {
+    margin-top: 2.25rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    line-height: 1.35;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    color: var(--typography-headings);
+    scroll-margin-top: 6rem;
+  }
+
+  h2 + h3 {
+    margin-top: 1.25rem;
+  }
+
+  p,
+  ul,
+  ol,
+  blockquote,
+  pre {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  a {
+    color: var(--typography-links);
+    font-weight: 550;
+    text-decoration-line: underline;
+    text-decoration-color: var(--typography-link-underline);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 150ms;
+
+    &:hover {
+      text-decoration-color: var(--typography-link-hover-underline);
+    }
+  }
+
+  strong {
+    color: var(--typography-headings);
+    font-weight: 620;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.5rem;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  li {
+    margin-top: 0.5rem;
+    padding-left: 0.25rem;
+
+    &::marker {
+      color: var(--typography-marker);
+    }
+  }
+
+  ol > li::marker {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    font-weight: 600;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--typography-quote-bar);
+    border-radius: 0 14px 14px 0;
+    background: var(--ec-surface);
+    padding: 0.875rem 1.25rem;
+    color: var(--typography-headings);
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  hr {
+    margin-block: 3rem;
+    border-color: var(--ec-line);
+  }
+
+  img {
+    border-radius: 18px;
+    border: 1px solid var(--ec-line);
+  }
+
+  :not(pre) > code {
+    border-radius: 6px;
+    background: var(--typography-code-bg);
+    padding: 0.125rem 0.375rem;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    font-weight: 500;
+    color: var(--typography-headings);
+  }
+
+  pre {
+    overflow-x: auto;
+    border-radius: 18px;
+    padding: 1.125rem 1.375rem;
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    box-shadow: 0 18px 36px -24px rgb(20 0 40 / 0.6);
+  }
+
+  pre code {
+    font-family: var(--font-mono);
+  }
+}

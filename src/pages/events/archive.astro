@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content'
+
+import ConferenceCard from '@/components/ConferenceCard.astro'
+import Icon from '@/components/Icon.astro'
+import PageHeader from '@/components/PageHeader.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { isUpcoming } from '@/lib/site'
+
+const past = (await getCollection('events'))
+  .filter(
+    (e) =>
+      e.data.kind === 'conference' && e.data.date && !isUpcoming(e.data.date),
+  )
+  .sort((a, b) => (b.data.date ?? '').localeCompare(a.data.date ?? ''))
+
+const years = [...new Set(past.map((e) => e.data.date!.slice(0, 4)))]
+---
+
+<BaseLayout
+  title="Conference archive"
+  description="Past Elixir and BEAM conferences."
+>
+  <div class="container-page">
+    <div class="pt-10 sm:pt-14">
+      <a
+        href="/events"
+        class="group inline-flex items-center gap-1.5 text-sm/6 font-medium text-(--ec-muted) transition-colors hover:text-(--ec-fg)"
+      >
+        <Icon
+          name="chevron"
+          class="size-3.5 rotate-180 transition-transform group-hover:-translate-x-0.5 motion-reduce:transition-none"
+        />
+        Upcoming events
+      </a>
+    </div>
+    <PageHeader title="Conference Archive" />
+
+    <div class="mt-16 space-y-16 sm:mt-20 sm:space-y-20">
+      {years.map((year) => (
+        <section aria-labelledby={`y-${year}`}>
+          <h2
+            id={`y-${year}`}
+            class="ec-h3 mb-6 border-b-[3px] border-(--ec-fg) pb-3"
+          >
+            {year}
+          </h2>
+          <ul class="grid gap-5 md:grid-cols-2">
+            {past
+              .filter((e) => e.data.date!.startsWith(year))
+              .map((c) => (
+                <li>
+                  <ConferenceCard
+                    name={c.data.name}
+                    url={c.data.url}
+                    location={c.data.location}
+                    date={c.data.date}
+                    description={c.data.description}
+                  />
+                </li>
+              ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

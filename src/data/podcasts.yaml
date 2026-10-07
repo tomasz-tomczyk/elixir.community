@@ -1,0 +1,41 @@
+# episodes, last_episode, and checked are written by `npm run refresh` from each RSS feed.
+- id: thinking-elixir
+  title: Thinking Elixir
+  hosts: Mark Ericksen & David Bernheisel
+  url: https://podcast.thinkingelixir.com
+  feed: https://feeds.fireside.fm/thinkingelixir/rss
+  hue: 300
+  description: News roundups and interviews. A good way to keep up in half an hour.
+  episodes: 309
+  last_episode: 2026-06-23
+  checked: 2026-10-06
+- id: elixir-wizards
+  title: Elixir Wizards
+  hosts: SmartLogic
+  url: https://smartlogic.io/podcast/elixir-wizards/
+  feed: https://feeds.fireside.fm/smartlogic/rss
+  hue: 260
+  description: Long conversations with people who build with Elixir, one theme per season.
+  episodes: 209
+  last_episode: 2026-07-23
+  checked: 2026-10-06
+- id: beam-radio
+  title: BEAM Radio
+  hosts: A panel of BEAM developers
+  url: https://www.beamrad.io
+  feed: https://feeds.fireside.fm/beamradio/rss
+  hue: 20
+  description: A panel show about Elixir, Erlang, and the rest of the BEAM.
+  episodes: 102
+  last_episode: 2025-12-11
+  checked: 2026-10-06
+- id: elixir-outlaws
+  title: Elixir Outlaws
+  hosts: Amos King, Chris Keathley & Anna Neyzberg
+  url: https://elixiroutlaws.com
+  feed: https://feeds.fireside.fm/elixiroutlaws/rss
+  hue: 150
+  description: Opinionated, funny chats about building systems on the BEAM.
+  episodes: 134
+  last_episode: 2023-12-06
+  checked: 2026-10-06

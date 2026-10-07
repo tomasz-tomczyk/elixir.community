@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content'
+
+import CompanyLogo from '@/components/CompanyLogo.astro'
+import ContributeNote from '@/components/ContributeNote.astro'
+import PageHeader from '@/components/PageHeader.astro'
+import SectionArt from '@/components/SectionArt.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const companies = (await getCollection('companies')).sort(
+  (a, b) => a.data.order - b.data.order,
+)
+const hiring = new Set((await getCollection('jobs')).map((j) => j.data.company))
+---
+
+<BaseLayout
+  title="Companies"
+  description="Companies that run Elixir in production, and how they use it."
+>
+  <div class="container-page">
+    <PageHeader title="Companies Using Elixir">
+      <a href="/jobs" class="btn-soft mt-8">
+        See who is hiring <span aria-hidden="true">&rarr;</span>
+      </a>
+      <SectionArt slot="aside" kind="companies" />
+    </PageHeader>
+
+    {/* One row per company, like the jobs and people lists. */}
+    <ul class="ec-rows mt-14 max-w-3xl">
+      {companies.map((c) => (
+        <li>
+          <a href={`/companies/${c.id}`} class="ec-company">
+            <span class="ec-logo-fit grid w-12 flex-none place-items-center text-(--ec-fg) [--fit:3rem]">
+              <CompanyLogo id={c.id} name={c.data.name} height={28} mark />
+            </span>
+            <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+              <span class="flex items-center gap-2">
+                {hiring.has(c.id) && (
+                  <span class="ec-hiring sm:hidden">Hiring</span>
+                )}
+                <h2 class="c-name text-[1.0625rem]/6 font-semibold tracking-tight text-(--ec-fg)">
+                  {c.data.name}
+                </h2>
+              </span>
+              <span class="text-sm/6 text-(--ec-muted)">{c.data.about}</span>
+            </span>
+            <span class="flex flex-none flex-col items-end gap-1.5 text-right">
+              <span class="font-mono text-[0.8125rem] text-(--ec-muted) max-sm:hidden">
+                {c.data.industry}
+              </span>
+              {hiring.has(c.id) && (
+                <span class="ec-hiring max-sm:hidden">Hiring</span>
+              )}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <ContributeNote question="Your company runs Elixir?" />
+  </div>
+</BaseLayout>
+
+<style>
+  .ec-hiring {
+    padding: 4px 7px;
+    border-radius: 99px;
+    font: 600 0.6875rem/1 var(--font-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--ec-violet);
+  }
+</style>

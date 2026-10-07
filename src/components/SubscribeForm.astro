@@ -1,0 +1,62 @@
+---
+import { newsletterAction } from '@/lib/site'
+
+interface Props {
+  // 'dark' is for forms that sit on a dark panel in both themes.
+  tone?: 'dark' | 'light'
+  class?: string
+}
+
+const { tone = 'light', class: className } = Astro.props
+const id = `email-${Math.random().toString(36).slice(2, 8)}`
+const method = newsletterAction.startsWith('/') ? 'get' : 'post'
+---
+
+{/* A card with a hairline, and a raised purple button inside it. Stacks on narrow phones. */}
+<form
+  action={newsletterAction}
+  method={method}
+  class:list={[
+    'flex gap-1.5 rounded-[18px] p-1.5 ring-1 transition-shadow focus-within:ring-accent-500/55 focus-within:shadow-[0_0_0_4px_--theme(--color-accent-500/0.18)] max-[420px]:flex-col',
+    tone === 'dark'
+      ? 'bg-white/5 ring-white/15'
+      : 'bg-(--ec-card) shadow-[inset_0_1px_0_--theme(--color-white/0.7),0_1px_2px_rgb(60_20_60/0.06),0_12px_32px_-12px_rgb(60_20_60/0.22)] ring-(--ec-line) dark:shadow-[inset_0_1px_0_--theme(--color-white/0.05),0_16px_40px_-16px_--theme(--color-black/0.7)]',
+    className,
+  ]}
+>
+  <label for={id} class="sr-only">
+    Email address
+  </label>
+  <input
+    required
+    type="email"
+    autocomplete="email"
+    name="email"
+    id={id}
+    placeholder="you@example.com"
+    class:list={[
+      'w-0 min-w-0 flex-auto bg-transparent px-3 py-2.5 text-base focus:outline-hidden max-[420px]:w-full',
+      tone === 'dark'
+        ? 'text-white placeholder:text-mauve-400'
+        : 'text-(--ec-fg) placeholder:text-(--ec-muted)/80',
+    ]}
+  />
+  <button
+    type="submit"
+    class="group inline-flex flex-none items-center justify-center gap-2 rounded-[13px] bg-linear-to-b from-accent-500 to-accent-600 px-4.5 py-3 text-[0.9375rem]/none font-semibold text-white shadow-[inset_0_1px_0_--theme(--color-white/0.3),0_6px_16px_-6px_var(--color-accent-600)] transition hover:brightness-108 active:scale-97"
+  >
+    Subscribe
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+      class="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:-rotate-8"
+    >
+      <path d="M14.25 1.75 7 9M14.25 1.75 9.75 14.25 7 9 1.75 6.25l12.5-4.5Z"></path>
+    </svg>
+  </button>
+</form>

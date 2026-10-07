@@ -1,0 +1,56 @@
+---
+// Profile links for a person, as plain text links: GitHub first, then the rest.
+// A website shows its host name unless the link has its own label.
+interface Link {
+  type: 'twitter' | 'linkedin' | 'bluesky' | 'mastodon' | 'youtube' | 'website'
+  url: string
+  label?: string
+}
+
+interface Props {
+  github: string
+  links: Link[]
+  class?: string
+}
+
+const { github, links, class: className } = Astro.props
+
+const names: Record<string, string> = {
+  github: 'GitHub',
+  twitter: 'X',
+  linkedin: 'LinkedIn',
+  bluesky: 'Bluesky',
+  mastodon: 'Mastodon',
+  youtube: 'YouTube',
+}
+
+const all = [
+  { type: 'github', url: `https://github.com/${github}` } as const,
+  ...links,
+]
+const nameOf = (link: (typeof all)[number]) =>
+  ('label' in link && link.label) ||
+  names[link.type] ||
+  new URL(link.url).hostname.replace(/^www\./, '')
+---
+
+<ul
+  class:list={[
+    'flex flex-wrap items-center gap-x-5 gap-y-1 text-[0.9375rem]/6',
+    className,
+  ]}
+>
+  {all.map((link) => (
+    <li>
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noopener me"
+        class="font-semibold text-(--ec-text-accent) underline decoration-(--ec-text-accent)/30 underline-offset-4 hover:decoration-(--ec-text-accent)"
+      >
+        {nameOf(link)}
+        <span aria-hidden="true">&nearr;</span>
+      </a>
+    </li>
+  ))}
+</ul>

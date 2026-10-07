@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content'
+
+import ContributeNote from '@/components/ContributeNote.astro'
+import MediaCard from '@/components/MediaCard.astro'
+import NewsletterBand from '@/components/NewsletterBand.astro'
+import PageHeader from '@/components/PageHeader.astro'
+import SectionArt from '@/components/SectionArt.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { formatDate } from '@/lib/site'
+
+const channels = (await getCollection('youtube')).sort(
+  (a, b) => +(b.data.last_video ?? 0) - +(a.data.last_video ?? 0),
+)
+const checked = channels
+  .map((c) => c.data.checked)
+  .filter(Boolean)
+  .sort((a, b) => +b! - +a!)[0]
+const meta = (c: (typeof channels)[number]) =>
+  [
+    c.data.videos && `${c.data.videos.toLocaleString('en-US')} videos`,
+    c.data.last_video && `Last: ${formatDate(c.data.last_video, 'short')}`,
+  ]
+    .filter(Boolean)
+    .join('  ·  ')
+---
+
+<BaseLayout
+  title="YouTube"
+  description="YouTube channels with Elixir conference talks, tutorials, and screencasts."
+>
+  <div class="container-page">
+    <PageHeader title="Elixir on YouTube">
+      <SectionArt slot="aside" kind="youtube" />
+    </PageHeader>
+
+    <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {channels.map((c, i) => (
+        <MediaCard
+          href={c.data.url}
+          title={c.data.title}
+          description={c.data.description}
+          index={i}
+          meta={meta(c)}
+        />
+      ))}
+    </div>
+
+    <ContributeNote
+      note={
+        checked && `Video counts from YouTube, checked ${formatDate(checked)}.`
+      }
+      question="Know a channel that is not here?"
+    />
+
+    <NewsletterBand title="The talks worth watching, now and then." />
+  </div>
+</BaseLayout>

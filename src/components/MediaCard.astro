@@ -1,0 +1,139 @@
+---
+// A YouTube channel card with a drawn thumbnail instead of an image.
+// Each card takes a tone and a corner shape from its index, so neighbours look different.
+import Icon from '@/components/Icon.astro'
+
+interface Props {
+  href: string
+  title: string
+  description: string
+  index: number
+  meta?: string
+}
+const { href, title, description, index, meta } = Astro.props
+const tones = [
+  'indigo',
+  'fuchsia',
+  'violet',
+  'peri',
+  'deep',
+  'blush',
+  'orchid',
+  'lilac',
+]
+const shapes = ['play', 'drop', 'ring', 'leaf', 'circle', 'square']
+const tone = tones[index % tones.length]
+const shape = shapes[index % shapes.length]
+---
+
+<a href={href} target="_blank" rel="noopener" class="card flex h-full flex-col">
+  <div
+    class:list={[
+      'thumb relative isolate grid aspect-video place-items-center overflow-hidden',
+      `k-${tone}`,
+    ]}
+  >
+    <span class:list={['shape', `s-${shape}`]} aria-hidden="true"></span>
+    <span class="play grid size-12 place-items-center rounded-full">
+      <Icon name="play" class="size-5" />
+    </span>
+    <span class="name absolute right-4 bottom-3 left-4 truncate text-lg/6 font-bold tracking-tight">
+      {title}
+    </span>
+  </div>
+  <div class="flex flex-auto flex-col px-5 pt-4 pb-5">
+    <p class="flex-auto text-sm/6 text-(--ec-muted)">{description}</p>
+    {meta && (
+      <p class="mt-4 border-t border-(--ec-line) pt-3 font-mono text-xs/5 text-(--ec-muted)">
+        {meta}
+      </p>
+    )}
+  </div>
+</a>
+
+<style>
+  .card {
+    border-radius: 22px;
+    background: var(--ec-card);
+    box-shadow:
+      0 0 0 1px var(--ec-line),
+      0 14px 30px -22px rgb(20 0 40 / 0.45);
+    transition:
+      transform 0.35s var(--ec-ease),
+      box-shadow 0.35s;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 0 1px var(--ec-line),
+      0 22px 40px -22px rgb(20 0 40 / 0.55);
+  }
+
+  .card:hover .name {
+    text-decoration: underline currentColor;
+    text-underline-offset: 3px;
+  }
+
+  /* The thumbnail is a tone block with a faint shape in the corner. */
+  .thumb {
+    margin: 0.375rem 0.375rem 0;
+    border-radius: 17px;
+    background: var(--bg);
+    color: var(--tx);
+  }
+
+  .shape {
+    position: absolute;
+    z-index: -1;
+    top: -18%;
+    right: -8%;
+    width: 50%;
+    aspect-ratio: 1;
+    background: color-mix(in oklch, var(--tx) 14%, transparent);
+    transition: transform 0.6s var(--ec-ease);
+  }
+
+  .card:hover .shape {
+    transform: rotate(90deg) scale(1.08);
+  }
+
+  .s-play {
+    clip-path: polygon(18% 8%, 96% 50%, 18% 92%);
+  }
+
+  .s-drop {
+    border-radius: 50% 0 50% 50%;
+  }
+
+  .s-ring {
+    border-radius: 50%;
+    background: transparent;
+    border: 18px solid color-mix(in oklch, var(--tx) 14%, transparent);
+  }
+
+  .s-leaf {
+    border-radius: 100% 0;
+  }
+
+  .s-circle {
+    border-radius: 50%;
+  }
+
+  .s-square {
+    border-radius: 22%;
+    rotate: 12deg;
+  }
+
+  .play {
+    background: color-mix(in oklch, var(--tx) 16%, transparent);
+    transition:
+      transform 0.45s cubic-bezier(0.3, 1.8, 0.5, 1),
+      background-color 0.2s;
+  }
+
+  .card:hover .play {
+    transform: scale(1.12);
+    background: color-mix(in oklch, var(--tx) 24%, transparent);
+  }
+</style>

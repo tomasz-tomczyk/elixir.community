@@ -1,0 +1,66 @@
+# videos, last_video, channel_id, and checked are written by `npm run refresh` from YouTube.
+- id: elixirconf
+  title: ElixirConf
+  handle: ElixirConf
+  url: https://www.youtube.com/@ElixirConf
+  description: Every talk from ElixirConf US and EU. Start with the keynotes.
+  channel_id: UC0l2QTnO1P2iph-86HHilMQ
+  videos: 480
+  last_video: 2026-08-07
+  checked: 2026-10-06
+- id: code-sync
+  title: Code Sync
+  handle: CodeSync
+  url: https://www.youtube.com/@CodeSync
+  description: Talks from Code BEAM Europe and America, across the whole BEAM.
+  channel_id: UC47eUBNO8KBH_V8AfowOWOw
+  videos: 1600
+  last_video: 2026-09-16
+  checked: 2026-10-06
+- id: dashbit
+  people: [josevalim, wojtekmach]
+  title: Dashbit
+  handle: DashbitCo
+  url: https://www.youtube.com/@DashbitCo
+  description: Videos from the team behind Elixir, Livebook, and Nx.
+  channel_id: UCN75P76wkH3V_CDWCKpM-pQ
+  videos: 54
+  last_video: 2026-10-01
+  checked: 2026-10-06
+- id: erlang-solutions
+  title: Erlang Solutions
+  handle: ErlangSolutions
+  url: https://www.youtube.com/@ErlangSolutions
+  description: Talks, webinars, and interviews about Erlang and Elixir in production.
+  channel_id: UCKrD_GYN3iDpG_uMmADPzJQ
+  videos: 1300
+  last_video: 2026-08-18
+  checked: 2026-10-06
+- id: elixir-mentor
+  title: Elixir Mentor
+  handle: ElixirMentor
+  url: https://www.youtube.com/@ElixirMentor
+  description: Tutorials and interviews for developers who are learning Elixir and Phoenix.
+  channel_id: UChbS_z6KHQiIu9et38O37eQ
+  videos: 584
+  last_video: 2026-10-02
+  checked: 2026-10-06
+- id: alchemist-camp
+  title: Alchemist Camp
+  handle: AlchemistCamp
+  url: https://www.youtube.com/@AlchemistCamp
+  description: Short, practical screencasts that build real projects step by step.
+  channel_id: UCp5Nix6mJCoLkH_GqcRRp1A
+  videos: 238
+  last_video: 2025-04-12
+  checked: 2026-10-06
+- id: fly
+  people: [chrismccord]
+  title: Fly.io
+  handle: flydotio
+  url: https://www.youtube.com/@flydotio
+  description: Phoenix and LiveView demos, deployment guides, and FLAME walkthroughs.
+  channel_id: UCTDUhAaDUTy83xQoUMvKd8w
+  videos: 145
+  last_video: 2026-09-15
+  checked: 2026-10-06

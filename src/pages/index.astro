@@ -1,0 +1,730 @@
+---
+import { getCollection } from 'astro:content'
+
+import CommunityCards from '@/components/CommunityCards.astro'
+import CompanyLogo from '@/components/CompanyLogo.astro'
+import NewsletterBand from '@/components/NewsletterBand.astro'
+import PrelaunchEnvelope from '@/components/PrelaunchEnvelope.astro'
+import SubscribeForm from '@/components/SubscribeForm.astro'
+import TilePic from '@/components/TilePic.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { formatDate, isUpcoming, issueNumber, site } from '@/lib/site'
+import '@/styles/home.css'
+
+const [issues, resources, events, people, companies, jobs] = await Promise.all([
+  getCollection('issues'),
+  getCollection('resources'),
+  getCollection('events'),
+  getCollection('people'),
+  getCollection('companies'),
+  getCollection('jobs'),
+])
+
+issues.sort((a, b) => b.data.number - a.data.number)
+// Before the first issue goes out, the hero shows an unsent envelope instead.
+const [latest, ...olderIssues] = site.newsletterSent ? issues : []
+const backIssues = olderIssues.slice(0, 2)
+const archive = olderIssues.slice(0, 3)
+
+const conferences = events
+  .filter((e) => e.data.kind === 'conference' && isUpcoming(e.data.date))
+  .sort((a, b) => (a.data.date ?? '').localeCompare(b.data.date ?? ''))
+const nextConference = conferences[0]
+const meetups = events.filter((e) => e.data.kind === 'meetup').slice(0, 5)
+
+companies.sort((a, b) => a.data.order - b.data.order)
+const companyName = (id: string) =>
+  companies.find((c) => c.id === id)?.data.name ?? id
+
+jobs.sort((a, b) => b.data.posted.getTime() - a.data.posted.getTime())
+const [newestJob, ...olderJobs] = jobs
+// First sentence under "## The role", for the featured job.
+const jobIntro = newestJob?.body
+  ?.match(/## The role\s+([^\n]+)/)?.[1]
+  ?.split(/(?<=\.)\s/)[0]
+
+const spotlight = people.find((p) => p.data.featured)
+const featured = resources.filter((r) => r.data.featured)
+
+// Day and month for badges, in UTC like the rest of the site.
+const dayMonth = (date: string) => {
+  const d = new Date(`${date}T00:00:00Z`)
+  return {
+    day: d.getUTCDate(),
+    month: d.toLocaleDateString('en-US', { timeZone: 'UTC', month: 'short' }),
+  }
+}
+const shortDate = (date: Date) =>
+  date.toLocaleDateString('en-US', {
+    timeZone: 'UTC',
+    month: 'short',
+    day: 'numeric',
+  })
+
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .map((part) => part[0])
+    .slice(0, 2)
+    .join('')
+
+const dropPath =
+  'M12 1.75c-.35 0-.64.2-.8.5C9.5 5.6 5 10.5 5 15a7 7 0 0 0 14 0c0-4.5-4.5-9.4-6.2-12.75a.9.9 0 0 0-.8-.5Z'
+const swatches = [
+  'var(--ec-violet)',
+  'var(--ec-fuchsia)',
+  'var(--ec-indigo)',
+  'var(--ec-orchid)',
+]
+---
+
+<BaseLayout>
+  <div class="container-page pt-3">
+    {/* Hero: the newsletter as a letter, with the latest issues as a stack of envelopes. */}
+    <section id="subscribe" class="ec-hero" aria-labelledby="hero-title">
+      <div class="ec-blobs" aria-hidden="true">
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+      <div class="ec-hero-grid">
+        <div class="ec-rise">
+          <h1 id="hero-title" class="ec-h1">
+            The best of Elixir, <span>now and then.</span>
+          </h1>
+          <p class="ec-lede">
+            We read all the releases, posts, talks, and job boards, and send you
+            the few things worth your time. We only send one when there is
+            something worth sending.
+          </p>
+          <div class="ec-form-wrap">
+            <p class="ec-note" aria-hidden="true">
+              no fluff, promise
+              <svg
+                viewBox="0 0 36 36"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4 6c10 0 18 6 20 22"></path>
+                <path d="M19.3 22.8 24 28l3.3-6.2"></path>
+              </svg>
+            </p>
+            <SubscribeForm />
+            {!latest && <p id="pl-status" class="sr-only" role="status"></p>}
+          </div>
+        </div>
+
+        {/* After launch: the latest issues as a stack of envelopes. Before the
+            first issue: an open envelope with Nº 001 half out of it, which
+            subscribing seals. */}
+        {latest ? (
+          <div class="ec-stack ec-rise" style="transition-delay: 0.12s">
+            {backIssues
+              .slice()
+              .reverse()
+              .map((issue, i) => (
+                <a
+                  class:list={[
+                    'ec-env ec-env-back',
+                    i === 0 ? 'ec-env-2' : 'ec-env-1',
+                  ]}
+                  href={`/newsletter/${issue.id}`}
+                  aria-label={`Issue ${issue.data.number}: ${issue.data.title}`}
+                >
+                  <b>{issueNumber(issue.data.number)}</b>
+                  <span>{issue.data.title}</span>
+                </a>
+              ))}
+            <a class="ec-env ec-env-front" href={`/newsletter/${latest.id}`}>
+              <span class="ec-env-top">
+                <span>
+                  <span class="ec-issue-label">Latest issue</span>
+                  <time
+                    class="ec-issue-date"
+                    datetime={latest.data.date.toISOString()}
+                  >
+                    {formatDate(latest.data.date, 'short')}
+                  </time>
+                </span>
+                <span class="ec-stamp-wrap" aria-hidden="true">
+                  <svg
+                    class="ec-cancel"
+                    viewBox="0 0 56 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                  >
+                    <path d="M2 5c6-4 10 4 16 0s10 4 16 0 10 4 16 0"></path>
+                    <path d="M2 12c6-4 10 4 16 0s10 4 16 0 10 4 16 0"></path>
+                    <path d="M2 19c6-4 10 4 16 0s10 4 16 0 10 4 16 0"></path>
+                  </svg>
+                  <span class="ec-stamp">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d={dropPath}
+                        fill="currentColor"
+                        fill-opacity="0.92"
+                      ></path>
+                    </svg>
+                    <span>
+                      Nº {String(latest.data.number).padStart(3, '0')}
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span class="ec-env-title">{latest.data.title}</span>
+              <span class="ec-env-sum">{latest.data.summary}</span>
+              <span class="ec-env-foot">
+                <span class="ec-read">
+                  Read it <span aria-hidden="true">&rarr;</span>
+                </span>
+              </span>
+            </a>
+            <p class="ec-stack-note" aria-hidden="true">
+              <svg
+                viewBox="0 0 36 36"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M6 32c10 0 20-6 24-20"></path>
+                <path d="M24.6 16.4 30 12l2.3 6.6"></path>
+              </svg>
+              this is what lands in your inbox
+            </p>
+          </div>
+        ) : (
+          <PrelaunchEnvelope
+            class="ec-rise max-[959px]:hidden"
+            style="transition-delay: 0.12s"
+          />
+        )}
+      </div>
+    </section>
+
+    {/* Directory: one colour block per section, the wide ones show a live sample. */}
+    <section class="ec-section" aria-labelledby="directory">
+      <h2 id="directory" class="ec-h2 mb-8">
+        Explore the community
+      </h2>
+      <div class="ec-spaces">
+        <div class="ec-space ec-wide k-fuchsia ec-rise">
+          <div class="ec-copy">
+            <span class="ec-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4.5 7.2c0-1 .8-1.7 1.8-1.7h11.4c1 0 1.8.8 1.8 1.7v10.6c0 1-.8 1.7-1.8 1.7H6.3c-1 0-1.8-.8-1.8-1.7Z"></path>
+                <path d="M4.7 10h14.6M8.5 3.5v3.3M15.5 3.5v3.3"></path>
+                <path d="M8.6 14.2l1.9 1.6 3.6-3.4"></path>
+              </svg>
+            </span>
+            <TilePic kind="events" />
+            <h3>
+              <a href="/events">Events</a>{' '}
+              <span class="ec-arr" aria-hidden="true">
+                &rarr;
+              </span>
+            </h3>
+          </div>
+          {nextConference?.data.date && (
+            <a
+              class="ec-card ec-ticket"
+              href={nextConference.data.url}
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="ec-ticket-main">
+                <small>Next conference</small>
+                <strong>{nextConference.data.name}</strong>
+                <span>{nextConference.data.location}</span>
+              </span>
+              <span class="ec-stub">
+                <em>{dayMonth(nextConference.data.date).month}</em>
+                <b>{dayMonth(nextConference.data.date).day}</b>
+                <i data-countdown={nextConference.data.date}>
+                  {shortDate(new Date(`${nextConference.data.date}T00:00:00Z`))}
+                </i>
+              </span>
+            </a>
+          )}
+        </div>
+
+        <div
+          class="ec-space ec-wide k-violet ec-rise"
+          style="transition-delay: 0.06s"
+        >
+          <div class="ec-copy">
+            <span class="ec-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3.8 9c0-1 .8-1.8 1.8-1.8h12.8c1 0 1.8.8 1.8 1.8v8.6c0 1-.8 1.8-1.8 1.8H5.6c-1 0-1.8-.8-1.8-1.8Z"></path>
+                <path d="M8.8 7V5.6c0-.9.7-1.6 1.6-1.6h3.2c.9 0 1.6.7 1.6 1.6V7"></path>
+                <path d="M3.9 12.6c5 2.2 11.2 2.2 16.2 0"></path>
+              </svg>
+            </span>
+            <h3>
+              <a href="/jobs">Jobs</a>{' '}
+              <span class="ec-arr" aria-hidden="true">
+                &rarr;
+              </span>
+            </h3>
+          </div>
+          <div class="ec-pile">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <ul class="ec-card ec-joblist">
+              {jobs.slice(0, 3).map((job) => (
+                <li>
+                  <a href={`/jobs/${job.id}`}>
+                    <span class="ec-logo-box ec-logo-fit">
+                      <CompanyLogo
+                        id={job.data.company}
+                        name={companyName(job.data.company)}
+                        height={20}
+                        mark
+                      />
+                    </span>
+                    <span class="min-w-0">
+                      {job.data.title}
+                      <small>
+                        {companyName(job.data.company)} · {job.data.location}
+                      </small>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="ec-space k-lilac ec-rise">
+          <span class="ec-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6.5 4.2h11c.6 0 1 .4 1 1v14.6l-6.5-4-6.5 4V5.2c0-.6.4-1 1-1Z"></path>
+              <path d="M9.5 8.8h5"></path>
+            </svg>
+          </span>
+          <TilePic kind="resources" />
+          <h3>
+            <a href="/resources">Resources</a>
+          </h3>
+        </div>
+        <div class="ec-space k-indigo ec-rise" style="transition-delay: 0.04s">
+          <span class="ec-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3.6 8.2c.1-1.6 1.3-2.8 2.9-2.9 3.7-.3 7.3-.3 11 0 1.6.1 2.8 1.3 2.9 2.9.2 2.5.2 5.1 0 7.6-.1 1.6-1.3 2.8-2.9 2.9-3.7.3-7.3.3-11 0-1.6-.1-2.8-1.3-2.9-2.9-.2-2.5-.2-5.1 0-7.6Z"></path>
+              <path d="M10.2 9.3v5.4l4.6-2.7Z"></path>
+            </svg>
+          </span>
+          <TilePic kind="youtube" />
+          <h3>
+            <a href="/youtube">YouTube</a>
+          </h3>
+        </div>
+        <div class="ec-space k-blush ec-rise" style="transition-delay: 0.08s">
+          <span class="ec-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="9" y="3.5" width="6" height="11" rx="3"></rect>
+              <path d="M5.8 11.5a6.2 6.2 0 0 0 12.4 0M12 17.7v2.8M9 20.5h6"></path>
+            </svg>
+          </span>
+          <TilePic kind="podcasts" />
+          <h3>
+            <a href="/podcasts">Podcasts</a>
+          </h3>
+        </div>
+        <div class="ec-space k-peri ec-rise" style="transition-delay: 0.12s">
+          <span class="ec-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 6.6C10 5.2 7.4 4.6 4 4.8v13.4c3.4-.2 6 .4 8 1.8 2-1.4 4.6-2 8-1.8V4.8c-3.4-.2-6 .4-8 1.8Z"></path>
+              <path d="M12 6.6V20"></path>
+            </svg>
+          </span>
+          <TilePic kind="books" />
+          <h3>
+            <a href="/books">Books</a>
+          </h3>
+        </div>
+
+        <div class="ec-space ec-wide k-deep ec-rise">
+          <div class="ec-copy">
+            <span class="ec-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="9" cy="8.5" r="3.2"></circle>
+                <path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"></path>
+                <circle cx="16.8" cy="9.5" r="2.5"></circle>
+                <path d="M15.6 14.2c2.4-.3 4.3 1.2 4.9 4"></path>
+              </svg>
+            </span>
+            <h3>
+              <a href="/people">People</a>{' '}
+              <span class="ec-arr" aria-hidden="true">
+                &rarr;
+              </span>
+            </h3>
+          </div>
+          <TilePic kind="people" />
+        </div>
+        <div
+          class="ec-space ec-wide k-orchid ec-rise"
+          style="transition-delay: 0.06s"
+        >
+          <div class="ec-copy">
+            <span class="ec-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4.5 20V6.2c0-.6.4-1 1-1.1l7-1.6c.6-.1 1.1.3 1.1.9V20"></path>
+                <path d="M13.6 9.5h5c.5 0 .9.4.9.9V20M3 20h18M8 8.5h2M8 12h2M8 15.5h2M16.5 13h.5M16.5 16h.5"></path>
+              </svg>
+            </span>
+            <h3>
+              <a href="/companies">Companies</a>{' '}
+              <span class="ec-arr" aria-hidden="true">
+                &rarr;
+              </span>
+            </h3>
+          </div>
+          <TilePic kind="companies" />
+        </div>
+      </div>
+    </section>
+
+    {/* Conferences and jobs, side by side. Each column leads with one featured item. */}
+    <section class="ec-section" aria-labelledby="whats-on">
+      <h2 id="whats-on" class="sr-only">
+        Where to go, where to work
+      </h2>
+      <div class="ec-sched">
+        <div class="ec-rise">
+          <div class="ec-sched-head">
+            <h3>Upcoming conferences</h3>
+            <a href="/events" class="btn-soft">
+              All events <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+          {nextConference?.data.date && (
+            <a
+              href={nextConference.data.url}
+              target="_blank"
+              rel="noopener"
+              class="ec-feat"
+            >
+              <span class="ec-feat-badge bg-(--ec-fuchsia)" aria-hidden="true">
+                <b>{dayMonth(nextConference.data.date).day}</b>
+                <span>{dayMonth(nextConference.data.date).month}</span>
+              </span>
+              <span class="ec-feat-body">
+                <span class="ec-pill" data-countdown={nextConference.data.date}>
+                  {formatDate(
+                    new Date(`${nextConference.data.date}T00:00:00Z`),
+                    'short',
+                  )}
+                </span>
+                <span class="ec-feat-name">{nextConference.data.name}</span>
+                <span class="ec-feat-meta">
+                  {nextConference.data.location} ·{' '}
+                  <time datetime={nextConference.data.date}>
+                    {formatDate(
+                      new Date(`${nextConference.data.date}T00:00:00Z`),
+                      'short',
+                    )}
+                  </time>
+                </span>
+                <span class="ec-feat-desc">
+                  {nextConference.data.description}
+                </span>
+              </span>
+            </a>
+          )}
+          <h4 class="ec-sched-sub">Meetups</h4>
+          <ul class="ec-rows">
+            {meetups.map((m) => (
+              <li>
+                <a
+                  href={m.data.url}
+                  target="_blank"
+                  rel="noopener"
+                  class="ec-meetup"
+                >
+                  <span class="font-mono text-[0.8125rem]/5 text-(--ec-muted) max-[899px]:row-span-2">
+                    {m.data.when}
+                  </span>
+                  <span class="m-title text-[1.03rem] font-semibold tracking-tight">
+                    {m.data.name}
+                  </span>
+                  <span class="text-sm text-(--ec-muted)">
+                    {m.data.location}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="ec-rise" style="transition-delay: 0.06s">
+          <div class="ec-sched-head">
+            <h3>Hiring now</h3>
+            <a href="/jobs" class="btn-soft">
+              All jobs <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+          {newestJob && (
+            <a href={`/jobs/${newestJob.id}`} class="ec-feat">
+              <span class="ec-feat-badge bg-(--ec-indigo)" aria-hidden="true">
+                <CompanyLogo
+                  id={newestJob.data.company}
+                  name={companyName(newestJob.data.company)}
+                  height={46}
+                  mark
+                />
+              </span>
+              <span class="ec-feat-body">
+                <span class="ec-feat-name">{newestJob.data.title}</span>
+                <span class="ec-feat-meta">
+                  {companyName(newestJob.data.company)} ·{' '}
+                  {newestJob.data.location} · {newestJob.data.type}
+                </span>
+                {jobIntro && <span class="ec-feat-desc">{jobIntro}</span>}
+              </span>
+            </a>
+          )}
+          <h4 class="ec-sched-sub">More roles</h4>
+          <ul class="ec-rows">
+            {olderJobs.slice(0, 4).map((job) => (
+              <li>
+                <a href={`/jobs/${job.id}`} class="ec-job">
+                  <span class="ec-logo-fit grid w-9 flex-none place-items-center [--fit:2.25rem]">
+                    <CompanyLogo
+                      id={job.data.company}
+                      name={companyName(job.data.company)}
+                      height={22}
+                      mark
+                    />
+                  </span>
+                  <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+                    <span class="j-title text-[1.0625rem]/6 font-semibold tracking-tight">
+                      {job.data.title}
+                    </span>
+                    <span class="text-sm text-(--ec-muted)">
+                      {companyName(job.data.company)} · {job.data.location} ·{' '}
+                      {job.data.type}
+                    </span>
+                  </span>
+                  <time
+                    class="flex-none font-mono text-[0.8125rem] text-(--ec-muted)"
+                    datetime={job.data.posted.toISOString()}
+                  >
+                    {shortDate(job.data.posted)}
+                  </time>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="ec-section" aria-labelledby="talk">
+      <h2 id="talk" class="ec-h2 mb-8">
+        Come say hi
+      </h2>
+      <CommunityCards />
+    </section>
+
+    {archive.length > 0 && (
+      <section class="ec-section" aria-labelledby="archive">
+        <div class="ec-head-row">
+          <h2 id="archive" class="ec-h3">
+            From the archive
+          </h2>
+          <a href="/newsletter" class="btn-soft">
+            All issues <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+        <ol class="ec-issues">
+          {archive.map((issue) => (
+            <li>
+              <a href={`/newsletter/${issue.id}`}>
+                <span class="i-num">
+                  {issueNumber(issue.data.number)}
+                  <time class="i-date" datetime={issue.data.date.toISOString()}>
+                    {formatDate(issue.data.date, 'short')}
+                  </time>
+                </span>
+                <span class="flex min-w-0 flex-col gap-1.5">
+                  <span class="i-title">{issue.data.title}</span>
+                  <span class="max-w-176 text-[0.9375rem]/6 text-(--ec-muted)">
+                    {issue.data.summary}
+                  </span>
+                </span>
+                <span class="i-arrow" aria-hidden="true">
+                  &rarr;
+                </span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+
+    <div class="grid min-[900px]:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)] min-[900px]:gap-14">
+      {spotlight && (
+        <section class="ec-section" aria-labelledby="spotlight">
+          <h2 id="spotlight" class="ec-h3">
+            Community spotlight
+          </h2>
+          <figure class="ec-spot mt-7 flex flex-col items-start gap-4.5">
+            <div class="ec-spot-pic">
+              <span class="ec-spot-sh1" aria-hidden="true" />
+              <span class="ec-spot-sh2" aria-hidden="true" />
+              <span class="ec-spot-sh3" aria-hidden="true" />
+              <span class="ec-spot-ini" aria-hidden="true">
+                {initials(spotlight.data.name)}
+              </span>
+              <img
+                src={`https://github.com/${spotlight.data.github}.png?size=320`}
+                alt={spotlight.data.name}
+                width="160"
+                height="160"
+                loading="lazy"
+                decoding="async"
+                onerror="this.remove()"
+              />
+            </div>
+            <figcaption class="flex flex-col gap-1.5">
+              <a href={`/people/${spotlight.id}`} class="ec-spot-name">
+                {spotlight.data.name}
+              </a>
+              <span class="font-mono text-sm text-(--ec-muted)">
+                {spotlight.data.role}
+              </span>
+            </figcaption>
+            <blockquote class="border-l-4 border-(--ec-fuchsia) pl-4 text-[clamp(1.15rem,2vw,1.35rem)] leading-[1.45] tracking-[-0.015em] text-pretty">
+              {spotlight.data.bio}
+            </blockquote>
+            <a href="/people" class="btn-soft">
+              Meet more people <span aria-hidden="true">&rarr;</span>
+            </a>
+          </figure>
+        </section>
+      )}
+
+      <section class="ec-section" aria-labelledby="resources">
+        <div class="ec-head-row">
+          <h2 id="resources" class="ec-h3">
+            Resources
+          </h2>
+          <a href="/resources" class="btn-soft">
+            All resources <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+        <ul class="ec-res ec-res-end">
+          {featured.map((tool, i) => (
+            <li>
+              <a href={tool.data.url} target="_blank" rel="noopener">
+                <span
+                  class="r-sh"
+                  style={`--c:${swatches[i % swatches.length]}`}
+                  aria-hidden="true"
+                />
+                <span class="flex flex-col gap-1">
+                  <b class="text-[1.0625rem] font-semibold tracking-tight">
+                    {tool.data.name}
+                  </b>
+                  <span class="text-sm/6 text-(--ec-muted)">
+                    {tool.data.description}
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+    <section class="ec-section" aria-labelledby="companies">
+      <div class="ec-head-row">
+        <h2 id="companies" class="ec-h3">
+          Who uses Elixir
+        </h2>
+        <a href="/companies" class="btn-soft">
+          All companies <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+      <ul class="grid grid-cols-2 items-center gap-x-10 gap-y-10 border-t border-(--ec-line) pt-9 lg:grid-cols-4">
+        {companies.map((c) => (
+          <li>
+            <a
+              href={`/companies/${c.id}`}
+              class="flex h-12 items-center justify-center text-(--ec-muted) opacity-75 transition hover:text-[var(--brand,var(--ec-fg))] hover:opacity-100"
+              style={c.data.color && `--brand:${c.data.color}`}
+            >
+              <CompanyLogo id={c.id} name={c.data.name} height={34} />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <NewsletterBand title="Get the best of Elixir in the occasional email." />
+  </div>
+</BaseLayout>

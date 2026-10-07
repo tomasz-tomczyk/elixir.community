@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content'
+
+import ConferenceCard from '@/components/ConferenceCard.astro'
+import ContentLink from '@/components/ContentLink.astro'
+import ContributeNote from '@/components/ContributeNote.astro'
+import NewsletterBand from '@/components/NewsletterBand.astro'
+import PageHeader from '@/components/PageHeader.astro'
+import SectionArt from '@/components/SectionArt.astro'
+import PageSection from '@/components/PageSection.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { isUpcoming } from '@/lib/site'
+
+const events = await getCollection('events')
+const upcoming = events
+  .filter((e) => e.data.kind === 'conference' && isUpcoming(e.data.date))
+  .sort((a, b) => (a.data.date ?? '').localeCompare(b.data.date ?? ''))
+const pastCount = events.filter(
+  (e) => e.data.kind === 'conference' && !isUpcoming(e.data.date),
+).length
+const meetups = events.filter((e) => e.data.kind === 'meetup')
+---
+
+<BaseLayout
+  title="Events"
+  description="Upcoming Elixir conferences and meetups, online and around the world."
+>
+  <div class="container-page">
+    <PageHeader title="Elixir Events">
+      <SectionArt slot="aside" kind="events" />
+    </PageHeader>
+
+    <div>
+      <PageSection
+        id="conferences"
+        title="Upcoming conferences"
+        href="/events/archive"
+        linkLabel={`Archive (${pastCount})`}
+      >
+        {upcoming.length > 0 ? (
+          <ul class="grid gap-5 md:grid-cols-2">
+            {upcoming.map((c) => (
+              <li>
+                <ConferenceCard
+                  name={c.data.name}
+                  url={c.data.url}
+                  location={c.data.location}
+                  date={c.data.date}
+                  description={c.data.description}
+                />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="text-base/7 text-(--ec-muted)">
+            No conference dates are announced right now. The newsletter covers
+            new dates as soon as they appear.
+          </p>
+        )}
+      </PageSection>
+
+      <PageSection
+        id="meetups"
+        title="Meetups"
+        description="Local groups and online sessions. Most are free and welcome first-time speakers."
+      >
+        <ul class="ec-rows max-w-3xl border-t border-(--ec-line)">
+          {meetups.map((m) => (
+            <li>
+              <ContentLink
+                href={m.data.url}
+                title={m.data.name}
+                meta={[m.data.location, m.data.when]
+                  .filter(Boolean)
+                  .join(' · ')}
+                description={m.data.description}
+                icon="pin"
+              />
+            </li>
+          ))}
+        </ul>
+        <ContributeNote question="Run a meetup that is not here?" />
+      </PageSection>
+    </div>
+
+    <NewsletterBand title="New meetups and conference dates, now and then." />
+  </div>
+</BaseLayout>

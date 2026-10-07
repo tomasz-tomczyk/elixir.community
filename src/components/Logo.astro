@@ -1,0 +1,35 @@
+---
+interface Props {
+  class?: string
+}
+const { class: className } = Astro.props
+---
+
+<span class:list={['inline-flex items-center gap-2.5', className]}>
+  <svg viewBox="0 0 24 24" class="h-7 w-7 flex-none" aria-hidden="true">
+    <defs>
+      <linearGradient id="drop" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0" stop-color="var(--color-accent-400)"></stop>
+        <stop offset="1" stop-color="var(--color-accent-700)"></stop>
+      </linearGradient>
+    </defs>
+    <path
+      d="M12 1.75c-.35 0-.64.2-.8.5C9.5 5.6 5 10.5 5 15a7 7 0 0 0 14 0c0-4.5-4.5-9.4-6.2-12.75a.9.9 0 0 0-.8-.5Z"
+      fill="url(#drop)"
+    ></path>
+    <path
+      d="M9.25 15.5a2.75 2.75 0 0 0 2.75 2.75"
+      stroke="white"
+      stroke-opacity=".55"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      fill="none"
+    ></path>
+  </svg>
+  <span class="font-display text-[1.0625rem] font-semibold tracking-tight text-mauve-950 dark:text-white">
+    Elixir
+    <span class="font-normal text-mauve-500 dark:text-mauve-400">
+      Community
+    </span>
+  </span>
+</span>

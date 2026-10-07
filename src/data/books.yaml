@@ -1,0 +1,87 @@
+# hue sets the color of the drawn cover (0-360).
+# year is the publication year of the current edition, from the publisher page (checked 2026-10-06).
+- id: programming-elixir
+  title: Programming Elixir ≥ 1.6
+  author: Dave Thomas
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/elixir16/programming-elixir-1-6/
+  level: beginner
+  year: 2018
+  hue: 300
+- id: elixir-in-action
+  authors: [sasa1977]
+  title: Elixir in Action
+  author: Saša Jurić
+  publisher: Manning
+  url: https://www.manning.com/books/elixir-in-action-third-edition
+  level: beginner
+  year: 2024
+  hue: 20
+- id: programming-phoenix-liveview
+  authors: [sophiedebenedetto]
+  title: Programming Phoenix LiveView
+  author: Bruce A. Tate & Sophie DeBenedetto
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/liveview/programming-phoenix-liveview/
+  level: intermediate
+  year: 2026
+  hue: 25
+- id: designing-elixir-systems
+  title: Designing Elixir Systems with OTP
+  author: James Edward Gray II & Bruce A. Tate
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
+  level: intermediate
+  year: 2019
+  hue: 200
+- id: testing-elixir
+  authors: [whatyouhide]
+  title: Testing Elixir
+  author: Andrea Leopardi & Jeffrey Matthias
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/lmelixir/testing-elixir/
+  level: intermediate
+  year: 2021
+  hue: 150
+- id: concurrent-data-processing
+  title: Concurrent Data Processing in Elixir
+  author: Svilen Gospodinov
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/sgdpelixir/concurrent-data-processing-in-elixir/
+  level: intermediate
+  year: 2021
+  hue: 250
+- id: machine-learning-in-elixir
+  title: Machine Learning in Elixir
+  author: Sean Moriarity
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/smelixir/machine-learning-in-elixir/
+  level: advanced
+  year: 2024
+  hue: 330
+- id: metaprogramming-elixir
+  authors: [chrismccord]
+  title: Metaprogramming Elixir
+  author: Chris McCord
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/cmelixir/metaprogramming-elixir/
+  level: advanced
+  year: 2015
+  hue: 270
+- id: real-time-phoenix
+  title: Real-Time Phoenix
+  author: Stephen Bussey
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/sbsockets/real-time-phoenix/
+  level: intermediate
+  year: 2020
+  hue: 50
+- id: adopting-elixir
+  authors: [josevalim]
+  title: Adopting Elixir
+  author: Ben Marx, José Valim & Bruce A. Tate
+  publisher: Pragmatic Bookshelf
+  url: https://pragprog.com/titles/tvmelixir/adopting-elixir/
+  level: intermediate
+  year: 2018
+  hue: 180

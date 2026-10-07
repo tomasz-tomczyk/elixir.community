@@ -1,0 +1,151 @@
+---
+import { getCollection } from 'astro:content'
+
+import ContributeNote from '@/components/ContributeNote.astro'
+import NewsletterBand from '@/components/NewsletterBand.astro'
+import PageHeader from '@/components/PageHeader.astro'
+import SectionArt from '@/components/SectionArt.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const tools = (await getCollection('resources')).sort(
+  (a, b) =>
+    Number(b.data.featured) - Number(a.data.featured) ||
+    a.data.name.localeCompare(b.data.name),
+)
+
+// Each category has a colour, used for its filter dot and the shape bullets in the list.
+const categories = [
+  { id: 'all', label: 'All', color: 'var(--ec-fg)' },
+  { id: 'community', label: 'Community', color: 'var(--ec-fuchsia)' },
+  { id: 'newsletters', label: 'Newsletters', color: 'var(--ec-violet)' },
+  { id: 'ai', label: 'AI and agents', color: 'var(--ec-indigo)' },
+  { id: 'editor', label: 'Editor and notebooks', color: 'var(--ec-orchid)' },
+  { id: 'workflow', label: 'Workflow', color: 'var(--ec-periwinkle)' },
+  { id: 'quality', label: 'Code quality', color: 'var(--ec-blush)' },
+] as const
+
+const labelFor = Object.fromEntries(categories.map((c) => [c.id, c.label]))
+const colorFor = Object.fromEntries(categories.map((c) => [c.id, c.color]))
+
+// The filter is plain CSS: one radio per category and a :has() rule per category.
+const filterCss = categories
+  .filter((c) => c.id !== 'all')
+  .map(
+    (c) =>
+      `.resources:has(#cat-${c.id}:checked) [data-category]:not([data-category="${c.id}"]) { display: none; }`,
+  )
+  .join('\n')
+---
+
+<BaseLayout
+  title="Resources"
+  description="Elixir resources: the forum, newsletters, AI agents, editors, and code quality tools."
+>
+  <div class="container-page resources">
+    <PageHeader title="Elixir Resources">
+      <SectionArt slot="aside" kind="resources" />
+    </PageHeader>
+
+    <fieldset class="mt-12">
+      <legend class="sr-only">Filter by category</legend>
+      <div class="flex flex-wrap gap-2">
+        {categories.map((c) => (
+          <label class="chip cursor-pointer">
+            <input
+              type="radio"
+              name="category"
+              id={`cat-${c.id}`}
+              value={c.id}
+              checked={c.id === 'all'}
+              class="sr-only"
+            />
+            <span style={`--c: ${c.color}`}>
+              {c.id !== 'all' && <i aria-hidden="true" />}
+              {c.label}
+            </span>
+          </label>
+        ))}
+      </div>
+    </fieldset>
+
+    <ul class="ec-res mt-10 lg:grid-cols-3">
+      {tools.map((tool) => (
+        <li data-category={tool.data.category}>
+          <a href={tool.data.url} target="_blank" rel="noopener">
+            <span
+              class="r-sh"
+              style={`--c: ${colorFor[tool.data.category]}`}
+              aria-hidden="true"
+            />
+            <span class="flex min-w-0 flex-col gap-1">
+              <b class="text-[1.0625rem] font-semibold tracking-tight">
+                {tool.data.name}
+              </b>
+              <span class="text-sm/6 text-(--ec-muted)">
+                {tool.data.description}
+              </span>
+              <span class="mt-1 font-mono text-xs/5 text-(--ec-muted)">
+                {labelFor[tool.data.category]}
+              </span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <ContributeNote question="Know a resource that is not here?" />
+
+    <NewsletterBand title="New resources worth a look, now and then." />
+  </div>
+</BaseLayout>
+
+<style is:global set:html={filterCss} />
+
+<style>
+  /* Filter pills: soft purple like btn-soft, solid violet when picked. */
+  .chip > span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4375rem 0.875rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    color: var(--ec-fg);
+    background: color-mix(in oklch, var(--color-accent-500) 9%, transparent);
+    transition:
+      background-color 0.2s,
+      color 0.2s;
+  }
+
+  .chip i {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50% 50% 50% 2px;
+    background: var(--c);
+    transition: transform 0.3s var(--ec-ease);
+  }
+
+  .chip:hover > span {
+    background: color-mix(in oklch, var(--color-accent-500) 18%, transparent);
+  }
+
+  .chip:hover i {
+    transform: rotate(-90deg);
+  }
+
+  .chip:has(input:checked) > span {
+    color: white;
+    background: var(--ec-violet);
+  }
+
+  .chip:has(input:checked) i {
+    box-shadow: 0 0 0 1.5px white;
+  }
+
+  .chip:has(input:focus-visible) > span {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+  }
+</style>

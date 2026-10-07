@@ -1,0 +1,119 @@
+# links: other profiles. GitHub comes from `github`. Types: twitter, linkedin, bluesky, mastodon, youtube, website.
+# The links below come from each person's own GitHub profile (checked 2026-10-06).
+- id: wojtekmach
+  name: Wojtek Mach
+  github: wojtekmach
+  role: Dashbit
+  known_for:
+    - name: Req
+      url: https://github.com/wojtekmach/req
+    - name: Hex
+      url: https://hex.pm
+  featured: true
+  links:
+    - type: twitter
+      url: https://x.com/wojtekmach
+  bio: Wojtek builds the tools you reach for every day. Req made HTTP in Elixir pleasant, and his work on Hex keeps the package ecosystem healthy.
+- id: josevalim
+  name: José Valim
+  github: josevalim
+  role: Dashbit
+  known_for:
+    - name: Elixir
+      url: https://elixir-lang.org
+    - name: Livebook
+      url: https://livebook.dev
+    - name: Nx
+      url: https://github.com/elixir-nx/nx
+  links:
+    - type: website
+      url: https://dashbit.co
+    - type: twitter
+      url: https://x.com/josevalim
+  bio: Creator of Elixir. He now leads work on the gradual type system and on numerical Elixir.
+- id: chrismccord
+  company: fly
+  name: Chris McCord
+  github: chrismccord
+  role: Fly.io
+  known_for:
+    - name: Phoenix
+      url: https://www.phoenixframework.org
+    - name: LiveView
+      url: https://hexdocs.pm/phoenix_live_view
+  links:
+    - type: website
+      url: https://chrismccord.com
+  bio: Creator of the Phoenix framework and LiveView, and author of Metaprogramming Elixir.
+- id: sasa1977
+  name: Saša Jurić
+  github: sasa1977
+  role: Author and consultant
+  known_for:
+    - name: Elixir in Action
+      url: https://www.manning.com/books/elixir-in-action-third-edition
+  links:
+    - type: website
+      url: https://theerlangelist.com
+  bio: Author of Elixir in Action. His talk "The Soul of Erlang and Elixir" is a classic first watch.
+- id: sophiedebenedetto
+  name: Sophie DeBenedetto
+  github: SophieDeBenedetto
+  role: Author and speaker
+  known_for:
+    - name: Programming Phoenix LiveView
+      url: https://pragprog.com/titles/liveview/programming-phoenix-liveview/
+  bio: Co-author of Programming Phoenix LiveView and a regular conference speaker.
+- id: sorentwo
+  name: Parker Selbert
+  github: sorentwo
+  role: Oban
+  known_for:
+    - name: Oban
+      url: https://github.com/oban-bg/oban
+  links:
+    - type: website
+      url: https://oban.pro
+  bio: Co-creator of Oban, the background job library that most Phoenix apps rely on.
+- id: zachdaniel
+  name: Zach Daniel
+  github: zachdaniel
+  role: Ash Framework
+  known_for:
+    - name: Ash
+      url: https://ash-hq.org
+    - name: Igniter
+      url: https://github.com/ash-project/igniter
+  links:
+    - type: website
+      url: https://zachdaniel.dev
+    - type: twitter
+      url: https://x.com/ZachSDaniel1
+    - type: bluesky
+      url: https://bsky.app/profile/zachdaniel.dev
+    - type: linkedin
+      url: https://www.linkedin.com/in/zachdaniel/
+    - type: youtube
+      url: https://www.youtube.com/@zach_daniel
+  bio: Creator of the Ash Framework and Igniter. Ash lets you describe your domain once and derive the rest.
+- id: whatyouhide
+  name: Andrea Leopardi
+  github: whatyouhide
+  role: Elixir core team
+  known_for:
+    - name: Mint
+      url: https://github.com/elixir-mint/mint
+    - name: StreamData
+      url: https://github.com/whatyouhide/stream_data
+    - name: Testing Elixir
+      url: https://pragprog.com/titles/lmelixir/testing-elixir/
+  links:
+    - type: website
+      url: https://andrealeopardi.com
+    - type: twitter
+      url: https://x.com/whatyouhide
+    - type: linkedin
+      url: https://www.linkedin.com/in/anleopardi/
+    - type: youtube
+      url: https://youtube.com/@whatyouhide
+  bio: Member of the Elixir core team, author of Mint and StreamData, and co-author of Testing Elixir.

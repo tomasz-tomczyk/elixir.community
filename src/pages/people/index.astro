@@ -1,0 +1,100 @@
+---
+import { getCollection } from 'astro:content'
+
+import Avatar from '@/components/Avatar.astro'
+import ContributeNote from '@/components/ContributeNote.astro'
+import NewsletterBand from '@/components/NewsletterBand.astro'
+import SocialLinks from '@/components/SocialLinks.astro'
+import PageHeader from '@/components/PageHeader.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const people = await getCollection('people')
+const featured = people.find((p) => p.data.featured)!
+const others = people.filter((p) => p !== featured)
+---
+
+<BaseLayout
+  title="People"
+  description="The people behind the Elixir tools you use every day."
+>
+  <div class="container-page">
+    <PageHeader title="Elixir People" />
+
+    {/* The same picture, name and quote as the home page spotlight. */}
+    <section aria-labelledby="this-month" class="ec-rise mt-16">
+      <h2 id="this-month" class="ec-h3">
+        In the spotlight
+      </h2>
+      <div class="mt-8 grid items-center gap-8 rounded-3xl bg-(--ec-surface) p-6 ring-1 ring-(--ec-line) sm:p-10 md:grid-cols-[auto_1fr] md:gap-14">
+        <Avatar
+          github={featured.data.github}
+          name={featured.data.name}
+          size={160}
+          shapes
+        />
+        <div class="flex max-w-2xl flex-col items-start gap-4">
+          <div class="flex flex-col gap-1.5">
+            <h3>
+              <a href={`/people/${featured.id}`} class="spot-name">
+                {featured.data.name}
+              </a>
+            </h3>
+            <p class="font-mono text-sm text-(--ec-muted)">
+              {featured.data.role}
+            </p>
+          </div>
+          <blockquote class="border-l-4 border-(--ec-fuchsia) pl-4 text-[clamp(1.15rem,2vw,1.35rem)] leading-[1.45] tracking-[-0.015em] text-pretty">
+            {featured.data.bio}
+          </blockquote>
+          <SocialLinks
+            github={featured.data.github}
+            links={featured.data.links}
+            class="mt-2"
+          />
+        </div>
+      </div>
+    </section>
+
+    {/* Everyone else: a plain list, like the jobs and meetups lists. */}
+    <section aria-labelledby="earlier" class="ec-section">
+      <h2 id="earlier" class="ec-h3 mb-6">
+        More people
+      </h2>
+      <ul class="ec-rows ec-rise grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
+        {others.map((p) => (
+          <li>
+            <a href={`/people/${p.id}`} class="ec-person">
+              <Avatar github={p.data.github} name={p.data.name} size={44} />
+              <span class="flex min-w-0 flex-col gap-0.5">
+                <span class="p-name text-[1.0625rem]/6 font-semibold tracking-tight">
+                  {p.data.name}
+                </span>
+                <span class="font-mono text-[0.8125rem] text-(--ec-muted)">
+                  {p.data.role}
+                </span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <ContributeNote question="Know someone who should be here?" />
+
+    <NewsletterBand title="A new community spotlight, now and then." />
+  </div>
+</BaseLayout>
+
+<style>
+  .spot-name {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 690;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+  }
+
+  .spot-name:hover {
+    text-decoration: underline 3px var(--ec-fuchsia);
+    text-underline-offset: 5px;
+  }
+</style>

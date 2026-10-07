@@ -1,0 +1,30 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="Page not found">
+  <div class="container-page">
+    <div class="relative isolate mx-auto max-w-2xl pt-24 pb-8 text-center sm:pt-32">
+      <div class="ec-blobs" aria-hidden="true">
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+      <p class="inline-flex rounded-full bg-(--ec-card) px-3.5 py-1.5 font-mono text-[0.8125rem]/5 text-(--ec-text-accent) ring-1 ring-(--ec-line)">
+        ** (FunctionClauseError) 404
+      </p>
+      <h1 class="ec-page-title mt-6 text-(--ec-fg)">
+        No clause matched this page
+      </h1>
+      <p class="mx-auto mt-6 max-w-md text-lg/8 text-pretty text-(--ec-muted)">
+        The page you want does not exist, or it moved.
+      </p>
+      <a
+        href="/"
+        class="mt-10 inline-flex rounded-full bg-mauve-950 px-5 py-2.5 text-[0.9375rem]/6 font-semibold text-white transition-colors hover:bg-mauve-800 dark:bg-white dark:text-mauve-950 dark:hover:bg-mauve-200"
+      >
+        Go home
+      </a>
+    </div>
+  </div>
+</BaseLayout>

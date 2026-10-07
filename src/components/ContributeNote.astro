@@ -1,0 +1,26 @@
+---
+// The note under a list: an optional fact about the data, then a question and
+// a link to add something with a pull request. Same on every section page.
+import { site } from '@/lib/site'
+
+interface Props {
+  // For example "Know a podcast that is not here?"
+  question: string
+  // Optional sentence before the question, for example when the counts were checked.
+  note?: string
+  class?: string
+}
+const { question, note, class: className } = Astro.props
+---
+
+<p class:list={['mt-8 text-[0.9375rem]/6 text-(--ec-muted)', className]}>
+  {note && `${note} `}
+  {question}{' '}
+  <a
+    href={site.github}
+    class="font-semibold text-(--ec-text-accent) underline decoration-(--ec-text-accent)/30 underline-offset-4 hover:decoration-(--ec-text-accent)"
+  >
+    Add it with a pull request
+  </a>
+  .
+</p>

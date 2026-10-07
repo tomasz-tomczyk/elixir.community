@@ -1,0 +1,174 @@
+---
+import { getCollection, render } from 'astro:content'
+
+import Icon from '@/components/Icon.astro'
+import NewsletterBand from '@/components/NewsletterBand.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { formatDate, issueNumber, site } from '@/lib/site'
+
+export async function getStaticPaths() {
+  // No issue pages until the first issue goes out.
+  if (!site.newsletterSent) return []
+  const issues = (await getCollection('issues')).sort(
+    (a, b) => b.data.number - a.data.number,
+  )
+  return issues.map((issue, i) => ({
+    params: { id: issue.id },
+    props: { issue, newer: issues[i - 1], older: issues[i + 1] },
+  }))
+}
+
+const { issue, newer, older } = Astro.props
+const { Content } = await render(issue)
+
+const dropPath =
+  'M12 1.75c-.35 0-.64.2-.8.5C9.5 5.6 5 10.5 5 15a7 7 0 0 0 14 0c0-4.5-4.5-9.4-6.2-12.75a.9.9 0 0 0-.8-.5Z'
+const navCard =
+  'group flex flex-col rounded-[18px] bg-(--ec-card) p-5 ring-1 ring-(--ec-line) shadow-[0_1px_2px_rgb(60_20_60/0.05),0_14px_30px_-18px_rgb(60_20_60/0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgb(60_20_60/0.05),0_20px_36px_-18px_rgb(60_20_60/0.45)] motion-reduce:hover:translate-y-0'
+---
+
+<BaseLayout
+  title={`${issueNumber(issue.data.number)}: ${issue.data.title}`}
+  description={issue.data.summary}
+>
+  <div class="container-page">
+    <div class="mx-auto max-w-2xl">
+      <header class="relative isolate border-b border-(--ec-line) pt-12 pb-10 sm:pt-16">
+        <div class="ec-blobs" aria-hidden="true">
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
+        <a
+          href="/newsletter"
+          class="group inline-flex items-center gap-1.5 text-sm/6 font-medium text-(--ec-muted) transition-colors hover:text-(--ec-text-accent)"
+        >
+          <Icon
+            name="chevron"
+            class="size-3.5 rotate-180 transition-transform group-hover:-translate-x-0.5"
+          />
+          All issues
+        </a>
+
+        <div class="mt-10 flex items-start justify-between gap-6">
+          <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[0.8125rem]/6">
+            <span class="font-semibold text-(--ec-text-accent)">
+              {issueNumber(issue.data.number)}
+            </span>
+            <time
+              datetime={issue.data.date.toISOString()}
+              class="text-(--ec-muted)"
+            >
+              {formatDate(issue.data.date)}
+            </time>
+          </p>
+          {/* The same drop stamp as the latest-issue envelope. */}
+          <span class="stamp" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d={dropPath} fill="currentColor" fill-opacity="0.92" />
+            </svg>
+            <span>Nº {String(issue.data.number).padStart(3, '0')}</span>
+          </span>
+        </div>
+        <h1 class="issue-title mt-3 text-(--ec-fg)">{issue.data.title}</h1>
+        <p class="mt-6 text-lg/8 text-pretty text-(--ec-muted)">
+          {issue.data.summary}
+        </p>
+      </header>
+
+      <article class="typography mt-10">
+        <Content />
+      </article>
+
+      <nav aria-label="More issues" class="mt-16 grid gap-4 sm:grid-cols-2">
+        {older ? (
+          <a href={`/newsletter/${older.id}`} class={navCard}>
+            <span class="font-mono text-xs/6 text-(--ec-muted)">
+              <span
+                aria-hidden="true"
+                class="inline-block transition-transform group-hover:-translate-x-0.5"
+              >
+                &larr;
+              </span>{' '}
+              Older · {issueNumber(older.data.number)}
+            </span>
+            <span class="mt-1.5 line-clamp-2 text-base/6 font-semibold tracking-[-0.015em] text-(--ec-fg) group-hover:underline group-hover:decoration-(--ec-fuchsia) group-hover:underline-offset-3">
+              {older.data.title}
+            </span>
+          </a>
+        ) : (
+          <div />
+        )}
+        {newer && (
+          <a
+            href={`/newsletter/${newer.id}`}
+            class:list={[navCard, 'sm:items-end sm:text-right']}
+          >
+            <span class="font-mono text-xs/6 text-(--ec-muted)">
+              Newer · {issueNumber(newer.data.number)}{' '}
+              <span
+                aria-hidden="true"
+                class="inline-block transition-transform group-hover:translate-x-0.5"
+              >
+                &rarr;
+              </span>
+            </span>
+            <span class="mt-1.5 line-clamp-2 text-base/6 font-semibold tracking-[-0.015em] text-(--ec-fg) group-hover:underline group-hover:decoration-(--ec-fuchsia) group-hover:underline-offset-3">
+              {newer.data.title}
+            </span>
+          </a>
+        )}
+      </nav>
+    </div>
+
+    <NewsletterBand title="Get the next issue in your inbox." />
+  </div>
+</BaseLayout>
+
+<style>
+  .issue-title {
+    font-size: clamp(2.25rem, 5.5vw, 3.6rem);
+    font-weight: 680;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+
+  /* An Elixir drop stamp with a perforated edge. */
+  .stamp {
+    position: relative;
+    flex: none;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 0.2rem;
+    width: 3.4rem;
+    height: 4rem;
+    color: white;
+    background: linear-gradient(
+      160deg,
+      var(--ec-fuchsia),
+      var(--ec-violet) 70%
+    );
+    box-shadow: 0 2px 6px rgb(60 0 80 / 0.3);
+    rotate: 4deg;
+  }
+
+  .stamp::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 4px dotted var(--ec-bg);
+    border-radius: 2px;
+  }
+
+  .stamp svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .stamp span {
+    font: 700 0.58rem/1 var(--font-mono);
+    letter-spacing: 0.04em;
+  }
+</style>

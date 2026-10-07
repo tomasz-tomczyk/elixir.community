@@ -1,0 +1,796 @@
+---
+// Before the first issue goes out: an open envelope with Nº 001 half out of
+// it. Typing in the page's subscribe form writes the email on the envelope,
+// and subscribing slides the letter in and seals the flap.
+//
+// The page puts `<p id="pl-status" class="sr-only" role="status">` right after
+// its <SubscribeForm />. The script finds the form through it.
+import { site } from '@/lib/site'
+
+interface Props {
+  class?: string
+  style?: string
+}
+const { class: className, style } = Astro.props
+
+const dropPath =
+  'M12 1.75c-.35 0-.64.2-.8.5C9.5 5.6 5 10.5 5 15a7 7 0 0 0 14 0c0-4.5-4.5-9.4-6.2-12.75a.9.9 0 0 0-.8-.5Z'
+---
+
+<div id="pl" class:list={['pl', className]} style={style}>
+  <div class="pl-scene">
+    <div class="pl-back" aria-hidden="true"></div>
+    <div class="pl-flap" aria-hidden="true">
+      <i class="pl-flap-in"></i>
+      <i class="pl-flap-out"></i>
+      <svg class="pl-seal" viewBox="0 0 48 48">
+        <defs>
+          <radialGradient id="pl-wax" cx="40%" cy="35%" r="70%">
+            <stop offset="0" stop-color="var(--pl-wax-hi)"></stop>
+            <stop offset="0.55" stop-color="var(--pl-wax)"></stop>
+            <stop offset="1" stop-color="var(--pl-wax-lo)"></stop>
+          </radialGradient>
+        </defs>
+        <path
+          d="M43.3 20.5Q43.0 24.0 42.2 27.2Q41.4 30.3 40.3 33.6Q39.3 36.8 36.2 38.3Q33.2 39.9 30.3 41.6Q27.4 43.3 24.0 43.1Q20.7 42.8 17.8 41.3Q14.9 39.8 12.0 38.2Q9.0 36.5 8.0 33.4Q6.9 30.2 5.8 27.1Q4.7 24.0 5.7 20.9Q6.8 17.7 8.4 15.0Q9.9 12.2 12.1 9.7Q14.4 7.3 17.4 5.6Q20.5 3.9 23.8 4.9Q27.2 5.8 30.3 6.8Q33.4 7.8 36.3 9.5Q39.2 11.2 41.4 14.1Q43.5 16.9 43.3 20.5Z"
+          fill="url(#pl-wax)"
+        ></path>
+        <path
+          d="M43.3 20.5Q43.0 24.0 42.2 27.2Q41.4 30.3 40.3 33.6Q39.3 36.8 36.2 38.3Q33.2 39.9 30.3 41.6Q27.4 43.3 24.0 43.1Q20.7 42.8 17.8 41.3Q14.9 39.8 12.0 38.2Q9.0 36.5 8.0 33.4Q6.9 30.2 5.8 27.1Q4.7 24.0 5.7 20.9Q6.8 17.7 8.4 15.0Q9.9 12.2 12.1 9.7Q14.4 7.3 17.4 5.6Q20.5 3.9 23.8 4.9Q27.2 5.8 30.3 6.8Q33.4 7.8 36.3 9.5Q39.2 11.2 41.4 14.1Q43.5 16.9 43.3 20.5Z"
+          fill="none"
+          stroke="var(--pl-wax-hi)"
+          stroke-opacity="0.45"
+          stroke-width="1.2"
+          transform="translate(2.4 2.4) scale(0.9)"
+        ></path>
+        <circle
+          cx="24"
+          cy="24.6"
+          r="13.2"
+          fill="none"
+          stroke="var(--pl-wax-hi)"
+          stroke-opacity="0.55"
+          stroke-width="1.2"
+        ></circle>
+        <circle
+          cx="24"
+          cy="24"
+          r="13.2"
+          fill="var(--pl-wax-lo)"
+          fill-opacity="0.35"
+          stroke="var(--pl-wax-lo)"
+          stroke-width="1.4"
+        ></circle>
+        <g transform="translate(14.4 14.4) scale(0.8)">
+          <path
+            d={dropPath}
+            fill="var(--pl-wax-hi)"
+            fill-opacity="0.6"
+            transform="translate(0 0.9)"
+          ></path>
+          <path d={dropPath} fill="var(--pl-wax-lo)"></path>
+        </g>
+      </svg>
+    </div>
+
+    <article class="pl-letter" aria-labelledby="pl-title">
+      <div class="pl-letter-head">
+        <span>
+          Issue <b>Nº 001</b>
+        </span>
+        <span class="pl-date">
+          Date <em>when it's ready</em>
+        </span>
+      </div>
+      <h2 id="pl-title" class="pl-title">
+        Nothing in the post yet.
+      </h2>
+      <p class="pl-sum">
+        We'll email you when enough interesting things have piled up. No fixed
+        schedule, no filler.
+      </p>
+      <ul class="pl-contents" aria-label="What goes in each issue">
+        <li>
+          <span>Releases</span>
+          <i aria-hidden="true"></i>
+        </li>
+        <li>
+          <span>Posts</span>
+          <i aria-hidden="true"></i>
+        </li>
+        <li>
+          <span>Talks</span>
+          <i aria-hidden="true"></i>
+        </li>
+        <li>
+          <span>Jobs</span>
+          <i aria-hidden="true"></i>
+        </li>
+      </ul>
+    </article>
+
+    <div class="pl-pocket">
+      <svg
+        class="pl-folds"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0 100 47 18M100 100 53 18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        ></path>
+      </svg>
+      <div class="pl-addr">
+        <small>To</small>
+        <div class="pl-to">
+          <span id="pl-to" class="pl-to-text"></span>
+          <span class="pl-caret" aria-hidden="true"></span>
+        </div>
+        <p class="pl-from">From: {site.name}</p>
+      </div>
+      <div class="pl-post" aria-hidden="true">
+        <span class="pl-postmark">
+          Not
+          <br />
+          posted
+          <br />
+          yet
+        </span>
+        <span class="pl-stamp">
+          <svg viewBox="0 0 24 24">
+            <path d={dropPath} fill="currentColor" fill-opacity="0.92"></path>
+          </svg>
+          <span>Nº 001</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pl-done" aria-hidden="true">
+    <p>Check your inbox.</p>
+    <span>
+      We sent a link to <b id="pl-done-to"></b>. Click it to confirm, and Nº 001
+      will come to you when it's ready.
+    </span>
+  </div>
+</div>
+
+<script>
+  // Pre-launch envelope: write the email on the envelope as people type, and
+  // seal it when they subscribe. The form posts in the background so they
+  // stay on the page and see the envelope close.
+  const pl = document.getElementById('pl')
+  const status = document.getElementById('pl-status')
+  const form = status?.parentElement?.querySelector('form')
+  const input = form?.querySelector('input')
+
+  if (pl && status && form && input) {
+    const to = document.getElementById('pl-to')!
+    const doneTo = document.getElementById('pl-done-to')!
+    const letter = pl.querySelector<HTMLElement>('.pl-letter')!
+    const done = pl.querySelector('.pl-done')!
+    const button = form.querySelector('button')!
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)')
+    const fine = matchMedia('(hover: hover) and (pointer: fine)')
+
+    input.addEventListener('input', () => {
+      if (!pl.classList.contains('is-sealed'))
+        to.textContent = input.value.trim()
+    })
+    input.addEventListener('focus', () => pl.classList.add('is-typing'))
+    input.addEventListener('blur', () => pl.classList.remove('is-typing'))
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault()
+      if (pl.classList.contains('is-sealed')) return
+
+      // A local action (/thank-you) is only a test page, so skip the request.
+      // An external provider gets a no-cors POST; if the network fails, fall
+      // back to a normal submit.
+      if (!form.getAttribute('action')?.startsWith('/')) {
+        try {
+          await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            mode: 'no-cors',
+          })
+        } catch {
+          form.submit()
+          return
+        }
+      }
+
+      const email = input.value.trim()
+      const overlap = -parseFloat(getComputedStyle(letter).marginBottom)
+      letter.style.setProperty('--sink', `${letter.offsetHeight - overlap}px`)
+      to.textContent = email
+      doneTo.textContent = email
+      pl.classList.add('is-sealed')
+      done.removeAttribute('aria-hidden')
+
+      const label = [...button.childNodes].find(
+        (n) => n.nodeType === Node.TEXT_NODE && n.textContent?.trim(),
+      )
+      if (label) label.textContent = 'Subscribed '
+      button.disabled = true
+      input.readOnly = true
+      status.textContent = `Almost done. We sent a confirmation link to ${email}.`
+    })
+
+    // A small tilt that follows the mouse.
+    pl.addEventListener('pointermove', (event) => {
+      if (!fine.matches || reduce.matches) return
+      const r = pl.getBoundingClientRect()
+      const x = ((event.clientX - r.left) / r.width) * 2 - 1
+      const y = ((event.clientY - r.top) / r.height) * 2 - 1
+      pl.style.setProperty('--mx', x.toFixed(3))
+      pl.style.setProperty('--my', y.toFixed(3))
+    })
+    pl.addEventListener('pointerleave', () => {
+      pl.style.setProperty('--mx', '0')
+      pl.style.setProperty('--my', '0')
+    })
+  }
+</script>
+
+<style is:global>
+  /* An open envelope with issue Nº 001 half out of it. The letter is a blank
+     form: no date, contents still to fill in. Subscribing slides the letter in,
+     closes the flap and presses a wax seal on it. */
+  :root {
+    --pl-env-h: clamp(11.5rem, 50vw, 16.5rem);
+    --pl-overlap: calc(var(--pl-env-h) * 0.6);
+    --pl-back: oklch(92.5% 0.025 305);
+    --pl-pocket: var(--ec-card);
+    --pl-pocket-edge: oklch(96% 0.014 305);
+    --pl-flap-out: oklch(95% 0.02 305);
+    --pl-lining-a: oklch(90% 0.06 306);
+    --pl-lining-b: oklch(84% 0.1 312);
+    --pl-letter: oklch(99.2% 0.006 80);
+    --pl-rule: color-mix(in oklch, var(--ec-violet) 22%, transparent);
+    --pl-slot: color-mix(in oklch, var(--ec-ink) 16%, transparent);
+    --pl-shadow: 60 20 60;
+    --pl-hand: oklch(38% 0.17 290);
+    --pl-wax: oklch(44% 0.18 345);
+    --pl-wax-hi: oklch(56% 0.17 348);
+    --pl-wax-lo: oklch(31% 0.13 340);
+  }
+
+  .dark {
+    --pl-back: oklch(23% 0.05 300);
+    --pl-pocket-edge: oklch(25% 0.05 300);
+    --pl-flap-out: oklch(26% 0.055 300);
+    --pl-lining-a: oklch(28% 0.1 300);
+    --pl-lining-b: oklch(36% 0.15 312);
+    --pl-letter: oklch(27% 0.045 300);
+    --pl-rule: color-mix(in oklch, var(--ec-lilac) 26%, transparent);
+    --pl-slot: rgb(255 255 255 / 0.2);
+    --pl-shadow: 0 0 0;
+    --pl-hand: oklch(84% 0.11 306);
+    --pl-wax: oklch(48% 0.18 345);
+    --pl-wax-hi: oklch(60% 0.16 348);
+    --pl-wax-lo: oklch(33% 0.13 340);
+  }
+
+  .pl {
+    --mx: 0;
+    --my: 0;
+    position: relative;
+    width: 100%;
+    max-width: 30rem;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+  }
+
+  .pl-scene {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transform: perspective(1400px) rotateY(calc(var(--mx) * 3deg))
+      rotateX(calc(var(--my) * -3deg));
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  /* Envelope back and flap, behind the letter until the flap closes. */
+  .pl-back {
+    position: absolute;
+    inset: auto 0 0;
+    height: var(--pl-env-h);
+    border: 1px solid var(--ec-line);
+    border-radius: 20px;
+    background: var(--pl-back);
+    box-shadow:
+      0 1px 2px rgb(var(--pl-shadow) / 0.06),
+      0 30px 60px -24px rgb(var(--pl-shadow) / 0.4);
+  }
+
+  .pl-flap {
+    position: absolute;
+    inset: auto 1px calc(var(--pl-env-h) * 0.45 - 1px);
+    height: calc(var(--pl-env-h) * 0.55);
+    transform-origin: 50% 0;
+    transform-style: preserve-3d;
+    transform: perspective(900px) rotateX(180deg);
+    transition:
+      transform 0.7s cubic-bezier(0.5, 0, 0.2, 1),
+      z-index 0s linear 0.35s;
+    pointer-events: none;
+  }
+
+  .pl-flap i {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+  }
+
+  .pl-flap-out {
+    border-radius: 19px 19px 0 0;
+    clip-path: polygon(0 0, 100% 0, 54% 92%, 46% 92%);
+    background: linear-gradient(
+      var(--pl-flap-out),
+      color-mix(in oklch, var(--pl-flap-out) 92%, var(--ec-violet))
+    );
+  }
+
+  .pl-flap-in {
+    border-radius: 0 0 19px 19px;
+    transform: rotateX(180deg);
+    clip-path: polygon(0 100%, 100% 100%, 54% 8%, 46% 8%);
+    background:
+      radial-gradient(
+          circle at 50% 40%,
+          var(--pl-lining-b) 0 18%,
+          transparent 19%
+        )
+        0 0 / 18px 18px,
+      var(--pl-lining-a);
+  }
+
+  /* Wax seal: an uneven blob with a pressed ring and the Elixir drop. */
+  .pl-seal {
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    width: 3.4rem;
+    height: 3.4rem;
+    translate: -50% -50%;
+    rotate: -8deg;
+    backface-visibility: hidden;
+    filter: drop-shadow(0 1px 1px rgb(40 0 30 / 0.35))
+      drop-shadow(0 4px 6px rgb(40 0 30 / 0.25));
+    opacity: 0;
+    scale: 1.35;
+    transition:
+      scale 0.25s cubic-bezier(0.3, 0, 0.6, 1) 0.95s,
+      opacity 0.1s linear 0.95s;
+  }
+
+  /* The letter: issue Nº 001, not written yet. */
+  .pl-letter {
+    position: relative;
+    z-index: 1;
+    margin: 0 2.25rem calc(-1 * var(--pl-overlap));
+    padding: 1.25rem 1.25rem calc(var(--pl-overlap) + 1rem);
+    border: 1px solid var(--ec-line);
+    border-radius: 12px 12px 6px 6px;
+    background: var(--pl-letter);
+    box-shadow:
+      0 1px 1px rgb(var(--pl-shadow) / 0.05),
+      0 18px 34px -18px rgb(var(--pl-shadow) / 0.35);
+    translate: calc(var(--mx) * 5px) calc(var(--my) * 4px);
+    transform: translateY(calc(var(--lift, 0px) + var(--sink, 0px)));
+    clip-path: inset(-40px -40px var(--sink, 0px) -40px);
+    transition:
+      transform 0.5s cubic-bezier(0.3, 1.25, 0.5, 1),
+      clip-path 0.5s cubic-bezier(0.3, 1.25, 0.5, 1),
+      translate 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .pl:hover .pl-letter,
+  .pl:focus-within .pl-letter {
+    --lift: -0.75rem;
+  }
+
+  .pl-letter-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--pl-rule);
+    font: 600 0.7rem/1 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ec-muted);
+  }
+
+  .pl-letter-head b {
+    font-weight: 700;
+    color: var(--ec-text-accent);
+  }
+
+  .pl-date {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    white-space: nowrap;
+  }
+
+  .pl-date em {
+    padding: 0 0.2rem 0.1rem;
+    border-bottom: 1px dashed var(--pl-slot);
+    font: 600 1.15rem/1 var(--font-hand);
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--pl-hand);
+  }
+
+  .pl-title {
+    margin-top: 0.9rem;
+    font-size: clamp(1.3rem, 2.3vw, 1.6rem);
+    font-weight: 680;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  .pl-sum {
+    margin-top: 0.45rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ec-muted);
+    text-wrap: pretty;
+  }
+
+  .pl-contents {
+    display: grid;
+    gap: 0.45rem;
+    margin-top: 0.95rem;
+  }
+
+  .pl-contents li {
+    display: grid;
+    grid-template-columns: 4.6rem 1fr;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .pl-contents span {
+    font: 600 0.66rem/1 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ec-muted);
+  }
+
+  /* Empty dashed lines, with a faint light moving along them. */
+  .pl-contents i {
+    position: relative;
+    display: block;
+    height: 0.6rem;
+    overflow: hidden;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--pl-slot) 0 6px,
+        transparent 6px 10px
+      )
+      0 100% / 100% 1px no-repeat;
+  }
+
+  .pl-contents i::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: 1.5px;
+    translate: -100% 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--ec-orchid),
+      transparent
+    );
+    animation: pl-gather 5.5s ease-in-out infinite var(--d, 0s);
+  }
+
+  @keyframes pl-gather {
+    0%,
+    55% {
+      translate: -100% 0;
+    }
+    100% {
+      translate: 100% 0;
+    }
+  }
+
+  .pl-contents li:nth-child(1) i {
+    width: 78%;
+  }
+
+  .pl-contents li:nth-child(2) i {
+    width: 92%;
+    --d: 0.5s;
+  }
+
+  .pl-contents li:nth-child(3) i {
+    width: 60%;
+    --d: 1s;
+  }
+
+  .pl-contents li:nth-child(4) i {
+    width: 70%;
+    --d: 1.5s;
+  }
+
+  /* Front pocket: address, stamp and an empty postmark. */
+  .pl-pocket {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 0.75rem;
+    height: var(--pl-overlap);
+    padding: 0.9rem 1.1rem 1rem;
+    border: 1px solid var(--ec-line);
+    border-radius: 6px 6px 20px 20px;
+    background: linear-gradient(var(--pl-pocket-edge), var(--pl-pocket) 30%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.6),
+      0 -10px 18px -14px rgb(var(--pl-shadow) / 0.35);
+    translate: calc(var(--mx) * 2px) calc(var(--my) * 2px);
+    transition: translate 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .dark .pl-pocket {
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.06),
+      0 -10px 18px -12px rgb(0 0 0 / 0.6);
+  }
+
+  .pl-folds {
+    clip-path: inset(0 round 6px 6px 20px 20px);
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--ec-line);
+    pointer-events: none;
+  }
+
+  .pl-addr {
+    position: relative;
+    min-width: 0;
+  }
+
+  .pl-addr small {
+    display: block;
+    font: 600 0.62rem/1 var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ec-muted);
+  }
+
+  .pl-to {
+    display: flex;
+    align-items: flex-end;
+    min-height: 2.1rem;
+    margin-top: 0.3rem;
+    border-bottom: 1.5px solid var(--pl-rule);
+    font: 600 clamp(1.25rem, 3.4vw, 1.6rem)/1.1 var(--font-hand);
+    color: var(--pl-hand);
+  }
+
+  .pl-to-text {
+    overflow: hidden;
+    padding-bottom: 0.1rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .pl-caret {
+    flex: none;
+    width: 2px;
+    height: 1.2rem;
+    margin: 0 0 0.35rem 2px;
+    border-radius: 1px;
+    background: var(--pl-hand);
+    opacity: 0;
+  }
+
+  .pl.is-typing .pl-caret {
+    animation: pl-blink 1s steps(1) infinite;
+  }
+
+  @keyframes pl-blink {
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .pl-from {
+    margin-top: 0.55rem;
+    font: 500 0.7rem/1.3 var(--font-mono);
+    color: var(--ec-muted);
+  }
+
+  .pl-post {
+    position: relative;
+    align-self: start;
+  }
+
+  .pl-postmark {
+    position: absolute;
+    right: 3.4rem;
+    top: 1.6rem;
+    display: grid;
+    place-items: center;
+    width: 4.4rem;
+    height: 4.4rem;
+    border: 1.5px dashed var(--pl-slot);
+    border-radius: 50%;
+    background: color-mix(in oklch, var(--pl-pocket) 70%, transparent);
+    font: 600 0.55rem/1.25 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--ec-muted);
+    rotate: -12deg;
+  }
+
+  /* The stamp: an Elixir drop with the issue number, as on the home page envelopes. */
+  .pl-stamp {
+    position: relative;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 0.2rem;
+    width: 3.9rem;
+    height: 4.6rem;
+    color: white;
+    background: linear-gradient(
+      160deg,
+      var(--ec-fuchsia),
+      var(--ec-violet) 70%
+    );
+    box-shadow: 0 2px 6px rgb(60 0 80 / 0.3);
+    rotate: 3deg;
+  }
+
+  /* Perforated edge. */
+  .pl-stamp::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 4px dotted var(--ec-card);
+    border-radius: 2px;
+  }
+
+  .pl-stamp svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .pl-stamp span {
+    font: 700 0.62rem/1 var(--font-mono);
+    letter-spacing: 0.04em;
+  }
+
+  /* Shown once the envelope is sealed. */
+  .pl-done {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 4;
+    display: grid;
+    justify-items: center;
+    gap: 0.4rem;
+    padding: 0 1rem;
+    text-align: center;
+    opacity: 0;
+    translate: 0 0.5rem;
+    pointer-events: none;
+    transition:
+      opacity 0.4s ease 1.1s,
+      translate 0.4s ease 1.1s;
+  }
+
+  .pl-done p {
+    font: 600 clamp(1.5rem, 3vw, 1.9rem)/1 var(--font-hand);
+    color: var(--ec-text-accent);
+  }
+
+  .pl-done span {
+    max-width: 22rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--ec-muted);
+  }
+
+  .pl-done b {
+    font-weight: 600;
+    color: var(--ec-fg);
+    overflow-wrap: anywhere;
+  }
+
+  .pl.is-sealed .pl-letter {
+    --lift: 0px;
+  }
+
+  .pl.is-sealed .pl-flap {
+    z-index: 3;
+    transform: perspective(900px) rotateX(0deg);
+    transition:
+      transform 0.7s cubic-bezier(0.5, 0, 0.2, 1) 0.3s,
+      z-index 0s linear 0.6s;
+  }
+
+  .pl.is-sealed .pl-flap-out {
+    filter: drop-shadow(0 6px 6px rgb(var(--pl-shadow) / 0.2));
+  }
+
+  .pl.is-sealed .pl-seal {
+    opacity: 1;
+    scale: 1;
+  }
+
+  .pl.is-sealed .pl-done {
+    opacity: 1;
+    translate: 0 0;
+    pointer-events: auto;
+  }
+
+  .pl.is-sealed .pl-caret {
+    animation: none;
+  }
+
+  @media (max-width: 480px) {
+    .pl-letter {
+      margin-inline: 1.25rem;
+      padding: 1rem 1rem calc(var(--pl-overlap) + 0.8rem);
+    }
+
+    .pl-contents li {
+      grid-template-columns: 4rem 1fr;
+    }
+
+    .pl-postmark {
+      display: none;
+    }
+
+    .pl-pocket {
+      padding: 0.75rem 0.9rem 0.85rem;
+    }
+
+    .pl-stamp {
+      width: 3.3rem;
+      height: 3.9rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pl-scene,
+    .pl-letter,
+    .pl-pocket,
+    .pl-flap,
+    .pl-seal,
+    .pl-done {
+      transition: none !important;
+    }
+
+    .pl-contents i::after {
+      display: none;
+    }
+
+    .pl.is-typing .pl-caret {
+      animation: none;
+      opacity: 1;
+    }
+
+    .pl:hover .pl-letter,
+    .pl:focus-within .pl-letter {
+      --lift: 0px;
+    }
+  }
+</style>

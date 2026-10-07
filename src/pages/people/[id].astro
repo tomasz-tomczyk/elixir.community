@@ -1,0 +1,273 @@
+---
+import { getCollection, getEntry } from 'astro:content'
+
+import Avatar from '@/components/Avatar.astro'
+import BookCover from '@/components/BookCover.astro'
+import Icon from '@/components/Icon.astro'
+import NewsletterBand from '@/components/NewsletterBand.astro'
+import SocialLinks from '@/components/SocialLinks.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+export async function getStaticPaths() {
+  const people = await getCollection('people')
+  return people.map((person) => ({
+    params: { id: person.id },
+    props: { person },
+  }))
+}
+
+const { person } = Astro.props
+const { name, github, role, bio, known_for, featured, links } = person.data
+
+// Cross-links by id: where they work, books they wrote, channels and shows they
+// are on, and other people to meet.
+const company = person.data.company && (await getEntry(person.data.company))
+const isMe = (refs: { id: string }[]) => refs.some((r) => r.id === person.id)
+const books = (await getCollection('books')).filter((b) => isMe(b.data.authors))
+const youtube = (await getCollection('youtube')).filter((c) =>
+  isMe(c.data.people),
+)
+const podcasts = (await getCollection('podcasts')).filter((p) =>
+  isMe(p.data.people),
+)
+// Known for: the projects listed on the person, plus resources linked to them.
+// A resource with the same name as a listed project is shown once.
+const made = (await getCollection('resources')).filter((r) =>
+  isMe(r.data.people),
+)
+const known = [
+  ...known_for,
+  ...made
+    .filter(
+      (r) =>
+        !known_for.some(
+          (k) => k.name.toLowerCase() === r.data.name.toLowerCase(),
+        ),
+    )
+    .map((r) => ({ name: r.data.name, url: r.data.url })),
+]
+const others = (await getCollection('people'))
+  .filter((p) => p.id !== person.id)
+  .slice(0, 3)
+const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, '')
+const swatches = [
+  'var(--ec-violet)',
+  'var(--ec-fuchsia)',
+  'var(--ec-indigo)',
+  'var(--ec-orchid)',
+]
+---
+
+<BaseLayout title={name} description={bio}>
+  <div class="container-page">
+    <div class="pt-12 sm:pt-16">
+      <a
+        href="/people"
+        class="group inline-flex items-center gap-1.5 text-sm/6 font-medium text-(--ec-muted) transition-colors hover:text-(--ec-fg)"
+      >
+        <Icon
+          name="chevron"
+          class="size-3.5 rotate-180 transition-transform group-hover:-translate-x-0.5"
+        />
+        All people
+      </a>
+    </div>
+
+    <header class="mt-8 grid items-center gap-8 sm:grid-cols-[auto_1fr] sm:gap-12">
+      <Avatar github={github} name={name} size={136} shapes />
+      <div class="flex flex-col items-start">
+        {featured && (
+          <p class="ec-pill mb-4 inline-flex items-center gap-1.5">
+            <Icon name="sparkle" class="size-3" />
+            In the spotlight
+          </p>
+        )}
+        <h1 class="ec-page-title">{name}</h1>
+        <p class="mt-3 font-mono text-sm text-(--ec-muted)">
+          {company ? (
+            <a
+              href={`/companies/${company.id}`}
+              class="underline decoration-current/30 underline-offset-4 hover:text-(--ec-text-accent) hover:decoration-current"
+            >
+              {role}
+            </a>
+          ) : (
+            role
+          )}
+        </p>
+        <SocialLinks github={github} links={links} class="mt-5" />
+      </div>
+    </header>
+
+    <div class="mt-14 grid gap-x-16 gap-y-16 border-t border-(--ec-line) pt-14 lg:grid-cols-[1fr_20rem]">
+      <div class="min-w-0">
+        <blockquote class="max-w-2xl border-l-4 border-(--ec-fuchsia) pl-5 text-[clamp(1.25rem,2.4vw,1.6rem)] leading-[1.45] tracking-[-0.02em] text-pretty">
+          {bio}
+        </blockquote>
+
+        <section aria-labelledby="known-for" class="mt-16">
+          <h2
+            id="known-for"
+            class="mb-4 text-[1.625rem] font-[680] tracking-[-0.035em]"
+          >
+            Known for
+          </h2>
+          <ul class="ec-res">
+            {known.map((k, i) => (
+              <li>
+                <a href={k.url} target="_blank" rel="noopener">
+                  <span
+                    class="r-sh"
+                    style={`--c:${swatches[i % swatches.length]}`}
+                    aria-hidden="true"
+                  />
+                  <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+                    <b class="text-[1.0625rem] font-semibold tracking-tight">
+                      {k.name}
+                    </b>
+                    <span class="font-mono text-[0.8125rem] text-(--ec-muted)">
+                      {hostOf(k.url)}
+                    </span>
+                  </span>
+                  <Icon
+                    name="arrow-up-right"
+                    class="mt-1 size-4 text-(--ec-muted)"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {youtube.length > 0 && (
+          <section aria-labelledby="youtube" class="mt-16">
+            <h2
+              id="youtube"
+              class="mb-4 text-[1.625rem] font-[680] tracking-[-0.035em]"
+            >
+              YouTube
+            </h2>
+            <ul class="ec-res">
+              {youtube.map((c, i) => (
+                <li>
+                  <a href={c.data.url} target="_blank" rel="noopener">
+                    <span
+                      class="r-sh"
+                      style={`--c:${swatches[(i + 2) % swatches.length]}`}
+                      aria-hidden="true"
+                    />
+                    <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+                      <b class="text-[1.0625rem] font-semibold tracking-tight">
+                        {c.data.title}
+                      </b>
+                      <span class="font-mono text-[0.8125rem] text-(--ec-muted)">
+                        {hostOf(c.data.url)}
+                      </span>
+                    </span>
+                    <Icon
+                      name="arrow-up-right"
+                      class="mt-1 size-4 text-(--ec-muted)"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {podcasts.length > 0 && (
+          <section aria-labelledby="podcasts" class="mt-16">
+            <h2
+              id="podcasts"
+              class="mb-4 text-[1.625rem] font-[680] tracking-[-0.035em]"
+            >
+              Podcasts
+            </h2>
+            <ul class="ec-res">
+              {podcasts.map((c, i) => (
+                <li>
+                  <a href={c.data.url} target="_blank" rel="noopener">
+                    <span
+                      class="r-sh"
+                      style={`--c:${swatches[(i + 1) % swatches.length]}`}
+                      aria-hidden="true"
+                    />
+                    <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+                      <b class="text-[1.0625rem] font-semibold tracking-tight">
+                        {c.data.title}
+                      </b>
+                      <span class="font-mono text-[0.8125rem] text-(--ec-muted)">
+                        {hostOf(c.data.url)}
+                      </span>
+                    </span>
+                    <Icon
+                      name="arrow-up-right"
+                      class="mt-1 size-4 text-(--ec-muted)"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {books.length > 0 && (
+          <section aria-labelledby="books" class="mt-16">
+            <h2
+              id="books"
+              class="mb-6 text-[1.625rem] font-[680] tracking-[-0.035em]"
+            >
+              Books
+            </h2>
+            <div class="grid max-w-xl grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
+              {books.map((b, i) => (
+                <BookCover
+                  title={b.data.title}
+                  author={b.data.author}
+                  href={b.data.url}
+                  index={i}
+                  level={b.data.level}
+                  year={b.data.year}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+
+      <aside aria-labelledby="more-people">
+        <h2
+          id="more-people"
+          class="border-b-3 border-(--ec-fg) pb-3.5 text-[1.625rem] font-[680] tracking-[-0.035em]"
+        >
+          More people
+        </h2>
+        <ul class="ec-rows mt-1.5">
+          {others.map((p) => (
+            <li>
+              <a
+                href={`/people/${p.id}`}
+                class="group flex items-center gap-3.5 py-3"
+              >
+                <Avatar github={p.data.github} name={p.data.name} size={40} />
+                <span class="min-w-0">
+                  <span class="block text-[1.0625rem]/6 font-semibold tracking-tight decoration-(--ec-fuchsia) underline-offset-3 group-hover:underline">
+                    {p.data.name}
+                  </span>
+                  <span class="block truncate font-mono text-[0.8125rem]/5 text-(--ec-muted)">
+                    {p.data.known_for.map((k) => k.name).join(', ')}
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a href="/people" class="btn-soft mt-6">
+          Everyone <span aria-hidden="true">&rarr;</span>
+        </a>
+      </aside>
+    </div>
+
+    <NewsletterBand title="Meet someone new from the community, now and then." />
+  </div>
+</BaseLayout>

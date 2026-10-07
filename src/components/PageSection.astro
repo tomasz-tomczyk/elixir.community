@@ -1,0 +1,35 @@
+---
+// A page section: big heading with an optional "view all" pill on the right.
+interface Props {
+  title: string
+  id?: string
+  description?: string
+  href?: string
+  linkLabel?: string
+}
+const { title, id, description, href, linkLabel = 'View all' } = Astro.props
+const headingId = id ? `${id}-title` : undefined
+---
+
+<section
+  id={id}
+  aria-labelledby={headingId}
+  class="ec-section scroll-mt-24 first:mt-16 sm:first:mt-20"
+>
+  <div class="ec-head-row">
+    <h2 id={headingId} class="ec-h3">
+      {title}
+    </h2>
+    {href && (
+      <a href={href} class="btn-soft">
+        {linkLabel} <span aria-hidden="true">&rarr;</span>
+      </a>
+    )}
+  </div>
+  {description && (
+    <p class="-mt-2 mb-8 max-w-xl text-base/7 text-pretty text-(--ec-muted)">
+      {description}
+    </p>
+  )}
+  <slot />
+</section>

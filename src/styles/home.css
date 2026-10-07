@@ -1,0 +1,786 @@
+/* Home page only. Shared pieces live in ui.css. */
+
+/* ---------- Hero ---------- */
+.ec-hero {
+  position: relative;
+  isolation: isolate;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.ec-hero-grid {
+  display: grid;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .ec-hero {
+    padding: 4.5rem 0 2.5rem;
+  }
+
+  .ec-hero-grid {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  }
+}
+
+/* The hero title sizes to its column, so "The best of Elixir," fits on one line. */
+.ec-hero-grid > :first-child {
+  container-type: inline-size;
+}
+
+.ec-hero .ec-h1 {
+  font-size: clamp(2.25rem, 13cqi, 6.1rem);
+}
+
+.ec-lede {
+  margin-top: 1.5rem;
+  max-width: 33rem;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.5;
+  color: var(--ec-muted);
+}
+
+.ec-form-wrap {
+  position: relative;
+  max-width: 32rem;
+  margin-top: 1.875rem;
+}
+
+/* "no fluff, promise" with a hand-drawn arrow down to the Subscribe button. */
+.ec-note {
+  position: absolute;
+  right: 3.2rem;
+  top: -3.1rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.2rem;
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ec-text-accent);
+  rotate: -3deg;
+  pointer-events: none;
+}
+
+.ec-note svg {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-bottom: -1.3rem;
+}
+
+@media (min-width: 601px) {
+  .ec-form-wrap {
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .ec-note {
+    display: none;
+  }
+}
+
+/* ---------- Envelope stack (latest issues) ---------- */
+.ec-stack {
+  position: relative;
+  width: 100%;
+  max-width: 30rem;
+  margin: 1.5rem auto 0;
+}
+
+.ec-env {
+  display: block;
+  border-radius: 20px;
+  border: 1px solid var(--ec-line);
+  color: var(--ec-fg);
+  transition: transform 0.45s cubic-bezier(0.3, 1.3, 0.5, 1);
+}
+
+.ec-env-back {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 8rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.875rem 1.125rem;
+  font-size: 0.8125rem;
+  color: var(--ec-muted);
+  box-shadow: 0 12px 32px -14px rgb(60 20 60 / 0.25);
+}
+
+.ec-env-back b {
+  flex: none;
+  font: 700 0.9375rem/1.2 var(--font-mono);
+}
+
+.ec-env-back span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 550;
+  opacity: 0.8;
+}
+
+.ec-env-2 {
+  background: var(--ec-paper-2);
+  transform: translate(1.4rem, -1.6rem) rotate(5deg);
+}
+
+.ec-env-1 {
+  background: var(--ec-card);
+  transform: translate(-1rem, -0.7rem) rotate(-3.5deg);
+}
+
+.ec-stack:hover .ec-env-2 {
+  transform: translate(2.6rem, -2.9rem) rotate(8deg);
+}
+
+.ec-stack:hover .ec-env-1 {
+  transform: translate(-2rem, -1.7rem) rotate(-6deg);
+}
+
+.ec-env-back:hover,
+.ec-env-back:focus-visible {
+  z-index: 3;
+}
+
+.ec-env-front {
+  position: relative;
+  z-index: 2;
+  margin-top: 1.8rem;
+  padding: 1.5rem 1.5rem 1.375rem;
+  background: var(--ec-card);
+  transform: rotate(-0.8deg);
+  box-shadow:
+    0 1px 2px rgb(60 20 60 / 0.06),
+    0 24px 48px -20px rgb(60 20 60 / 0.35);
+}
+
+.ec-stack:hover .ec-env-front {
+  transform: rotate(0) translateY(-3px);
+}
+
+/* Dashed inner edge, like an envelope. */
+.ec-env-front::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1.5px dashed var(--ec-line);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.ec-env-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.ec-issue-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font: 600 0.72rem/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ec-muted);
+}
+
+.ec-issue-date {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 720;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--ec-text-accent);
+}
+
+/* The stamp: an Elixir drop with the issue number. Cancel lines run across its corner. */
+.ec-stamp-wrap {
+  position: relative;
+  flex: none;
+  margin: -0.25rem -0.25rem 0 0;
+}
+
+.ec-stamp {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.2rem;
+  width: 3.9rem;
+  height: 4.6rem;
+  color: white;
+  background: linear-gradient(160deg, var(--ec-fuchsia), var(--ec-violet) 70%);
+  box-shadow: 0 2px 6px rgb(60 0 80 / 0.3);
+  rotate: 4deg;
+}
+
+/* Perforated edge. */
+.ec-stamp::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 4px dotted var(--ec-card);
+  border-radius: 2px;
+}
+
+.ec-stamp svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.ec-stamp span {
+  font: 700 0.62rem/1 var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.ec-cancel {
+  position: absolute;
+  left: -2.1rem;
+  top: 0.9rem;
+  width: 3.4rem;
+  color: var(--ec-muted);
+  opacity: 0.55;
+  rotate: -8deg;
+}
+
+.ec-env-title {
+  display: block;
+  margin-top: 1.125rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  font-weight: 670;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.ec-env-sum {
+  display: block;
+  margin-top: 0.625rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ec-muted);
+}
+
+.ec-env-foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.125rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--ec-line);
+}
+
+.ec-read {
+  display: inline-flex;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--ec-text-accent);
+}
+
+.ec-read span {
+  transition: transform 0.2s;
+}
+
+.ec-env-front:hover .ec-read span {
+  transform: translateX(4px);
+}
+
+.ec-stack-note {
+  position: absolute;
+  left: -0.5rem;
+  bottom: -2.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ec-muted);
+  rotate: -3deg;
+}
+
+.ec-stack-note svg {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+@media (max-width: 959px) {
+  .ec-stack-note {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ec-cancel {
+    display: none;
+  }
+
+  .ec-env-front {
+    padding: 1.25rem;
+  }
+
+  .ec-env-2 {
+    transform: translate(0.6rem, -1.4rem) rotate(4deg);
+  }
+
+  .ec-env-1 {
+    transform: translate(-0.4rem, -0.6rem) rotate(-2.5deg);
+  }
+}
+
+/* ---------- Directory tiles ---------- */
+.ec-spaces {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.625rem;
+}
+
+@media (min-width: 560px) {
+  .ec-spaces {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .ec-spaces {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .ec-wide {
+    grid-column: span 2;
+  }
+}
+
+.ec-space {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-height: 15rem;
+  padding: 1.375rem;
+  border-radius: 24px;
+  background: var(--bg);
+  color: var(--tx);
+  transition:
+    transform 0.35s var(--ec-ease),
+    border-radius 0.35s;
+}
+
+.ec-space:hover,
+.ec-space:focus-within {
+  transform: translateY(-4px);
+  border-radius: 34px;
+}
+
+.ec-pic + h3 {
+  padding-top: 1rem;
+}
+
+.ec-space:hover .ec-play b {
+  transform: scale(1.08);
+}
+
+.ec-icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.875rem;
+  background: color-mix(in oklch, var(--tx) 14%, transparent);
+  transition: transform 0.45s cubic-bezier(0.3, 1.8, 0.5, 1);
+}
+
+.ec-space:hover .ec-icon {
+  transform: rotate(-10deg) scale(1.08);
+}
+
+.ec-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.ec-space h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1.75rem;
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  font-weight: 690;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.ec-wide h3 {
+  font-size: clamp(2.3rem, 3.9vw, 3.1rem);
+}
+
+/* The whole tile is the link. */
+.ec-space h3 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.ec-space h3 a:focus-visible {
+  outline: none;
+}
+
+.ec-space:has(h3 a:focus-visible) {
+  outline: 3px solid var(--ec-fuchsia);
+  outline-offset: 3px;
+}
+
+.ec-arr {
+  font-size: 0.6em;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: 0.25s var(--ec-ease);
+}
+
+.ec-space:hover .ec-arr {
+  opacity: 1;
+  transform: none;
+}
+
+/* Wide tiles: copy on the left, a live sample on the right. */
+.ec-wide {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.125rem;
+}
+
+@media (min-width: 720px) {
+  .ec-wide {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: stretch;
+  }
+}
+
+.ec-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+/* Phones: the title sits next to the icon, and the tiles drop their minimum height. */
+@media (max-width: 559px) {
+  .ec-space:not(.ec-wide),
+  .ec-copy {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0 0.875rem;
+  }
+
+  .ec-space {
+    min-height: 0;
+  }
+
+  .ec-space:not(.ec-wide) > *,
+  .ec-copy > * {
+    grid-column: 1 / -1;
+  }
+
+  .ec-spaces .ec-icon {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .ec-spaces .ec-space h3 {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 2rem;
+  }
+
+  /* Smaller faces and a lower skyline keep the People and Companies tiles short. */
+  .ec-space .ec-faces {
+    min-height: 8rem;
+  }
+
+  .ec-faces .ec-face {
+    width: 3rem;
+    height: 3rem;
+    font-size: 0.75rem;
+  }
+
+  .ec-space .ec-skyline {
+    height: 7rem;
+  }
+}
+
+/* Next-conference ticket. */
+.ec-ticket {
+  display: flex;
+  transition: transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+
+.ec-ticket:hover {
+  transform: rotate(1.5deg) scale(1.02);
+}
+
+.ec-ticket-main {
+  flex: 1;
+  min-width: 0;
+  padding: 1rem 1rem 1.125rem;
+}
+
+.ec-ticket-main small {
+  display: block;
+  font: 600 0.6875rem/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ec-muted);
+}
+
+.ec-ticket-main strong {
+  display: block;
+  margin-top: 0.625rem;
+  font-size: 1.25rem;
+  font-weight: 680;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.ec-ticket-main span {
+  display: block;
+  margin-top: 0.375rem;
+  font-size: 0.875rem;
+  color: var(--ec-muted);
+}
+
+.ec-stub {
+  position: relative;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 6rem;
+  padding: 0.75rem 0.375rem;
+  border-left: 2px dashed var(--ec-line);
+  text-align: center;
+}
+
+/* Notches where the stub tears off. */
+.ec-stub::before,
+.ec-stub::after {
+  content: '';
+  position: absolute;
+  left: -0.55rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.ec-stub::before {
+  top: -0.5rem;
+}
+
+.ec-stub::after {
+  bottom: -0.5rem;
+}
+
+.ec-stub em {
+  font: normal 600 0.6875rem/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ec-muted);
+}
+
+.ec-stub b {
+  font-size: 2.4rem;
+  font-weight: 720;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--ec-fuchsia);
+}
+
+.dark .ec-stub b {
+  color: oklch(76% 0.17 348);
+}
+
+.ec-stub i {
+  margin-top: 0.25rem;
+  padding: 5px 7px;
+  border-radius: 99px;
+  font: normal 600 0.6875rem/1 var(--font-mono);
+  white-space: nowrap;
+  color: white;
+  background: var(--ec-fuchsia);
+}
+
+/* Job list. */
+.ec-joblist {
+  display: flex;
+  flex-direction: column;
+  padding: 0.375rem;
+}
+
+.ec-joblist a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.ec-joblist a:hover {
+  background: var(--ec-surface);
+}
+
+.ec-joblist small {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--ec-muted);
+}
+
+/* More postings piled up behind the job list. */
+.ec-pile {
+  position: relative;
+  align-self: center;
+  width: 100%;
+}
+
+.ec-pile > span {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: rgb(255 255 255 / 0.3);
+  transform: rotate(-4deg) translate(-8px, 6px);
+  transition: transform 0.4s var(--ec-ease);
+}
+
+.ec-pile > span + span {
+  background: rgb(255 255 255 / 0.16);
+  transform: rotate(-8deg) translate(-16px, 12px);
+}
+
+.ec-space:hover .ec-pile > span {
+  transform: rotate(-6deg) translate(-12px, 8px);
+}
+
+.ec-space:hover .ec-pile > span + span {
+  transform: rotate(-11deg) translate(-22px, 16px);
+}
+
+.ec-logo-box {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 1.5rem;
+}
+
+/* ---------- Spotlight ---------- */
+.ec-spot-pic {
+  position: relative;
+  isolation: isolate;
+  width: 200px;
+  height: 200px;
+}
+
+.ec-spot-pic > span {
+  position: absolute;
+}
+
+.ec-spot-sh1 {
+  inset: 0;
+  z-index: -2;
+  border-radius: 50%;
+  background: var(--ec-lilac);
+}
+
+.ec-spot-sh2 {
+  right: -18px;
+  bottom: -6px;
+  z-index: 3;
+  width: 96px;
+  height: 48px;
+  border-radius: 96px 96px 0 0;
+  background: var(--ec-fuchsia);
+  rotate: -20deg;
+}
+
+.ec-spot-sh3 {
+  left: -14px;
+  top: -10px;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 0 0 0 100%;
+  background: var(--ec-indigo);
+}
+
+.ec-spot-ini {
+  inset: 20px;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 2.75rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: white;
+  background: var(--ec-violet);
+}
+
+.ec-spot-pic img {
+  position: absolute;
+  inset: 20px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+}
+
+.ec-spot-name {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 690;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.ec-spot-name:hover {
+  text-decoration: underline 3px var(--ec-fuchsia);
+  text-underline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ec-links i,
+  .ec-wave i,
+  .ec-face {
+    animation: none;
+  }
+
+  .ec-space:hover,
+  .ec-space:focus-within,
+  .ec-ticket:hover,
+  .ec-play b,
+  .ec-pile > span,
+  .ec-env-front,
+  .ec-stack:hover .ec-env-front,
+  .ec-stack .ec-env-1,
+  .ec-stack .ec-env-2 {
+    transition: none;
+  }
+}

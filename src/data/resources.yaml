@@ -1,0 +1,104 @@
+# Add a resource: copy an entry, give it a unique id, and open a pull request.
+- id: elixir-forum
+  name: Elixir Forum
+  url: https://elixirforum.com
+  category: community
+  featured: true
+  description: The main place to ask questions, share projects, and follow library releases. Core team members answer here too.
+- id: elixirstatus
+  name: ElixirStatus
+  url: https://elixirstatus.com
+  category: community
+  description: A feed of community announcements, new releases, and blog posts.
+- id: erlef
+  name: Erlang Ecosystem Foundation
+  url: https://erlef.org
+  category: community
+  description: The non-profit that funds BEAM infrastructure, security work, and working groups.
+- id: elixir-radar
+  name: Elixir Radar
+  url: https://elixir-radar.com
+  category: newsletters
+  featured: true
+  description: A weekly email with Elixir articles, videos, and libraries, plus a job board.
+- id: elixir-weekly
+  name: ElixirWeekly
+  url: https://elixirweekly.net
+  category: newsletters
+  description: A community newsletter with the week's Elixir posts and projects, every Thursday.
+- id: tidewave
+  people: [josevalim]
+  name: Tidewave
+  url: https://tidewave.ai
+  category: ai
+  featured: true
+  description: Connects your coding agent to your running Phoenix app, so it can read logs, query the database, and run code in context.
+- id: phoenix-new
+  people: [chrismccord]
+  name: Phoenix.new
+  url: https://phoenix.new
+  category: ai
+  featured: true
+  description: An AI agent in the browser that builds, runs, and deploys Phoenix apps for you.
+- id: crit
+  name: Crit
+  url: https://crit.md
+  category: ai
+  featured: true
+  description: Leave inline comments on what your agent made, from plans and diffs to live pages, and send the feedback straight back.
+- id: usage-rules
+  people: [zachdaniel]
+  name: usage_rules
+  url: https://github.com/ash-project/usage_rules
+  category: ai
+  featured: true
+  description: Lets packages ship rules for AI agents, and copies them into your AGENTS.md or CLAUDE.md.
+- id: agent-skills
+  name: Agent skills
+  url: https://docs.claude.com/en/docs/claude-code/skills
+  category: ai
+  description: Package your team's Elixir know-how (Ecto, OTP, Phoenix conventions) as skills that an agent loads when it needs them.
+- id: expert
+  name: Expert
+  url: https://github.com/elixir-lang/expert
+  category: editor
+  featured: true
+  description: The official Elixir language server. Completion, go-to-definition, and diagnostics in any editor.
+- id: livebook
+  people: [josevalim]
+  name: Livebook
+  url: https://livebook.dev
+  category: editor
+  featured: true
+  description: Interactive, collaborative notebooks for Elixir, with smart cells for data and charts.
+- id: igniter
+  people: [zachdaniel]
+  name: Igniter
+  url: https://github.com/ash-project/igniter
+  category: workflow
+  description: Code generators and installers that patch your project for you.
+- id: ex-doc
+  name: ExDoc
+  url: https://github.com/elixir-lang/ex_doc
+  category: workflow
+  description: Turns your module docs into the clean HexDocs sites you read every day.
+- id: credo
+  name: Credo
+  url: https://github.com/rrrene/credo
+  category: quality
+  description: Static code analysis that teaches as it checks.
+- id: styler
+  name: Styler
+  url: https://github.com/adobe/elixir-styler
+  category: quality
+  description: A formatter plugin that fixes style issues for you instead of only reporting them.
+- id: dialyxir
+  name: Dialyxir
+  url: https://github.com/jeremyjh/dialyxir
+  category: quality
+  description: Mix tasks that make Dialyzer type analysis easy to run.
+- id: sobelow
+  name: Sobelow
+  url: https://github.com/nccgroup/sobelow
+  category: quality
+  description: Security checks for Phoenix apps, from XSS to unsafe config.

@@ -1,0 +1,29 @@
+---
+// The top of each section page: just the title, over the soft background blobs.
+interface Props {
+  title: string
+}
+const { title } = Astro.props
+// An "aside" slot sits to the right of the text on wide screens, below it on narrow ones.
+const hasAside = Astro.slots.has('aside')
+---
+
+<header class="relative isolate pt-14 sm:pt-20">
+  <div class="ec-blobs" aria-hidden="true">
+    <i></i>
+    <i></i>
+    <i></i>
+  </div>
+  <div
+    class:list={[
+      hasAside &&
+        'grid items-center gap-14 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)]',
+    ]}
+  >
+    <div>
+      <h1 class="ec-page-title max-w-4xl">{title}</h1>
+      <slot />
+    </div>
+    {hasAside && <slot name="aside" />}
+  </div>
+</header>

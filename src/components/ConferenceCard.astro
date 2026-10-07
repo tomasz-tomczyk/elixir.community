@@ -1,0 +1,120 @@
+---
+import Icon from '@/components/Icon.astro'
+import { conferenceDate, formatDate } from '@/lib/site'
+
+interface Props {
+  name: string
+  url: string
+  location: string
+  date?: string
+  description: string
+}
+
+const { name, url, location, date, description } = Astro.props
+const { label, past } = conferenceDate(date)
+const day = date ? new Date(`${date}T00:00:00Z`) : undefined
+const [month, year] = label.split(' ')
+// Upcoming editions show day over month, past ones month over year.
+const [badgeTop, badgeSub] =
+  day && !past ? [String(day.getUTCDate()), month] : [month, year]
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="noopener"
+  class="ec-conf group flex h-full gap-5 rounded-[20px] border border-(--ec-line) bg-(--ec-card) p-5 sm:p-6"
+>
+  <span
+    class:list={[
+      'ec-conf-badge',
+      past
+        ? 'bg-(--ec-surface) text-(--ec-muted)'
+        : 'bg-(--ec-fuchsia) text-white',
+    ]}
+    aria-hidden="true"
+  >
+    <b>{badgeTop}</b>
+    <span>{badgeSub}</span>
+  </span>
+  <span class="flex min-w-0 flex-col gap-1.5">
+    {day && !past && (
+      <span class="ec-pill" data-countdown={date}>
+        {formatDate(day, 'short')}
+      </span>
+    )}
+    <span class="flex items-start gap-1.5 text-xl/7 font-semibold tracking-tight text-(--ec-fg)">
+      <span class="decoration-(--ec-fuchsia) decoration-2 underline-offset-4 group-hover:underline">
+        {name}
+      </span>
+      <Icon
+        name="arrow-up-right"
+        class="mt-1.5 size-3.5 flex-none text-(--ec-muted) transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-(--ec-text-accent) motion-reduce:transform-none"
+      />
+    </span>
+    <span class="font-mono text-[0.8125rem]/5 text-(--ec-muted)">
+      {location}
+      {day && (
+        <>
+          {' · '}
+          <time datetime={date}>{formatDate(day, 'short')}</time>
+        </>
+      )}
+    </span>
+    <span class="mt-1 text-[0.9375rem]/6 text-(--ec-muted)">{description}</span>
+  </span>
+</a>
+
+<style>
+  .ec-conf {
+    box-shadow: 0 18px 36px -26px rgb(20 0 40 / 0.4);
+    transition:
+      transform 0.3s var(--ec-ease),
+      box-shadow 0.3s;
+  }
+
+  .ec-conf:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 40px -24px rgb(20 0 40 / 0.5);
+  }
+
+  /* Same blob as the home page badge, smaller. */
+  .ec-conf-badge {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50% 50% 50% 6px;
+    transition: border-radius 0.5s var(--ec-ease);
+  }
+
+  .ec-conf:hover .ec-conf-badge {
+    border-radius: 6px 50% 50% 50%;
+  }
+
+  .ec-conf-badge b {
+    font-size: 1.75rem;
+    font-weight: 720;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+  }
+
+  .ec-conf-badge span {
+    font: 600 0.6875rem/1.2 var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ec-conf,
+    .ec-conf-badge {
+      transition: none;
+    }
+
+    .ec-conf:hover {
+      transform: none;
+    }
+  }
+</style>

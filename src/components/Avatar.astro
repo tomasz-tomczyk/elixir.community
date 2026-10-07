@@ -1,0 +1,102 @@
+---
+// A GitHub avatar with initials behind it, in case the image fails to load.
+// `shapes` adds the spotlight frame from the home page: a lilac disc with fuchsia and indigo shapes.
+interface Props {
+  github: string
+  name: string
+  size?: number
+  shapes?: boolean
+  class?: string
+}
+const {
+  github,
+  name,
+  size = 48,
+  shapes = false,
+  class: className,
+} = Astro.props
+const initials = name
+  .split(' ')
+  .map((part) => part[0])
+  .slice(0, 2)
+  .join('')
+---
+
+<span
+  class:list={[
+    'relative inline-grid size-fit flex-none place-items-center rounded-full',
+    shapes && 'spot',
+    className,
+  ]}
+  style={`--s:${size}px`}
+>
+  {shapes && (
+    <>
+      <span class="sh1" aria-hidden="true" />
+      <span class="sh2" aria-hidden="true" />
+      <span class="sh3" aria-hidden="true" />
+    </>
+  )}
+  <span
+    class="face relative grid place-items-center overflow-hidden rounded-full bg-(--ec-lilac) font-semibold text-(--ec-ink)"
+    style={`width:${size}px;height:${size}px;font-size:${size / 2.8}px`}
+  >
+    <span aria-hidden="true">{initials}</span>
+    <img
+      src={`https://github.com/${github}.png?size=${size * 2}`}
+      alt={name}
+      width={size}
+      height={size}
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-0 size-full object-cover"
+      onerror="this.remove()"
+    />
+    <span class="absolute inset-0 rounded-full ring-1 ring-(--ec-line) ring-inset"></span>
+  </span>
+</span>
+
+<style>
+  .spot {
+    isolation: isolate;
+    padding: calc(var(--s) / 8);
+  }
+
+  .spot > span:not(.face) {
+    position: absolute;
+  }
+
+  .spot .face {
+    color: white;
+    background: var(--ec-violet);
+    letter-spacing: -0.04em;
+  }
+
+  .sh1 {
+    inset: 0;
+    z-index: -1;
+    border-radius: 50%;
+    background: var(--ec-lilac);
+  }
+
+  .sh2 {
+    right: -9%;
+    bottom: -3%;
+    z-index: 2;
+    width: 48%;
+    height: 24%;
+    border-radius: 999px 999px 0 0;
+    background: var(--ec-fuchsia);
+    rotate: -20deg;
+  }
+
+  .sh3 {
+    left: -7%;
+    top: -5%;
+    z-index: 2;
+    width: 22%;
+    height: 22%;
+    border-radius: 0 0 0 100%;
+    background: var(--ec-indigo);
+  }
+</style>

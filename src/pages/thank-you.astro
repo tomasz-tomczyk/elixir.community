@@ -1,0 +1,29 @@
+---
+import Icon from '@/components/Icon.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { site } from '@/lib/site'
+---
+
+<BaseLayout title="Thanks for subscribing">
+  <div class="container-page">
+    <div class="relative isolate mx-auto max-w-2xl pt-24 pb-8 text-center sm:pt-32">
+      <div class="ec-blobs" aria-hidden="true">
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+      <span class="k-violet mx-auto grid size-14 rotate-[-4deg] place-items-center rounded-[16px] bg-(--bg) text-(--tx) shadow-[0_12px_28px_-12px_var(--ec-violet)]">
+        <Icon name="mail" class="size-6" />
+      </span>
+      <h1 class="ec-page-title mt-8 text-(--ec-fg)">Check your inbox</h1>
+      <p class="mx-auto mt-6 max-w-md text-lg/8 text-pretty text-(--ec-muted)">
+        We sent you a link to confirm your address. Click it, and the next issue
+        will come to you when it's ready.
+      </p>
+      <a href="/newsletter" class="btn-soft mt-10">
+        {site.newsletterSent ? 'Read past issues' : 'About the newsletter'}{' '}
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</BaseLayout>

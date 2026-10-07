@@ -1,0 +1,102 @@
+# Conferences: one entry per edition. `date` is the first day (YYYY-MM-DD).
+# The events page shows editions that have not started yet. Past editions go to /events/archive.
+# Dates checked on 2026-10-06 against elixirevents.org/events and each conference site.
+- id: code-beam-europe-2026
+  name: Code BEAM Europe 2026
+  url: https://codebeameurope.com
+  kind: conference
+  location: Haarlem, Netherlands
+  date: '2026-10-20'
+  description: Talks across the whole BEAM — Elixir, Erlang, Gleam, and the VM. Training day first, then two days of talks.
+- id: goatmire-2026
+  name: Goatmire Elixir 2026
+  url: https://goatmire.com
+  kind: conference
+  location: Varberg, Sweden
+  date: '2026-09-28'
+  description: A seaside Elixir conference with NervesConf EU, workshops, and two days of talks in a historic theatre.
+- id: elixirconf-us-2026
+  name: ElixirConf US 2026
+  url: https://elixirconf.com
+  kind: conference
+  location: Chicago, Illinois
+  date: '2026-09-10'
+  description: The largest Elixir conference. Workshops, then two days of talks.
+- id: code-beam-lite-stockholm-2026
+  name: Code BEAM Lite Stockholm 2026
+  url: https://codesync.global
+  kind: conference
+  location: Stockholm, Sweden
+  date: '2026-05-18'
+  description: A one-day BEAM conference from the Code BEAM team.
+- id: elixirconf-eu-2026
+  name: ElixirConf EU 2026
+  url: https://www.elixirconf.eu
+  kind: conference
+  location: Málaga, Spain
+  date: '2026-04-22'
+  description: The main European Elixir conference, with workshops and two tracks.
+- id: code-beam-lite-vancouver-2026
+  name: Code BEAM Lite Vancouver 2026
+  url: https://codesync.global
+  kind: conference
+  location: Vancouver, Canada
+  date: '2026-03-23'
+  description: A one-day BEAM conference from the Code BEAM team.
+- id: code-beam-europe-2025
+  name: Code BEAM Europe 2025
+  url: https://codebeameurope.com
+  kind: conference
+  location: Berlin, Germany
+  date: '2025-11-05'
+  description: Talks across the whole BEAM — Elixir, Erlang, Gleam, and the VM.
+- id: gig-city-elixir-2025
+  name: Gig City Elixir 2025
+  url: https://www.gigcityelixir.com
+  kind: conference
+  location: Chattanooga, Tennessee
+  date: '2025-05-08'
+  description: A small, friendly conference, held together with NervesConf US.
+- id: code-beam-america-2025
+  name: Code BEAM America 2025
+  url: https://codebeamamerica.com
+  kind: conference
+  location: San Francisco, California
+  date: '2025-03-06'
+  description: The BEAM community conference for North America.
+# Meetups: "when" is free text.
+- id: meetup-london
+  name: Elixir London
+  url: https://www.meetup.com/find/?keywords=elixir&location=gb--London
+  kind: meetup
+  location: London, UK
+  when: Monthly
+  description: Talks, pizza, and lightning talks from the London BEAM crowd.
+- id: meetup-berlin
+  name: Elixir Berlin
+  url: https://www.meetup.com/find/?keywords=elixir&location=de--Berlin
+  kind: meetup
+  location: Berlin, Germany
+  when: Monthly
+  description: A long-running meetup with talks in English.
+- id: meetup-austin
+  name: Austin Elixir
+  url: https://www.meetup.com/find/?keywords=elixir&location=us--tx--Austin
+  kind: meetup
+  location: Austin, Texas
+  when: Monthly
+  description: Talks and hack nights for Elixir developers in central Texas.
+- id: meetup-warsaw
+  name: Elixir Warsaw
+  url: https://www.meetup.com/find/?keywords=elixir&location=pl--Warsaw
+  kind: meetup
+  location: Warsaw, Poland
+  when: Monthly
+  description: Talks from local teams that run Elixir in production.
+- id: meetup-online
+  name: Elixir online meetups
+  url: https://elixirforum.com/c/elixir-news/events
+  kind: meetup
+  location: Online
+  when: Most weeks
+  description: Virtual talks and study groups listed on Elixir Forum.

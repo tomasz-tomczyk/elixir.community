@@ -1,0 +1,66 @@
+---
+// Draws a logo from public/logos as a CSS mask, so every logo takes the text
+// color. This keeps the logo cloud one color in light and dark mode.
+interface Props {
+  id: string
+  name: string
+  height?: number
+  // Show only the logo, never the name beside it.
+  mark?: boolean
+  class?: string
+}
+
+const { id, name, height = 28, mark = false, class: className } = Astro.props
+
+const files = import.meta.glob<string>('/public/logos/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+})
+const svg = files[`/public/logos/${id}.svg`]
+const box = svg
+  ?.match(/viewBox="([\d.\s-]+)"/)?.[1]
+  ?.trim()
+  .split(/\s+/)
+  .map(Number)
+const [, , boxWidth = 1, boxHeight = 1] = box ?? []
+const ratio = boxWidth / boxHeight
+// Square marks (Simple Icons) read too small next to wordmarks, so show the name beside them.
+const isMark = ratio < 1.6
+// Wide wordmarks look heavier at the same height, so scale them down by area.
+const markHeight = isMark
+  ? height * 0.85
+  : height * Math.min(1, Math.sqrt(3 / ratio))
+const width = Math.round(markHeight * ratio)
+---
+
+{svg ? (
+  <span
+    class:list={['inline-flex items-center gap-2', className]}
+    role="img"
+    aria-label={name}
+  >
+    <span
+      class="logo-mask block flex-none bg-current"
+      style={`width:${width}px;height:${markHeight}px;--logo:url(/logos/${id}.svg)`}
+    />
+    {isMark && !mark && (
+      <span
+        class="text-lg/none font-semibold tracking-tight"
+        aria-hidden="true"
+      >
+        {name}
+      </span>
+    )}
+  </span>
+) : (
+  <span class:list={['text-lg/none font-semibold tracking-tight', className]}>
+    {name}
+  </span>
+)}
+
+<style>
+  .logo-mask {
+    mask: var(--logo) center / contain no-repeat;
+  }
+</style>

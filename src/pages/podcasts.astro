@@ -1,0 +1,180 @@
+---
+import { getCollection } from 'astro:content'
+
+import ContributeNote from '@/components/ContributeNote.astro'
+import Icon from '@/components/Icon.astro'
+import NewsletterBand from '@/components/NewsletterBand.astro'
+import PageHeader from '@/components/PageHeader.astro'
+import SectionArt from '@/components/SectionArt.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { formatDate } from '@/lib/site'
+
+const podcasts = (await getCollection('podcasts')).sort(
+  (a, b) => +(b.data.last_episode ?? 0) - +(a.data.last_episode ?? 0),
+)
+const checked = podcasts
+  .map((p) => p.data.checked)
+  .filter(Boolean)
+  .sort((a, b) => +b! - +a!)[0]
+
+// Each cover gets its own tone and shape, so the shows are easy to tell apart.
+const covers = [
+  { tone: 'violet', shape: 'ring' },
+  { tone: 'blush', shape: 'drop' },
+  { tone: 'indigo', shape: 'half' },
+  { tone: 'fuchsia', shape: 'leaf' },
+  { tone: 'peri', shape: 'circle' },
+  { tone: 'deep', shape: 'square' },
+]
+---
+
+<BaseLayout
+  title="Podcasts"
+  description="Elixir and BEAM podcasts worth a spot in your queue."
+>
+  <div class="container-page">
+    <PageHeader title="Elixir Podcasts">
+      <SectionArt slot="aside" kind="podcasts" />
+    </PageHeader>
+
+    {/* Episode-list layout from the Transmit template. */}
+    <ul class="mt-14 max-w-3xl border-t-3 border-(--ec-fg)">
+      {podcasts.map((show, i) => {
+        const cover = covers[i % covers.length]!
+        return (
+          <li class="show relative flex gap-5 border-b border-(--ec-line) py-7 last:border-b-0 sm:gap-8">
+            <div
+              class:list={[
+                'cover relative isolate flex size-24 flex-none items-end overflow-hidden p-3 sm:size-32',
+                `k-${cover.tone}`,
+              ]}
+            >
+              <span
+                class:list={['shape', `s-${cover.shape}`]}
+                aria-hidden="true"
+              />
+              <p class="text-[0.8125rem]/4 font-bold tracking-tight sm:text-base/5">
+                {show.data.title}
+              </p>
+            </div>
+            <div class="min-w-0 self-center">
+              <p class="font-mono text-xs/5 text-(--ec-muted)">
+                {show.data.hosts}
+              </p>
+              <h2 class="mt-1 text-xl/7 font-semibold tracking-tight text-(--ec-fg)">
+                <a
+                  href={show.data.url}
+                  target="_blank"
+                  rel="noopener"
+                  class="title"
+                >
+                  <span class="absolute inset-0" />
+                  {show.data.title}
+                </a>
+              </h2>
+              <p class="mt-1 text-sm/6 text-(--ec-muted)">
+                {show.data.description}
+              </p>
+              {show.data.episodes && (
+                <p class="mt-3 flex flex-wrap gap-x-3 font-mono text-xs/5 text-(--ec-muted)">
+                  <span>{show.data.episodes} episodes</span>
+                  {show.data.last_episode && (
+                    <span>
+                      Last: {formatDate(show.data.last_episode, 'short')}
+                    </span>
+                  )}
+                </p>
+              )}
+              <p class="listen mt-4 btn-soft py-1.5 pl-3 text-sm">
+                <Icon name="play" class="size-4" />
+                Listen
+              </p>
+            </div>
+          </li>
+        )
+      })}
+    </ul>
+
+    <ContributeNote
+      note={
+        checked &&
+        `Episode counts from each RSS feed, checked ${formatDate(checked)}.`
+      }
+      question="Know a podcast that is not here?"
+    />
+
+    <NewsletterBand title="The episodes worth your time, now and then." />
+  </div>
+</BaseLayout>
+
+<style>
+  /* A tone block with a faint shape behind the show name, like the home page tiles. */
+  .cover {
+    border-radius: 20px;
+    background: var(--bg);
+    color: var(--tx);
+    transition: border-radius 0.35s var(--ec-ease);
+  }
+
+  .show:hover .cover {
+    border-radius: 28px;
+  }
+
+  .shape {
+    position: absolute;
+    z-index: -1;
+    top: -16%;
+    right: -14%;
+    width: 72%;
+    aspect-ratio: 1;
+    background: color-mix(in oklch, var(--tx) 15%, transparent);
+    transition: transform 0.6s var(--ec-ease);
+  }
+
+  .show:hover .shape {
+    transform: rotate(90deg) scale(1.08);
+  }
+
+  .s-ring {
+    border-radius: 50%;
+    background: transparent;
+    border: 14px solid color-mix(in oklch, var(--tx) 15%, transparent);
+  }
+
+  .s-drop {
+    border-radius: 50% 0 50% 50%;
+  }
+
+  .s-half {
+    top: -1px;
+    width: 64%;
+    aspect-ratio: 2 / 1;
+    border-radius: 0 0 999px 999px;
+  }
+
+  .show:hover .s-half {
+    transform: translateY(8px);
+  }
+
+  .s-leaf {
+    border-radius: 100% 0;
+  }
+
+  .s-circle {
+    border-radius: 50%;
+  }
+
+  .s-square {
+    border-radius: 22%;
+    rotate: 12deg;
+  }
+
+  .show:hover .listen {
+    background: color-mix(in oklch, var(--color-accent-500) 22%, transparent);
+  }
+
+  .show:hover .title {
+    text-decoration: underline var(--ec-fuchsia);
+    text-underline-offset: 3px;
+  }
+</style>

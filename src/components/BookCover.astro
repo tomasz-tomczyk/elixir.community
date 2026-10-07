@@ -1,0 +1,129 @@
+---
+// A book cover drawn with CSS in the site's tones. `index` picks the tone and the shape,
+// so neighbouring books never share both.
+interface Props {
+  title: string
+  author: string
+  href: string
+  index: number
+  level?: string
+  year?: number
+}
+const { title, author, href, index, level, year } = Astro.props
+
+const tones = [
+  'violet',
+  'blush',
+  'indigo',
+  'orchid',
+  'fuchsia',
+  'peri',
+  'deep',
+  'lilac',
+]
+const shapes = ['circle', 'leaf', 'arch', 'quarter', 'drop']
+const tone = tones[index % tones.length]
+const shape = shapes[index % shapes.length]
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener"
+  class="group row-span-2 grid grid-rows-subgrid gap-4"
+>
+  <div class:list={['book self-end', `k-${tone}`]}>
+    <span class:list={['shape', shape]} aria-hidden="true"></span>
+    <div class="relative flex h-full flex-col justify-between p-[10%] pl-[15%]">
+      <p class="text-[clamp(0.95rem,7cqi+0.2rem,1.6rem)] leading-[1.02] font-[680] tracking-[-0.035em] text-balance">
+        {title}
+      </p>
+      <p class="font-mono text-[clamp(0.55rem,1.4cqi+0.3rem,0.7rem)] font-medium opacity-75">
+        {author}
+      </p>
+    </div>
+  </div>
+  <div>
+    <p class="text-[0.9375rem]/6 font-semibold tracking-tight text-(--ec-fg) decoration-(--ec-fuchsia) underline-offset-3 group-hover:underline">
+      {title}
+    </p>
+    <p class="text-sm/6 text-(--ec-muted)">{author}</p>
+    {(year || level) && (
+      <p class="mt-1 flex gap-2 font-mono text-[0.75rem]/5 text-(--ec-muted)">
+        {year && <span>{year}</span>}
+        {year && level && <span aria-hidden="true">&middot;</span>}
+        {level && <span>{level}</span>}
+      </p>
+    )}
+  </div>
+</a>
+
+<style>
+  .book {
+    container-type: inline-size;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2 / 3;
+    border-radius: 6px 16px 16px 6px;
+    color: var(--tx);
+    background: var(--bg);
+    box-shadow: 0 18px 36px -20px rgb(20 0 40 / 0.55);
+    transition: transform 0.35s var(--ec-ease);
+  }
+
+  /* Spine: a thin fold near the left edge. */
+  .book::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 7%;
+    width: 2px;
+    background: color-mix(in oklch, var(--tx) 22%, transparent);
+  }
+
+  .shape {
+    position: absolute;
+    right: -12%;
+    bottom: -8%;
+    width: 72%;
+    aspect-ratio: 1;
+    background: color-mix(in oklch, var(--tx) 16%, transparent);
+    transition:
+      border-radius 0.5s var(--ec-ease),
+      rotate 0.5s var(--ec-ease);
+  }
+
+  .circle {
+    border-radius: 50%;
+  }
+
+  .leaf {
+    border-radius: 0 100% 0 100%;
+  }
+
+  .arch {
+    height: 36%;
+    aspect-ratio: auto;
+    bottom: -2%;
+    border-radius: 999px 999px 0 0;
+  }
+
+  .quarter {
+    right: -4%;
+    bottom: -4%;
+    border-radius: 100% 0 0 0;
+  }
+
+  .drop {
+    border-radius: 50% 0 50% 50%;
+    rotate: -45deg;
+  }
+
+  .group:hover .book {
+    transform: translateY(-6px) rotate(-1.5deg);
+  }
+
+  .group:hover .shape {
+    border-radius: 18px;
+    rotate: 12deg;
+  }
+</style>
