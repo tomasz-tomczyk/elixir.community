@@ -1,0 +1,1699 @@
+[
+  {
+    "kind": "books",
+    "id": "advanced-functional-programming-with-elixir",
+    "page": "https://pragprog.com/titles/jkelixir/advanced-functional-programming-with-elixir/",
+    "image_source": "https://pragprog.com/titles/jkelixir/advanced-functional-programming-with-elixir/jkelixir-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/advanced-functional-programming-with-elixir.webp",
+    "bytes": 120967
+  },
+  {
+    "kind": "books",
+    "id": "network-programming-in-elixir-and-erlang",
+    "page": "https://pragprog.com/titles/alnpee/network-programming-in-elixir-and-erlang/",
+    "image_source": "https://pragprog.com/titles/alnpee/network-programming-in-elixir-and-erlang/alnpee-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/network-programming-in-elixir-and-erlang.webp",
+    "bytes": 12767
+  },
+  {
+    "kind": "books",
+    "id": "ash-framework",
+    "page": "https://pragprog.com/titles/ldash/ash-framework/",
+    "image_source": "https://pragprog.com/titles/ldash/ash-framework/ldash-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/ash-framework.webp",
+    "bytes": 81352
+  },
+  {
+    "kind": "books",
+    "id": "elixir-patterns",
+    "page": "https://pragprog.com/titles/d-akelixir/elixir-patterns/",
+    "image_source": "https://pragprog.com/titles/d-akelixir/elixir-patterns/d-akelixir-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/elixir-patterns.webp",
+    "bytes": 29280
+  },
+  {
+    "kind": "books",
+    "id": "northwind-elixir-traders",
+    "page": "https://pragprog.com/titles/d-itnet/northwind-elixir-traders/",
+    "image_source": "https://pragprog.com/titles/d-itnet/northwind-elixir-traders/d-itnet-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/northwind-elixir-traders.webp",
+    "bytes": 44894
+  },
+  {
+    "kind": "books",
+    "id": "real-world-event-sourcing",
+    "page": "https://pragprog.com/titles/khpes/real-world-event-sourcing/",
+    "image_source": "https://pragprog.com/titles/khpes/real-world-event-sourcing/khpes-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/real-world-event-sourcing.webp",
+    "bytes": 11188
+  },
+  {
+    "kind": "books",
+    "id": "engineering-elixir-applications",
+    "page": "https://pragprog.com/titles/beamops/engineering-elixir-applications/",
+    "image_source": "https://pragprog.com/titles/beamops/engineering-elixir-applications/beamops-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/engineering-elixir-applications.webp",
+    "bytes": 94732
+  },
+  {
+    "kind": "books",
+    "id": "machine-learning-in-elixir",
+    "page": "https://pragprog.com/titles/smelixir/machine-learning-in-elixir/",
+    "image_source": "https://pragprog.com/titles/smelixir/machine-learning-in-elixir/smelixir-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/machine-learning-in-elixir.webp",
+    "bytes": 101927
+  },
+  {
+    "kind": "books",
+    "id": "from-ruby-to-elixir",
+    "page": "https://pragprog.com/titles/sbelixir/from-ruby-to-elixir/",
+    "image_source": "https://pragprog.com/titles/sbelixir/from-ruby-to-elixir/sbelixir-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/from-ruby-to-elixir.webp",
+    "bytes": 68063
+  },
+  {
+    "kind": "books",
+    "id": "building-table-views-with-phoenix-liveview",
+    "page": "https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/",
+    "image_source": "https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/puphoe-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/building-table-views-with-phoenix-liveview.webp",
+    "bytes": 82464
+  },
+  {
+    "kind": "books",
+    "id": "exploring-graphs-with-elixir",
+    "page": "https://pragprog.com/titles/thgraphs/exploring-graphs-with-elixir/",
+    "image_source": "https://pragprog.com/titles/thgraphs/exploring-graphs-with-elixir/thgraphs-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/exploring-graphs-with-elixir.webp",
+    "bytes": 101857
+  },
+  {
+    "kind": "books",
+    "id": "build-a-binary-clock-with-elixir-and-nerves",
+    "page": "https://pragprog.com/titles/thnerves/build-a-binary-clock-with-elixir-and-nerves/",
+    "image_source": "https://pragprog.com/titles/thnerves/build-a-binary-clock-with-elixir-and-nerves/thnerves-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/build-a-binary-clock-with-elixir-and-nerves.webp",
+    "bytes": 131599
+  },
+  {
+    "kind": "books",
+    "id": "programmer-passport-otp",
+    "page": "https://pragprog.com/titles/passotp/programmer-passport-otp/",
+    "image_source": "https://pragprog.com/titles/passotp/programmer-passport-otp/passotp-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/programmer-passport-otp.webp",
+    "bytes": 58253
+  },
+  {
+    "kind": "books",
+    "id": "programmer-passport-elixir",
+    "page": "https://pragprog.com/titles/passelixir/programmer-passport-elixir/",
+    "image_source": "https://pragprog.com/titles/passelixir/programmer-passport-elixir/passelixir-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/programmer-passport-elixir.webp",
+    "bytes": 54993
+  },
+  {
+    "kind": "books",
+    "id": "build-a-weather-station-with-elixir-and-nerves",
+    "page": "https://pragprog.com/titles/passweather/build-a-weather-station-with-elixir-and-nerves/",
+    "image_source": "https://pragprog.com/titles/passweather/build-a-weather-station-with-elixir-and-nerves/passweather-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/build-a-weather-station-with-elixir-and-nerves.webp",
+    "bytes": 104347
+  },
+  {
+    "kind": "books",
+    "id": "concurrent-data-processing-in-elixir",
+    "page": "https://pragprog.com/titles/sgdpelixir/concurrent-data-processing-in-elixir/",
+    "image_source": "https://pragprog.com/titles/sgdpelixir/concurrent-data-processing-in-elixir/sgdpelixir-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/concurrent-data-processing-in-elixir.webp",
+    "bytes": 107563
+  },
+  {
+    "kind": "books",
+    "id": "testing-elixir",
+    "page": "https://pragprog.com/titles/lmelixir/testing-elixir/",
+    "image_source": "https://pragprog.com/titles/lmelixir/testing-elixir/lmelixir-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/testing-elixir.webp",
+    "bytes": 52925
+  },
+  {
+    "kind": "books",
+    "id": "genetic-algorithms-in-elixir",
+    "page": "https://pragprog.com/titles/smgaelixir/genetic-algorithms-in-elixir/",
+    "image_source": "https://pragprog.com/titles/smgaelixir/genetic-algorithms-in-elixir/smgaelixir-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/genetic-algorithms-in-elixir.webp",
+    "bytes": 68179
+  },
+  {
+    "kind": "books",
+    "id": "real-time-phoenix",
+    "page": "https://pragprog.com/titles/sbsockets/real-time-phoenix/",
+    "image_source": "https://pragprog.com/titles/sbsockets/real-time-phoenix/sbsockets_hu_d5996b1097972a27.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/real-time-phoenix.webp",
+    "bytes": 15061
+  },
+  {
+    "kind": "books",
+    "id": "designing-elixir-systems-with-otp",
+    "page": "https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/",
+    "image_source": "https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/jgotp_hu_e65862bf26974dd9.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/designing-elixir-systems-with-otp.webp",
+    "bytes": 12295
+  },
+  {
+    "kind": "books",
+    "id": "programming-phoenix-1-4",
+    "page": "https://pragprog.com/titles/phoenix14/programming-phoenix-1-4/",
+    "image_source": "https://pragprog.com/titles/phoenix14/programming-phoenix-1-4/phoenix14_hu_bff163568e78f643.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/programming-phoenix-1-4.webp",
+    "bytes": 10203
+  },
+  {
+    "kind": "books",
+    "id": "programming-ecto",
+    "page": "https://pragprog.com/titles/wmecto/programming-ecto/",
+    "image_source": "https://pragprog.com/titles/wmecto/programming-ecto/wmecto_hu_7edf7e9f97b17569.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/programming-ecto.webp",
+    "bytes": 12530
+  },
+  {
+    "kind": "books",
+    "id": "property-based-testing-with-proper-erlang-and-elixir",
+    "page": "https://pragprog.com/titles/fhproper/property-based-testing-with-proper-erlang-and-elixir/",
+    "image_source": "https://pragprog.com/titles/fhproper/property-based-testing-with-proper-erlang-and-elixir/fhproper_hu_bdb504917723efbd.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/property-based-testing-with-proper-erlang-and-elixir.webp",
+    "bytes": 18304
+  },
+  {
+    "kind": "books",
+    "id": "programming-elixir-1-6",
+    "page": "https://pragprog.com/titles/elixir16/programming-elixir-1-6/",
+    "image_source": "https://pragprog.com/titles/elixir16/programming-elixir-1-6/elixir16_hu_f27ca418681ba529.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/programming-elixir-1-6.webp",
+    "bytes": 10902
+  },
+  {
+    "kind": "books",
+    "id": "craft-graphql-apis-in-elixir-with-absinthe",
+    "page": "https://pragprog.com/titles/wwgraphql/craft-graphql-apis-in-elixir-with-absinthe/",
+    "image_source": "https://pragprog.com/titles/wwgraphql/craft-graphql-apis-in-elixir-with-absinthe/wwgraphql_hu_b42b5c51f7c874ac.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/craft-graphql-apis-in-elixir-with-absinthe.webp",
+    "bytes": 14305
+  },
+  {
+    "kind": "books",
+    "id": "adopting-elixir",
+    "page": "https://pragprog.com/titles/tvmelixir/adopting-elixir/",
+    "image_source": "https://pragprog.com/titles/tvmelixir/adopting-elixir/tvmelixir_hu_244ff90574441aa9.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/adopting-elixir.webp",
+    "bytes": 16431
+  },
+  {
+    "kind": "books",
+    "id": "learn-functional-programming-with-elixir",
+    "page": "https://pragprog.com/titles/cdc-elixir/learn-functional-programming-with-elixir/",
+    "image_source": "https://pragprog.com/titles/cdc-elixir/learn-functional-programming-with-elixir/cdc-elixir_hu_6a23fb1533bcec41.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/learn-functional-programming-with-elixir.webp",
+    "bytes": 14809
+  },
+  {
+    "kind": "books",
+    "id": "functional-web-development-with-elixir-otp-and-phoenix",
+    "page": "https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/",
+    "image_source": "https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/lhelph_hu_a1feaa388d8b6712.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/functional-web-development-with-elixir-otp-and-phoenix.webp",
+    "bytes": 12037
+  },
+  {
+    "kind": "books",
+    "id": "metaprogramming-elixir",
+    "page": "https://pragprog.com/titles/cmelixir/metaprogramming-elixir/",
+    "image_source": "https://pragprog.com/titles/cmelixir/metaprogramming-elixir/cmelixir_hu_8bc307750cb3644e.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/metaprogramming-elixir.webp",
+    "bytes": 10871
+  },
+  {
+    "kind": "books",
+    "id": "seven-more-languages-in-seven-weeks",
+    "page": "https://pragprog.com/titles/7lang/seven-more-languages-in-seven-weeks/",
+    "image_source": "https://pragprog.com/titles/7lang/seven-more-languages-in-seven-weeks/7lang_hu_27939ff21d36a290.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/seven-more-languages-in-seven-weeks.webp",
+    "bytes": 14479
+  },
+  {
+    "kind": "books",
+    "id": "elixir-in-action-third-edition",
+    "page": "https://www.manning.com/books/elixir-in-action-third-edition",
+    "image_source": "https://images.manning.com/264/352/resize/book/0/8956122-acbd-4df6-bf93-78701555c171/Juric-3ed-HI.png",
+    "method": "publisher-image",
+    "local": "/images/books/elixir-in-action-third-edition.webp",
+    "bytes": 25935
+  },
+  {
+    "kind": "books",
+    "id": "the-little-elixir-otp-guidebook",
+    "page": "https://www.manning.com/books/the-little-elixir-and-otp-guidebook",
+    "image_source": "https://images.manning.com/264/352/resize/book/2/cf70537-0068-4d76-b254-3082c3bc12a3/TanWeiHao_final.png",
+    "method": "publisher-image",
+    "local": "/images/books/the-little-elixir-otp-guidebook.webp",
+    "bytes": 24833
+  },
+  {
+    "kind": "books",
+    "id": "programming-phoenix-liveview",
+    "page": "https://pragprog.com/titles/liveview/programming-phoenix-liveview/",
+    "image_source": "https://pragprog.com/titles/liveview/programming-phoenix-liveview/liveview-250.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/programming-phoenix-liveview.webp",
+    "bytes": 77442
+  },
+  {
+    "kind": "books",
+    "id": "joy-of-elixir",
+    "page": "https://joyofelixir.com/",
+    "image_source": "https://joyofelixir.com/images/small-cover.png",
+    "method": "publisher-image",
+    "local": "/images/books/joy-of-elixir.webp",
+    "bytes": 154564
+  },
+  {
+    "kind": "books",
+    "id": "elixir-succinctly",
+    "page": "https://www.syncfusion.com/ebooks/elixir-succinctly",
+    "image_source": "https://cdn.syncfusion.com/content/images/downloads/ebook/ebook-cover/elixir-succinctly.png",
+    "method": "publisher-image",
+    "local": "/images/books/elixir-succinctly.webp",
+    "bytes": 85920
+  },
+  {
+    "kind": "books",
+    "id": "the-phoenix-liveview-cookbook",
+    "page": "https://www.liveviewcookbook.com/",
+    "image_source": "https://www.liveviewcookbook.com/_next/image?url=%2Fbook2.png&w=1920&q=100",
+    "method": "publisher-image",
+    "local": "/images/books/the-phoenix-liveview-cookbook.webp",
+    "bytes": 1792467
+  },
+  {
+    "kind": "books",
+    "id": "5-little-potions",
+    "page": "https://alchemist.camp/little-potions",
+    "image_source": "https://alchemist.camp/little-potions/assets/img/little-potions-social.jpg",
+    "method": "publisher-image",
+    "local": "/images/books/5-little-potions.webp",
+    "bytes": 474519
+  },
+  {
+    "kind": "people",
+    "id": "jose-valim",
+    "page": "https://github.com/josevalim",
+    "image_source": "https://avatars.githubusercontent.com/u/9582?s=256&v=4",
+    "method": "github-avatar",
+    "local": "/images/people/jose-valim.webp",
+    "bytes": 10805
+  },
+  {
+    "kind": "people",
+    "id": "eric-meadows-jonsson",
+    "page": "https://github.com/ericmj",
+    "image_source": "https://avatars.githubusercontent.com/u/316890?s=256&v=4",
+    "method": "github-avatar",
+    "local": "/images/people/eric-meadows-jonsson.webp",
+    "bytes": 10080
+  },
+  {
+    "kind": "people",
+    "id": "andrea-leopardi",
+    "page": "https://andrealeopardi.com/about/",
+    "image_source": "https://avatars.githubusercontent.com/u/3890250?s=256&v=4",
+    "method": "github-avatar",
+    "local": "/images/people/andrea-leopardi.webp",
+    "bytes": 7956
+  },
+  {
+    "kind": "people",
+    "id": "jean-klingler",
+    "page": "https://github.com/sabiwara",
+    "image_source": "https://avatars.githubusercontent.com/u/11598866?s=256&v=4",
+    "method": "github-avatar",
+    "local": "/images/people/jean-klingler.webp",
+    "bytes": 26084
+  },
+  {
+    "kind": "people",
+    "id": "chris-mccord",
+    "page": "https://chrismccord.com/",
+    "image_source": "https://avatars.githubusercontent.com/u/576796?s=256&v=4",
+    "method": "github-avatar",
+    "local": "/images/people/chris-mccord.webp",
+    "bytes": 74289
+  },
+  {
+    "kind": "people",
+    "id": "jonatan-klosko",
+    "page": "https://github.com/jonatanklosko",
+    "image_source": "https://avatars.githubusercontent.com/u/17034772?s=256&v=4",
+    "method": "github-avatar",
+    "local": "/images/people/jonatan-kosko.webp",
+    "bytes": 7955
+  },
+  {
+    "kind": "people",
+    "id": "wojtek-mach",
+    "page": "https://github.com/wojtekmach",
+    "image_source": "https://avatars.githubusercontent.com/u/76071?s=256&v=4",
+    "method": "github-avatar",
+    "local": "/images/people/wojtek-mach.webp",
+    "bytes": 80816
+  },
+  {
+    "kind": "people",
+    "id": "sean-moriarity",
+    "page": "https://seanmoriarity.com/about",
+    "image_source": "https://avatars.githubusercontent.com/u/14100120?s=256&v=4",
+    "method": "github-profile-on-source",
+    "local": "/images/people/sean-moriarity.webp",
+    "bytes": 9689,
+    "github_candidate": "seanmor5"
+  },
+  {
+    "kind": "people",
+    "id": "zach-daniel",
+    "page": "https://github.com/zachdaniel/",
+    "image_source": "https://avatars.githubusercontent.com/u/5722339?s=256&v=4",
+    "method": "github-avatar",
+    "local": "/images/people/zach-daniel.webp",
+    "bytes": 77475
+  },
+  {
+    "kind": "people",
+    "id": "sasa-juric",
+    "page": "https://www.manning.com/books/elixir-in-action-third-edition",
+    "image_source": "https://avatars.githubusercontent.com/u/202498?s=256&v=4",
+    "method": "github-avatar",
+    "local": "/images/people/sasa-juric.webp",
+    "bytes": 10923
+  },
+  {
+    "kind": "people",
+    "id": "sophie-debenedetto",
+    "page": "https://pragprog.com/titles/liveview/programming-phoenix-liveview/",
+    "image_source": "https://avatars.githubusercontent.com/u/8999596?s=256&v=4",
+    "method": "github-avatar",
+    "local": "/images/people/sophie-debenedetto.webp",
+    "bytes": 11430
+  },
+  {
+    "kind": "people",
+    "id": "german-velasco",
+    "page": "https://www.germanvelasco.com/talks",
+    "image_source": "https://avatars.githubusercontent.com/u/3245976?s=256&v=4",
+    "method": "github-profile-on-source",
+    "local": "/images/people/german-velasco.webp",
+    "bytes": 9713,
+    "github_candidate": "germsvel"
+  },
+  {
+    "kind": "podcasts",
+    "id": "beam-there-done-that",
+    "page": "https://anchor.fm/s/10f787368/podcast/rss",
+    "image_source": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45445194/45445194-1772070691483-c305179ad8028.jpg",
+    "method": "publisher-rss-artwork",
+    "local": "/images/podcasts/beam-there-done-that.webp",
+    "bytes": 1102506
+  },
+  {
+    "kind": "podcasts",
+    "id": "elixir-em-foco",
+    "page": "https://elixiremfoco.com/",
+    "image_source": "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded_nologo/12866474/12866474-1614898273212-e4a057b2d5a0e.jpg",
+    "method": "publisher-rss-artwork",
+    "local": "/images/podcasts/elixir-em-foco.webp",
+    "bytes": 210537
+  },
+  {
+    "kind": "podcasts",
+    "id": "elixir-wizards",
+    "page": "https://smartlogic.io/podcast/elixir-wizards/",
+    "image_source": "https://media24.fireside.fm/file/fireside-images-2024/podcasts/images/0/03a50f66-dc5e-4da4-ab6e-31895b6d4c9e/cover.jpg?v=3",
+    "method": "publisher-rss-artwork",
+    "local": "/images/podcasts/elixir-wizards.webp",
+    "bytes": 294099
+  },
+  {
+    "kind": "podcasts",
+    "id": "thinking-elixir",
+    "page": "https://podcast.thinkingelixir.com/309",
+    "image_source": "https://media24.fireside.fm/file/fireside-images-2024/podcasts/images/8/811c9756-babe-40ac-8c25-b3bb24e522e0/cover.jpg?v=2",
+    "method": "publisher-rss-artwork",
+    "local": "/images/podcasts/thinking-elixir.webp",
+    "bytes": 304474
+  },
+  {
+    "kind": "podcasts",
+    "id": "beam-radio",
+    "page": "https://www.beamrad.io/",
+    "image_source": "https://media24.fireside.fm/file/fireside-images-2024/podcasts/images/a/a11633b3-cf22-42b6-875e-ecdfee41c919/cover.jpg?v=1",
+    "method": "publisher-rss-artwork",
+    "local": "/images/podcasts/beam-radio.webp",
+    "bytes": 420520
+  },
+  {
+    "kind": "podcasts",
+    "id": "elixir-newbie",
+    "page": "https://www.buzzsprout.com/1840381",
+    "image_source": "https://storage.buzzsprout.com/174pal6azn58endmhxws3iu88skt?.jpg",
+    "method": "publisher-rss-artwork",
+    "local": "/images/podcasts/elixir-newbie.webp",
+    "bytes": 214248
+  },
+  {
+    "kind": "podcasts",
+    "id": "elixir-outlaws",
+    "page": "https://podcasts.apple.com/us/podcast/elixir-outlaws/id1372617417",
+    "image_source": "https://media24.fireside.fm/file/fireside-images-2024/podcasts/images/4/4b3f9fe7-b118-4f29-b6ee-7baf2571b03c/cover.jpg?v=4",
+    "method": "publisher-rss-artwork",
+    "local": "/images/podcasts/elixir-outlaws.webp",
+    "bytes": 224484
+  },
+  {
+    "kind": "podcasts",
+    "id": "elixir-talk",
+    "page": "https://podcasts.apple.com/us/podcast/elixir-talk/id1298287048",
+    "image_source": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts125/v4/5d/f3/91/5df391bd-a870-10a4-0623-d0ed9eec125e/mza_4250883461253356454.jpg/1200x1200bf-60.jpg",
+    "method": "official-social-image",
+    "local": "/images/podcasts/elixir-talk.webp",
+    "bytes": 40901
+  },
+  {
+    "kind": "youtube",
+    "id": "elixirconf",
+    "page": "https://www.youtube.com/@ElixirConf",
+    "image_source": "https://yt3.googleusercontent.com/WqM3hx0p1aXVne5scBpdYNqWGE_nweNVVyj0Wfp2jAPGkC5rojIF2GdL14DRIxKAQLk6k4fpMw=s900-c-k-c0x00ffffff-no-rj",
+    "method": "youtube-channel-avatar",
+    "local": "/images/youtube/elixirconf.webp",
+    "bytes": 35666
+  },
+  {
+    "kind": "youtube",
+    "id": "elixir-mentor",
+    "page": "https://www.youtube.com/@ElixirMentor",
+    "image_source": "https://yt3.googleusercontent.com/m-Jrk-GupkTAkLxFpGQvzKFGgKgDMsi_buuuMTl-BcuUoEWuPpnZ2PycQzLz68PQlvd2wKRhFA=s900-c-k-c0x00ffffff-no-rj",
+    "method": "youtube-channel-avatar",
+    "local": "/images/youtube/elixir-mentor.webp",
+    "bytes": 36063
+  },
+  {
+    "kind": "youtube",
+    "id": "elixir-em-foco",
+    "page": "https://www.youtube.com/@elixiremfoco",
+    "image_source": "https://yt3.googleusercontent.com/ytc/AIdro_nsUjHxFSitGV7D_0N57PsEfkWtxqnbevNT9CqHT1fdOA=s900-c-k-c0x00ffffff-no-rj",
+    "method": "youtube-channel-avatar",
+    "local": "/images/youtube/elixir-em-foco.webp",
+    "bytes": 24366
+  },
+  {
+    "kind": "youtube",
+    "id": "underjord",
+    "page": "https://www.youtube.com/c/underjord",
+    "image_source": "https://yt3.googleusercontent.com/sVbYbwC0HeMY0QqjpJixXBDyv9UBXm2myHy6L9guplTPLxn3XlnTSj_7Ncq37KSGacH2xZ8y5A=s900-c-k-c0x00ffffff-no-rj",
+    "method": "youtube-channel-avatar",
+    "local": "/images/youtube/underjord.webp",
+    "bytes": 68387
+  },
+  {
+    "kind": "youtube",
+    "id": "alchemist-camp",
+    "page": "https://www.youtube.com/alchemistcamp",
+    "image_source": "https://yt3.googleusercontent.com/ytc/AIdro_k0eaMFDEcfH_Scrg3PPY6WdnzWeYDomDczLZGfam9jWNQ=s900-c-k-c0x00ffffff-no-rj",
+    "method": "youtube-channel-avatar",
+    "local": "/images/youtube/alchemist-camp.webp",
+    "bytes": 36872
+  },
+  {
+    "kind": "youtube",
+    "id": "elixircasts",
+    "page": "https://www.youtube.com/@elixircasts2332",
+    "image_source": "https://yt3.googleusercontent.com/ytc/AIdro_mFPYi9MK2X821jvfvh0NkIAALRTdreqE7Mfcte5zdIzg=s900-c-k-c0x00ffffff-no-rj",
+    "method": "youtube-channel-avatar",
+    "local": "/images/youtube/elixircasts.webp",
+    "bytes": 41525
+  },
+  {
+    "kind": "youtube",
+    "id": "groxio",
+    "page": "https://www.youtube.com/@Groxio",
+    "image_source": "https://yt3.googleusercontent.com/BIyOCTvv2QHILIHzqvN9ezpINqr14jEncT2sqBTHvbg4SU6Gw1EFjayNq4dlUsspOqme1jxKmRk=s900-c-k-c0x00ffffff-no-rj",
+    "method": "youtube-channel-avatar",
+    "local": "/images/youtube/groxio.webp",
+    "bytes": 99486
+  },
+  {
+    "kind": "youtube",
+    "id": "learn-elixir",
+    "page": "https://www.youtube.com/c/learnelixir",
+    "image_source": "https://yt3.googleusercontent.com/rcuCCKnyqLrM1B2sOhswvtyCjcjAfHpfKQTpmdXEE98x_ZgWBRP_DplliM55Ru1X2yYlf0sK=s900-c-k-c0x00ffffff-no-rj",
+    "method": "youtube-channel-avatar",
+    "local": "/images/youtube/learn-elixir.webp",
+    "bytes": 69679
+  },
+  {
+    "kind": "events",
+    "id": "elixirconf-us-2026",
+    "page": "https://www.elixirconf.com/",
+    "image_source": "https://elixirconf.com/assets/images/ECUS26%20general.png",
+    "method": "official-social-image",
+    "local": "/images/events/elixirconf-us-2026.webp",
+    "bytes": 1197283
+  },
+  {
+    "kind": "events",
+    "id": "elixirconf-eu-2026",
+    "page": "https://www.elixirconf.eu/",
+    "image_source": "https://www.elixirconf.eu/assets/images/ElixirConf%20EU%202026%20banner%20dates.png",
+    "method": "official-social-image",
+    "local": "/images/events/elixirconf-eu-2026.webp",
+    "bytes": 893051
+  },
+  {
+    "kind": "events",
+    "id": "code-beam-europe-2025",
+    "page": "https://codebeameurope.com/",
+    "image_source": "https://codebeameurope.com/assets/images/CBE2026.png",
+    "method": "official-social-image",
+    "local": "/images/events/code-beam-europe-2025.webp",
+    "bytes": 252991
+  },
+  {
+    "kind": "events",
+    "id": "code-beam-europe-2026",
+    "page": "https://codebeameurope.com/",
+    "image_source": "https://codebeameurope.com/assets/images/CBE2026.png",
+    "method": "official-social-image",
+    "local": "/images/events/code-beam-europe-2026.webp",
+    "bytes": 252991
+  },
+  {
+    "kind": "events",
+    "id": "code-beam-lite-stockholm-2026",
+    "page": "https://codebeamstockholm.com/",
+    "image_source": "https://codebeamstockholm.com/assets/images/STO2026.png",
+    "method": "official-social-image",
+    "local": "/images/events/code-beam-lite-stockholm-2026.webp",
+    "bytes": 5207457
+  },
+  {
+    "kind": "events",
+    "id": "empex-2023",
+    "page": "https://empex.co/",
+    "error": "HTTPSConnectionPool(host='empex.co', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'empex.co'. (_ssl.c:1007)\")))"
+  },
+  {
+    "kind": "events",
+    "id": "elixir-curitiba-2025",
+    "page": "https://curitiba.elixiremfoco.com/",
+    "image_source": "https://curitiba.elixiremfoco.com/images/elixircuritiba_elixiremfoco_logo.png",
+    "method": "official-social-image",
+    "local": "/images/events/elixir-curitiba-2025.webp",
+    "bytes": 58012
+  },
+  {
+    "kind": "events",
+    "id": "code-beam-america-2025",
+    "page": "https://codebeamamerica.com/",
+    "image_source": "https://codebeamamerica.com/assets/images/CBA25-stage.png",
+    "method": "official-social-image",
+    "local": "/images/events/code-beam-america-2025.webp",
+    "bytes": 2754277
+  },
+  {
+    "kind": "events",
+    "id": "goatmire-elixir-nervesconf-eu-2026",
+    "page": "https://2026.goatmire.com/",
+    "image_source": "https://2026.goatmire.com/static/images/logo.png",
+    "method": "official-social-image",
+    "local": "/images/events/goatmire-elixir-nervesconf-eu-2026.webp",
+    "bytes": 1262942
+  },
+  {
+    "kind": "events",
+    "id": "ashconf-2026",
+    "page": "https://luma.com/wz4z0iz6",
+    "image_source": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=800,height=420/event-social/83/d513ff25-8918-476b-989a-530f962a2dca.png",
+    "method": "official-social-image",
+    "local": "/images/events/ashconf-2026.webp",
+    "bytes": 20573
+  },
+  {
+    "kind": "events",
+    "id": "exmex-2026",
+    "page": "https://exmexconf.com/",
+    "image_source": "https://exmexconf.com/exmex-2026-opengraph.png",
+    "method": "official-social-image",
+    "local": "/images/events/exmex-2026.webp",
+    "bytes": 62305
+  },
+  {
+    "kind": "events",
+    "id": "gigcityelixir-2025",
+    "page": "https://www.gigcityelixir.com/",
+    "image_source": "https://www.gigcityelixir.com/_astro/favicon.IBVdS0l1.png",
+    "method": "official-icon",
+    "local": "/images/events/gigcityelixir-2025.webp",
+    "bytes": 2262
+  },
+  {
+    "kind": "events",
+    "id": "gigcityelixir-2027",
+    "page": "https://www.gigcityelixir.com/",
+    "image_source": "https://www.gigcityelixir.com/_astro/favicon.IBVdS0l1.png",
+    "method": "official-icon",
+    "local": "/images/events/gigcityelixir-2027.webp",
+    "bytes": 2262
+  },
+  {
+    "kind": "events",
+    "id": "nervesconf-us-2025",
+    "page": "https://nervesconf.us/",
+    "image_source": "https://nervesconf.us/assets/nervesconf-social.png",
+    "method": "official-social-image",
+    "local": "/images/events/nervesconf-us-2025.webp",
+    "bytes": 222448
+  },
+  {
+    "kind": "events",
+    "id": "nervesconf-us-2027",
+    "page": "https://nervesconf.us/",
+    "image_source": "https://nervesconf.us/assets/nervesconf-social.png",
+    "method": "official-social-image",
+    "local": "/images/events/nervesconf-us-2027.webp",
+    "bytes": 222448
+  },
+  {
+    "kind": "events",
+    "id": "elixirconf-brasil-2027",
+    "page": "https://www.elixirconf.com.br/",
+    "image_source": "https://www.elixirconf.com.br/assets/images/og-image.jpg",
+    "method": "official-social-image",
+    "local": "/images/events/elixirconf-brasil-2027.webp",
+    "bytes": 138986
+  },
+  {
+    "kind": "events",
+    "id": "alchemy-conf-2025",
+    "page": "https://alchemyconf.com/",
+    "image_source": "https://alchemyconf.com/opengraph-image.png?257e30834513a131",
+    "method": "official-social-image",
+    "local": "/images/events/alchemy-conf-2025.webp",
+    "bytes": 50926
+  },
+  {
+    "kind": "events",
+    "id": "elixirconf-africa-2023",
+    "page": "https://elixirforum.com/t/2023-05-26-elixirconf-africa-virtual/55492",
+    "image_source": "https://forum.elixirforum.com/uploads/default/original/3X/e/8/e8c61be0b8ced9e9a1be20b8f6ec80f4b32ec2fd.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/elixirconf-africa-2023.webp",
+    "bytes": 63402
+  },
+  {
+    "kind": "events",
+    "id": "meetup-berlin",
+    "page": "https://www.meetup.com/elixir-berlin/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/e/5/c/e/600_486718830.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-berlin.webp",
+    "bytes": 58389
+  },
+  {
+    "kind": "events",
+    "id": "meetup-stockholm-beam-languages-united",
+    "page": "https://www.meetup.com/l-o-b-stockholm/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/3/7/f/0/600_522854320.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-stockholm-beam-languages-united.webp",
+    "bytes": 35126
+  },
+  {
+    "kind": "events",
+    "id": "meetup-vienna",
+    "page": "https://www.meetup.com/Elixir-Vienna/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/8/b/3/0/600_487295632.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-vienna.webp",
+    "bytes": 20375
+  },
+  {
+    "kind": "events",
+    "id": "meetup-melbourne",
+    "page": "https://www.meetup.com/Elixir-Melbourne/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/6/d/a/7/600_521548071.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-melbourne.webp",
+    "bytes": 46073
+  },
+  {
+    "kind": "events",
+    "id": "meetup-london",
+    "page": "https://www.meetup.com/elixir-london/",
+    "image_source": "https://secure.meetupstatic.com/next/images/shared/meetup-flyer.png",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-london.webp",
+    "bytes": 649608
+  },
+  {
+    "kind": "events",
+    "id": "meetup-paris-ex",
+    "page": "https://www.meetup.com/elixir/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/3/b/3/6/600_518415158.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-paris-ex.webp",
+    "bytes": 64097
+  },
+  {
+    "kind": "events",
+    "id": "meetup-amsterdam",
+    "page": "https://www.meetup.com/Amsterdam-Elixir/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/1/d/7/5/600_458707541.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-amsterdam.webp",
+    "bytes": 72403
+  },
+  {
+    "kind": "events",
+    "id": "meetup-calgary",
+    "page": "https://www.meetup.com/elixir-calgary/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/b/6/8/d/600_524386733.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-calgary.webp",
+    "bytes": 22404
+  },
+  {
+    "kind": "events",
+    "id": "meetup-austin",
+    "page": "https://stationaustin.org/event/austin-elixir-meetup/",
+    "error": "403 Client Error: Forbidden for url: https://stationaustin.org/event/austin-elixir-meetup/"
+  },
+  {
+    "kind": "events",
+    "id": "meetup-boulder",
+    "page": "https://www.meetup.com/boulder-elixir/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/c/b/3/600_445203251.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-boulder.webp",
+    "bytes": 79471
+  },
+  {
+    "kind": "events",
+    "id": "meetup-cincinnati",
+    "page": "http://www.meetup.com/Cincinnati-Elixir-Meetup/",
+    "image_source": "https://secure.meetupstatic.com/next/images/shared/meetup-flyer.png",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-cincinnati.webp",
+    "bytes": 649608
+  },
+  {
+    "kind": "events",
+    "id": "meetup-toronto",
+    "page": "https://www.meetup.com/torontoelixir/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/2/4/f/600_439080591.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-toronto.webp",
+    "bytes": 34938
+  },
+  {
+    "kind": "events",
+    "id": "meetup-montreal",
+    "page": "https://www.montrealelixir.ca/",
+    "error": "No suitable official image downloaded",
+    "candidates": []
+  },
+  {
+    "kind": "events",
+    "id": "meetup-new-york-brooklyn",
+    "page": "https://luma.com/72ybti8v",
+    "image_source": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=800,height=420/event-social/hu/69deeb3f-d6a9-4d97-b811-8e1168abf9c3.png",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-new-york-brooklyn.webp",
+    "bytes": 15120
+  },
+  {
+    "kind": "events",
+    "id": "meetup-chicago-software-mansion-x-dscout",
+    "page": "https://luma.com/byem6v75",
+    "image_source": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=800,height=420/event-social/l3/20c5a475-1252-43cd-86be-52750d7fdc9d.png",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-chicago-software-mansion-x-dscout.webp",
+    "bytes": 31988
+  },
+  {
+    "kind": "events",
+    "id": "meetup-san-francisco-erlang-elixir-sf",
+    "page": "https://www.meetup.com/erlangelixirsf/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/4/6/6/9/600_478698025.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-san-francisco-erlang-elixir-sf.webp",
+    "bytes": 42368
+  },
+  {
+    "kind": "events",
+    "id": "meetup-jacksonville",
+    "page": "https://www.meetup.com/jax-ex",
+    "image_source": "https://secure.meetupstatic.com/photos/event/8/5/2/8/600_528394088.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-jacksonville.webp",
+    "bytes": 25338
+  },
+  {
+    "kind": "events",
+    "id": "meetup-montevideo",
+    "page": "https://www.meetup.com/Elixir-Montevideo/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/1/8/2/4/600_534666180.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-montevideo.webp",
+    "bytes": 34193
+  },
+  {
+    "kind": "events",
+    "id": "meetup-mexico-city",
+    "page": "https://www.meetup.com/Elixir-Mexico-City/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/5/3/a/b/600_526641419.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-mexico-city.webp",
+    "bytes": 44688
+  },
+  {
+    "kind": "events",
+    "id": "meetup-taipei-elixir-taiwan",
+    "page": "https://luma.com/s45ux60d",
+    "image_source": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=800,height=420/event-social/nf/c99a0805-3e98-4f7a-acf1-a5584c59b9c0.png",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-taipei-elixir-taiwan.webp",
+    "bytes": 17860
+  },
+  {
+    "kind": "events",
+    "id": "meetup-belo-horizonte",
+    "page": "https://www.meetup.com/elixir-bh/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/7/0/5/600_529801797.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-belo-horizonte.webp",
+    "bytes": 24470
+  },
+  {
+    "kind": "events",
+    "id": "meetup-sydney",
+    "page": "https://luma.com/6k7hotj8",
+    "image_source": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=800,height=420/event-social/xk/8aef8d5f-cb80-4cd2-8424-74bbb2c248dc.png",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-sydney.webp",
+    "bytes": 20446
+  },
+  {
+    "kind": "events",
+    "id": "meetup-fukuoka-kokura-elixirimp-elixirmobile",
+    "page": "https://fukuokaex.connpass.com/",
+    "image_source": "https://media.connpass.com/thumbs/93/b1/93b123bdf628132ced1d5d0f8db957a1.png",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-fukuoka-kokura-elixirimp-elixirmobile.webp",
+    "bytes": 170078
+  },
+  {
+    "kind": "events",
+    "id": "meetup-sao-paulo-elug-sp",
+    "page": "http://www.meetup.com/elug_sp/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/4/e/e/8/600_469400200.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-sao-paulo-elug-sp.webp",
+    "bytes": 26873
+  },
+  {
+    "kind": "events",
+    "id": "meetup-boston",
+    "page": "http://www.meetup.com/Boston-Elixir/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/8/e/8/8/600_527676488.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-boston.webp",
+    "bytes": 30797
+  },
+  {
+    "kind": "events",
+    "id": "meetup-south-africa-elixirza",
+    "page": "https://elixirza.org/",
+    "image_source": "https://elixirza.org/images/elixirza-logo.png",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-south-africa-elixirza.webp",
+    "bytes": 50845
+  },
+  {
+    "kind": "events",
+    "id": "meetup-kenya-techgroup-kenya-elixir-session",
+    "page": "https://events.techgroupkenya.co.ke/events/TGKTDUN8FWW1/elixir-for-reliable-systems/",
+    "image_source": "https://events.techgroupkenya.co.ke/wp-content/uploads/2026/04/tgk-event-209.jpg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-kenya-techgroup-kenya-elixir-session.webp",
+    "bytes": 296981
+  },
+  {
+    "kind": "events",
+    "id": "meetup-elixir-naija-nigeria",
+    "page": "https://elixirforum.com/t/elixir-naija-weekly-code-clinic-monthly-meetups-and-friday-resource-drops/73582",
+    "image_source": "https://elixirforum.com/apple-touch-icon.png",
+    "method": "official-icon",
+    "local": "/images/events/meetup-elixir-naija-nigeria.webp",
+    "bytes": 9567
+  },
+  {
+    "kind": "events",
+    "id": "meetup-curiosum-online-meetups",
+    "page": "https://curiosum.com/elixir-meetups",
+    "image_source": "https://cdn.prod.website-files.com/6734a45e36746d73f263268d/685ea4908d561819b390cf71_og_image.png",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-curiosum-online-meetups.webp",
+    "bytes": 274247
+  },
+  {
+    "kind": "events",
+    "id": "meetup-madrid",
+    "page": "https://www.meetup.com/Madrid-Elixir/",
+    "image_source": "https://secure.meetupstatic.com/photos/event/5/7/c/600_449401404.jpeg",
+    "method": "official-social-image",
+    "local": "/images/events/meetup-madrid.webp",
+    "bytes": 42001
+  },
+  {
+    "kind": "resources",
+    "id": "elixirweekly",
+    "page": "https://elixirweekly.net/",
+    "image_source": "https://elixirweekly.net/images/envelope.png",
+    "method": "official-social-image",
+    "local": "/images/resources/elixirweekly.webp",
+    "bytes": 21308
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-radar",
+    "page": "https://elixir-radar.com/",
+    "error": "No suitable official image downloaded",
+    "candidates": []
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-merge",
+    "page": "https://elixirmerge.com/",
+    "image_source": "https://hashmerge.com/images/elixir-merge-og.png",
+    "method": "official-social-image",
+    "local": "/images/resources/elixir-merge.webp",
+    "bytes": 21887
+  },
+  {
+    "kind": "resources",
+    "id": "underjord-newsletter",
+    "page": "https://underjord.io/newsletter.html",
+    "image_source": "https://underjord.io/img/preview.png",
+    "method": "official-social-image",
+    "local": "/images/resources/underjord-newsletter.webp",
+    "bytes": 360858
+  },
+  {
+    "kind": "resources",
+    "id": "nerves-newsletter",
+    "page": "https://underjord.io/nerves-newsletter.html",
+    "image_source": "https://underjord.io/img/preview.png",
+    "method": "official-social-image",
+    "local": "/images/resources/nerves-newsletter.webp",
+    "bytes": 360858
+  },
+  {
+    "kind": "resources",
+    "id": "global-elixir-meetups-updates",
+    "page": "https://globalelixirmeetups.com/",
+    "image_source": "https://www.shimajiri-gakusui.com/1.jpg",
+    "method": "official-social-image",
+    "local": "/images/resources/global-elixir-meetups-updates.webp",
+    "bytes": 485262
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-forum",
+    "page": "https://elixirforum.com",
+    "image_source": "https://elixirforum.com/apple-touch-icon.png",
+    "method": "official-icon",
+    "local": "/images/resources/elixir-forum.webp",
+    "bytes": 9567
+  },
+  {
+    "kind": "resources",
+    "id": "erlang-ecosystem-foundation",
+    "page": "https://erlef.org/",
+    "image_source": "https://erlef.org/images/apple-icon-57x57.png",
+    "method": "official-icon",
+    "local": "/images/resources/erlang-ecosystem-foundation.webp",
+    "bytes": 1789
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-on-libera-chat",
+    "page": "https://web.libera.chat/#elixir",
+    "image_source": "https://web.libera.chat/static/favicon.png",
+    "method": "official-icon",
+    "local": "/images/resources/elixir-on-libera-chat.webp",
+    "bytes": 4294
+  },
+  {
+    "kind": "resources",
+    "id": "official-guide-and-learning-directory",
+    "page": "https://elixir-lang.org/learning/",
+    "image_source": "https://elixir-lang.org/images/seo/og-image-elixir.png",
+    "method": "official-social-image",
+    "local": "/images/resources/official-guide-and-learning-directory.webp",
+    "bytes": 60593
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-school",
+    "page": "https://elixirschool.com/",
+    "image_source": "https://elixirschool.com/favicon.ico",
+    "method": "official-icon",
+    "local": "/images/resources/elixir-school.webp",
+    "bytes": 12014
+  },
+  {
+    "kind": "resources",
+    "id": "exercism-elixir-track",
+    "page": "https://exercism.org/tracks/elixir",
+    "image_source": "https://assets.exercism.org/meta/og.png",
+    "method": "official-social-image",
+    "local": "/images/resources/exercism-elixir-track.webp",
+    "bytes": 411063
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-koans",
+    "page": "https://github.com/elixirkoans/elixir-koans",
+    "image_source": "https://github.com/fluidicon.png",
+    "method": "official-icon",
+    "local": "/images/resources/elixir-koans.webp",
+    "bytes": 33270
+  },
+  {
+    "kind": "resources",
+    "id": "pragmatic-studio",
+    "page": "https://pragmaticstudio.com/elixir",
+    "image_source": "https://pragmaticstudio.com/open-graph-image.jpg",
+    "method": "official-social-image",
+    "local": "/images/resources/pragmatic-studio.webp",
+    "bytes": 104148
+  },
+  {
+    "kind": "resources",
+    "id": "groxio",
+    "page": "https://grox.io/courses",
+    "image_source": "https://grox.io/images/favicon.png",
+    "method": "official-icon",
+    "local": "/images/resources/groxio.webp",
+    "bytes": 10741
+  },
+  {
+    "kind": "resources",
+    "id": "learn-elixir-dev",
+    "page": "https://learn-elixir.dev",
+    "image_source": "https://learn-elixir.dev/assets/images/learn-elixir-banner.png",
+    "method": "official-social-image",
+    "local": "/images/resources/learn-elixir-dev.webp",
+    "bytes": 334475
+  },
+  {
+    "kind": "resources",
+    "id": "elixircasts",
+    "page": "https://elixircasts.io/",
+    "image_source": "https://s3.amazonaws.com/elixircasts/elixircasts/elixircasts-overview.png",
+    "method": "official-social-image",
+    "local": "/images/resources/elixircasts.webp",
+    "bytes": 41540
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-streams",
+    "page": "https://www.elixirstreams.com/",
+    "image_source": "https://www.elixirstreams.com/assets/images/elixir-streams-logo.png",
+    "method": "official-social-image",
+    "local": "/images/resources/elixir-streams.webp",
+    "bytes": 232739
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-jobs-jobs",
+    "page": "https://elixirjobs.net/",
+    "image_source": "https://elixirjobs.net/images/logo-28da6f2aaf26e6b8a830ca46cd7d9566.png?vsn=d",
+    "method": "official-social-image",
+    "local": "/images/resources/elixir-jobs-jobs.webp",
+    "bytes": 22108
+  },
+  {
+    "kind": "resources",
+    "id": "elixirdevs-jobs",
+    "page": "https://www.elixirdevs.com/",
+    "image_source": "https://www.elixirdevs.com/images/default-og-image-f4f4210b5b251c158882a9a1dddfc979.png?vsn=d",
+    "method": "official-social-image",
+    "local": "/images/resources/elixirdevs-jobs.webp",
+    "bytes": 214034
+  },
+  {
+    "kind": "resources",
+    "id": "beam-devs-jobs",
+    "page": "https://beamdevs.com/",
+    "image_source": "https://beamdevs.com/images/home-page-hero.png",
+    "method": "official-social-image",
+    "local": "/images/resources/beam-devs-jobs.webp",
+    "bytes": 362039
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-radar-jobs",
+    "page": "https://elixir-radar.com/jobs",
+    "error": "No suitable official image downloaded",
+    "candidates": []
+  },
+  {
+    "kind": "resources",
+    "id": "hex",
+    "page": "https://hex.pm",
+    "image_source": "https://hex.pm/images/favicon-160-3770bc59f1f8ba7656b4db5a1eacd8e3.png?vsn=d",
+    "method": "official-social-image",
+    "local": "/images/resources/hex.webp",
+    "bytes": 5691
+  },
+  {
+    "kind": "resources",
+    "id": "hexdocs",
+    "page": "https://hexdocs.pm",
+    "image_source": "https://hexdocs.pm/assets/favicon-96x96.png",
+    "method": "official-icon",
+    "local": "/images/resources/hexdocs.webp",
+    "bytes": 4013
+  },
+  {
+    "kind": "resources",
+    "id": "awesome-elixir",
+    "page": "https://github.com/h4cc/awesome-elixir",
+    "image_source": "https://opengraph.githubassets.com/9328f6d7b1f8e16cf1490bc99d27ca4e648344c302906bea7d474444d37c6700/h4cc/awesome-elixir",
+    "method": "official-social-image",
+    "local": "/images/resources/awesome-elixir.webp",
+    "bytes": 126211
+  },
+  {
+    "kind": "resources",
+    "id": "elixirstatus",
+    "page": "https://elixirstatus.com",
+    "image_source": "https://elixirstatus.com/images/logo.png",
+    "method": "official-social-image",
+    "local": "/images/resources/elixirstatus.webp",
+    "bytes": 7426
+  },
+  {
+    "kind": "resources",
+    "id": "elixirevents",
+    "page": "https://elixirevents.org/",
+    "image_source": "https://elixirevents.org/images/elixirevents-banner.png",
+    "method": "official-social-image",
+    "local": "/images/resources/elixirevents.webp",
+    "bytes": 480410
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-forum-events",
+    "page": "https://elixirforum.com/events/list",
+    "image_source": "https://elixirforum.com/apple-touch-icon.png",
+    "method": "official-icon",
+    "local": "/images/resources/elixir-forum-events.webp",
+    "bytes": 9567
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-repository",
+    "page": "https://github.com/elixir-lang/elixir",
+    "image_source": "https://opengraph.githubassets.com/45924474a40282cb818ab735371e21d0e028775a3a9b68ca784433150d2fe1e1/elixir-lang/elixir",
+    "method": "official-social-image",
+    "local": "/images/resources/elixir-repository.webp",
+    "bytes": 42883
+  },
+  {
+    "kind": "resources",
+    "id": "elixirbooks",
+    "page": "https://github.com/sger/ElixirBooks",
+    "image_source": "https://opengraph.githubassets.com/f9a38c2f69960ac6cb6af84a1202f251b65a8e5f97778c4428ffef817cbe9bc6/sger/ElixirBooks",
+    "method": "official-social-image",
+    "local": "/images/resources/elixirbooks.webp",
+    "bytes": 131054
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-companies",
+    "page": "https://elixir-companies.com/",
+    "image_source": "https://elixir-companies.com/images/elixircompanies_logo.png",
+    "method": "official-social-image",
+    "local": "/images/resources/elixir-companies.webp",
+    "bytes": 176615
+  },
+  {
+    "kind": "resources",
+    "id": "elixir-companies-source",
+    "page": "https://github.com/beam-community/elixir-companies",
+    "image_source": "https://github.com/fluidicon.png",
+    "method": "official-icon",
+    "local": "/images/resources/elixir-companies-source.webp",
+    "bytes": 33270
+  },
+  {
+    "kind": "resources",
+    "id": "global-elixir-meetups-2025-campaign",
+    "page": "https://globalelixirmeetups.com/",
+    "image_source": "https://www.shimajiri-gakusui.com/1.jpg",
+    "method": "official-social-image",
+    "local": "/images/resources/global-elixir-meetups-2025-campaign.webp",
+    "bytes": 485262
+  },
+  {
+    "kind": "companies",
+    "id": "discord",
+    "page": "https://discord.com",
+    "image_source": "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e90ab9506850e8a5dd48e3_Discrod_MainLogo.svg",
+    "method": "source-logo",
+    "local": "/images/companies/discord.svg",
+    "bytes": 6292
+  },
+  {
+    "kind": "companies",
+    "id": "cyanview",
+    "page": "https://www.cyanview.com",
+    "image_source": "https://www.cyanview.com/wp-content/uploads/2020/09/Logo_Cyan_gr.svg",
+    "method": "source-logo",
+    "local": "/images/companies/cyanview.svg",
+    "bytes": 3319
+  },
+  {
+    "kind": "companies",
+    "id": "veeps",
+    "page": "https://veeps.com",
+    "image_source": "https://res.cloudinary.com/veeps/image/upload/v1698871628/product/brand/Logo_lebrga.svg",
+    "method": "source-logo",
+    "local": "/images/companies/veeps.svg",
+    "bytes": 937
+  },
+  {
+    "kind": "companies",
+    "id": "sparkmeter",
+    "page": "https://www.sparkmeter.io",
+    "image_source": "https://www.sparkmeter.io/uploads/1/3/4/4/13442473/sparkmeter-logo2.png",
+    "method": "source-logo",
+    "local": "/images/companies/sparkmeter.webp",
+    "bytes": 10112
+  },
+  {
+    "kind": "companies",
+    "id": "community",
+    "page": "https://www.community.com",
+    "image_source": "https://community.com/assets/community-logo-CnwsRT8a.svg",
+    "method": "source-logo",
+    "local": "/images/companies/community.svg",
+    "bytes": 5367
+  },
+  {
+    "kind": "companies",
+    "id": "slab",
+    "page": "https://slab.com",
+    "image_source": "https://slab.com",
+    "method": "official-inline-logo",
+    "local": "/images/companies/slab.svg",
+    "bytes": 33519
+  },
+  {
+    "kind": "companies",
+    "id": "farmbot",
+    "page": "https://farm.bot",
+    "image_source": "https://farm.bot/cdn/shop/files/FarmBot.io_Trimmed_Logo_Gray_on_Transparent_1_1ec606e9-8aed-4af9-ad98-3b14a2fc0602_435x200.png?v=1614326948",
+    "method": "source-logo",
+    "local": "/images/companies/farmbot.webp",
+    "bytes": 34371
+  },
+  {
+    "kind": "companies",
+    "id": "plausible-analytics",
+    "page": "https://plausible.io",
+    "image_source": "https://plausible.io/assets/images/icon/plausible_logo.svg",
+    "method": "source-logo",
+    "local": "/images/companies/plausible-analytics.svg",
+    "bytes": 11172
+  },
+  {
+    "kind": "books",
+    "id": "the-toy-robot-walkthrough",
+    "page": "https://leanpub.com/elixir-toyrobot",
+    "image_source": "https://d2sofvawe08yqg.cloudfront.net/elixir-toyrobot/s_hero?1620599525&1620599525",
+    "local": "/images/books/the-toy-robot-walkthrough.webp",
+    "method": "publisher-cover"
+  },
+  {
+    "kind": "books",
+    "id": "the-alchemist-s-guide-to-otp",
+    "page": "https://leanpub.com/the-alchemists-guide-to-otp",
+    "image_source": "https://d2sofvawe08yqg.cloudfront.net/the-alchemists-guide-to-otp/s_hero?1620544813&1620544813",
+    "local": "/images/books/the-alchemist-s-guide-to-otp.webp",
+    "method": "publisher-cover"
+  },
+  {
+    "kind": "people",
+    "id": "frank-hunleth",
+    "page": "https://github.com/fhunleth",
+    "image_source": "https://avatars.githubusercontent.com/u/64669?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/frank-hunleth.webp",
+    "github": "fhunleth"
+  },
+  {
+    "kind": "people",
+    "id": "justin-schneck",
+    "page": "https://github.com/mobileoverlord",
+    "image_source": "https://avatars.githubusercontent.com/u/1391351?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/justin-schneck.webp",
+    "github": "mobileoverlord"
+  },
+  {
+    "kind": "people",
+    "id": "lars-wikman",
+    "page": "https://github.com/lawik",
+    "image_source": "https://avatars.githubusercontent.com/u/1971237?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/lars-wikman.webp",
+    "github": "lawik"
+  },
+  {
+    "kind": "people",
+    "id": "rebecca-le",
+    "page": "https://github.com/sevenseacat",
+    "image_source": "https://avatars.githubusercontent.com/u/543859?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/rebecca-le.webp",
+    "github": "sevenseacat"
+  },
+  {
+    "kind": "people",
+    "id": "james-edward-gray-ii",
+    "page": "https://github.com/JEG2",
+    "image_source": "https://avatars.githubusercontent.com/u/5639?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/james-edward-gray-ii.webp",
+    "github": "JEG2"
+  },
+  {
+    "kind": "people",
+    "id": "alex-koutmos",
+    "page": "https://github.com/akoutmos",
+    "image_source": "https://avatars.githubusercontent.com/u/4753634?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/alex-koutmos.webp",
+    "github": "akoutmos"
+  },
+  {
+    "kind": "people",
+    "id": "peter-ullrich",
+    "page": "https://github.com/PJUllrich",
+    "image_source": "https://avatars.githubusercontent.com/u/10426523?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/peter-ullrich.webp",
+    "github": "PJUllrich"
+  },
+  {
+    "kind": "people",
+    "id": "mitchell-hanberg",
+    "page": "https://github.com/mhanberg",
+    "image_source": "https://avatars.githubusercontent.com/u/5523984?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/mitchell-hanberg.webp",
+    "github": "mhanberg"
+  },
+  {
+    "kind": "people",
+    "id": "jacob-luetzow",
+    "page": "https://github.com/jacobluetzow",
+    "image_source": "https://avatars.githubusercontent.com/u/75959947?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/jacob-luetzow.webp",
+    "github": "jacobluetzow"
+  },
+  {
+    "kind": "people",
+    "id": "adolfo-neto",
+    "page": "https://github.com/adolfont",
+    "image_source": "https://avatars.githubusercontent.com/u/79562?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/adolfo-neto.webp",
+    "github": "adolfont"
+  },
+  {
+    "kind": "people",
+    "id": "mark-ericksen",
+    "page": "https://github.com/brainlid",
+    "image_source": "https://avatars.githubusercontent.com/u/808984?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/mark-ericksen.webp",
+    "github": "brainlid"
+  },
+  {
+    "kind": "people",
+    "id": "stephen-bussey",
+    "page": "https://github.com/sb8244",
+    "image_source": "https://avatars.githubusercontent.com/u/1231659?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/stephen-bussey.webp",
+    "github": "sb8244"
+  },
+  {
+    "kind": "people",
+    "id": "dave-thomas",
+    "page": "https://github.com/pragdave",
+    "image_source": "https://avatars.githubusercontent.com/u/10648?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/dave-thomas.webp",
+    "github": "pragdave"
+  },
+  {
+    "kind": "people",
+    "id": "bruce-tate",
+    "page": "https://github.com/batate",
+    "image_source": "https://avatars.githubusercontent.com/u/151993?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/bruce-tate.webp",
+    "github": "batate"
+  },
+  {
+    "kind": "people",
+    "id": "zoey",
+    "page": "https://github.com/zoedsoupe",
+    "image_source": "https://avatars.githubusercontent.com/u/44469426?v=4",
+    "method": "verified-github-avatar",
+    "local": "/images/people/zoey.webp",
+    "github": "zoedsoupe"
+  },
+  {
+    "kind": "companies",
+    "id": "change-org",
+    "page": "https://www.change.org",
+    "image_source": "https://static.change.org/favicons/favicon-48x48.png",
+    "method": "official-brand-icon",
+    "local": "/images/companies/change-org.webp"
+  },
+  {
+    "kind": "companies",
+    "id": "remote",
+    "page": "https://remote.com",
+    "image_source": "https://remote.com/remote-symbol.svg",
+    "method": "official-brand-icon",
+    "local": "/images/companies/remote.svg"
+  },
+  {
+    "kind": "companies",
+    "id": "french-ministry-of-ecological-transition",
+    "page": "https://www.ecologie.gouv.fr",
+    "image_source": "https://www.ecologie.gouv.fr/libraries/dsfr/dist/favicon/apple-touch-icon.png",
+    "method": "official-brand-icon",
+    "local": "/images/companies/french-ministry-of-ecological-transition.webp"
+  },
+  {
+    "kind": "companies",
+    "id": "x-plane-laminar-research",
+    "page": "https://www.x-plane.com",
+    "error": "Official logo not retrieved"
+  },
+  {
+    "kind": "companies",
+    "id": "pepsico",
+    "page": "https://www.pepsico.com",
+    "error": "Official logo not retrieved"
+  },
+  {
+    "kind": "companies",
+    "id": "v7",
+    "page": "https://www.v7labs.com",
+    "image_source": "https://framerusercontent.com/images/JMSwMQk9yHdptFFLNw5waaFMaU.png",
+    "method": "official-brand-icon",
+    "local": "/images/companies/v7.webp"
+  },
+  {
+    "kind": "companies",
+    "id": "duffel",
+    "page": "https://duffel.com",
+    "image_source": "https://duffel.com/images/favicon/favicon-96x96.png",
+    "method": "official-brand-icon",
+    "local": "/images/companies/duffel.webp"
+  },
+  {
+    "kind": "companies",
+    "id": "heroku",
+    "page": "https://www.heroku.com",
+    "image_source": "https://www.heroku.com/wp-content/uploads/2025/01/apple-touch-icon-180x180-1.png?w=180",
+    "method": "official-brand-icon",
+    "local": "/images/companies/heroku.webp"
+  },
+  {
+    "kind": "companies",
+    "id": "supabase",
+    "page": "https://supabase.com",
+    "image_source": "https://supabase.com/favicon/favicon.ico",
+    "method": "official-brand-icon",
+    "local": "/images/companies/supabase.webp"
+  },
+  {
+    "kind": "companies",
+    "id": "fly-io",
+    "page": "https://fly.io",
+    "image_source": "https://fly.io/phx/ui/images/favicon/apple-touch-icon-3e4c9ce127b5cd6f5516638d4bbf1dd5.png?vsn=d",
+    "method": "official-brand-icon",
+    "local": "/images/companies/fly-io.webp"
+  },
+  {
+    "kind": "companies",
+    "id": "ramp",
+    "page": "https://ramp.com",
+    "image_source": "https://ramp.com/favicon.ico?favicon.1drlcmj-8oww8.ico",
+    "method": "official-brand-icon",
+    "local": "/images/companies/ramp.webp"
+  },
+  {
+    "kind": "companies",
+    "id": "felt",
+    "page": "https://felt.com",
+    "image_source": "https://felt.com/favicon.svg",
+    "method": "official-brand-icon",
+    "local": "/images/companies/felt.svg"
+  },
+  {
+    "kind": "companies",
+    "id": "cars-com",
+    "page": "https://www.cars.com",
+    "error": "Official logo not retrieved"
+  },
+  {
+    "kind": "companies",
+    "id": "bbc",
+    "page": "https://www.bbc.co.uk",
+    "image_source": "https://static.files.bbci.co.uk/core/website/assets/static/icons/touch/bbc/touch-icon-48.22318ec16e.png",
+    "method": "official-brand-icon",
+    "local": "/images/companies/bbc.webp"
+  },
+  {
+    "kind": "companies",
+    "id": "spotify",
+    "page": "https://www.spotify.com",
+    "image_source": "https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png",
+    "method": "official-brand-icon",
+    "local": "/images/companies/spotify.webp"
+  },
+  {
+    "kind": "companies",
+    "id": "mux",
+    "page": "https://www.mux.com",
+    "image_source": "https://www.mux.com/icon-pwu6ef.svg?icon.302p-5ql3kvw_.svg",
+    "method": "official-brand-icon",
+    "local": "/images/companies/mux.svg"
+  },
+  {
+    "kind": "companies",
+    "id": "royal-bank-of-canada",
+    "page": "https://www.rbc.com/about-rbc.html",
+    "image_source": "https://www.rbc.com/dvl/v1.0/assets/images/logos/rbc-logo-shield.svg",
+    "method": "official-image",
+    "local": "/images/companies/royal-bank-of-canada.svg"
+  },
+  {
+    "kind": "people",
+    "id": "zoey-pessanha",
+    "page": "https://www.elixiremfoco.com/index_en.html",
+    "image_source": "https://elixiremfoco.com/images/zoey.jpg",
+    "method": "official-image",
+    "local": "/images/people/zoey-pessanha.webp"
+  },
+  {
+    "kind": "podcasts",
+    "id": "elixir-mix",
+    "page": "https://topenddevs.com/podcasts/elixir-mix",
+    "image_source": "https://topenddevs.com/variants/ch4ltodq5f8202711j3ejybflw2m/100/100",
+    "method": "official-image",
+    "local": "/images/podcasts/elixir-mix.webp"
+  },
+  {
+    "kind": "podcasts",
+    "id": "elixir-mentor",
+    "page": "https://anchor.fm/s/ea6e5268/podcast/rss",
+    "image_source": "https://hosting-media.riverside.com/media/imports/podcasts/30cdf92b-ca9a-4b86-b31a-f30b97b8acc8/39230986-1707088652724-bd6c08947d02e.jpg",
+    "method": "official-image",
+    "local": "/images/podcasts/elixir-mentor.webp"
+  },
+  {
+    "kind": "people",
+    "id": "parker-selbert",
+    "page": "https://github.com/sorentwo",
+    "image_source": "https://avatars.githubusercontent.com/u/270831?s=256&v=4",
+    "method": "official-image",
+    "local": "/images/people/parker-selbert.webp"
+  },
+  {
+    "kind": "people",
+    "id": "shannon-selbert",
+    "page": "https://github.com/sorenone",
+    "image_source": "https://avatars.githubusercontent.com/u/20355819?s=256&v=4",
+    "method": "official-image",
+    "local": "/images/people/shannon-selbert.webp"
+  }
+]

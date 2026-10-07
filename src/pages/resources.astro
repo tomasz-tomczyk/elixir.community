@@ -1,4 +1,5 @@
 ---
+import LocalImage from '@/components/LocalImage.astro'
 import EntryDates from '@/components/EntryDates.astro'
 import { getCollection } from 'astro:content'
 
@@ -75,7 +76,7 @@ const filterCss = categories
       {tools.map((tool) => (
         <li id={tool.id} data-category={tool.data.category}>
           <a href={tool.data.url} target="_blank" rel="noopener">
-            {tool.data.image && <img src={tool.data.image} alt="" width="28" height="28" loading="lazy" class="size-7 flex-none rounded object-contain" />}
+            {tool.data.image && <LocalImage src={tool.data.image} alt="" width="28" height="28" loading="lazy" class="size-7 flex-none rounded object-contain" />}
             <span class="flex min-w-0 flex-col gap-1">
               <b class="text-[1.0625rem] font-semibold tracking-tight">
                 {tool.data.name}

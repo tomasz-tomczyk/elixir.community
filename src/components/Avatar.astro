@@ -1,4 +1,5 @@
 ---
+import LocalImage from '@/components/LocalImage.astro'
 // A GitHub avatar with initials behind it, in case the image fails to load.
 // `shapes` adds the spotlight frame from the home page: a lilac disc with fuchsia and indigo shapes.
 import { personImages } from '@/lib/images'
@@ -43,7 +44,7 @@ const initials = name
     style={`width:${size}px;height:${size}px;font-size:${size / 2.8}px`}
   >
     <span aria-hidden="true">{initials}</span>
-    <img
+    <LocalImage
       src={personImages[name]}
       alt={name}
       width={size}

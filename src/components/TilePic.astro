@@ -1,4 +1,5 @@
 ---
+import LocalImage from '@/components/LocalImage.astro'
 // The small drawing for a section: a calendar, links, a play mark, a waveform,
 // a bookshelf, faces, or a skyline. Used in the home page tiles and in the
 // section page headers (SectionArt.astro). Styles live in ui.css.
@@ -104,7 +105,7 @@ const initials = (name: string) =>
         aria-label={person.data.name}
       >
         {initials(person.data.name)}
-        <img
+        <LocalImage
           src={person.data.image}
           alt=""
           width="56"

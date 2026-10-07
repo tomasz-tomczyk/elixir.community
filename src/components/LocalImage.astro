@@ -1,0 +1,11 @@
+---
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+interface Props { src?: string; alt: string; width?: number | string; height?: number | string; sizes?: string; widths?: number[]; class?: string; style?: string; loading?: 'lazy' | 'eager'; decoding?: 'async' | 'sync' | 'auto'; onerror?: string }
+const assets = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{webp,png,jpg,jpeg}', { eager: true })
+const { src, alt, width, height, widths, sizes, ...rest } = Astro.props
+const asset = src ? assets[src.replace('/images/', '/src/assets/images/')]?.default : undefined
+const w = width ? Number(width) : undefined
+const h = height ? Number(height) : undefined
+---
+{asset ? <Image src={asset} alt={alt} width={w} height={h} widths={widths?.filter(n => n <= asset.width)} sizes={sizes} format="webp" {...rest} /> : src ? <img src={src} alt={alt} width={width} height={height} {...rest} /> : null}

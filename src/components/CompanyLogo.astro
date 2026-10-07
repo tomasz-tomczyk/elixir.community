@@ -1,4 +1,5 @@
 ---
+import LocalImage from '@/components/LocalImage.astro'
 // Draws a logo from public/logos as a CSS mask, so every logo takes the text
 // color. This keeps the logo cloud one color in light and dark mode.
 import { getCollection } from 'astro:content'
@@ -16,4 +17,4 @@ const { id, name, height = 28, mark = false, class: className } = Astro.props
 const company = (await getCollection('companies')).find(c => c.id === id)
 const image = company?.data.image
 ---
-{image?.endsWith('.svg') ? <span role="img" aria-label={name} class:list={['inline-block flex-none bg-current', className]} style={`height:${height}px;width:${height * (mark ? 1.5 : 3)}px;mask:url(${image}) center / contain no-repeat`} /> : image ? <img src={image} alt={name} loading="lazy" class:list={['max-w-full object-contain', className]} style={`height:${height}px;max-width:${height * (mark ? 2 : 6)}px`} /> : <span class:list={['text-lg/none font-semibold tracking-tight',className]}>{name}</span>}
+{image?.endsWith('.svg') ? <span role="img" aria-label={name} class:list={['inline-block flex-none bg-current', className]} style={`height:${height}px;width:${height * (mark ? 1.5 : 3)}px;mask:url(${image}) center / contain no-repeat`} /> : image ? <LocalImage src={image} alt={name} loading="lazy" class:list={['max-w-full object-contain', className]} style={`height:${height}px;max-width:${height * (mark ? 2 : 6)}px`} /> : <span class:list={['text-lg/none font-semibold tracking-tight',className]}>{name}</span>}
