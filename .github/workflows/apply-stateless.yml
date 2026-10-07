@@ -34,8 +34,6 @@ jobs:
           s=s.replace(old, 'Plunk holds your email address, newsletter contact record and consent status and sends our emails. Plunk is the only store of newsletter signup and confirmation state. We do not store newsletter email addresses in a Cloudflare database.')
           s=s.replace('<p>Stale signup records in Cloudflare D1 are removed after 30 days when the next signup is processed. This is not a scheduled deletion exactly 30 days after a request.</p>', '<p>Confirmation links are digitally signed and expire after 24 hours. They are not stored on the server and cannot be individually revoked or marked as used. While a link is valid, pressing Confirm can subscribe an existing contact again, even after an unsubscribe. A link cannot recreate a deleted contact.</p>')
           p.write_text(s)
-          p=pathlib.Path('.github/workflows/apply-reviewed-build.yml')
-          p.write_text(p.read_text().replace('Runtime secrets and SIGNUP_DB', 'Runtime secrets'))
           pathlib.Path('.github/workflows/apply-stateless.yml').unlink()
           PY
       - run: npm ci
