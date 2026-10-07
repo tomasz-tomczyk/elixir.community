@@ -548,38 +548,42 @@ const swatches = [
               </span>
             </a>
           )}
-          <h4 class="ec-sched-sub">More roles</h4>
-          <ul class="ec-rows">
-            {olderJobs.slice(0, 4).map((job) => (
-              <li>
-                <a href={`/jobs/${job.id}`} class="ec-job">
-                  <span class="ec-logo-fit grid w-9 flex-none place-items-center [--fit:2.25rem]">
-                    <CompanyLogo
-                      id={job.data.company}
-                      name={companyName(job.data.company)}
-                      height={22}
-                      mark
-                    />
-                  </span>
-                  <span class="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <span class="j-title text-[1.0625rem]/6 font-semibold tracking-tight">
-                      {job.data.title}
-                    </span>
-                    <span class="text-sm text-(--ec-muted)">
-                      {companyName(job.data.company)} · {job.data.location} ·{' '}
-                      {job.data.type}
-                    </span>
-                  </span>
-                  <time
-                    class="flex-none font-mono text-[0.8125rem] text-(--ec-muted)"
-                    datetime={job.data.checked.toISOString()}
-                  >
-                    {shortDate(job.data.checked)}
-                  </time>
-                </a>
-              </li>
-            ))}
-          </ul>
+          {olderJobs.length > 0 && (
+            <>
+              <h4 class="ec-sched-sub">More roles</h4>
+              <ul class="ec-rows">
+                {olderJobs.slice(0, 4).map((job) => (
+                  <li>
+                    <a href={`/jobs/${job.id}`} class="ec-job">
+                      <span class="ec-logo-fit grid w-9 flex-none place-items-center [--fit:2.25rem]">
+                        <CompanyLogo
+                          id={job.data.company}
+                          name={companyName(job.data.company)}
+                          height={22}
+                          mark
+                        />
+                      </span>
+                      <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+                        <span class="j-title text-[1.0625rem]/6 font-semibold tracking-tight">
+                          {job.data.title}
+                        </span>
+                        <span class="text-sm text-(--ec-muted)">
+                          {companyName(job.data.company)} · {job.data.location}{' '}
+                          · {job.data.type}
+                        </span>
+                      </span>
+                      <time
+                        class="flex-none font-mono text-[0.8125rem] text-(--ec-muted)"
+                        datetime={job.data.checked.toISOString()}
+                      >
+                        {shortDate(job.data.checked)}
+                      </time>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       </div>
     </section>

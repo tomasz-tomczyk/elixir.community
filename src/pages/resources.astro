@@ -28,11 +28,16 @@ const categories = [
   { id: 'quality', label: 'Code quality', color: 'var(--ec-blush)' },
 ] as const
 
+// Only show filters that have at least one entry.
+const shown = categories.filter(
+  (c) => c.id === 'all' || tools.some((t) => t.data.category === c.id),
+)
+
 const labelFor = Object.fromEntries(categories.map((c) => [c.id, c.label]))
 const colorFor = Object.fromEntries(categories.map((c) => [c.id, c.color]))
 
 // The filter is plain CSS: one radio per category and a :has() rule per category.
-const filterCss = categories
+const filterCss = shown
   .filter((c) => c.id !== 'all')
   .map(
     (c) =>
@@ -53,7 +58,7 @@ const filterCss = categories
     <fieldset class="mt-12">
       <legend class="sr-only">Filter by category</legend>
       <div class="flex flex-wrap gap-2">
-        {categories.map((c) => (
+        {shown.map((c) => (
           <label class="chip cursor-pointer">
             <input
               type="radio"

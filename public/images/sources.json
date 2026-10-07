@@ -1055,24 +1055,6 @@
   },
   {
     "kind": "resources",
-    "id": "global-elixir-meetups-updates",
-    "page": "https://globalelixirmeetups.com/",
-    "image_source": "https://www.shimajiri-gakusui.com/1.jpg",
-    "method": "official-social-image",
-    "local": "/images/resources/global-elixir-meetups-updates.webp",
-    "bytes": 485262
-  },
-  {
-    "kind": "resources",
-    "id": "elixir-forum",
-    "page": "https://elixirforum.com",
-    "image_source": "https://elixirforum.com/apple-touch-icon.png",
-    "method": "official-icon",
-    "local": "/images/resources/elixir-forum.webp",
-    "bytes": 9567
-  },
-  {
-    "kind": "resources",
     "id": "erlang-ecosystem-foundation",
     "page": "https://erlef.org/",
     "image_source": "https://erlef.org/images/apple-icon-57x57.png",
@@ -1133,33 +1115,6 @@
     "method": "official-social-image",
     "local": "/images/resources/pragmatic-studio.webp",
     "bytes": 104148
-  },
-  {
-    "kind": "resources",
-    "id": "groxio",
-    "page": "https://grox.io/courses",
-    "image_source": "https://grox.io/images/favicon.png",
-    "method": "official-icon",
-    "local": "/images/resources/groxio.webp",
-    "bytes": 10741
-  },
-  {
-    "kind": "resources",
-    "id": "learn-elixir-dev",
-    "page": "https://learn-elixir.dev",
-    "image_source": "https://learn-elixir.dev/assets/images/learn-elixir-banner.png",
-    "method": "official-social-image",
-    "local": "/images/resources/learn-elixir-dev.webp",
-    "bytes": 334475
-  },
-  {
-    "kind": "resources",
-    "id": "elixircasts",
-    "page": "https://elixircasts.io/",
-    "image_source": "https://s3.amazonaws.com/elixircasts/elixircasts/elixircasts-overview.png",
-    "method": "official-social-image",
-    "local": "/images/resources/elixircasts.webp",
-    "bytes": 41540
   },
   {
     "kind": "resources",
@@ -1251,15 +1206,6 @@
   },
   {
     "kind": "resources",
-    "id": "elixir-forum-events",
-    "page": "https://elixirforum.com/events/list",
-    "image_source": "https://elixirforum.com/apple-touch-icon.png",
-    "method": "official-icon",
-    "local": "/images/resources/elixir-forum-events.webp",
-    "bytes": 9567
-  },
-  {
-    "kind": "resources",
     "id": "elixir-repository",
     "page": "https://github.com/elixir-lang/elixir",
     "image_source": "https://opengraph.githubassets.com/45924474a40282cb818ab735371e21d0e028775a3a9b68ca784433150d2fe1e1/elixir-lang/elixir",
@@ -1293,15 +1239,6 @@
     "method": "official-icon",
     "local": "/images/resources/elixir-companies-source.webp",
     "bytes": 33270
-  },
-  {
-    "kind": "resources",
-    "id": "global-elixir-meetups-2025-campaign",
-    "page": "https://globalelixirmeetups.com/",
-    "image_source": "https://www.shimajiri-gakusui.com/1.jpg",
-    "method": "official-social-image",
-    "local": "/images/resources/global-elixir-meetups-2025-campaign.webp",
-    "bytes": 485262
   },
   {
     "kind": "companies",

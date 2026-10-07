@@ -1,6 +1,7 @@
 ---
 import LocalImage from '@/components/LocalImage.astro'
 import EntryDates from '@/components/EntryDates.astro'
+import { edgeBackground } from '@/lib/edge-color'
 // A book cover drawn with CSS in the site's tones. `index` picks the tone and the shape,
 // so neighbouring books never share both.
 interface Props {
@@ -30,6 +31,9 @@ const tones = [
 const shapes = ['circle', 'leaf', 'arch', 'quarter', 'drop']
 const tone = tones[index % tones.length]
 const shape = shapes[index % shapes.length]
+// With an image, the cover takes the image's own edge colours instead of the tone.
+// Covers are wider than the 2:3 box, so the gaps are above and below.
+const imageBg = image && (await edgeBackground(image, { split: true }))
 ---
 
 <a
@@ -39,7 +43,10 @@ const shape = shapes[index % shapes.length]
   rel="noopener"
   class="group row-span-2 grid grid-rows-subgrid gap-4"
 >
-  <div class:list={['book self-end', `k-${tone}`]}>
+  <div
+    class:list={['book self-end', `k-${tone}`]}
+    style={imageBg && `--bg: ${imageBg}`}
+  >
     {image ? <LocalImage src={image} widths={[160, 240, 320, 480]} sizes="(min-width: 1024px) 220px, (min-width: 640px) 30vw, 45vw" alt={`${title} cover`} loading="lazy" class="size-full object-contain" /> : <span class="grid h-full place-items-center p-4 text-center">{title}</span>}
   </div>
   <div>
@@ -70,15 +77,6 @@ const shape = shapes[index % shapes.length]
     background: var(--bg);
     box-shadow: 0 18px 36px -20px rgb(20 0 40 / 0.55);
     transition: transform 0.35s var(--ec-ease);
-  }
-
-  /* Spine: a thin fold near the left edge. */
-  .book::before {
-    content: '';
-    position: absolute;
-    inset: 0 auto 0 7%;
-    width: 2px;
-    background: color-mix(in oklch, var(--tx) 22%, transparent);
   }
 
   .shape {

@@ -3,7 +3,8 @@
   name: ElixirWeekly
   url: https://elixirweekly.net/
   category: newsletters
-  description: Newsletter subscription page, checked 7 October 2026.
+  description: Weekly newsletter.
+  featured: true
   image: /images/resources/elixirweekly.webp
 - last_updated: '2026-10-07'
   id: elixir-radar
@@ -32,21 +33,6 @@
   category: newsletters
   description: Newsletter subscription page, checked 7 October 2026.
   image: /images/resources/nerves-newsletter.webp
-- last_updated: '2026-10-07'
-  id: global-elixir-meetups-updates
-  name: Global Elixir Meetups updates
-  url: https://globalelixirmeetups.com/
-  category: newsletters
-  description: event-specific updates
-  image: /images/resources/global-elixir-meetups-updates.webp
-- last_updated: '2026-10-07'
-  id: elixir-forum
-  name: Elixir Forum
-  url: https://elixirforum.com
-  category: community
-  description: Forums / help.
-  featured: true
-  image: /images/resources/elixir-forum.webp
 - last_updated: '2026-10-07'
   id: erlang-ecosystem-foundation
   name: Erlang Ecosystem Foundation
@@ -77,7 +63,7 @@
   url: https://elixirschool.com/
   category: learning
   description: Learning.
-  featured: false
+  featured: true
   image: /images/resources/elixir-school.webp
 - last_updated: '2026-10-07'
   id: exercism-elixir-track
@@ -85,7 +71,7 @@
   url: https://exercism.org/tracks/elixir
   category: learning
   description: Practice.
-  featured: false
+  featured: true
   image: /images/resources/exercism-elixir-track.webp
 - last_updated: '2026-10-07'
   id: elixir-koans
@@ -103,30 +89,6 @@
   description: Courses.
   featured: false
   image: /images/resources/pragmatic-studio.webp
-- last_updated: '2026-10-07'
-  id: groxio
-  name: Groxio
-  url: https://grox.io/courses
-  category: learning
-  description: Courses.
-  featured: false
-  image: /images/resources/groxio.webp
-- last_updated: '2026-10-07'
-  id: learn-elixir-dev
-  name: Learn-Elixir.dev
-  url: https://learn-elixir.dev
-  category: learning
-  description: Courses.
-  featured: false
-  image: /images/resources/learn-elixir-dev.webp
-- last_updated: '2026-10-07'
-  id: elixircasts
-  name: ElixirCasts
-  url: https://elixircasts.io/
-  category: learning
-  description: Screencasts.
-  featured: false
-  image: /images/resources/elixircasts.webp
 - last_updated: '2026-10-07'
   id: elixir-streams
   name: Elixir Streams
@@ -180,7 +142,7 @@
   url: https://hexdocs.pm
   category: workflow
   description: Documentation.
-  featured: false
+  featured: true
   image: /images/resources/hexdocs.webp
 - last_updated: '2026-10-07'
   id: awesome-elixir
@@ -206,14 +168,6 @@
   description: Talk and speaker archive.
   featured: false
   image: /images/resources/elixirevents.webp
-- last_updated: '2026-10-07'
-  id: elixir-forum-events
-  name: Elixir Forum events
-  url: https://elixirforum.com/events/list
-  category: community
-  description: Event discovery.
-  featured: false
-  image: /images/resources/elixir-forum-events.webp
 - last_updated: '2026-10-07'
   id: elixir-repository
   name: Elixir repository
@@ -243,10 +197,3 @@
   category: community
   description: Company submissions and source repository.
   image: /images/resources/elixir-companies-source.webp
-- last_updated: '2026-10-07'
-  id: global-elixir-meetups-2025-campaign
-  name: Global Elixir Meetups 2025 campaign
-  url: https://globalelixirmeetups.com/
-  category: community
-  description: Historical campaign. Does not establish current activity.
-  image: /images/resources/global-elixir-meetups-2025-campaign.webp

@@ -4,6 +4,7 @@ import EntryDates from '@/components/EntryDates.astro'
 // A YouTube channel card with a drawn thumbnail instead of an image.
 // Each card takes a tone and a corner shape from its index, so neighbours look different.
 import Icon from '@/components/Icon.astro'
+import { edgeBackground } from '@/lib/edge-color'
 
 interface Props {
   id?: string
@@ -29,6 +30,8 @@ const tones = [
 const shapes = ['play', 'drop', 'ring', 'leaf', 'circle', 'square']
 const tone = tones[index % tones.length]
 const shape = shapes[index % shapes.length]
+// With an image, the thumbnail takes the image's own edge colour instead of the tone.
+const imageBg = image && (await edgeBackground(image))
 ---
 
 <a id={id} href={href} target="_blank" rel="noopener" class="card flex h-full flex-col">
@@ -37,6 +40,7 @@ const shape = shapes[index % shapes.length]
       'thumb relative isolate grid aspect-video place-items-center overflow-hidden',
       `k-${tone}`,
     ]}
+    style={imageBg && `--bg: ${imageBg}`}
   >
     {image ? <LocalImage src={image} widths={[160, 240, 320]} sizes="(min-width: 768px) 240px, 80vw" alt={`${title} channel avatar`} loading="lazy" class="absolute inset-0 m-auto max-h-full max-w-full object-contain" /> : <span class="name">{title}</span>}
   </div>

@@ -303,7 +303,12 @@
   border-bottom: 0;
 }
 
+/* The row reaches past the column by the same amount it is padded, so the text
+   stays in line. On hover, padding moves from the right to the left: the row
+   slides right without its text getting narrower and wrapping. */
 .ec-rows a {
+  margin-inline: -0.75rem;
+  padding-inline: 0.75rem;
   border-radius: 12px;
   transition:
     padding 0.25s var(--ec-ease),
@@ -311,7 +316,7 @@
 }
 
 .ec-rows a:hover {
-  padding-inline: 0.75rem;
+  padding-inline: 1.125rem 0.375rem;
   background: var(--ec-surface);
 }
 
