@@ -34,7 +34,7 @@ const shape = shapes[index % shapes.length]
       `k-${tone}`,
     ]}
   >
-    {image ? <img src={image} alt={`${title} channel avatar`} loading="lazy" class="absolute inset-0 size-full object-contain" /> : <span class="name">{title}</span>}
+    {image ? <img src={image} alt={`${title} channel avatar`} loading="lazy" class="absolute inset-0 m-auto max-h-full max-w-full object-contain" /> : <span class="name">{title}</span>}
   </div>
   <div class="flex flex-auto flex-col px-5 pt-4 pb-5">
     <h2 class="mb-2 text-lg/6 font-semibold tracking-tight">{title}</h2>
