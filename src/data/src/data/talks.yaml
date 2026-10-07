@@ -1,0 +1,238 @@
+- id: elixirconf-eu-2026-keynote-the-latest-on-elixir-types
+  url: https://www.youtube.com/watch?v=Ay-gnCqDw9o
+  event: ElixirConf EU 2026
+  date: '2026-04-22'
+  speakers:
+    - José Valim
+  people:
+    - jose-valim
+  title: Precision in Type System Design
+  description: How Elixir infers types across language constructs, and what comes next for the type system.
+  duration: 63
+- id: elixirconf-eu-2026-keynote-durableserver-always-running-somewhere
+  url: https://www.youtube.com/watch?v=nZmDEUeHeVI
+  event: ElixirConf EU 2026
+  date: '2026-04-22'
+  speakers:
+    - Chris McCord
+  people:
+    - chris-mccord
+  title: 'DurableServer: Always Running Somewhere'
+  description:
+    Persistent GenServer-style processes that recover after node failures and move across a
+    cluster.
+  duration: 52
+- id: elixirconf-eu-2025-architecture-of-oban-web
+  url: https://www.youtube.com/watch?v=oC22L_wSg8w
+  event: ElixirConf EU 2025
+  date: '2025-05-15'
+  speakers:
+    - Shannon Selbert
+    - Parker Selbert
+  people:
+    - shannon-selbert
+    - parker-selbert
+  title: The Architecture of Oban Web
+  description: The design decisions behind Oban Web, the dashboard for monitoring background jobs.
+  duration: 37
+- id: elixirconf-eu-2025-livebook-behind-the-cover
+  url: https://www.youtube.com/watch?v=2GUvk_BNJRE
+  event: ElixirConf EU 2025
+  date: '2025-05-15'
+  speakers:
+    - Jonatan Kłosko
+  people:
+    - jonatan-klosko
+  title: Livebook Behind the Cover
+  description: A look inside Livebook and the architecture behind its interactive Elixir notebooks.
+  duration: 37
+- id: elixirconf-eu-2025-ash-ai-launch
+  url: https://www.youtube.com/watch?v=PSrzruaby1M
+  event: ElixirConf EU 2025
+  date: '2025-05-15'
+  speakers:
+    - Zach Daniel
+  people:
+    - zach-daniel
+  title: Ash AI Launch
+  description: An introduction to Ash AI and adding AI features to Ash applications.
+  duration: 42
+- id: code-beam-america-2025-designing-llm-native-systems
+  url: https://www.youtube.com/watch?v=R9JRhIKQmqk
+  event: Code BEAM America 2025
+  date: '2025-03-06'
+  speakers:
+    - Sean Moriarity
+  people:
+    - sean-moriarity
+  title: Designing LLM Native Systems
+  description:
+    Designing systems around LLM capabilities rather than adding an assistant to an existing
+    product.
+  duration: 41
+- id: code-beam-america-2025-elixir-update
+  url: https://www.youtube.com/watch?v=B0EPRGEs2Oo
+  event: Code BEAM America 2025
+  date: '2025-03-06'
+  speakers:
+    - Eric Meadows-Jönsson
+  people:
+    - eric-meadows-jonsson
+  title: Elixir Update
+  description: An Elixir core-team update on language development, research and upcoming features.
+  duration: 25
+- id: code-beam-america-2025-live-voices-with-liveview
+  url: https://www.youtube.com/watch?v=veUOaN2CNeA
+  event: Code BEAM America 2025
+  date: '2025-03-06'
+  speakers:
+    - Lars Wikman
+  people:
+    - lars-wikman
+  title: Live Voices with LiveView
+  description: Building voice-driven features with Phoenix LiveView.
+  duration: 39
+- id: code-beam-america-2025-elixir-lsp
+  url: https://www.youtube.com/watch?v=C0NyliQ9mxE
+  event: Code BEAM America 2025
+  date: '2025-03-06'
+  speakers:
+    - Mitchell Hanberg
+  people:
+    - mitchell-hanberg
+  title: Your Official Elixir Expert
+  description: How ElixirLS, Lexical and Next LS came together to build the official Elixir language server.
+  duration: 42
+- id: code-beam-europe-2024-hex-then-and-now
+  url: https://www.youtube.com/watch?v=HicN1oCK_Q8
+  event: Code BEAM Europe 2024
+  date: '2024-10-14'
+  speakers:
+    - Wojtek Mach
+  people:
+    - wojtek-mach
+  title: Hex Then and Now
+  description: 'A decade of Hex: package-management milestones and lessons from the BEAM ecosystem.'
+  duration: 46
+- id: code-beam-europe-2024-update-from-the-elixir-core-team
+  url: https://www.youtube.com/watch?v=yIZbDoF0mXI
+  event: Code BEAM Europe 2024
+  date: '2024-10-14'
+  speakers:
+    - Andrea Leopardi
+  people:
+    - andrea-leopardi
+  title: Update from the Elixir Core Team
+  description: An Elixir core-team update on language features, research and release plans.
+  duration: 24
+- id: code-beam-europe-2024-parenting
+  url: https://www.youtube.com/watch?v=qTmpbzNDDqI
+  event: Code BEAM Europe 2024
+  date: '2024-10-14'
+  speakers:
+    - Saša Jurić
+  people:
+    - sasa-juric
+  title: Parenting
+  description: Process hierarchies, worker-owned children and the responsibilities of OTP parents.
+  duration: 35
+- id: code-beam-europe-2024-from-ruby-to-elixir-elevate-your-engineering-team-without-fear
+  url: https://www.youtube.com/watch?v=jE1GeIOynRw
+  event: Code BEAM Europe 2024
+  date: '2024-10-14'
+  speakers:
+    - Stephen Bussey
+  people:
+    - stephen-bussey
+  title: 'From Ruby to Elixir: Elevate Your Engineering Team Without Fear'
+  description: Introducing Elixir into a Ruby stack, from team buy-in to practical migration patterns.
+  duration: 46
+- id: code-beam-europe-2024-growing-new-chemists-and-alchemists-building-elixir-teams
+  url: https://www.youtube.com/watch?v=XmRnw_zAC2Y
+  event: Code BEAM Europe 2024
+  date: '2024-10-14'
+  speakers:
+    - Bruce Tate
+    - Paulo Valim
+  people:
+    - bruce-tate
+  title: 'Growing New Chemists and Alchemists: Building Elixir Teams'
+  description: Practical teaching techniques for growing Elixir developers and building a team.
+  duration: 38
+- id: elixirconf-us-2024-why-world-needs-phoenixtest
+  url: https://www.youtube.com/watch?v=Fi6rUKeaoNM
+  event: ElixirConf US 2024
+  date: '2024-08-28'
+  speakers:
+    - German Velasco
+  people:
+    - german-velasco
+  title: Why the World Needs PhoenixTest
+  description: Why Phoenix controllers and LiveView need a shared approach to integration testing.
+  duration: 35
+- id: empex-2024-phoenix-presence-the-right-way-to-track-user-involvement
+  url: https://www.youtube.com/watch?v=7L5xuTbXtbI
+  event: EMPEX NYC 2024
+  date: '2024-06-06'
+  speakers:
+    - Sophie DeBenedetto
+  people:
+    - sophie-debenedetto
+  title: 'Phoenix Presence: The Right Way To Track User Involvement in Real-Time Features'
+  description: Tracking user participation in real-time features with Phoenix Presence.
+  duration: 18
+- id: gig-city-elixir-2024-nerves-update
+  url: https://www.youtube.com/watch?v=q0RoVk7h0Fo
+  event: Gig City Elixir 2024
+  date: '2024-05-16'
+  speakers:
+    - Frank Hunleth
+  people:
+    - frank-hunleth
+  title: Nerves Update
+  description: An update on Nerves and building embedded systems with Elixir.
+  duration: 27
+- id: curiosum-elixir-meetup-21-teaching-functional-programming-with-elixir
+  url: https://www.youtube.com/watch?v=1l1_rHC3lSo
+  event: 'Curiosum Elixir Meetup #21'
+  date: '2023-09-13'
+  speakers:
+    - Adolfo Neto
+  people:
+    - adolfo-neto
+  title: Teaching Functional Programming with Elixir
+  description: Teaching functional programming through Elixir.
+  duration: 41
+- id: elixirconf-eu-2023-dont-fight-the-monolith
+  url: https://www.youtube.com/watch?v=AfXNyImH0ik
+  event: ElixirConf EU 2023
+  date: '2023-04-20'
+  speakers:
+    - Peter Ullrich
+  people:
+    - peter-ullrich
+  title: Don't Fight the Monolith
+  description: Choosing between monoliths, modular monoliths and microservices to fit your team.
+  duration: 30
+- id: elixirconf-us-2022-going-global-with-a-normal-phoenix-app
+  url: https://www.youtube.com/watch?v=_lBnAB_ClFs
+  event: ElixirConf US 2022
+  date: '2022-08-31'
+  speakers:
+    - Mark Ericksen
+  people:
+    - mark-ericksen
+  title: Going Global with a Normal Phoenix App
+  description: Deploying a Phoenix application across regions with clustering and PubSub.
+  duration: 39
+- id: code-beam-v-america-2021-beam-prometheus-grafana-observability-heaven
+  url: https://www.youtube.com/watch?v=0SkVsUdUutE
+  event: Code BEAM V America 2021
+  date: '2021-03-10'
+  speakers:
+    - Alex Koutmos
+  people:
+    - alex-koutmos
+  title: BEAM + Prometheus + Grafana = Observability Heaven
+  description: Instrumenting BEAM applications with PromEx, Prometheus and Grafana.
+  duration: 42
