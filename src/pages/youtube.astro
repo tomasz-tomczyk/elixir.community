@@ -5,6 +5,8 @@ import ContributeNote from '@/components/ContributeNote.astro'
 import MediaCard from '@/components/MediaCard.astro'
 import NewsletterBand from '@/components/NewsletterBand.astro'
 import PageHeader from '@/components/PageHeader.astro'
+import PageSection from '@/components/PageSection.astro'
+import TalkList from '@/components/TalkList.astro'
 import SectionArt from '@/components/SectionArt.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { formatDate } from '@/lib/site'
@@ -12,6 +14,10 @@ import { formatDate } from '@/lib/site'
 const channels = (await getCollection('youtube')).sort(
   (a, b) => +(b.data.last_video ?? 0) - +(a.data.last_video ?? 0),
 )
+const talks = (await getCollection('talks')).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date),
+)
+const people = await getCollection('people')
 const meta = (c: (typeof channels)[number]) =>
   [
     c.data.videos && `${c.data.videos.toLocaleString('en-US')} videos`,
@@ -31,22 +37,41 @@ const meta = (c: (typeof channels)[number]) =>
       <SectionArt slot="aside" kind="youtube" />
     </PageHeader>
 
-    <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {channels.map((c, i) => (
-        <MediaCard
-          id={c.id}
-          dates={c.data}
-          image={c.data.image}
-          href={c.data.url}
-          title={c.data.title}
-          description={c.data.description}
-          index={i}
-          meta={meta(c)}
-        />
-      ))}
-    </div>
+    <nav aria-label="YouTube sections" class="mt-8 flex flex-wrap gap-3">
+      <a href="#channels" class="btn-soft">
+        Channels
+      </a>
+      <a href="#talks" class="btn-soft">
+        Talks
+      </a>
+    </nav>
 
-    <ContributeNote question="Know a channel that is not here?" />
+    <PageSection id="channels" title="Channels">
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {channels.map((c, i) => (
+          <MediaCard
+            id={c.id}
+            dates={c.data}
+            image={c.data.image}
+            href={c.data.url}
+            title={c.data.title}
+            description={c.data.description}
+            index={i}
+            meta={meta(c)}
+          />
+        ))}
+      </div>
+    </PageSection>
+
+    <PageSection
+      id="talks"
+      title="Talks"
+      description="Recorded talks on Elixir, Phoenix and the BEAM, with links to the people behind them."
+    >
+      <TalkList talks={talks} people={people} />
+    </PageSection>
+
+    <ContributeNote question="Know a channel or talk that is not here?" />
 
     <NewsletterBand title="The talks worth watching, now and then." />
   </div>
