@@ -60,6 +60,13 @@ const dateMetadata = {
       href="/rss.xml"
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {!noindex && (
+      <link
+        rel="alternate"
+        type="text/markdown"
+        href={`${canonical.pathname}index.md`}
+      />
+    )}
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />

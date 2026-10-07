@@ -9,7 +9,7 @@ Tool versions (Node and pnpm) are pinned in `mise.toml`. Run `mise install` to g
 ```sh
 pnpm install
 pnpm dev           # http://localhost:4321
-pnpm build         # type check, build to dist/, then write dist/outbound-links.json
+pnpm build         # type check, build to dist/, then write dist/outbound-links.json and a Markdown copy of each page
 node --test test/signup.test.mjs test/clicks.test.mjs
 ```
 

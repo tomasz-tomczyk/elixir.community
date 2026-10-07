@@ -6,7 +6,7 @@
   "packageManager": "pnpm@12.10.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && node scripts/outbound-links.mjs",
+    "build": "astro check && astro build && node scripts/outbound-links.mjs && node scripts/markdown-pages.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "format": "prettier --write .",
@@ -31,6 +31,7 @@
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^1.1.0",
     "prettier-plugin-tailwindcss": "^0.8.1",
+    "turndown": "^7.2.4",
     "typescript": "^6.0.3",
     "yaml": "^2.9.1"
   }

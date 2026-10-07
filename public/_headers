@@ -1,6 +1,10 @@
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
+  Link: </sitemap-index.xml>; rel="sitemap"
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex
 /confirm*
   Cache-Control: no-store
 /api/*
