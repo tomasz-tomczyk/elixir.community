@@ -19,7 +19,3 @@ image: /images/companies/groxio.svg
 Groxio teaches Elixir. Bruce Tate founded it to change how programming languages are taught, and its courses cover Elixir, OTP, LiveView and building systems with AI tools.
 
 It also offers live training and mentoring for engineering teams that use Elixir.
-
-### Source
-
-[About Groxio](https://grox.io/about). This profile describes the work shown there.

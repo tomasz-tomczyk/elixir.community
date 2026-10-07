@@ -18,7 +18,3 @@ image: /images/companies/community.svg
 Community connects public figures and brands with their audiences through text messaging. Its engineers chose Elixir for a telecom-oriented product where bursts of activity could bring many users at once.
 
 Elixir and RabbitMQ formed central parts of the service architecture. Python covered data-science and machine-learning endpoints, while Go handled parts of the infrastructure.
-
-### Source
-
-[Elixir blog case study](https://elixir-lang.org/blog/2021/02/03/social-messaging-with-elixir-at-community/). This profile describes the implementation discussed in that source.

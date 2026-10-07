@@ -17,7 +17,3 @@ image: /images/companies/plausible-analytics.svg
 Plausible Analytics offers a privacy-focused alternative to conventional web analytics, with hosted and self-hosted options. Founder Uku Taht describes the product as open source and written in Elixir.
 
 His interview discusses building the business, operating the service and the pressure of being responsible for production problems. It is a look at the people and decisions behind the application as well as the stack.
-
-### Source
-
-[Thinking Elixir podcast](https://podcast.thinkingelixir.com/105). This profile describes the implementation discussed in that source.

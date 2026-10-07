@@ -18,7 +18,3 @@ image: /images/companies/sparkmeter.webp
 SparkMeter uses Elixir across embedded devices and cloud services for grid management. Nerves gives its hardware a shared development and deployment foundation with the rest of the Elixir system.
 
 The team needed distributed, fault-tolerant software that could cope with partial failures. Nerves also helped with local iteration on hardware and control over the boot process when parts of a device could not start.
-
-### Source
-
-[Elixir blog case study](https://elixir-lang.org/blog/2023/03/09/embedded-and-cloud-elixir-at-sparkmeter/). This profile describes the implementation discussed in that source.

@@ -18,7 +18,3 @@ image: /images/companies/fly-io.webp
 Fly.io's fullstack engineering role names Elixir and Phoenix alongside Ruby and Rails as primary tools. The work spans interface design, backend investigation and connecting APIs for new product features.
 
 Its role description emphasizes following reliability problems through existing code and telemetry. This is evidence for that engineering work, not a claim that every component of the hosting platform is written in Elixir.
-
-### Source
-
-[Fly.io job posting](https://fly.io/jobs/fullstack-engineer/). This profile describes the implementation discussed in that source.

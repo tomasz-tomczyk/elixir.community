@@ -18,7 +18,3 @@ image: /images/companies/heroku.webp
 Heroku's Vault team adopted Elixir for internal licensing and financial services, including invoicing and payments. It started with a rewrite of a service whose requirements and risks were already understood.
 
 The team then used GenStage to audit large amounts of data. A separate front-end team followed a similar adoption path, beginning with a well-understood problem before extending its use of the language.
-
-### Source
-
-[Elixir blog case study](https://elixir-lang.org/blog/2020/09/24/paas-with-elixir-at-heroku/). This profile describes the implementation discussed in that source.

@@ -18,7 +18,3 @@ image: /images/companies/bbc.webp
 Ettore Berardi's ElixirConf EU talk follows the BBC's journey from a proof of concept to infrastructure serving almost all of its web and app traffic. A small team introduced Elixir and gradually built organizational confidence in the system.
 
 The presentation covers a route-management DSL, handling traffic spikes and circuit breakers with fallback behavior. Those examples show Elixir at the routing layer, not a claim that every BBC product uses it.
-
-### Source
-
-[ElixirConf EU 2025 talk](https://www.youtube.com/watch?v=e99QDd0_C20). This profile describes the implementation discussed in that source.

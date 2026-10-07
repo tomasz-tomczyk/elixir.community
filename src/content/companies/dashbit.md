@@ -19,7 +19,3 @@ image: /images/companies/dashbit.svg
 Dashbit's whole business is Elixir. Its Elixir Development Subscription gives client teams code reviews, architecture help and production support from Dashbit's developers.
 
 The same team builds open source Elixir projects, including Livebook and Tidewave, and contributes to Elixir itself.
-
-### Source
-
-[Dashbit home page](https://dashbit.co). This profile describes the work shown there.

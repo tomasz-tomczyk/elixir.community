@@ -17,7 +17,3 @@ reading:
 Cars.com engineer Zack Kayser describes a server-driven UI architecture powered by Elixir and GraphQL. The server defines abstract components and layouts so clients can share a consistent design without duplicating the same logic.
 
 The approach lets teams update layouts, run experiments and make some fixes on the server. The interview also covers GraphQL integration tests and coordinating schema changes across client teams.
-
-### Source
-
-[Elixir Wizards podcast](https://smartlogic.io/podcast/elixir-wizards/s14-e06-sdui-graphql-elixir/). This profile describes the implementation discussed in that source.

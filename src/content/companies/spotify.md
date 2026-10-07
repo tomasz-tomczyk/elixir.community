@@ -18,7 +18,3 @@ image: /images/companies/spotify.webp
 Joel Kemp describes introducing Elixir at Spotify after running into concurrency problems with the default stack. The BEAM supplied the runtime behavior the team needed for that work.
 
 The interview focuses on adoption as much as implementation: building internal interest, finding support and moving a technical change through a large company.
-
-### Source
-
-[Thinking Elixir podcast](https://podcast.thinkingelixir.com/59). This profile describes the implementation discussed in that source.

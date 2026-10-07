@@ -17,7 +17,3 @@ image: /images/companies/mux.svg
 Mux engineer Dylan Jhaveri describes a Phoenix public API and a real-time dashboard powered by WebSockets and Channels. Elixir handles API work, asynchronous jobs and rate limiting, while Go services do CPU-intensive video processing.
 
 The team used the exq library for background jobs within the application supervision tree. This is a useful division of responsibilities: Elixir coordinates requests and application behavior, while the video infrastructure does the encoding.
-
-### Source
-
-[Running in Production podcast](https://runninginproduction.com/podcast/31-mux-is-an-api-based-platform-that-lets-you-process-and-stream-videos). This profile describes the implementation discussed in that source.

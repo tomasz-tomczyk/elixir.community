@@ -18,7 +18,3 @@ image: /images/companies/royal-bank-of-canada.svg
 Thanos Vassilakis, head of R&D in the Capital Markets group, describes using Elixir inside the Royal Bank of Canada. His interview covers the practical barriers to adopting a new language within a large financial institution.
 
 One example involved hundreds of live-updating financial charts. After testing LiveView against a React implementation, the team adopted LiveView for that work.
-
-### Source
-
-[Thinking Elixir podcast](https://podcast.thinkingelixir.com/125). This profile describes the implementation discussed in that source.
