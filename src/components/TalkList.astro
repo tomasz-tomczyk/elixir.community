@@ -1,0 +1,78 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Icon from '@/components/Icon.astro'
+import { formatDate } from '@/lib/site'
+
+interface Props {
+  talks: CollectionEntry<'talks'>[]
+  people?: CollectionEntry<'people'>[]
+}
+const { talks, people = [] } = Astro.props
+const swatches = [
+  'var(--ec-violet)',
+  'var(--ec-fuchsia)',
+  'var(--ec-indigo)',
+  'var(--ec-orchid)',
+]
+---
+
+<ul class="ec-res">
+  {talks.map((talk, i) => (
+    <li id={talk.id} class="scroll-mt-24">
+      <a href={talk.data.url} target="_blank" rel="noopener">
+        <span
+          class="r-sh"
+          style={`--c:${swatches[i % swatches.length]}`}
+          aria-hidden="true"
+        />
+        <span class="flex min-w-0 flex-1 flex-col gap-1">
+          <b class="text-[1.0625rem] font-semibold tracking-tight">
+            {talk.data.title}
+          </b>
+          <span class="text-sm/6 text-(--ec-muted)">
+            {talk.data.description}
+          </span>
+          <span class="font-mono text-xs/5 text-(--ec-muted)">
+            {talk.data.speakers.join(', ')} · {talk.data.event} ·{' '}
+            {formatDate(new Date(`${talk.data.date}T12:00:00Z`), 'short')}
+            {talk.data.duration && ` · ${talk.data.duration} min`}
+          </span>
+        </span>
+        <Icon
+          name="arrow-up-right"
+          class="mt-1 size-4 shrink-0 text-(--ec-muted)"
+        />
+      </a>
+      {people.length > 0 && (
+        <div class="flex flex-wrap gap-x-4 gap-y-1 px-4 pb-4 pl-14 text-sm text-(--ec-muted)">
+          {talk.data.people.map((ref) => {
+            const person = people.find((p) => p.id === ref.id)
+            return (
+              person && (
+                <a
+                  href={`/people/${person.id}`}
+                  class="underline decoration-current/30 underline-offset-4 hover:text-(--ec-text-accent)"
+                >
+                  {person.data.name}
+                </a>
+              )
+            )
+          })}
+        </div>
+      )}
+    </li>
+  ))}
+</ul>
+
+<style>
+  /* The main link and speaker links share a row, rather than each filling it. */
+  .ec-res > li > a {
+    height: auto;
+  }
+  .ec-res > li > div > a {
+    display: inline;
+    height: auto;
+    padding: 0;
+    border: 0;
+  }
+</style>
