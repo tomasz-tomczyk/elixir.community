@@ -14,8 +14,8 @@
   description: "Jacob Luetzow's tutorials, live coding and interviews with people in the Elixir community."
   image: /images/youtube/elixir-mentor.webp
   channel_id: UChbS_z6KHQiIu9et38O37eQ
-  videos: 584
-  last_video: 2026-10-02
+  videos: 586
+  last_video: 2026-10-16
   people:
     - jacob-luetzow
 - id: elixir-em-foco
@@ -66,8 +66,8 @@
   description: "Bruce Tate's videos on learning Elixir, OTP, LiveView and Nerves."
   image: /images/youtube/groxio.webp
   channel_id: UCE5KlC4hhy_QlXEYPgRKvVA
-  videos: 331
-  last_video: 2026-09-29
+  videos: 332
+  last_video: 2026-10-15
   people:
     - bruce-tate
 - id: learn-elixir
