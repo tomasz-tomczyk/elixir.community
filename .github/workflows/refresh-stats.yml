@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
       # Installs Node and pnpm at the versions in mise.toml.
-      - uses: jdx/mise-action@v5.1.1
+      - uses: jdx/mise-action@v5.2.0
       - run: pnpm install --frozen-lockfile
       - run: pnpm refresh
       # The refresh script writes YAML its own way. Format it so CI's format check passes.
