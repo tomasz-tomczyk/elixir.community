@@ -4,20 +4,20 @@
   url: https://anchor.fm/s/10f787368/podcast/rss
   hue: 270
   description: 'Practical lessons from building and running real systems on the BEAM: architecture, scaling and production failures.'
-  last_episode: '2026-10-02'
+  last_episode: '2026-10-23'
   feed: https://anchor.fm/s/10f787368/podcast/rss
   image: /images/podcasts/beam-there-done-that.webp
-  episodes: 31
+  episodes: 34
 - id: elixir-mentor
   title: Elixir Mentor
   hosts: ''
   url: https://elixirmentor.com/
   hue: 270
   description: 'Jacob Luetzow interviews people in the Elixir community about their libraries, apps and how they work.'
-  last_episode: '2026-10-02'
+  last_episode: '2026-10-16'
   feed: https://anchor.fm/s/ea6e5268/podcast/rss
   image: /images/podcasts/elixir-mentor.webp
-  episodes: 92
+  episodes: 94
   people:
     - jacob-luetzow
 - id: elixir-em-foco
