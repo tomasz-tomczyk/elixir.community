@@ -14,8 +14,8 @@
   description: "Jacob Luetzow's tutorials, live coding and interviews with people in the Elixir community."
   image: /images/youtube/elixir-mentor.webp
   channel_id: UChbS_z6KHQiIu9et38O37eQ
-  videos: 584
-  last_video: 2026-10-02
+  videos: 589
+  last_video: 2026-11-06
   people:
     - jacob-luetzow
 - id: elixir-em-foco
@@ -25,8 +25,8 @@
   description: 'Interviews with Elixir developers in Portuguese, from the Elixir em Foco podcast.'
   image: /images/youtube/elixir-em-foco.webp
   channel_id: UCpdElWp_U2YyXLCJYTDiG7g
-  videos: 96
-  last_video: 2026-08-06
+  videos: 97
+  last_video: 2026-11-04
   people:
     - adolfo-neto
     - zoey-pessanha
