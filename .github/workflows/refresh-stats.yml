@@ -17,12 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
       # Installs Node and pnpm at the versions in mise.toml.
-      - uses: jdx/mise-action@v5.1.1
+      - uses: jdx/mise-action@v5.2.7
       - run: pnpm install --frozen-lockfile
       - run: pnpm refresh
       # The refresh script writes YAML its own way. Format it so CI's format check passes.
       - run: pnpm exec prettier --write src/data
-      - uses: peter-evans/create-pull-request@v8.1.1
+      - uses: peter-evans/create-pull-request@v8.1.2
         with:
           branch: chore/refresh-stats
           commit-message: Refresh YouTube and podcast stats
