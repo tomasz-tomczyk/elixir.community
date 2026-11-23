@@ -14,8 +14,8 @@
   description: "Jacob Luetzow's tutorials, live coding and interviews with people in the Elixir community."
   image: /images/youtube/elixir-mentor.webp
   channel_id: UChbS_z6KHQiIu9et38O37eQ
-  videos: 584
-  last_video: 2026-10-02
+  videos: 593
+  last_video: 2026-11-20
   people:
     - jacob-luetzow
 - id: elixir-em-foco
@@ -25,8 +25,8 @@
   description: 'Interviews with Elixir developers in Portuguese, from the Elixir em Foco podcast.'
   image: /images/youtube/elixir-em-foco.webp
   channel_id: UCpdElWp_U2YyXLCJYTDiG7g
-  videos: 96
-  last_video: 2026-08-06
+  videos: 98
+  last_video: 2026-11-13
   people:
     - adolfo-neto
     - zoey-pessanha
@@ -66,8 +66,8 @@
   description: "Bruce Tate's videos on learning Elixir, OTP, LiveView and Nerves."
   image: /images/youtube/groxio.webp
   channel_id: UCE5KlC4hhy_QlXEYPgRKvVA
-  videos: 331
-  last_video: 2026-09-29
+  videos: 339
+  last_video: 2026-11-19
   people:
     - bruce-tate
 - id: learn-elixir
